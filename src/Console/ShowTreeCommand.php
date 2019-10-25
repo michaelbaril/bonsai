@@ -15,6 +15,7 @@ class ShowTreeCommand extends Command
     protected $model;
     protected $label;
     protected $currentDepth = 0;
+    protected $flags = [];
 
     public function handle()
     {
@@ -33,22 +34,29 @@ class ShowTreeCommand extends Command
     protected function showTree($depth)
     {
         $tree = $this->model::getTree($depth);
-        foreach ($tree as $node) {
-            $this->showNode($node);
+        $count = count($tree);
+        foreach ($tree as $k => $node) {
+            $this->showNode($node, $k == $count - 1);
         }
     }
 
-    protected function showNode($node)
+    protected function showNode($node, $isLast)
     {
-        $line = str_repeat(' ', 2 * $this->currentDepth) . '- <info>#' . $node->getKey() . '</info>';
+        $this->flags[$this->currentDepth] = $isLast;
+        $line = '';
+        for ($i = 0; $i < $this->currentDepth; $i++) {
+            $line .= $this->flags[$i] ? "   " : "\u{2502}  ";
+        }
+        $line .= ($isLast ? "\u{2514}" : "\u{251C}") . "\u{2500}<info> #" . $node->getKey() . '</info>';
         if ($this->label) {
             $line .= ': ' . $node->{$this->label};
         }
         $this->line($line);
         if ($node->relationLoaded('children')) {
             $this->currentDepth++;
-            foreach ($node->children as $child) {
-                $this->showNode($child);
+            $subCount = count($node->children);
+            foreach ($node->children as $k => $child) {
+                $this->showNode($child, $k == $subCount - 1);
             }
             $this->currentDepth--;
         }
