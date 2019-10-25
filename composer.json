@@ -1,0 +1,51 @@
+{
+    "name": "baril/smoothie",
+    "description": "Some fruity additions to Laravel's Eloquent: fuzzy dates, mutual many-to-many relationships, orderable behavior, closure tables.",
+    "keywords": [
+        "laravel", "eloquent", "database",
+        "attribute aliases", "attribute mapping",
+        "fuzzy dates", "dates with zeros",
+        "mutual relationship", "reciprocal relationship",
+        "sortable", "orderable",
+        "closure table", "closures", "adjacency list", "tree", "hierarchy", "nested sets"
+    ],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "illuminate/database": "^6.0",
+        "illuminate/support": "^6.0",
+        "illuminate/cache": "^6.0",
+        "illuminate/console": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "orchestra/database": "^4.0",
+        "squizlabs/php_codesniffer": "^2.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Baril\\Smoothie\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Baril\\Smoothie\\Tests\\": "tests/"
+        }
+    },
+    "suggest": {
+        "rutorika/sortable": "An alternative version of the 'Orderable' behavior that inspired Smoothie's implementation."
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Baril\\Smoothie\\SmoothieServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "sniff": "./vendor/bin/phpcs --standard=./phpcs.xml ./src",
+        "fix": "./vendor/bin/phpcbf --standard=./phpcs.xml ./src",
+        "test": "vendor/bin/phpunit --colors=always --testdox -v"
+    }
+}
