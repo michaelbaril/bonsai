@@ -1,6 +1,8 @@
 <?php
 
-namespace Baril\Smoothie\Concerns;
+namespace Baril\Bonsai\Concerns;
+
+use Baril\Smoothie\Concerns\Orderable;
 
 trait BelongsToOrderedTree
 {

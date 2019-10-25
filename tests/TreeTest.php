@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Smoothie\Tests;
+namespace Baril\Bonsai\Tests;
 
-use Baril\Smoothie\Tests\Models\Tag;
-use Baril\Smoothie\TreeException;
+use Baril\Bonsai\Tests\Models\Tag;
+use Baril\Bonsai\TreeException;
 
 class TreeTest extends TestCase
 {
@@ -247,7 +247,7 @@ class TreeTest extends TestCase
         // Removing some legit closures:
         $closureTable->where('depth', 2)->delete();
 
-        $this->artisan('smoothie:fix-tree', ['model' => Tag::class]);
+        $this->artisan('bonsai:fix', ['model' => Tag::class]);
 
         $this->assertEquals($count, $closureTable->cloneWithout(['wheres'])->count());
         foreach ($this->tags as $tag) {

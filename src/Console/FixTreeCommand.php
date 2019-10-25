@@ -1,13 +1,13 @@
 <?php
 
-namespace Baril\Smoothie\Console;
+namespace Baril\Bonsai\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 
 class FixTreeCommand extends Command
 {
-    protected $signature = 'smoothie:fix-tree {model : The model class.}';
+    protected $signature = 'bonsai:fix {model : The model class.}';
     protected $description = 'Rebuilds the closures for a given tree';
 
     public function handle()

@@ -1,14 +1,14 @@
 <?php
 
-namespace Baril\Smoothie\Console;
+namespace Baril\Bonsai\Console;
 
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class GrowTreeCommand extends MigrateMakeCommand
+class CreateTreeCommand extends MigrateMakeCommand
 {
-    protected $signature = 'smoothie:grow-tree {model : The model class.}
+    protected $signature = 'bonsai:create {model : The model class.}
         {--name= : The name of the migration.}
         {--path= : The location where the migration file should be created.}
         {--realpath : Indicate any provided migration file paths are pre-resolved absolute paths.}
@@ -28,7 +28,7 @@ class GrowTreeCommand extends MigrateMakeCommand
 
         if ($this->input->hasOption('migrate') && $this->option('migrate')) {
             $this->call('migrate');
-            $this->call('smoothie:fix-tree', ['model' => $model]);
+            $this->call('bonsai:fix', ['model' => $model]);
         }
     }
 

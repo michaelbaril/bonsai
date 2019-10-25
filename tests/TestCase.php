@@ -1,8 +1,8 @@
 <?php
 
-namespace Baril\Smoothie\Tests;
+namespace Baril\Bonsai\Tests;
 
-use Baril\Smoothie\SmoothieServiceProvider;
+use Baril\Bonsai\BonsaiServiceProvider;
 use Dotenv\Dotenv;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
@@ -17,8 +17,8 @@ class TestCase extends OrchestraTestCase
             $dotenv = new Dotenv(dirname(__DIR__));
         }
         $dotenv->load();
-        $app['config']->set('database.default', 'smoothie');
-        $app['config']->set('database.connections.smoothie', [
+        $app['config']->set('database.default', 'Bonsai');
+        $app['config']->set('database.connections.Bonsai', [
             'driver' => 'mysql',
             'host' => getenv('DB_HOST'),
             'port' => getenv('DB_PORT'),
@@ -31,7 +31,7 @@ class TestCase extends OrchestraTestCase
 
     protected function getPackageProviders($app)
     {
-        return [ SmoothieServiceProvider::class ];
+        return [ BonsaiServiceProvider::class ];
     }
 
     protected function setUp() : void

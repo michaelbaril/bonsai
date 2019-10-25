@@ -1,13 +1,13 @@
 <?php
 
-namespace Baril\Smoothie\Console;
+namespace Baril\Bonsai\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
 
 class ShowTreeCommand extends Command
 {
-    protected $signature = 'smoothie:show-tree {model : The model class.}
+    protected $signature = 'bonsai:show {model : The model class.}
         {--label= : The property to use as label.}
         {--depth= : The depth limit.}';
     protected $description = 'Outputs the content of the table in tree form';

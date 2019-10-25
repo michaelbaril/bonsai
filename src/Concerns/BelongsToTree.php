@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Smoothie\Concerns;
+namespace Baril\Bonsai\Concerns;
 
-use Baril\Smoothie\Relations\Closure;
-use Baril\Smoothie\TreeException;
+use Baril\Bonsai\Relations\Closure;
+use Baril\Bonsai\TreeException;
 use Illuminate\Support\Str;
 
 trait BelongsToTree

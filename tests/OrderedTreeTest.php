@@ -1,9 +1,9 @@
 <?php
 
-namespace Baril\Smoothie\Tests;
+namespace Baril\Bonsai\Tests;
 
 use Baril\Smoothie\PositionException;
-use Baril\Smoothie\Tests\Models\Tag as Model;
+use Baril\Bonsai\Tests\Models\Tag as Model;
 
 class OrderedTreeTest extends TestCase
 {

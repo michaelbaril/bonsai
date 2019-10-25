@@ -1,13 +1,16 @@
 {
-    "name": "baril/smoothie",
-    "description": "Some fruity additions to Laravel's Eloquent: fuzzy dates, mutual many-to-many relationships, orderable behavior, closure tables.",
+    "name": "baril/bonsai",
+    "description": "An implementation of the Closure Tables pattern for Eloquent.",
     "keywords": [
-        "laravel", "eloquent", "database",
-        "attribute aliases", "attribute mapping",
-        "fuzzy dates", "dates with zeros",
-        "mutual relationship", "reciprocal relationship",
-        "sortable", "orderable",
-        "closure table", "closures", "adjacency list", "tree", "hierarchy", "nested sets"
+        "laravel",
+        "eloquent",
+        "tree",
+        "hierarchy",
+        "hierarchical data",
+        "closure tables",
+        "closures",
+        "adjacency list",
+        "nested set"
     ],
     "license": "MIT",
     "type": "library",
@@ -15,31 +18,31 @@
         "php": ">=7.0",
         "illuminate/database": "^6.0",
         "illuminate/support": "^6.0",
-        "illuminate/cache": "^6.0",
         "illuminate/console": "^6.0"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",
         "orchestra/database": "^4.0",
-        "squizlabs/php_codesniffer": "^2.8"
+        "squizlabs/php_codesniffer": "^2.8",
+        "baril/smoothie": "dev-laravel-6"
     },
     "autoload": {
         "psr-4": {
-            "Baril\\Smoothie\\": "src/"
+            "Baril\\Bonsai\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Baril\\Smoothie\\Tests\\": "tests/"
+            "Baril\\Bonsai\\Tests\\": "tests/"
         }
     },
     "suggest": {
-        "rutorika/sortable": "An alternative version of the 'Orderable' behavior that inspired Smoothie's implementation."
+        "baril/smoothie": "Required for ordered trees."
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Baril\\Smoothie\\SmoothieServiceProvider"
+                "Baril\\Bonsai\\BonsaiServiceProvider"
             ]
         }
     },

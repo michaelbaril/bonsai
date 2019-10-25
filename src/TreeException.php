@@ -1,6 +1,6 @@
 <?php
 
-namespace Baril\Smoothie;
+namespace Baril\Bonsai;
 
 use RuntimeException;
 

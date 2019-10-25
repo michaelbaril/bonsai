@@ -1,8 +1,8 @@
 <?php
 
-namespace Baril\Smoothie\Relations;
+namespace Baril\Bonsai\Relations;
 
-use Baril\Smoothie\TreeException;
+use Baril\Bonsai\TreeException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
