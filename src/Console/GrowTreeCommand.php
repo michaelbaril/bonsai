@@ -6,9 +6,9 @@ use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class CreateTreeCommand extends MigrateMakeCommand
+class GrowTreeCommand extends MigrateMakeCommand
 {
-    protected $signature = 'bonsai:create {model : The model class.}
+    protected $signature = 'bonsai:grow {model : The model class.}
         {--name= : The name of the migration.}
         {--path= : The location where the migration file should be created.}
         {--realpath : Indicate any provided migration file paths are pre-resolved absolute paths.}
@@ -50,7 +50,10 @@ class CreateTreeCommand extends MigrateMakeCommand
 
         // Generate the file:
         $file = $this->creator->create(
-            $name, $this->getMigrationPath(), $closureTable, true
+            $name,
+            $this->getMigrationPath(),
+            $closureTable,
+            true
         );
         file_put_contents($file, $contents);
 

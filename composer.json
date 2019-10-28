@@ -24,7 +24,7 @@
         "orchestra/testbench": "^4.0",
         "orchestra/database": "^4.0",
         "squizlabs/php_codesniffer": "^2.8",
-        "baril/smoothie": "dev-laravel-6"
+        "baril/orderable": "dev-develop"
     },
     "autoload": {
         "psr-4": {
@@ -37,7 +37,7 @@
         }
     },
     "suggest": {
-        "baril/smoothie": "Required for ordered trees."
+        "baril/orderable": "Required for ordered trees."
     },
     "extra": {
         "laravel": {

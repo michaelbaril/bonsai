@@ -10,15 +10,40 @@ class Closure extends BelongsToMany
 {
     protected $depth = null;
 
-    public function setRelationName($name)
+    public function orderByDepth($direction = 'asc')
     {
-        $this->relationName = $name;
-        return $this;
+        return $this->orderBy($this->table . '.depth', $direction);
     }
 
-    public function setDepth($depth)
+    public function upToDepth($depth)
     {
         $this->depth = $depth;
+        return $this->wherePivot('depth', '<=', $depth);
+    }
+
+    public function excludingSelf()
+    {
+        $this->pivotWheres[] = ['depth', '>', 0];
+        return $this->whereRaw("$this->table.depth > 0"); // whereRaw makes it easier to remove the clause if needed
+    }
+
+    public function includingSelf()
+    {
+        foreach ($this->pivotWheres as $k => $where) {
+            if ($where === ['depth', '>', 0]) {
+                unset($this->pivotWheres[$k]);
+            }
+        }
+        $this->pivotWheres = array_values($this->pivotWheres);
+
+        $query = $this->getBaseQuery();
+        $sql = "$this->table.depth > 0";
+        foreach ($query->wheres as $k => $where) {
+            if ($where === ['type' => 'raw', 'sql' => $sql, 'boolean' => 'and']) {
+                unset($query->wheres[$k]);
+            }
+        }
+        $query->wheres = array_values($query->wheres);
         return $this;
     }
 
@@ -32,7 +57,7 @@ class Closure extends BelongsToMany
     {
         $values = parent::migratePivotAttributes($model);
         if (array_key_exists('depth', $values) && $this->depth !== null) {
-            $values['remaining_depth'] = $this->depth - $values['depth'];
+            $values['_remaining_depth'] = $this->depth - $values['depth'];
         }
 
         return $values;

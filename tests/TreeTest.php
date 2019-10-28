@@ -36,9 +36,9 @@ class TreeTest extends TestCase
         $expected[] = $this->tags['ABA']->id;
         $this->assertEquals($expected, $this->tags['A']->descendants()->orderByDepth()->pluck('id')->toArray());
 
-        // descendantsWithSelf
+        // descendants including self
         array_unshift($expected, $this->tags['A']->id);
-        $this->assertEquals($expected, $this->tags['A']->descendantsWithSelf()->orderByDepth()->pluck('id')->toArray());
+        $this->assertEquals($expected, $this->tags['A']->descendants()->includingSelf()->orderByDepth()->pluck('id')->toArray());
 
         // ancestors
         $expected = [
@@ -47,9 +47,9 @@ class TreeTest extends TestCase
         ];
         $this->assertEquals($expected, $this->tags['ABA']->ancestors()->orderByDepth()->pluck('id')->toArray());
 
-        // ancestorsWithSelf
+        // ancestors including self
         array_unshift($expected, $this->tags['ABA']->id);
-        $this->assertEquals($expected, $this->tags['ABA']->ancestorsWithSelf()->orderByDepth()->pluck('id')->toArray());
+        $this->assertEquals($expected, $this->tags['ABA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray());
     }
 
     /**
@@ -87,28 +87,28 @@ class TreeTest extends TestCase
 
     public function test_common_ancestor()
     {
-        $this->assertNull($this->tags['A']->commonAncestorWith($this->tags['B']));
-        $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->commonAncestorWith($this->tags['AA'])->id);
-        $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->commonAncestorWith($this->tags['A'])->id);
-        $this->assertEquals($this->tags['A']->id, $this->tags['A']->commonAncestorWith($this->tags['AA'])->id);
+        $this->assertNull($this->tags['A']->findCommonAncestorWith($this->tags['B']));
+        $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->findCommonAncestorWith($this->tags['AA'])->id);
+        $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->findCommonAncestorWith($this->tags['A'])->id);
+        $this->assertEquals($this->tags['A']->id, $this->tags['A']->findCommonAncestorWith($this->tags['AA'])->id);
     }
 
     public function test_distance_exception()
     {
         $this->expectException(TreeException::class);
-        $this->tags['A']->distanceTo($this->tags['B']);
+        $this->tags['A']->getDistanceTo($this->tags['B']);
     }
 
     public function test_distance_and_depth()
     {
-        $this->assertEquals(0, $this->tags['AB']->distanceTo($this->tags['AB']));
-        $this->assertEquals(2, $this->tags['ABA']->distanceTo($this->tags['A']));
-        $this->assertEquals(3, $this->tags['AA']->distanceTo($this->tags['ABA']));
-        $this->assertEquals(0, $this->tags['A']->depth());
-        $this->assertEquals(2, $this->tags['ABA']->depth());
-        $this->assertEquals(2, $this->tags['A']->subtreeDepth());
-        $this->assertEquals(1, $this->tags['AB']->subtreeDepth());
-        $this->assertEquals(0, $this->tags['ABA']->subtreeDepth());
+        $this->assertEquals(0, $this->tags['AB']->getDistanceTo($this->tags['AB']));
+        $this->assertEquals(2, $this->tags['ABA']->getDistanceTo($this->tags['A']));
+        $this->assertEquals(3, $this->tags['AA']->getDistanceTo($this->tags['ABA']));
+        $this->assertEquals(0, $this->tags['A']->getDepth());
+        $this->assertEquals(2, $this->tags['ABA']->getDepth());
+        $this->assertEquals(2, $this->tags['A']->getSubtreeDepth());
+        $this->assertEquals(1, $this->tags['AB']->getSubtreeDepth());
+        $this->assertEquals(0, $this->tags['ABA']->getSubtreeDepth());
     }
 
     public function test_scopes()

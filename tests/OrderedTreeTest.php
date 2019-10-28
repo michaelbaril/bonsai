@@ -2,8 +2,8 @@
 
 namespace Baril\Bonsai\Tests;
 
-use Baril\Smoothie\PositionException;
 use Baril\Bonsai\Tests\Models\Tag as Model;
+use Baril\Orderable\PositionException;
 
 class OrderedTreeTest extends TestCase
 {
@@ -26,7 +26,7 @@ class OrderedTreeTest extends TestCase
 
     protected function assertPositionsWithinGroup($expected, $group)
     {
-        $actual = Model::inGroup($group)->orderBy('id')->pluck('position')->toArray();
+        $actual = Model::whereGroup($group)->orderBy('id')->pluck('position')->toArray();
         $this->assertEquals($expected, $actual);
     }
 

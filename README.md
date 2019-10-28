@@ -4,12 +4,12 @@ This package is an implementation of the "Closure Table" design pattern for
 Laravel 6 and MySQL. This pattern allows for faster querying of tree-like
 structures stored in a relational database. It is an alternative to nested sets.
 
-Bonsai replaces the similar feature in the
+:warning: Bonsai was originally part of the
 [Smoothie](https://github.com/michaelbaril/smoothie) package. If you're using
 Laravel 5.x, you should install
-[Smoothie](https://github.com/michaelbaril/smoothie) instead of Bonsai. If
-you're migrating from Laravel 5.x to Laravel 6.x, and thus from Smoothie to
-Bonsai, please refer to [this section](#migrating-from-smoothie).
+[Smoothie](https://github.com/michaelbaril/smoothie) instead of Bonsai. If you
+were a Smoothie user and are migrating from Laravel 5.x to Laravel 6.x,
+please refer to [this section](#migrating-from-smoothie).
 
 ## Closure Table pattern
 
@@ -28,11 +28,11 @@ The table contains all possible combinations of an ancestor and a descendant.
 For example, the following tree:
 
 ```
-- 1
-  - 2
-    - 3
-    - 4
-  - 5
+1
+├ 2
+│ ├ 3
+│ └ 4
+└ 5
 ```
 
 will produce the following closures:
@@ -78,11 +78,11 @@ class Tag extends \Illuminate\Database\Eloquent\Model
 }
 ```
 
-The `bonsai:create` command will generate the migration file for the closure table
+The `bonsai:grow` command will generate the migration file for the closure table
 based on your model configuration:
 
 ```bash
-php artisan bonsai:create "App\\Models\\Tag"
+php artisan bonsai:grow "App\\Models\\Tag"
 ```
 
 If you use the `--migrate` option, the command will also run the migration.
@@ -90,32 +90,58 @@ If your main table already contains data, it will also insert the closures for
 the existing data.
 
 ```bash
-php artisan bonsai:create "App\\Models\\Tag" --migrate
+php artisan bonsai:grow "App\\Models\\Tag" --migrate
 ```
 
-> :warning: Note: if you use the `--migrate` option, any other pending migrations
-> will run too.
+:warning: If you use the `--migrate` option, any other pending migrations
+will run too.
 
 There are some additional options: use `--help` to learn more.
 
 ### Migrating from Smoothie
 
-Require the `baril/bonsai` package. If you have [ordered trees](#ordered-tree),
-you should keep `baril/smoothie` too. If not, you can remove it.
+Remove `baril/bonsai` instead of (or in addition to, if you're using other
+Smoothie features) `baril/smoothie`:
 
-In your models, use the traits `Baril\Bonsai\Concerns\BelongsToTree` and
-`Baril\Bonsai\Concerns\BelongsToOrderedTree` instead of their Smoothie
+```bash
+composer remove baril/smoothie
+composer require baril/bonsai
+```
+
+If you use [ordered trees](#ordered-tree), you need to require `baril/orderable`
+in addition to `baril/bonsai`:
+
+```bash
+composer require baril/orderable
+```
+
+In your models, use the `Baril\Bonsai\Concerns\BelongsToTree` and
+`Baril\Bonsai\Concerns\BelongsToOrderedTree` traits instead of their Smoothie
 counterparts.
 
-The [Artisan commands](#artisan-commands) have been renamed:
+The `descendantsWithSelf` and `ancestorsWithSelf` relations have been removed.
+You can now use the `includingSelf` method to achieve the same result:
 
-* `smoothie:grow-tree` is now `bonsai:create`,
+```php
+$tag->ancestors()->includingSelf(); // similar as $tag->ancestorsWithSelf() in Smoothie
+```
+
+A few methods have been renamed:
+
+* `commonAncestorWith` is now called `findCommonAncestorWith`,
+* `distanceTo` is now called `getDistanceTo`,
+* `depth` is now called `getDepth`,
+* `subtreeDepth` is now called `getSubtreeDepth`.
+
+Finally, the [Artisan commands](#artisan-commands) have been renamed:
+
+* `smoothie:grow-tree` is now `bonsai:grow`,
 * `smoothie:fix-tree` is now `bonsai:fix`,
 * `smoothie:show-tree` is now `bonsai:show`.
 
 ## Artisan commands
 
-In addition to the `bonsai:create` command described above, this package
+In addition to the `bonsai:grow` command described above, this package
 provides the following commands:
 
 In case your data gets corrupt somehow, the `bonsai:fix` command will truncate
@@ -171,20 +197,17 @@ The trait defines the following relationships:
 * `parent`: `BelongsTo` relation to the parent,
 * `children`: `HasMany` relation to the children,
 * `ancestors`: `BelongsToMany` relation to the ancestors,
-* `ancestorsWithSelf`: `BelongsToMany` relation to the ancestors, including $this,
 * `descendants`: `BelongsToMany` relation to the descendants.
-* `descendantsWithSelf`: `BelongsToMany` relation to the descendants, including $this.
 
-:warning: The `ancestors` and `descendants` (and `-WithSelf`) relations
+:warning: The `ancestors` and `descendants` relations
 are read-only! Trying to use the `attach` or `detach` method on them will throw
 an exception.
 
-The `ancestors` and `descendants` relations can be ordered by depth (ie. with
-the direct parent/children first):
+The `ancestors` and `descendants` relations have the following methods:
 
-```php
-$tags->descendants()->orderByDepth()->get();
-```
+* `includingSelf()`: will include the item itself in the results of the relation,
+* `orderByDepth($direction = 'asc')`,
+* `upToDepth($depth)`: will retrieve ancestors/descendants up to (and including) the provided `$depth`.
 
 Loading or eager-loading the `descendants` relation will automatically load the
 `children` relation (with no additional query). Furthermore, it will load the
@@ -207,15 +230,6 @@ foreach ($tags as $tag) {
 
 Of course, same goes with the `ancestors` and `parent` relations.
 
-You can retrieve the whole tree with this method:
-
-```php
-$tags = Tag::getTree();
-```
-
-It will return a collection of the root elements, with the `children` relation
-eager-loaded on every element up to the leafs.
-
 ## Methods
 
 The trait defines the following methods:
@@ -229,12 +243,21 @@ albeit more readable,
 * `isDescendantOf($item)`,
 * `isAncestorOf($item)`,
 * `isSiblingOf($item)`,
-* `commonAncestorWith($item)`: returns the first common ancestor between 2 items,
+* `findCommonAncestorWith($item)`: returns the first common ancestor between 2 items,
 or `null` if they don't have a common ancestor (which can happen if the tree has
 multiple roots),
-* `distanceTo($item)`: returns the "distance" between 2 items,
-* `depth()`: returns the depth of the item in the tree,
-* `subtreeDepth()`: returns the depth of the subtree of which the item is the root.
+* `getDistanceTo($item)`: returns the "distance" between 2 items,
+* `getDepth()`: returns the depth of the item in the tree (the root element's depth is 0),
+* `getSubtreeDepth()`: returns the depth of the subtree of which the item is the root (0 if the item is a leaf).
+
+Also, the `getTree` static method can be used to retrieve the whole tree:
+
+```php
+$tags = Tag::getTree();
+```
+
+It will return a collection of the root elements, with the `children` relation
+eager-loaded on every element up to the leafs.
 
 ## Query scopes
 
@@ -255,25 +278,16 @@ limits the query to the descendants of `$ancestorId`, with an optional
 `$maxDepth`. If the `$includingSelf` parameter is set to `true`, the ancestor
 will be included in the query results too.
 * `whereIsAncestorOf($descendantId, $maxDepth = null, $includingSelf = false)`.
-* `orderByDepth($direction = 'asc')`: this scope will work only when querying
-the `ancestors` or `descendants` relationships (see examples below).
-
-```php
-$tag->ancestors()->orderByDepth();
-Tag::with(['descendants' => function ($query) {
-    $query->orderByDepth('desc');
-}]);
-```
 
 ## Ordered tree
 
 In case you need each level of the tree to be explicitely ordered, you can use
 the `Baril\Bonsai\Concerns\BelongsToOrderedTree` trait (instead of
-`BelongsToTree`). In order to use this, you need the Smoothie package in
+`BelongsToTree`). In order to use this, you need the Orderable package in
 addition to Bonsai:
 
 ```bash
-composer require baril/smoothie
+composer require baril/orderable
 ```
 
 You will need a `position` column in your main table (the name of the column
@@ -289,16 +303,15 @@ class Tag extends \Illuminate\Database\Eloquent\Model
 ```
 
 The `children` relation will now be ordered. In case you need to order it by
-some other field (or don't need the children ordered at all), you can use
-the `unordered` scope:
+some other field, you need to use the `unordered` scope first:
 
 ```php
 $children = $this->children()->unordered()->orderBy('name');
 ```
 
 Also, all methods defined by the `Orderable` trait described
-[in the Smoothie documentation](https://github.com/michaelbaril/smoothie) will
-now be available:
+[in the Orderable package documentation](https://github.com/michaelbaril/orderable)
+will now be available:
 
 ```php
 $lastChild->moveToPosition(1);

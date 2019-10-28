@@ -39,7 +39,7 @@ trait BelongsToTree
      */
     public function getParentForeignKeyName()
     {
-        return isset($this->parentForeignKey) ? $this->parentForeignKey : 'parent_id';
+        return property_exists($this, 'parentForeignKey') ? $this->parentForeignKey : 'parent_id';
     }
 
     /**
@@ -100,45 +100,19 @@ trait BelongsToTree
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function ancestorsWithSelf()
-    {
-        $instance = $this->newRelatedInstance(static::class);
-        return (new Closure(
-            $instance->newQuery(),
-            $this,
-            $this->getClosureTable(),
-            'descendant_id',
-            'ancestor_id',
-            $this->getKeyName(),
-            $instance->getKeyName(),
-            'ancestorsWithSelf'
-        ))->as('closure')->withPivot('depth');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function ancestors()
     {
-        return $this->ancestorsWithSelf()->setRelationName('ancestors')->wherePivot('depth', '>', 0);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function descendantsWithSelf()
-    {
         $instance = $this->newRelatedInstance(static::class);
         return (new Closure(
             $instance->newQuery(),
             $this,
             $this->getClosureTable(),
-            'ancestor_id',
             'descendant_id',
+            'ancestor_id',
             $this->getKeyName(),
             $instance->getKeyName(),
-            'descendantsWithSelf'
-        ))->as('closure')->withPivot('depth');
+            'ancestors'
+        ))->as('closure')->withPivot('depth')->excludingSelf();
     }
 
     /**
@@ -146,7 +120,17 @@ trait BelongsToTree
      */
     public function descendants()
     {
-        return $this->descendantsWithSelf()->setRelationName('descendants')->wherePivot('depth', '>', 0);
+        $instance = $this->newRelatedInstance(static::class);
+        return (new Closure(
+            $instance->newQuery(),
+            $this,
+            $this->getClosureTable(),
+            'ancestor_id',
+            'descendant_id',
+            $this->getKeyName(),
+            $instance->getKeyName(),
+            'descendants'
+        ))->as('closure')->withPivot('depth')->excludingSelf();
     }
 
     /**
@@ -191,7 +175,7 @@ trait BelongsToTree
 
         // Prevents an unneeded query in case we try to access the children of a leaf.
         $descendants->each(function ($item, $key) {
-            if (!$item->relationLoaded('children') && $item->closure->remaining_depth !== 0) {
+            if (!$item->relationLoaded('children') && $item->closure->_remaining_depth !== 0) {
                 $item->setRelation('children', collect([]));
             }
         });
@@ -218,7 +202,7 @@ trait BelongsToTree
             $ancestors[$i]->setRelation('parent', $ancestors[$i + 1]);
         }
         $olderAncestor = $ancestors->last();
-        if ($olderAncestor->closure->remaining_depth !== 0) {
+        if ($olderAncestor->closure->_remaining_depth !== 0) {
             $olderAncestor->setRelation('parent', null);
         }
     }
@@ -314,9 +298,9 @@ trait BelongsToTree
      * @param static $item
      * @return static|null
      */
-    public function commonAncestorWith($item)
+    public function findCommonAncestorWith($item)
     {
-        return $this->ancestorsWithSelf()->whereIsAncestorOf($item->getKey(), null, true)->first();
+        return $this->ancestors()->includingSelf()->whereIsAncestorOf($item->getKey(), null, true)->orderByDepth()->first();
     }
 
     /**
@@ -328,13 +312,13 @@ trait BelongsToTree
      * @return int
      * @throws TreeException
      */
-    public function distanceTo($item)
+    public function getDistanceTo($item)
     {
-        $commonAncestor = $this->commonAncestorWith($item);
+        $commonAncestor = $this->findCommonAncestorWith($item);
         if (!$commonAncestor) {
             throw new TreeException('The items have no common ancestor!');
         }
-        $depths = $commonAncestor->descendantsWithSelf()->whereKey([$this->getKey(), $item->getKey()])
+        $depths = $commonAncestor->descendants()->includingSelf()->whereKey([$this->getKey(), $item->getKey()])
                 ->toBase()->select($this->getClosureTable() . '.depth')
                 ->get()->pluck('depth');
         return $depths->sum();
@@ -345,7 +329,7 @@ trait BelongsToTree
      *
      * @return int
      */
-    public function depth()
+    public function getDepth()
     {
         return $this->ancestors()->count();
     }
@@ -355,7 +339,7 @@ trait BelongsToTree
      *
      * @return int
      */
-    public function subtreeDepth()
+    public function getSubtreeDepth()
     {
         return (int) $this->descendants()->orderByDepth('desc')->value('depth');
     }
@@ -369,9 +353,7 @@ trait BelongsToTree
     {
         $query->with(['ancestors' => function ($query) use ($depth, $constraints) {
             if ($depth !== null) {
-                $query->setDepth($depth)
-                      ->where($this->getClosureTable() . '.depth', '<=', $depth)
-                      ->orderByDepth();
+                $query->upToDepth($depth)->orderByDepth();
             }
             if ($constraints !== null) {
                 $constraints($query);
@@ -383,9 +365,7 @@ trait BelongsToTree
     {
         $query->with(['descendants' => function ($query) use ($depth, $constraints) {
             if ($depth !== null) {
-                $query->setDepth($depth)
-                      ->where($this->getClosureTable() . '.depth', '<=', $depth)
-                      ->orderByDepth();
+                $query->upToDepth($depth)->orderByDepth();
             }
             if ($constraints !== null) {
                 $constraints($query);
@@ -449,11 +429,6 @@ trait BelongsToTree
             }
         });
         $query->where($alias . '.ancestor_id', '!=', null);
-    }
-
-    public function scopeOrderByDepth($query, $direction = 'asc')
-    {
-        return $query->orderBy($this->getClosureTable() . '.depth', $direction);
     }
 
     // =========================================================================

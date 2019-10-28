@@ -2,7 +2,7 @@
 
 namespace Baril\Bonsai\Concerns;
 
-use Baril\Smoothie\Concerns\Orderable;
+use Baril\Orderable\Concerns\Orderable;
 
 trait BelongsToOrderedTree
 {
