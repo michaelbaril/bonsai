@@ -18,8 +18,8 @@ class CreateExampleTreeTable extends Migration
     public function up()
     {
         Schema::create($this->closureTableName, function (Blueprint $table) {
-            $table->unsignedInteger('ancestor_id');
-            $table->unsignedInteger('descendant_id');
+            $table->unsignedBigInteger('ancestor_id');
+            $table->unsignedBigInteger('descendant_id');
             $table->unsignedSmallInteger('depth');
 
             $table->unique(['ancestor_id', 'descendant_id']);
