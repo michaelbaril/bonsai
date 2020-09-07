@@ -2,8 +2,10 @@
 
 namespace Baril\Bonsai\Console;
 
+use Baril\Bonsai\Migrations\MigrationCreator;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Composer;
 use Illuminate\Support\Str;
 
 class GrowTreeCommand extends MigrateMakeCommand
@@ -14,6 +16,11 @@ class GrowTreeCommand extends MigrateMakeCommand
         {--realpath : Indicate any provided migration file paths are pre-resolved absolute paths.}
         {--migrate : Migrate the database and fill the table after the migration file has been created.}';
     protected $description = 'Create the migration file for a closure table, and optionally run the migration';
+
+    public function __construct(MigrationCreator $creator, Composer $composer)
+    {
+        parent::__construct($creator, $composer);
+    }
 
     public function handle()
     {
@@ -64,7 +71,7 @@ class GrowTreeCommand extends MigrateMakeCommand
 
     protected function getMigrationContents($className, $table, $closureTable, $keyName)
     {
-        $contents = file_get_contents(__DIR__ . '/stubs/grow_tree.stub');
+        $contents = file_get_contents(__DIR__ . '/../Migrations/stubs/grow_tree.stub');
         $contents = str_replace([
             'class CreateExampleTreeTable',
             '$mainTableName = "example"',
