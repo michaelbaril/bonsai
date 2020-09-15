@@ -110,6 +110,22 @@ trait BelongsToTree
     }
 
     /**
+     * Requires the package baril/octopus.
+     *
+     * @return \Baril\Octopus\Relations\HasManySiblings
+     */
+    public function siblings()
+    {
+        $parentForeignKey = $this->getParentForeignKeyName();
+        return new \Baril\Octopus\Relations\HasManySiblings(
+            $this->newInstance()->newQuery(),
+            $this,
+            $this->table.'.'.$parentForeignKey,
+            $parentForeignKey
+        );
+    }
+
+    /**
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

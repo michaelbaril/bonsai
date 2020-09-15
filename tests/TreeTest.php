@@ -25,6 +25,12 @@ class TreeTest extends TestCase
         // parent
         $this->assertEquals($this->tags['A']->id, $this->tags['AB']->parent->id);
 
+        // siblings
+        /*$expected = [
+            $this->tags['AB']->id,
+        ];
+        $this->assertEquals($expected, $this->tags['AA']->siblings->pluck('id')->toArray());*/
+
         // children
         $expected = [
             $this->tags['AA']->id,

@@ -200,7 +200,9 @@ The trait defines the following relationships:
 * `parent`: `BelongsTo` relation to the parent,
 * `children`: `HasMany` relation to the children,
 * `ancestors`: `BelongsToMany` relation to the ancestors,
-* `descendants`: `BelongsToMany` relation to the descendants.
+* `descendants`: `BelongsToMany` relation to the descendants,
+* `siblings`: `HasMany` relation to the other children of the same parent
+(requires to install the package `baril/octopus`).
 
 :warning: The `ancestors` and `descendants` relations
 are read-only! Trying to use the `attach` or `detach` method on them will throw
