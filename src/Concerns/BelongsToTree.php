@@ -53,6 +53,27 @@ trait BelongsToTree
     }
 
     /**
+     * Deletes the model after having attached its children to its parent.
+     *
+     * @return bool|null
+     *
+     * @throws \Exception
+     */
+    public function deleteNode()
+    {
+        $parent = $this->parent;
+        if ($parent) {
+            $parent->children()->saveMany($this->children);
+        } else {
+            $this->children->each(function ($child) {
+                $child->parent()->dissociate();
+                $child->save();
+            });
+        }
+        return $this->delete();
+    }
+
+    /**
      * Deletes the model and its descendants from the database.
      *
      * @return bool|null

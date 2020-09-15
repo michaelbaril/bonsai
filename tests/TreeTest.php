@@ -224,12 +224,26 @@ class TreeTest extends TestCase
 
     public function test_delete_success()
     {
+        $this->tags['B']->delete();
+        $this->assertNull(Tag::find($this->tags['B']->id));
+    }
+
+    public function test_delete_tree()
+    {
         $this->tags['A']->deleteTree();
         $this->assertNull(Tag::find($this->tags['A']->id));
         $this->assertNull(Tag::find($this->tags['AB']->id));
         $this->assertNull(Tag::find($this->tags['ABA']->id));
-        $this->tags['B']->delete();
-        $this->assertNull(Tag::find($this->tags['B']->id));
+    }
+
+    public function test_delete_node()
+    {
+        $this->tags['AB']->deleteNode();
+        $this->assertNull(Tag::find($this->tags['AB']->id));
+        $this->assertEquals($this->tags['A']->id, Tag::find($this->tags['ABA']->id)->parent_id);
+        $this->tags['A']->deleteNode();
+        $this->assertNull(Tag::find($this->tags['A']->id));
+        $this->assertNull(Tag::find($this->tags['ABA']->id)->parent_id);
     }
 
     public function test_recreate_closures()

@@ -177,8 +177,11 @@ itself or one of its descendants).
 
 When you delete a model, its closures will be automatically deleted. If the
 model has descendants, the `delete` method will throw a `TreeException`. You
-need to use the `deleteTree` method if you want to delete the model and all its
-descendants.
+need to use one of these 2 methods instead:
+* `deleteTree` will delete the node and all its descendants,
+* `deleteNode` will remove the node from the tree, ie. attach its children
+to its parent (or make them roots if the node being deleted is a root), and then
+delete the node.
 
 ```php
 try {
