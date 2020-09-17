@@ -278,11 +278,12 @@ behavior of the scope can be reversed by setting the `$bool` argument to
 `false`).
 * `whereIsLeaf($bool = true)`.
 * `whereHasChildren($bool = true)`: is just the opposite of `whereIsLeaf`.
-* `whereIsDescendantOf($ancestorId, $maxDepth = null, $includingSelf = false)`:
-limits the query to the descendants of `$ancestorId`, with an optional
+* `whereIsDescendantOf($ancestor, $maxDepth = null, $includingSelf = false)`:
+limits the query to the descendants of `$ancestor`, with an optional
 `$maxDepth`. If the `$includingSelf` parameter is set to `true`, the ancestor
-will be included in the query results too.
-* `whereIsAncestorOf($descendantId, $maxDepth = null, $includingSelf = false)`.
+will be included in the query results too. (The `$ancestor` parameter can be
+either the id or the Model itself.)
+* `whereIsAncestorOf($descendant, $maxDepth = null, $includingSelf = false)`.
 
 ## Ordered tree
 

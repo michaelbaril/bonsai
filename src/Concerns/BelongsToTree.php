@@ -4,6 +4,7 @@ namespace Baril\Bonsai\Concerns;
 
 use Baril\Bonsai\Relations\Closure;
 use Baril\Bonsai\TreeException;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 trait BelongsToTree
@@ -434,8 +435,9 @@ trait BelongsToTree
         $this->scopeWhereIsLeaf($query, !$bool);
     }
 
-    public function scopeWhereIsDescendantOf($query, $ancestorId, $maxDepth = null, $includingSelf = false)
+    public function scopeWhereIsDescendantOf($query, $ancestor, $maxDepth = null, $includingSelf = false)
     {
+        $ancestorId = ($ancestor instanceof Model) ? $ancestor->getKey() : $ancestor;
         $closureTable = $this->getClosureTable();
         $alias = $closureTable . uniqid();
         $query->join($closureTable . ' as ' . $alias, function ($join) use ($ancestorId, $maxDepth, $alias, $includingSelf) {
@@ -451,8 +453,9 @@ trait BelongsToTree
         $query->where($alias . '.ancestor_id', '!=', null);
     }
 
-    public function scopeWhereIsAncestorOf($query, $descendantId, $maxDepth = null, $includingSelf = false)
+    public function scopeWhereIsAncestorOf($query, $descendant, $maxDepth = null, $includingSelf = false)
     {
+        $descendantId = ($descendant instanceof Model) ? $descendant->getKey() : $descendant;
         $closureTable = $this->getClosureTable();
         $alias = $closureTable . uniqid();
         $query->join($closureTable . ' as ' . $alias, function ($join) use ($descendantId, $maxDepth, $alias, $includingSelf) {

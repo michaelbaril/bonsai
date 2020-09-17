@@ -122,9 +122,13 @@ class TreeTest extends TestCase
         $this->assertEquals(2, Tag::whereIsRoot()->count());
         $this->assertEquals(3, Tag::whereIsRoot(false)->count());
         $this->assertEquals(3, Tag::whereIsLeaf()->count());
+
+        $this->assertEquals(3, Tag::whereIsDescendantOf($this->tags['A'])->count());
         $this->assertEquals(3, Tag::whereIsDescendantOf($this->tags['A']->id)->count());
         $this->assertEquals(2, Tag::whereIsDescendantOf($this->tags['A']->id, 1)->count());
         $this->assertEquals(3, Tag::whereIsDescendantOf($this->tags['A']->id, 1, true)->count());
+
+        $this->assertEquals(2, Tag::whereIsAncestorOf($this->tags['ABA'])->count());
         $this->assertEquals(2, Tag::whereIsAncestorOf($this->tags['ABA']->id)->count());
         $this->assertEquals(1, Tag::whereIsAncestorOf($this->tags['ABA']->id, 1)->count());
         $this->assertEquals(2, Tag::whereIsAncestorOf($this->tags['ABA']->id, 1, true)->count());
