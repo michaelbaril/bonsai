@@ -84,15 +84,17 @@ trait BelongsToTree
     public function deleteTree()
     {
         $this->getConnection()->transaction(function () {
+            $table = $this->getTable();
             $closureTable = $this->getClosureTable();
-            $descendantIds = $this->descendants()->pluck('id');
-            $this->getConnection()->table($closureTable)
-                    ->whereIn('descendant_id', $descendantIds)
-                    ->orWhereIn('ancestor_id', $descendantIds)
-                    ->delete();
-            $query = $this->newQuery()->whereIn('id', $descendantIds);
-            $query->update([$this->getParentForeignKeyName() => null]);
-            $query->delete();
+            $this->descendants()->update([$this->getParentForeignKeyName() => null]); // in order to bypass FK constraints
+            $deleteQuery = "
+                DELETE _descendants, _descendants_closures
+                FROM `$closureTable` _closures
+                INNER JOIN `$table` _descendants ON _closures.descendant_id = _descendants.id
+                INNER JOIN `$closureTable` _descendants_closures
+                    ON _descendants_closures.ancestor_id = _descendants.id OR _descendants_closures.descendant_id = _descendants.id
+                WHERE _closures.ancestor_id = ?";
+            $this->getConnection()->delete($deleteQuery, [$this->getKey()]);
             $this->delete();
         });
     }

@@ -240,10 +240,15 @@ class TreeTest extends TestCase
 
     public function test_delete_tree()
     {
-        $this->tags['A']->deleteTree();
-        $this->assertNull(Tag::find($this->tags['A']->id));
+        $this->tags['ABAA'] = factory(Tag::class)->create(['parent_id' => $this->tags['ABA']->id]);
+
+        $initialClosuresCount = \DB::table('tag_tree')->count();
+        $this->tags['AB']->deleteTree();
+        $remainingClosuresCount = \DB::table('tag_tree')->count();
+        $this->assertEquals(9, $initialClosuresCount - $remainingClosuresCount);
         $this->assertNull(Tag::find($this->tags['AB']->id));
         $this->assertNull(Tag::find($this->tags['ABA']->id));
+        $this->assertNull(Tag::find($this->tags['ABAA']->id));
     }
 
     public function test_delete_node()

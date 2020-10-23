@@ -25,9 +25,6 @@ class CreateExampleTreeTable extends Migration
             $table->unique(['ancestor_id', 'descendant_id']);
             $table->unique(['descendant_id', 'depth']);
             $table->index('depth');
-
-            $table->foreign('ancestor_id')->references($this->mainTableKey)->on($this->mainTableName);
-            $table->foreign('descendant_id')->references($this->mainTableKey)->on($this->mainTableName);
         });
     }
 
