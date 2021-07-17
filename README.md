@@ -4,12 +4,14 @@ This package is an implementation of the "Closure Table" design pattern for
 Laravel 6 and MySQL. This pattern allows for faster querying of tree-like
 structures stored in a relational database. It is an alternative to nested sets.
 
-:warning: Bonsai was originally part of the
-[Smoothie](https://github.com/michaelbaril/smoothie) package. If you're using
-Laravel 5.x, you should install
-[Smoothie](https://github.com/michaelbaril/smoothie) instead of Bonsai. If you
-were a Smoothie user and are migrating from Laravel 5.x to Laravel 6.x,
-please refer to [this section](#migrating-from-smoothie).
+## Version compatibility
+
+ Laravel  | Bonsai
+:---------|:----------
+ 5.6+     | use [Smoothie](https://github.com/michaelbaril/smoothie) instead
+ 6.x      | 1.x
+ 7.x      | 1.x       
+ 8.x      | 2.x
 
 ## Closure Table pattern
 
@@ -97,47 +99,6 @@ php artisan bonsai:grow "App\\Models\\Tag" --migrate
 will run too.
 
 There are some additional options: use `--help` to learn more.
-
-### Migrating from Smoothie
-
-Remove `baril/bonsai` instead of (or in addition to, if you're using other
-Smoothie features) `baril/smoothie`:
-
-```bash
-composer remove baril/smoothie
-composer require baril/bonsai
-```
-
-If you use [ordered trees](#ordered-tree), you need to require `baril/orderable`
-in addition to `baril/bonsai`:
-
-```bash
-composer require baril/orderable
-```
-
-In your models, use the `Baril\Bonsai\Concerns\BelongsToTree` and
-`Baril\Bonsai\Concerns\BelongsToOrderedTree` traits instead of their Smoothie
-counterparts.
-
-The `descendantsWithSelf` and `ancestorsWithSelf` relations have been removed.
-You can now use the `includingSelf` method to achieve the same result:
-
-```php
-$tag->ancestors()->includingSelf(); // similar as $tag->ancestorsWithSelf() in Smoothie
-```
-
-A few methods have been renamed:
-
-* `commonAncestorWith` is now called `findCommonAncestorWith`,
-* `distanceTo` is now called `getDistanceTo`,
-* `depth` is now called `getDepth`,
-* `subtreeDepth` is now called `getSubtreeDepth`.
-
-Finally, the [Artisan commands](#artisan-commands) have been renamed:
-
-* `smoothie:grow-tree` is now `bonsai:grow`,
-* `smoothie:fix-tree` is now `bonsai:fix`,
-* `smoothie:show-tree` is now `bonsai:show`.
 
 ## Artisan commands
 
@@ -289,11 +250,11 @@ either the id or the Model itself.)
 
 In case you need each level of the tree to be explicitely ordered, you can use
 the `Baril\Bonsai\Concerns\BelongsToOrderedTree` trait (instead of
-`BelongsToTree`). In order to use this, you need the Orderable package in
+`BelongsToTree`). In order to use this, you need the Orderly package in
 addition to Bonsai:
 
 ```bash
-composer require baril/orderable
+composer require baril/orderly
 ```
 
 You will need a `position` column in your main table (the name of the column
@@ -316,7 +277,7 @@ $children = $this->children()->unordered()->orderBy('name');
 ```
 
 Also, all methods defined by the `Orderable` trait described
-[in the Orderable package documentation](https://github.com/michaelbaril/orderable)
+[in the Orderly package documentation](https://github.com/michaelbaril/orderly)
 will now be available:
 
 ```php

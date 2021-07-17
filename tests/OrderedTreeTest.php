@@ -3,7 +3,7 @@
 namespace Baril\Bonsai\Tests;
 
 use Baril\Bonsai\Tests\Models\Tag as Model;
-use Baril\Orderable\PositionException;
+use Baril\Orderly\PositionException;
 
 class OrderedTreeTest extends TestCase
 {

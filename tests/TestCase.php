@@ -3,7 +3,7 @@
 namespace Baril\Bonsai\Tests;
 
 use Baril\Bonsai\BonsaiServiceProvider;
-use Baril\Orderable\OrderableServiceProvider;
+use Baril\Orderly\OrderlyServiceProvider;
 use Dotenv\Dotenv;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
@@ -35,7 +35,7 @@ class TestCase extends OrchestraTestCase
     protected function getPackageProviders($app)
     {
         return [
-            OrderableServiceProvider::class,
+            OrderlyServiceProvider::class,
             BonsaiServiceProvider::class,
         ];
     }
