@@ -160,9 +160,32 @@ class TreeTest extends TestCase
         \DB::enableQueryLog();
         $count = count(\DB::getQueryLog());
         $this->assertCount(2, $tags[0]->ancestors);
+        $this->assertEquals($this->tags['AB']->id, $tags[0]->parent->id);
         $this->assertEquals($this->tags['A']->id, $tags[0]->parent->parent->id);
         $this->assertNull($tags[0]->parent->parent->parent);
         $this->assertEquals($count, count(\DB::getQueryLog())); // checking that no new query has been necessary
+    }
+
+    public function test_with_reversed_ancestors()
+    {
+        $tags = Tag::with([
+            'ancestors' => function ($query) {
+                $query->orderByDepth('desc');
+            },
+        ])->whereKey($this->tags['ABA']->id)->get();
+        $this->assertEquals($this->tags['AB']->id, $tags[0]->parent->id);
+        $this->assertEquals($this->tags['A']->id, $tags[0]->parent->parent->id);
+    }
+
+    public function test_with_scoped_ancestors()
+    {
+        $tags = Tag::with([
+            'ancestors' => function ($query) {
+                $query->whereKey($this->tags['AB']->id);
+            },
+        ])->whereKey($this->tags['ABA']->id)->get();
+        $this->assertEquals($this->tags['AB']->id, $tags[0]->parent->id);
+        $this->assertEquals($this->tags['A']->id, $tags[0]->parent->parent->id);
     }
 
     public function test_with_ancestors_and_limited_depth()

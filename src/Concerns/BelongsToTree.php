@@ -201,7 +201,7 @@ trait BelongsToTree
      */
     protected function setChildrenFromDescendants($descendants)
     {
-        $descendants = $descendants->keyBy('id');
+        $descendants = $descendants->keyBy($this->primaryKey);
         $parentKey = $this->getParentForeignKeyName();
 
         $descendants->each(function ($item, $key) use ($descendants, $parentKey) {
@@ -237,14 +237,17 @@ trait BelongsToTree
         if (!$ancestors->count()) {
             return;
         }
-        $this->setRelation('parent', $ancestors->first());
-        for ($i = 0; $i < count($ancestors) - 1; $i++) {
-            $ancestors[$i]->setRelation('parent', $ancestors[$i + 1]);
-        }
-        $olderAncestor = $ancestors->last();
-        if ($olderAncestor->closure->_remaining_depth !== 0) {
-            $olderAncestor->setRelation('parent', null);
-        }
+
+        $parentKey = $this->getParentForeignKeyName();
+        $keyedAncestors = $ancestors->keyBy($this->primaryKey);
+
+        $ancestors->merge([$this])->each(function ($model) use ($keyedAncestors, $parentKey) {
+            if (null === $model->$parentKey) {
+                $model->setRelation('parent', null);
+            } elseif ($keyedAncestors->has($model->$parentKey)) {
+                $model->setRelation('parent', $keyedAncestors->get($model->$parentKey));
+            }
+        });
     }
 
     // =========================================================================
