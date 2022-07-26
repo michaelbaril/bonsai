@@ -181,11 +181,10 @@ class TreeTest extends TestCase
     {
         $tags = Tag::with([
             'ancestors' => function ($query) {
-                $query->whereKey($this->tags['AB']->id);
+                $query->whereKey($this->tags['A']->id);
             },
         ])->whereKey($this->tags['ABA']->id)->get();
-        $this->assertEquals($this->tags['AB']->id, $tags[0]->parent->id);
-        $this->assertEquals($this->tags['A']->id, $tags[0]->parent->parent->id);
+        $this->assertFalse($tags[0]->relationLoaded('parent'));
     }
 
     public function test_with_ancestors_and_limited_depth()
