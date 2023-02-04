@@ -32,7 +32,7 @@ class FixTreeCommand extends Command
             $closureTable = $instance->getClosureTable();
 
             // Delete old closures:
-            $connection->table($closureTable)->truncate();
+            $connection->table($closureTable)->delete();
 
             // Insert "self-closures":
             $connection->insert("
