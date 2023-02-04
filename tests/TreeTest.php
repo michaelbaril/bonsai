@@ -289,18 +289,19 @@ class TreeTest extends TestCase
             $tag->descendants_count = $tag->descendants()->count();
         }
 
-        $closureTable = $this->tags['A']->getConnection()->table($this->tags['A']->getClosureTable());
-        $count = $closureTable->count();
+        $connection = $this->tags['A']->getConnection();
+        $closures = $this->tags['A']->getClosureTable();
+        $count = $connection->table($closures)->count();
         // Inserting some bogus closure that should be deleted after the command has run:
-        $closureTable->insert([
+        $connection->table($closures)->insert([
             ['ancestor_id' => $this->tags['A']->id, 'descendant_id' => $this->tags['B']->id, 'depth' => 1],
         ]);
         // Removing some legit closures:
-        $closureTable->where('depth', 2)->delete();
+        $connection->table($closures)->where('depth', 2)->delete();
 
         $this->artisan('bonsai:fix', ['model' => Tag::class]);
 
-        $this->assertEquals($count, $closureTable->cloneWithout(['wheres'])->count());
+        $this->assertEquals($count, $connection->table($closures)->count());
         foreach ($this->tags as $tag) {
             $this->assertEquals($tag->descendants_count, $tag->descendants()->count());
         }
