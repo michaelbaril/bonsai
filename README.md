@@ -1,7 +1,7 @@
 # Bonsai
 
 This package is an implementation of the "Closure Table" design pattern for
-Laravel 6 and MySQL. This pattern allows for faster querying of tree-like
+Laravel and MySQL. This pattern allows for faster querying of tree-like
 structures stored in a relational database. It is an alternative to nested sets.
 
 ## Version compatibility
@@ -10,8 +10,9 @@ structures stored in a relational database. It is an alternative to nested sets.
 :---------|:----------
  5.6+     | use [Smoothie](https://github.com/michaelbaril/smoothie) instead
  6.x      | 1.x
- 7.x      | 1.x       
- 8.x      | 2.x
+ 7.x      | 1.x
+ 8.x      | 2.x / 3.x
+ 9.x      | 3.x
 
 ## Closure Table pattern
 
