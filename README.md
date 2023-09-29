@@ -13,6 +13,7 @@ structures stored in a relational database. It is an alternative to nested sets.
  7.x      | 1.x
  8.x      | 2.x / 3.x
  9.x      | 3.x
+ 10.x     | 3.1+
 
 ## Closure Table pattern
 
