@@ -111,4 +111,22 @@ class OrderedTreeTest extends TestCase
         $this->assertEquals($this->items[6]->id, $items[1]->children[1]->children[0]->id);
         $this->assertEquals($this->items[1]->id, $items[1]->children[1]->children[1]->id);
     }
+
+    public function test_tree_order()
+    {
+        // 3     0
+        // 2 7   5 4
+        //   6 1
+
+        $this->setParent([5, 4], 0);
+        $this->setParent([2, 7], 3);
+        $this->setParent([6, 1], 7);
+        $roots = Model::whereIsRoot()->get();
+        $roots[0]->swapWith($roots[1]);
+        $tree = Model::getTree();
+
+        $this->assertEquals($this->items[3]->id, $tree[0]->id);
+        $this->assertEquals($this->items[2]->id, $tree[0]->children[0]->id);
+        $this->assertEquals($this->items[6]->id, $tree[0]->children[1]->children[0]->id);
+    }
 }
