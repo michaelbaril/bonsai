@@ -14,6 +14,7 @@ structures stored in a relational database. It is an alternative to nested sets.
  8.x      | 2.x / 3.x
  9.x      | 3.x
  10.x     | 3.1+
+ 11.x     | 3.2+
 
 ## Closure Table pattern
 
