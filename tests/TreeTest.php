@@ -68,7 +68,7 @@ class TreeTest extends TestCase
         $this->tags['A']->save();
     }
 
-    public function redundancyProvider()
+    public static function redundancyProvider()
     {
         return [
             'A' => ['A'],
