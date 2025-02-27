@@ -4,6 +4,7 @@ namespace Baril\Bonsai\Tests;
 
 use Baril\Bonsai\Tests\Models\Tag;
 use Baril\Bonsai\TreeException;
+use Illuminate\Support\Facades\DB;
 
 class TreeTest extends TestCase
 {
@@ -137,13 +138,13 @@ class TreeTest extends TestCase
     public function test_with_descendants()
     {
         $tags = Tag::with('descendants')->whereKey($this->tags['A']->id)->get();
-        \DB::enableQueryLog();
-        $count = count(\DB::getQueryLog());
+        DB::enableQueryLog();
+        $count = count(DB::getQueryLog());
         $this->assertCount(3, $tags[0]->descendants);
         $this->assertCount(2, $tags[0]->children);
         $this->assertCount(1, $tags[0]->children[1]->children);
         $this->assertCount(0, $tags[0]->children[1]->children[0]->children);
-        $this->assertEquals($count, count(\DB::getQueryLog())); // checking that no new query has been necessary
+        $this->assertEquals($count, count(DB::getQueryLog())); // checking that no new query has been necessary
     }
 
     public function test_with_descendants_and_limited_depth()
@@ -157,13 +158,13 @@ class TreeTest extends TestCase
     public function test_with_ancestors()
     {
         $tags = Tag::with('ancestors')->whereKey($this->tags['ABA']->id)->get();
-        \DB::enableQueryLog();
-        $count = count(\DB::getQueryLog());
+        DB::enableQueryLog();
+        $count = count(DB::getQueryLog());
         $this->assertCount(2, $tags[0]->ancestors);
         $this->assertEquals($this->tags['AB']->id, $tags[0]->parent->id);
         $this->assertEquals($this->tags['A']->id, $tags[0]->parent->parent->id);
         $this->assertNull($tags[0]->parent->parent->parent);
-        $this->assertEquals($count, count(\DB::getQueryLog())); // checking that no new query has been necessary
+        $this->assertEquals($count, count(DB::getQueryLog())); // checking that no new query has been necessary
     }
 
     public function test_with_reversed_ancestors()
@@ -264,9 +265,9 @@ class TreeTest extends TestCase
     {
         $this->tags['ABAA'] = factory(Tag::class)->create(['parent_id' => $this->tags['ABA']->id]);
 
-        $initialClosuresCount = \DB::table('tag_tree')->count();
+        $initialClosuresCount = DB::table('tag_tree')->count();
         $this->tags['AB']->deleteTree();
-        $remainingClosuresCount = \DB::table('tag_tree')->count();
+        $remainingClosuresCount = DB::table('tag_tree')->count();
         $this->assertEquals(9, $initialClosuresCount - $remainingClosuresCount);
         $this->assertNull(Tag::find($this->tags['AB']->id));
         $this->assertNull(Tag::find($this->tags['ABA']->id));

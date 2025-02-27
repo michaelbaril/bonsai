@@ -11,10 +11,10 @@ class TestCase extends OrchestraTestCase
 {
     protected function getEnvironmentSetUp($app)
     {
-        $dotenv = Dotenv::createImmutable(dirname(__DIR__));
+        $dotenv = Dotenv::createImmutable(dirname(__DIR__), '.env.test');
         $dotenv->load();
-        $app['config']->set('database.default', 'Bonsai');
-        $app['config']->set('database.connections.Bonsai', [
+        $app['config']->set('database.default', 'test');
+        $app['config']->set('database.connections.test', [
             'driver' => 'mysql',
             'host' => $_ENV['DB_HOST'],
             'port' => $_ENV['DB_PORT'],
@@ -38,11 +38,5 @@ class TestCase extends OrchestraTestCase
         parent::setUp();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->withFactories(__DIR__ . '/database/factories');
-        \DB::enableQueryLog();
-    }
-
-    protected function dumpQueryLog()
-    {
-        dump(\DB::getQueryLog());
     }
 }

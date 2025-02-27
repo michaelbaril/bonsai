@@ -1,0 +1,39 @@
+---
+services:
+  mysql:
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_PASSWORD: test
+      MYSQL_USER: test
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    healthcheck:
+        test: ["CMD", "mysqladmin", "ping", "-proot"]
+        retries: 3
+        timeout: 5s
+    image: mysql:${MYSQL_VERSION:-8.4}
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+
+  php:
+    build:
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.2}
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+      context: .
+      tags:
+        - ${COMPOSE_PROJECT_NAME}-php-${PHP_VERSION}
+    command: sleep infinity # keep the container running
+    depends_on:
+      mysql:
+        condition: service_healthy
+    image: ${COMPOSE_PROJECT_NAME}-php-${PHP_VERSION}
+    volumes:
+      - .:/app
+      - ${COMPOSER_CACHE_DIR}:/.composer/cache
+
+volumes:
+    mysql_data:
+        driver: local
