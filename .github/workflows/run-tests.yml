@@ -1,10 +1,27 @@
-name: "Run Tests"
-
-on: [push, pull_request]
-
+name: "Run tests"
+on:
+  push:
+    branches:
+      - master
+      - main
+      - test
+    paths:
+      - src/**
+      - tests/**
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+    branches:
+      - master
+      - main
+    paths:
+      - src/**
+      - tests/**
 jobs:
   test:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -12,75 +29,53 @@ jobs:
         php: [8.2, 8.1, 8.0, 7.4, 7.3]
         laravel: [11.*, 10.*, 9.*, 8.*]
         dependency-version: [prefer-lowest, prefer-stable]
-        include:
-          - laravel: 11.*
-            testbench: 9.*
-          - laravel: 10.*
-            testbench: 8.*
-          - laravel: 9.*
-            testbench: 7.*
-          - laravel: 8.*
-            testbench: 6.23
         exclude:
-            - laravel: 11.*
-              php: 8.1
-            - laravel: 11.*
-              php: 8.0
-            - laravel: 11.*
-              php: 7.4
-            - laravel: 11.*
-              php: 7.3
-            - laravel: 10.*
-              php: 8.0
-            - laravel: 10.*
-              php: 7.4
-            - laravel: 10.*
-              php: 7.3
-            - laravel: 9.*
-              php: 8.2
-              dependency-version: prefer-lowest
-            - laravel: 9.*
-              php: 7.4
-            - laravel: 9.*
-              php: 7.3
-            - laravel: 8.*
-              php: 8.2
-              dependency-version: prefer-lowest
-
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
-
+          - laravel: 11.*
+            php: 8.1
+          - laravel: 11.*
+            php: 8.0
+          - laravel: 11.*
+            php: 7.4
+          - laravel: 11.*
+            php: 7.3
+          - laravel: 10.*
+            php: 8.0
+          - laravel: 10.*
+            php: 7.4
+          - laravel: 10.*
+            php: 7.3
+          - laravel: 9.*
+            php: 8.2
+            dependency-version: prefer-lowest
+          - laravel: 9.*
+            php: 7.4
+          - laravel: 9.*
+            php: 7.3
+          - laravel: 8.*
+            php: 8.2
+            dependency-version: prefer-lowest
+    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Start MySQL
         run: |
           sudo systemctl start mysql.service
           mysql -uroot -proot -e 'CREATE DATABASE test'
-          mysql -uroot -proot -e "CREATE USER 'lara'@'%' IDENTIFIED WITH mysql_native_password BY 'lara'"
-          mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON test.* TO 'lara'@'%'"
+          mysql -uroot -proot -e "CREATE USER 'test'@'%' IDENTIFIED WITH mysql_native_password BY 'test'"
+          mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON test.* TO 'test'@'%'"
           mysql -uroot -proot -e "FLUSH PRIVILEGES"
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
+          extensions: curl, zip, mbstring, pdo, pdo_mysql
           coverage: none
-
       - name: Install dependencies
         run: |
-          composer require "illuminate/database:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
-
+          composer update --with laravel/framework:${{ matrix.laravel }} --${{ matrix.dependency-version }} --prefer-dist --no-interaction
       - name: Setup .env
         run: |
-          touch .env
-          echo "DB_HOST=127.0.0.1"  >> .env
-          echo "DB_PORT=3306"       >> .env
-          echo "DB_DATABASE=test" >> .env
-          echo "DB_USERNAME=lara"   >> .env
-          echo "DB_PASSWORD=lara"   >> .env
-
+          sed -i -E "s/^DB_HOST=.*$/DB_HOST=127.0.0.1/g" .env.test
       - name: Execute tests
         run: vendor/bin/phpunit
