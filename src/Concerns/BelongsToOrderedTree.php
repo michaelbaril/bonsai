@@ -40,6 +40,6 @@ trait BelongsToOrderedTree
      */
     public static function getTree($depth = null)
     {
-        return static::_getTree($depth)->sortBy((new static)->getOrderColumn())->values();
+        return static::_getTree($depth)->sortBy((new static())->getOrderColumn())->values();
     }
 }

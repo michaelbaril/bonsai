@@ -20,7 +20,11 @@ class ShowTreeCommand extends Command
     public function handle()
     {
         $model = $this->input->getArgument('model');
-        if (!class_exists($model) || !is_subclass_of($model, Model::class) || !method_exists($model, 'getClosureTable')) {
+        if (
+            !class_exists($model)
+            || !is_subclass_of($model, Model::class)
+            || !method_exists($model, 'getClosureTable')
+        ) {
             $this->error('{model} must be a valid model class and use the BelongsToTree trait!');
             return;
         }

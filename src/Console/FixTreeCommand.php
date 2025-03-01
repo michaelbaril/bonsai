@@ -13,7 +13,11 @@ class FixTreeCommand extends Command
     public function handle()
     {
         $model = $this->input->getArgument('model');
-        if (!class_exists($model) || !is_subclass_of($model, Model::class) || !method_exists($model, 'getClosureTable')) {
+        if (
+            !class_exists($model)
+            || !is_subclass_of($model, Model::class)
+            || !method_exists($model, 'getClosureTable')
+        ) {
             $this->error('{model} must be a valid model class and use the BelongsToTree trait!');
             return;
         }
@@ -23,7 +27,7 @@ class FixTreeCommand extends Command
 
     protected function rebuildClosures($model)
     {
-        $instance = new $model;
+        $instance = new $model();
         $connection = $instance->getConnection();
         $connection->transaction(function () use ($instance, $connection) {
             $table = $instance->getTable();

@@ -86,13 +86,14 @@ trait BelongsToTree
         $this->getConnection()->transaction(function () {
             $table = $this->getTable();
             $closureTable = $this->getClosureTable();
-            $this->descendants()->update([$this->getParentForeignKeyName() => null]); // in order to bypass FK constraints
+            $this->descendants()->update([$this->getParentForeignKeyName() => null]); // to bypass FK constraints
             $deleteQuery = "
                 DELETE _descendants, _descendants_closures
                 FROM `$closureTable` _closures
                 INNER JOIN `$table` _descendants ON _closures.descendant_id = _descendants.id
                 INNER JOIN `$closureTable` _descendants_closures
-                    ON _descendants_closures.ancestor_id = _descendants.id OR _descendants_closures.descendant_id = _descendants.id
+                    ON _descendants_closures.ancestor_id = _descendants.id
+                    OR _descendants_closures.descendant_id = _descendants.id
                 WHERE _closures.ancestor_id = ?";
             $this->getConnection()->delete($deleteQuery, [$this->getKey()]);
             $this->delete();
@@ -123,7 +124,7 @@ trait BelongsToTree
         return new \Baril\Octopus\Relations\HasManySiblings(
             $this->newInstance()->newQuery(),
             $this,
-            $this->table.'.'.$parentForeignKey,
+            $this->table . '.' . $parentForeignKey,
             $parentForeignKey
         );
     }
@@ -343,7 +344,11 @@ trait BelongsToTree
      */
     public function findCommonAncestorWith($item)
     {
-        return $this->ancestors()->includingSelf()->whereIsAncestorOf($item->getKey(), null, true)->orderByDepth()->first();
+        return $this->ancestors()
+            ->includingSelf()
+            ->whereIsAncestorOf($item->getKey(), null, true)
+            ->orderByDepth()
+            ->first();
     }
 
     /**
@@ -445,16 +450,19 @@ trait BelongsToTree
         $ancestorId = ($ancestor instanceof Model) ? $ancestor->getKey() : $ancestor;
         $closureTable = $this->getClosureTable();
         $alias = $closureTable . uniqid();
-        $query->join($closureTable . ' as ' . $alias, function ($join) use ($ancestorId, $maxDepth, $alias, $includingSelf) {
-            $join->on($alias . '.descendant_id', '=', $this->getQualifiedKeyName());
-            $join->where($alias . '.ancestor_id', '=', $ancestorId);
-            if (!$includingSelf) {
-                $join->where($alias . '.depth', '>', 0);
+        $query->join(
+            $closureTable . ' as ' . $alias,
+            function ($join) use ($ancestorId, $maxDepth, $alias, $includingSelf) {
+                $join->on($alias . '.descendant_id', '=', $this->getQualifiedKeyName());
+                $join->where($alias . '.ancestor_id', '=', $ancestorId);
+                if (!$includingSelf) {
+                    $join->where($alias . '.depth', '>', 0);
+                }
+                if ($maxDepth !== null) {
+                    $join->where($alias . '.depth', '<=', $maxDepth);
+                }
             }
-            if ($maxDepth !== null) {
-                $join->where($alias . '.depth', '<=', $maxDepth);
-            }
-        });
+        );
         $query->where($alias . '.ancestor_id', '!=', null);
     }
 
@@ -463,16 +471,19 @@ trait BelongsToTree
         $descendantId = ($descendant instanceof Model) ? $descendant->getKey() : $descendant;
         $closureTable = $this->getClosureTable();
         $alias = $closureTable . uniqid();
-        $query->join($closureTable . ' as ' . $alias, function ($join) use ($descendantId, $maxDepth, $alias, $includingSelf) {
-            $join->on($alias . '.ancestor_id', '=', $this->getQualifiedKeyName());
-            $join->where($alias . '.descendant_id', '=', $descendantId);
-            if (!$includingSelf) {
-                $join->where($alias . '.depth', '>', 0);
+        $query->join(
+            $closureTable . ' as ' . $alias,
+            function ($join) use ($descendantId, $maxDepth, $alias, $includingSelf) {
+                $join->on($alias . '.ancestor_id', '=', $this->getQualifiedKeyName());
+                $join->where($alias . '.descendant_id', '=', $descendantId);
+                if (!$includingSelf) {
+                    $join->where($alias . '.depth', '>', 0);
+                }
+                if ($maxDepth !== null) {
+                    $join->where($alias . '.depth', '<=', $maxDepth);
+                }
             }
-            if ($maxDepth !== null) {
-                $join->where($alias . '.depth', '<=', $maxDepth);
-            }
-        });
+        );
         $query->where($alias . '.ancestor_id', '!=', null);
     }
 
@@ -499,7 +510,7 @@ trait BelongsToTree
      */
     public static function getTreeDepth()
     {
-        $instance = new static;
+        $instance = new static();
         return $instance->getConnection()->table($instance->getClosureTable())
                 ->selectRaw('MAX(depth)')->value('MAX(depth)');
     }
@@ -522,8 +533,13 @@ trait BelongsToTree
         if (is_null($this->$parentKey)) {
             return;
         }
-        if ($this->$parentKey == $this->getKey() || $this->newQuery()->whereKey($this->$parentKey)->whereIsDescendantOf($this->getKey())->exists()) {
-            throw new TreeException('Redundancy error! The item\'s parent can\'t be the item itself or one of its descendants.');
+        if (
+            $this->$parentKey == $this->getKey()
+            || $this->newQuery()->whereKey($this->$parentKey)->whereIsDescendantOf($this->getKey())->exists()
+        ) {
+            throw new TreeException(
+                'Redundancy error! The item\'s parent can\'t be the item itself or one of its descendants.'
+            );
         }
     }
 

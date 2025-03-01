@@ -25,7 +25,11 @@ class GrowTreeCommand extends MigrateMakeCommand
     public function handle()
     {
         $model = $this->input->getArgument('model');
-        if (!class_exists($model) || !is_subclass_of($model, Model::class) || !method_exists($model, 'getClosureTable')) {
+        if (
+            !class_exists($model)
+            || !is_subclass_of($model, Model::class)
+            || !method_exists($model, 'getClosureTable')
+        ) {
             $this->error('{model} must be a valid model class and use the BelongsToTree trait!');
             return;
         }
@@ -42,7 +46,7 @@ class GrowTreeCommand extends MigrateMakeCommand
     protected function writeClosureMigration($model)
     {
         // Retrieve all informations about the tree:
-        $instance = new $model;
+        $instance = new $model();
         $table = $instance->getTable();
         $closureTable = $instance->getClosureTable();
         $keyName = $instance->getKeyName();
