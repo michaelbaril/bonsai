@@ -1,4 +1,9 @@
-# Bonsai
+# Bonsai :potted_plant:
+
+![Version](https://img.shields.io/packagist/v/baril/bonsai?label=version)
+![License](https://img.shields.io/packagist/l/baril/bonsai)
+![Downloads](https://img.shields.io/packagist/dt/baril/bonsai)
+![Tests](https://img.shields.io/github/actions/workflow/status/michaelbaril/bonsai/run-tests.yml?branch=master&label=tests)
 
 This package is an implementation of the "Closure Table" design pattern for
 Laravel and MySQL. This pattern allows for faster querying of tree-like
@@ -8,14 +13,13 @@ structures stored in a relational database. It is an alternative to nested sets.
 
  Laravel  | Bonsai
 :---------|:----------
- 5.6+     | use [Smoothie](https://github.com/michaelbaril/smoothie) instead
- 6.x      | 1.x
- 7.x      | 1.x
- 8.x      | 2.x / 3.x
- 9.x      | 3.x
- 10.x     | 3.1+
  11.x     | 3.2+
-
+ 10.x     | 3.1+
+ 9.x      | 3.x
+ 8.x      | 2.x / 3.x
+ 7.x      | 1.x
+ 6.x      | 1.x
+ 
 ## Closure Table pattern
 
 Let's say you have a `tags` table that contains a hierarchical list of tags.
@@ -29,15 +33,17 @@ The Closure Table pattern says you will create a secondary table (let's call it
 * `descendant_id`: foreign key to your main table,
 * `depth`: unsigned integer.
 
-The table contains all possible combinations of an ancestor and a descendant.
+The table contains all possible combinations of an ancestor and a descendant,
+with the corresponding depth (ie. distance between the ancestor and the descendant).
+
 For example, the following tree:
 
 ```
 1
-├ 2
-│ ├ 3
-│ └ 4
-└ 5
+├─ 2
+│ ├─ 3
+│ └─ 4
+└─ 5
 ```
 
 will produce the following closures:
@@ -60,13 +66,13 @@ will produce the following closures:
 
 ### New install
 
-First, your main table needs a `parent_id` column (the name can be configured).
+First, your main table needs a `parent_id` column (the name can be customized).
 This column is the one that holds the canonical data: the closures are merely a
 duplication of that information.
 
 Then, have your model implement the `Baril\Bonsai\Concerns\BelongsToTree` trait.
 
-You can use the following properties to configure the table and column names:
+You can use the following properties to specify the table and column names:
 
 * `$parentForeignKey`: name of the self-referencing foreign key in the main
 table (defaults to `parent_id`),
@@ -74,17 +80,20 @@ table (defaults to `parent_id`),
 name suffixed with `_tree`, eg. `tag_tree`).
 
 ```php
-class Tag extends \Illuminate\Database\Eloquent\Model
+
+use Baril\Bonsai\Concerns\BelongsToTree;
+
+class Tag extends Model
 {
-    use \Baril\Bonsai\Concerns\BelongsToTree;
+    use BelongsToTree;
 
     protected $parentForeignKey = 'parent_tag';
     protected $closureTable = 'tag_closures';
 }
 ```
 
-The `bonsai:grow` command will generate the migration file for the closure table
-based on your model configuration:
+The `bonsai:grow` command will generate the migration file to create the closure table
+for your model:
 
 ```bash
 php artisan bonsai:grow "App\\Models\\Tag"
@@ -99,7 +108,7 @@ php artisan bonsai:grow "App\\Models\\Tag" --migrate
 ```
 
 :warning: If you use the `--migrate` option, any other pending migrations
-will run too.
+will be applied as well.
 
 There are some additional options: use `--help` to learn more.
 
@@ -108,6 +117,8 @@ There are some additional options: use `--help` to learn more.
 In addition to the `bonsai:grow` command described above, this package
 provides the following commands:
 
+### bonsai:fix
+
 In case your data gets corrupt somehow, the `bonsai:fix` command will truncate
 the closure table and fill it again (based on the data found in the main table's
 `parent_id` column):
@@ -115,6 +126,8 @@ the closure table and fill it again (based on the data found in the main table's
 ```bash
 php artisan bonsai:fix "App\\Models\\Tag"
 ```
+
+### bonsai:show
 
 The `bonsai:show` command provides a quick-and-easy way to output the
 content of the tree. It takes a `label` parameter that defines which column
@@ -264,9 +277,11 @@ You will need a `position` column in your main table (the name of the column
 can be configured with the `$orderColumn` property).
 
 ```php
-class Tag extends \Illuminate\Database\Eloquent\Model
+use Baril\Bonsai\Concerns\BelongsToOrderedTree;
+
+class Tag extends Model
 {
-    use \Baril\Bonsai\Concerns\BelongsToOrderedTree;
+    use BelongsToOrderedTree;
 
     protected $orderColumn = 'order';
 }
