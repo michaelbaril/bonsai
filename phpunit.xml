@@ -25,8 +25,8 @@
             pathCoverage="false"
             ignoreDeprecatedCodeUnits="true"
             disableCodeCoverageIgnore="true">
-    <!--<report>
+    <report>
       <clover outputFile="clover.xml"/>
-    </report>-->
+    </report>
   </coverage>
 </phpunit>
