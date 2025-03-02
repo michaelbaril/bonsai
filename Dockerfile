@@ -8,11 +8,11 @@ RUN apk update && \
     apk add oniguruma-dev && \
     docker-php-ext-install mbstring pdo pdo_mysql
 
-RUN apk add linux-headers && \
-    apk add $PHPIZE_DEPS && \
-    pecl install xdebug && \
-    docker-php-ext-enable xdebug || \
-    echo "Can't install XDEBUG"
+# RUN apk add linux-headers && \
+#     apk add $PHPIZE_DEPS && \
+#     pecl install xdebug && \
+#     docker-php-ext-enable xdebug || \
+#     echo "Can't install XDEBUG"
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/
 

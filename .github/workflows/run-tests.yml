@@ -77,9 +77,5 @@ jobs:
       - name: Setup .env
         run: |
           sed -i -E "s/^DB_HOST=.*$/DB_HOST=127.0.0.1/g" .env.test
-      - name: Disable coverage
-        run: |
-          sed -i -e "s/<coverage/<\!--<coverage/g" phpunit.xml
-          sed -i -e "s/<\/coverage>/<\/coverage>-->/g" phpunit.xml
       - name: Execute tests
         run: vendor/bin/phpunit
