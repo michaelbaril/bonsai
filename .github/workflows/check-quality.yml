@@ -1,0 +1,36 @@
+name: "Check quality"
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - src/**
+      - tests/**
+      - phpcs.xml
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+    branches:
+      - master
+      - main
+    paths:
+      - src/**
+      - tests/**
+      - phpcs.xml
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Composer install
+        uses: php-actions/composer@v6
+      - name: PHP Code Sniffer
+        uses: php-actions/phpcs@v1
+        with:
+          php_version: 8.2
+          path: src/
+          standard: phpcs.xml

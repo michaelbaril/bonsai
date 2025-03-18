@@ -8,6 +8,7 @@ on:
     paths:
       - src/**
       - tests/**
+      - phpunit.xml
   pull_request:
     types:
       - opened
@@ -20,6 +21,7 @@ on:
     paths:
       - src/**
       - tests/**
+      - phpunit.xml
 jobs:
   test:
     runs-on: ubuntu-latest
