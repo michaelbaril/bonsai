@@ -1,9 +1,10 @@
 # Bonsai :potted_plant:
 
-![Version](https://img.shields.io/packagist/v/baril/bonsai?label=version)
-![License](https://img.shields.io/packagist/l/baril/bonsai)
-![Downloads](https://img.shields.io/packagist/dt/baril/bonsai)
-![Tests](https://img.shields.io/github/actions/workflow/status/michaelbaril/bonsai/run-tests.yml?branch=master&label=tests)
+[![Version](https://img.shields.io/packagist/v/baril/bonsai?label=version)](https://packagist.org/packages/baril/bonsai)
+[![License](https://img.shields.io/packagist/l/baril/bonsai)](https://packagist.org/packages/baril/bonsai)
+[![Downloads](https://img.shields.io/packagist/dt/baril/bonsai)](https://packagist.org/packages/baril/bonsai/stats)
+[![Tests](https://img.shields.io/github/actions/workflow/status/michaelbaril/bonsai/run-tests.yml?branch=master&label=tests)](https://github.com/michaelbaril/bonsai/actions/workflows/run-tests.yml)
+[![Coverage](https://michaelbaril.github.io/bonsai/coverage/badge.svg)](https://michaelbaril.github.io/bonsai/coverage/)
 
 This package is an implementation of the "Closure Table" design pattern for
 Laravel and MySQL. This pattern allows for faster querying of tree-like
@@ -177,9 +178,7 @@ The trait defines the following relationships:
 * `parent`: `BelongsTo` relation to the parent,
 * `children`: `HasMany` relation to the children,
 * `ancestors`: `BelongsToMany` relation to the ancestors,
-* `descendants`: `BelongsToMany` relation to the descendants,
-* `siblings`: `HasMany` relation to the other children of the same parent
-(requires to install the package `baril/octopus`).
+* `descendants`: `BelongsToMany` relation to the descendants.
 
 :warning: The `ancestors` and `descendants` relations
 are read-only! Trying to use the `attach` or `detach` method on them will throw
