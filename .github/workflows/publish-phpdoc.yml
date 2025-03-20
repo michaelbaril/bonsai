@@ -1,0 +1,39 @@
+name: "Publish phpDoc"
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - src/**
+      - apigen.neon
+jobs:
+  phpdoc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: curl, zip, mbstring, pdo, pdo_mysql
+          coverage: none
+      - name: Install dependencies
+        run: |
+          composer update --prefer-dist --no-interaction
+      - name: Generate phpDoc
+        run: |
+          mkdir -p bin
+          curl -L https://github.com/ApiGen/ApiGen/releases/latest/download/apigen.phar -o bin/apigen
+          chmod +x bin/apigen
+          bin/apigen src --output phpdoc
+      - name: Publish doc
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./phpdoc
+          destination_dir: phpdoc
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: Update phpDoc
