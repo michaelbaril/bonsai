@@ -266,9 +266,9 @@ either the id or the Model itself.)
 ## Ordered tree
 
 In case you need each level of the tree to be explicitely ordered, you can use
-the `Baril\Bonsai\Concerns\BelongsToOrderedTree` trait (instead of
-`BelongsToTree`). In order to use this, you need the Orderly package in
-addition to Bonsai:
+the `Baril\Bonsai\Concerns\BelongsToOrderedTree` trait (instead of `BelongsToTree`).
+In order to use this, you need [the Orderly package](https://github.com/michaelbaril/orderly)
+in addition to Bonsai:
 
 ```bash
 composer require baril/orderly
