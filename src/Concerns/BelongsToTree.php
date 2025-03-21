@@ -113,21 +113,21 @@ trait BelongsToTree
         return $this->belongsTo(static::class, $this->getParentForeignKeyName());
     }
 
-    /**
-     * Requires the package baril/octopus.
-     *
-     * @return \Baril\Octopus\Relations\HasManySiblings
-     */
-    public function siblings()
-    {
-        $parentForeignKey = $this->getParentForeignKeyName();
-        return new \Baril\Octopus\Relations\HasManySiblings(
-            $this->newInstance()->newQuery(),
-            $this,
-            $this->table . '.' . $parentForeignKey,
-            $parentForeignKey
-        );
-    }
+    // /**
+    //  * Requires the package baril/octopus.
+    //  *
+    //  * @return \Baril\Octopus\Relations\HasManySiblings
+    //  */
+    // public function siblings()
+    // {
+    //     $parentForeignKey = $this->getParentForeignKeyName();
+    //     return new \Baril\Octopus\Relations\HasManySiblings(
+    //         $this->newInstance()->newQuery(),
+    //         $this,
+    //         $this->table . '.' . $parentForeignKey,
+    //         $parentForeignKey
+    //     );
+    // }
 
     /**
      *
