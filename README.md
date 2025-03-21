@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/packagist/l/baril/bonsai)](https://packagist.org/packages/baril/bonsai)
 [![Downloads](https://img.shields.io/packagist/dt/baril/bonsai)](https://packagist.org/packages/baril/bonsai/stats)
 [![Tests](https://img.shields.io/github/actions/workflow/status/michaelbaril/bonsai/run-tests.yml?branch=master&label=tests)](https://github.com/michaelbaril/bonsai/actions/workflows/run-tests.yml)
-[![Coverage](https://michaelbaril.github.io/bonsai/coverage/badge.svg)](https://michaelbaril.github.io/bonsai/coverage/)
+[![Coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fmichaelbaril.github.io%2Fbonsai%2Fcoverage%2Fbadge.json)](https://michaelbaril.github.io/bonsai/coverage/)
 
 This package is an implementation of the "Closure Table" design pattern for
 Laravel and MySQL. This pattern allows for faster querying of tree-like

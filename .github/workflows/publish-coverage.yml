@@ -40,10 +40,10 @@ jobs:
       - name: Execute tests
         run: vendor/bin/phpunit
       - name: Make code coverage badge
-        uses: timkrase/phpunit-coverage-badge@v1.2.1
+        uses: steffendietz/clover-to-shieldsio-json-action@v1.0
         with:
-          coverage_badge_path: coverage/badge.svg
-          push_badge: false
+          path-to-clover: clover.xml
+          path-to-json: coverage/badge.json
       - name: Publish coverage
         uses: peaceiris/actions-gh-pages@v3
         with:
