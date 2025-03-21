@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/runner/work/bonsai/bonsai/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=11.0.9" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=11.0.9" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=11.0.9" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/home/runner/work/bonsai/bonsai/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#8">Baril\Bonsai\Console\ShowTreeCommand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/GrowTreeCommand.php.html#11">Baril\Bonsai\Console\GrowTreeCommand</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#9">Baril\Bonsai\Relations\Closure</a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#8">Baril\Bonsai\Console\ShowTreeCommand</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Console/GrowTreeCommand.php.html#11">Baril\Bonsai\Console\GrowTreeCommand</a></td><td class="text-right">103</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#9">Baril\Bonsai\Relations\Closure</a></td><td class="text-right">37</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/GrowTreeCommand.php.html#25"><abbr title="Baril\Bonsai\Console\GrowTreeCommand::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/GrowTreeCommand.php.html#46"><abbr title="Baril\Bonsai\Console\GrowTreeCommand::writeClosureMigration">writeClosureMigration</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/GrowTreeCommand.php.html#76"><abbr title="Baril\Bonsai\Console\GrowTreeCommand::getMigrationContents">getMigrationContents</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#20"><abbr title="Baril\Bonsai\Console\ShowTreeCommand::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#38"><abbr title="Baril\Bonsai\Console\ShowTreeCommand::showTree">showTree</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#47"><abbr title="Baril\Bonsai\Console\ShowTreeCommand::showNode">showNode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#69"><abbr title="Baril\Bonsai\Relations\Closure::readOnly">readOnly</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#74"><abbr title="Baril\Bonsai\Relations\Closure::save">save</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#79"><abbr title="Baril\Bonsai\Relations\Closure::saveMany">saveMany</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#84"><abbr title="Baril\Bonsai\Relations\Closure::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#89"><abbr title="Baril\Bonsai\Relations\Closure::createMany">createMany</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#94"><abbr title="Baril\Bonsai\Relations\Closure::toggle">toggle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#99"><abbr title="Baril\Bonsai\Relations\Closure::syncWithoutDetaching">syncWithoutDetaching</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#104"><abbr title="Baril\Bonsai\Relations\Closure::sync">sync</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#109"><abbr title="Baril\Bonsai\Relations\Closure::attach">attach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Relations/Closure.php.html#114"><abbr title="Baril\Bonsai\Relations\Closure::detach">detach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#281"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::hasChildren">hasChildren</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#301"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::isParentOf">isParentOf</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#443"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::scopeWhereHasChildren">scopeWhereHasChildren</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#511"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::getTreeDepth">getTreeDepth</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#434"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::scopeWhereIsLeaf">scopeWhereIsLeaf</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Console/FixTreeCommand.php.html#13"><abbr title="Baril\Bonsai\Console\FixTreeCommand::handle">handle</abbr></a></td><td class="text-right">71%</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#400"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::scopeWithAncestors">scopeWithAncestors</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#412"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::scopeWithDescendants">scopeWithDescendants</abbr></a></td><td class="text-right">83%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#47"><abbr title="Baril\Bonsai\Console\ShowTreeCommand::showNode">showNode</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Console/GrowTreeCommand.php.html#25"><abbr title="Baril\Bonsai\Console\GrowTreeCommand::handle">handle</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#20"><abbr title="Baril\Bonsai\Console\ShowTreeCommand::handle">handle</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Console/GrowTreeCommand.php.html#46"><abbr title="Baril\Bonsai\Console\GrowTreeCommand::writeClosureMigration">writeClosureMigration</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Console/ShowTreeCommand.php.html#38"><abbr title="Baril\Bonsai\Console\ShowTreeCommand::showTree">showTree</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Console/FixTreeCommand.php.html#13"><abbr title="Baril\Bonsai\Console\FixTreeCommand::handle">handle</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#400"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::scopeWithAncestors">scopeWithAncestors</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#412"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::scopeWithDescendants">scopeWithDescendants</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Concerns/BelongsToTree.php.html#434"><abbr title="Baril\Bonsai\Concerns\BelongsToTree::scopeWhereIsLeaf">scopeWhereIsLeaf</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.9</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.28</a> and <a href="https://phpunit.de/">PHPUnit 11.5.14</a> at Fri Mar 21 17:15:03 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=11.0.9" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=11.0.9" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=11.0.9" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([1,1,0,0,0,0,0,1,0,0,2,4], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([20,0,0,0,0,0,0,1,1,2,0,43], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"BonsaiServiceProvider.php.html#10\">Baril\\Bonsai\\BonsaiServiceProvider<\/a>"],[93.75,6,"<a href=\"Console\/FixTreeCommand.php.html#8\">Baril\\Bonsai\\Console\\FixTreeCommand<\/a>"],[2.3255813953488373,10,"<a href=\"Console\/GrowTreeCommand.php.html#11\">Baril\\Bonsai\\Console\\GrowTreeCommand<\/a>"],[0,13,"<a href=\"Console\/ShowTreeCommand.php.html#8\">Baril\\Bonsai\\Console\\ShowTreeCommand<\/a>"],[100,1,"<a href=\"Migrations\/MigrationCreator.php.html#8\">Baril\\Bonsai\\Migrations\\MigrationCreator<\/a>"],[66.66666666666666,21,"<a href=\"Relations\/Closure.php.html#9\">Baril\\Bonsai\\Relations\\Closure<\/a>"],[100,0,"<a href=\"TreeException.php.html#7\">Baril\\Bonsai\\TreeException<\/a>"],[100,4,"<a href=\"Concerns\/BelongsToOrderedTree.php.html#7\">Baril\\Bonsai\\Concerns\\BelongsToOrderedTree<\/a>"],[95.52238805970148,69,"<a href=\"Concerns\/BelongsToTree.php.html#10\">Baril\\Bonsai\\Concerns\\BelongsToTree<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"BonsaiServiceProvider.php.html#12\">Baril\\Bonsai\\BonsaiServiceProvider::register<\/a>"],[71.42857142857143,4,"<a href=\"Console\/FixTreeCommand.php.html#13\">Baril\\Bonsai\\Console\\FixTreeCommand::handle<\/a>"],[100,2,"<a href=\"Console\/FixTreeCommand.php.html#28\">Baril\\Bonsai\\Console\\FixTreeCommand::rebuildClosures<\/a>"],[100,1,"<a href=\"Console\/GrowTreeCommand.php.html#20\">Baril\\Bonsai\\Console\\GrowTreeCommand::__construct<\/a>"],[0,6,"<a href=\"Console\/GrowTreeCommand.php.html#25\">Baril\\Bonsai\\Console\\GrowTreeCommand::handle<\/a>"],[0,2,"<a href=\"Console\/GrowTreeCommand.php.html#46\">Baril\\Bonsai\\Console\\GrowTreeCommand::writeClosureMigration<\/a>"],[0,1,"<a href=\"Console\/GrowTreeCommand.php.html#76\">Baril\\Bonsai\\Console\\GrowTreeCommand::getMigrationContents<\/a>"],[0,4,"<a href=\"Console\/ShowTreeCommand.php.html#20\">Baril\\Bonsai\\Console\\ShowTreeCommand::handle<\/a>"],[0,2,"<a href=\"Console\/ShowTreeCommand.php.html#38\">Baril\\Bonsai\\Console\\ShowTreeCommand::showTree<\/a>"],[0,7,"<a href=\"Console\/ShowTreeCommand.php.html#47\">Baril\\Bonsai\\Console\\ShowTreeCommand::showNode<\/a>"],[100,1,"<a href=\"Migrations\/MigrationCreator.php.html#10\">Baril\\Bonsai\\Migrations\\MigrationCreator::__construct<\/a>"],[100,1,"<a href=\"Relations\/Closure.php.html#13\">Baril\\Bonsai\\Relations\\Closure::orderByDepth<\/a>"],[100,1,"<a href=\"Relations\/Closure.php.html#18\">Baril\\Bonsai\\Relations\\Closure::upToDepth<\/a>"],[100,1,"<a href=\"Relations\/Closure.php.html#24\">Baril\\Bonsai\\Relations\\Closure::excludingSelf<\/a>"],[100,5,"<a href=\"Relations\/Closure.php.html#30\">Baril\\Bonsai\\Relations\\Closure::includingSelf<\/a>"],[100,3,"<a href=\"Relations\/Closure.php.html#56\">Baril\\Bonsai\\Relations\\Closure::migratePivotAttributes<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#69\">Baril\\Bonsai\\Relations\\Closure::readOnly<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#74\">Baril\\Bonsai\\Relations\\Closure::save<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#79\">Baril\\Bonsai\\Relations\\Closure::saveMany<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#84\">Baril\\Bonsai\\Relations\\Closure::create<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#89\">Baril\\Bonsai\\Relations\\Closure::createMany<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#94\">Baril\\Bonsai\\Relations\\Closure::toggle<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#99\">Baril\\Bonsai\\Relations\\Closure::syncWithoutDetaching<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#104\">Baril\\Bonsai\\Relations\\Closure::sync<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#109\">Baril\\Bonsai\\Relations\\Closure::attach<\/a>"],[0,1,"<a href=\"Relations\/Closure.php.html#114\">Baril\\Bonsai\\Relations\\Closure::detach<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToOrderedTree.php.html#19\">Baril\\Bonsai\\Concerns\\BelongsToOrderedTree::getGroupColumn<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToOrderedTree.php.html#27\">Baril\\Bonsai\\Concerns\\BelongsToOrderedTree::children<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToOrderedTree.php.html#32\">Baril\\Bonsai\\Concerns\\BelongsToOrderedTree::setChildrenFromDescendants<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToOrderedTree.php.html#41\">Baril\\Bonsai\\Concerns\\BelongsToOrderedTree::getTree<\/a>"],[100,3,"<a href=\"Concerns\/BelongsToTree.php.html#15\">Baril\\Bonsai\\Concerns\\BelongsToTree::bootBelongsToTree<\/a>"],[100,2,"<a href=\"Concerns\/BelongsToTree.php.html#41\">Baril\\Bonsai\\Concerns\\BelongsToTree::getParentForeignKeyName<\/a>"],[100,2,"<a href=\"Concerns\/BelongsToTree.php.html#51\">Baril\\Bonsai\\Concerns\\BelongsToTree::getClosureTable<\/a>"],[100,2,"<a href=\"Concerns\/BelongsToTree.php.html#63\">Baril\\Bonsai\\Concerns\\BelongsToTree::deleteNode<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#84\">Baril\\Bonsai\\Concerns\\BelongsToTree::deleteTree<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#111\">Baril\\Bonsai\\Concerns\\BelongsToTree::parent<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#136\">Baril\\Bonsai\\Concerns\\BelongsToTree::children<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#144\">Baril\\Bonsai\\Concerns\\BelongsToTree::ancestors<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#162\">Baril\\Bonsai\\Concerns\\BelongsToTree::descendants<\/a>"],[100,3,"<a href=\"Concerns\/BelongsToTree.php.html#183\">Baril\\Bonsai\\Concerns\\BelongsToTree::setRelation<\/a>"],[100,5,"<a href=\"Concerns\/BelongsToTree.php.html#203\">Baril\\Bonsai\\Concerns\\BelongsToTree::setChildrenFromDescendants<\/a>"],[100,4,"<a href=\"Concerns\/BelongsToTree.php.html#236\">Baril\\Bonsai\\Concerns\\BelongsToTree::setParentsFromAncestors<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#262\">Baril\\Bonsai\\Concerns\\BelongsToTree::isRoot<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#272\">Baril\\Bonsai\\Concerns\\BelongsToTree::isLeaf<\/a>"],[0,1,"<a href=\"Concerns\/BelongsToTree.php.html#281\">Baril\\Bonsai\\Concerns\\BelongsToTree::hasChildren<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#290\">Baril\\Bonsai\\Concerns\\BelongsToTree::isChildOf<\/a>"],[0,1,"<a href=\"Concerns\/BelongsToTree.php.html#301\">Baril\\Bonsai\\Concerns\\BelongsToTree::isParentOf<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#311\">Baril\\Bonsai\\Concerns\\BelongsToTree::isDescendantOf<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#321\">Baril\\Bonsai\\Concerns\\BelongsToTree::isAncestorOf<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#331\">Baril\\Bonsai\\Concerns\\BelongsToTree::isSiblingOf<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#345\">Baril\\Bonsai\\Concerns\\BelongsToTree::findCommonAncestorWith<\/a>"],[100,2,"<a href=\"Concerns\/BelongsToTree.php.html#363\">Baril\\Bonsai\\Concerns\\BelongsToTree::getDistanceTo<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#380\">Baril\\Bonsai\\Concerns\\BelongsToTree::getDepth<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#390\">Baril\\Bonsai\\Concerns\\BelongsToTree::getSubtreeDepth<\/a>"],[83.33333333333334,3,"<a href=\"Concerns\/BelongsToTree.php.html#400\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWithAncestors<\/a>"],[83.33333333333334,3,"<a href=\"Concerns\/BelongsToTree.php.html#412\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWithDescendants<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#424\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWithDepth<\/a>"],[100,2,"<a href=\"Concerns\/BelongsToTree.php.html#429\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWhereIsRoot<\/a>"],[66.66666666666666,2,"<a href=\"Concerns\/BelongsToTree.php.html#434\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWhereIsLeaf<\/a>"],[0,1,"<a href=\"Concerns\/BelongsToTree.php.html#443\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWhereHasChildren<\/a>"],[100,4,"<a href=\"Concerns\/BelongsToTree.php.html#448\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWhereIsDescendantOf<\/a>"],[100,4,"<a href=\"Concerns\/BelongsToTree.php.html#469\">Baril\\Bonsai\\Concerns\\BelongsToTree::scopeWhereIsAncestorOf<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#501\">Baril\\Bonsai\\Concerns\\BelongsToTree::getTree<\/a>"],[0,1,"<a href=\"Concerns\/BelongsToTree.php.html#511\">Baril\\Bonsai\\Concerns\\BelongsToTree::getTreeDepth<\/a>"],[100,4,"<a href=\"Concerns\/BelongsToTree.php.html#529\">Baril\\Bonsai\\Concerns\\BelongsToTree::checkIfParentIdIsValid<\/a>"],[100,3,"<a href=\"Concerns\/BelongsToTree.php.html#551\">Baril\\Bonsai\\Concerns\\BelongsToTree::refreshClosures<\/a>"],[100,1,"<a href=\"Concerns\/BelongsToTree.php.html#594\">Baril\\Bonsai\\Concerns\\BelongsToTree::deleteClosuresForLeaf<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
