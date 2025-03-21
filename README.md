@@ -251,9 +251,9 @@ you can pass additional `$constraints`.
 * `withDescendants($depth = null, $constraints = null)`.
 * `withDepth($as = 'depth')`: will add a `depth` column (or whatever alias
 you provided) on your resulting models.
-* `whereIsRoot($bool = true)`: limits the query to the items with no parent (the
-behavior of the scope can be reversed by setting the `$bool` argument to
-`false`).
+* `whereIsRoot($bool = true)`: limits the query to the items with no parent
+(the behavior of the scope can be reversed by setting the `$bool` argument
+to `false`).
 * `whereIsLeaf($bool = true)`.
 * `whereHasChildren($bool = true)`: is just the opposite of `whereIsLeaf`.
 * `whereIsDescendantOf($ancestor, $maxDepth = null, $includingSelf = false)`:
