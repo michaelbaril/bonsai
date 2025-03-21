@@ -1,0 +1,33 @@
+name: "Publish documentation"
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - README.md
+jobs:
+  readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create output folder
+        run: mkdir doc
+      - name: Generate index page
+        uses: jaywcjlove/markdown-to-html-cli@v5
+        with:
+          config: markdown-to-html.json
+          source: README.md
+          output: doc/index.html
+          dark-mode: false
+      - name: Publish doc
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./doc
+          destination_dir: .
+          keep_files: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: Update documentation

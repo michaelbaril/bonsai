@@ -1,4 +1,4 @@
-name: "Publish phpDoc"
+name: "Publish API documentation"
 on:
   push:
     branches:
@@ -8,11 +8,11 @@ on:
       - src/**
       - apigen.neon
 jobs:
-  phpdoc:
+  apidoc:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -22,18 +22,18 @@ jobs:
       - name: Install dependencies
         run: |
           composer update --prefer-dist --no-interaction
-      - name: Generate phpDoc
+      - name: Generate API documentation
         run: |
           mkdir -p bin
           curl -L https://github.com/ApiGen/ApiGen/releases/latest/download/apigen.phar -o bin/apigen
           chmod +x bin/apigen
-          bin/apigen src --output phpdoc
+          bin/apigen src --output api
       - name: Publish doc
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./phpdoc
-          destination_dir: phpdoc
+          publish_dir: ./api
+          destination_dir: api
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: Update phpDoc
+          commit_message: Update API documentation
