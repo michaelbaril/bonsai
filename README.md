@@ -1,4 +1,4 @@
-# Bonsai :potted_plant:
+# Bonsai :deciduous_tree:
 
 [![Version](https://img.shields.io/packagist/v/baril/bonsai?label=version)](https://packagist.org/packages/baril/bonsai)
 [![License](https://img.shields.io/packagist/l/baril/bonsai)](https://packagist.org/packages/baril/bonsai)
@@ -9,6 +9,8 @@
 This package is an implementation of the "Closure Table" design pattern for
 Laravel and MySQL. This pattern allows for faster querying of tree-like
 structures stored in a relational database. It is an alternative to nested sets.
+
+You can find the full API documentation [here](https://michaelbaril.github.io/bonsai/api/).
 
 ## Version compatibility
 
