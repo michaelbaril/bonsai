@@ -15,7 +15,7 @@ jobs:
       - name: Create output folder
         run: mkdir doc
       - name: Generate index page
-        uses: jaywcjlove/markdown-to-html-cli@v5
+        uses: jaywcjlove/markdown-to-html-cli@main
         with:
           config: markdown-to-html.json
           source: README.md
