@@ -112,7 +112,7 @@ if [[ $1 == 'test' || $1 == 'tests' || $1 == 't' ]]; then
 elif [[ $1 == 'sniff' || $1 == 'cs' ]]; then
     docker compose exec php ./vendor/bin/phpcs --standard=./phpcs.xml ./src
 elif [[ $1 == 'fix' || $1 == 'cbf' ]]; then
-    docker compose exec php ./vendor/bin/phpcbf --standard=./phpcs.xml ./src
+    docker compose exec php ./vendor/bin/phpcbf --standard=./phpcs.xml ./src ./tests
 else
     $myself help
     exit $?
