@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url><loc>index.html</loc></url>
+
+		<url><loc>tree.html</loc></url>
+
+			<url><loc>namespace-Baril.html</loc></url>
+			<url><loc>namespace-Baril.Bonsai.html</loc></url>
+			<url><loc>namespace-Baril.Bonsai.Concerns.html</loc></url>
+			<url><loc>namespace-Baril.Bonsai.Console.html</loc></url>
+			<url><loc>namespace-Baril.Bonsai.Migrations.html</loc></url>
+			<url><loc>namespace-Baril.Bonsai.Relations.html</loc></url>
+
+			<url><loc>Baril.Bonsai.BonsaiServiceProvider.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.BelongsToOrderedTree.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.BelongsToTree.html</loc></url>
+			<url><loc>Baril.Bonsai.Console.FixTreeCommand.html</loc></url>
+			<url><loc>Baril.Bonsai.Console.GrowTreeCommand.html</loc></url>
+			<url><loc>Baril.Bonsai.Console.ShowTreeCommand.html</loc></url>
+			<url><loc>Baril.Bonsai.Migrations.MigrationCreator.html</loc></url>
+			<url><loc>Baril.Bonsai.Relations.Closure.html</loc></url>
+			<url><loc>Baril.Bonsai.TreeException.html</loc></url>
+
+
+			<url><loc>source-BonsaiServiceProvider.html</loc></url>
+			<url><loc>source-Concerns.BelongsToOrderedTree.html</loc></url>
+			<url><loc>source-Concerns.BelongsToTree.html</loc></url>
+			<url><loc>source-Console.FixTreeCommand.html</loc></url>
+			<url><loc>source-Console.GrowTreeCommand.html</loc></url>
+			<url><loc>source-Console.ShowTreeCommand.html</loc></url>
+			<url><loc>source-Migrations.MigrationCreator.html</loc></url>
+			<url><loc>source-Relations.Closure.html</loc></url>
+			<url><loc>source-TreeException.html</loc></url>
+</urlset>
