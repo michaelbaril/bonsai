@@ -25,15 +25,22 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true      
 jobs:
-  phpcs:
+  quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Composer install
-        uses: php-actions/composer@v6
-      - name: PHP Code Sniffer
-        uses: php-actions/phpcs@v1
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          php_version: 8.2
-          path: src/
-          standard: phpcs.xml
+          php-version: 8.2
+          extensions: curl, zip, mbstring, pdo, pdo_mysql
+          tools: cs2pr
+          coverage: none
+      - name: Install dependencies
+        run: |
+          composer update --prefer-dist --no-interaction      
+      - name: PHP Code Sniffer
+        run: ./vendor/bin/phpcs -q --report=checkstyle --standard=./phpcs.xml src | cs2pr
+      # - name: PHPStan
+      #   run: ./vendor/bin/phpstan analyse --configuration=./phpstan.neon --error-format=checkstyle src | cs2pr

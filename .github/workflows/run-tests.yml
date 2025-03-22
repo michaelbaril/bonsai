@@ -26,7 +26,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -59,7 +59,7 @@ jobs:
           - laravel: 8.*
             php: 8.2
             dependency-version: prefer-lowest
-    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }}
+    name: "Tests: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }}"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -80,7 +80,6 @@ jobs:
         run: |
           composer update --with laravel/framework:${{ matrix.laravel }} --${{ matrix.dependency-version }} --prefer-dist --no-interaction
       - name: Setup .env
-        run: |
-          sed -i -E "s/^DB_HOST=.*$/DB_HOST=127.0.0.1/g" .env.test
+        run: sed -i -E "s/^DB_HOST=.*$/DB_HOST=127.0.0.1/g" .env.test
       - name: Execute tests
         run: vendor/bin/phpunit
