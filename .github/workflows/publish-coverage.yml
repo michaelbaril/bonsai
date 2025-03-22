@@ -9,10 +9,10 @@ on:
       - tests/**
       - phpunit.xml
 concurrency:
-  group: gh-pages
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  coverage:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -47,6 +47,24 @@ jobs:
         with:
           path-to-clover: clover.xml
           path-to-json: coverage/badge.json
+      - name: Round percentage
+        run: |
+          percentage=$(sed -E "s/^.*\"([0-9.]+)\%.*$/\1/g" coverage/badge.json)
+          rounded=$(php -r "echo round($percentage);")
+          sed -i "s/$percentage%/$rounded%/g" coverage/badge.json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage
+  publish:
+    needs: generate
+    runs-on: ubuntu-latest
+    concurrency:
+      group: publish-gh-pages
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
       - name: Publish coverage
         uses: peaceiris/actions-gh-pages@v3
         with:

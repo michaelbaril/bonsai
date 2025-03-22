@@ -21,6 +21,9 @@ on:
       - src/**
       - tests/**
       - phpcs.xml
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true      
 jobs:
   phpcs:
     runs-on: ubuntu-latest

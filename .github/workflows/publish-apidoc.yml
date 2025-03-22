@@ -8,10 +8,10 @@ on:
       - src/**
       - apigen.neon
 concurrency:
-  group: gh-pages
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  apidoc:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -31,6 +31,19 @@ jobs:
           curl -L https://github.com/ApiGen/ApiGen/releases/latest/download/apigen.phar -o bin/apigen
           chmod +x bin/apigen
           bin/apigen src --output api
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: api
+          path: api
+  publish:
+    needs: generate
+    runs-on: ubuntu-latest
+    concurrency:
+      group: publish-gh-pages
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
       - name: Publish doc
         uses: peaceiris/actions-gh-pages@v3
         with:
