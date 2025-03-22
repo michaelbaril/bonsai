@@ -27,6 +27,7 @@
             disableCodeCoverageIgnore="true">
     <report>
       <clover outputFile="clover.xml"/>
+      <cobertura outputFile="cobertura.xml"/>
       <html outputDirectory="coverage" lowUpperBound="50" highLowerBound="90"/>
     </report>
   </coverage>-->
