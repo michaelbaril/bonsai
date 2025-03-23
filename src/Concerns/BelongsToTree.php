@@ -397,9 +397,9 @@ trait BelongsToTree
     // QUERY SCOPES
     // =========================================================================
 
-    public function scopeWithAncestors($query, $depth = null, $constraints = null)
+    protected function scopeWithClosure($query, $relation, $depth = null, $constraints = null)
     {
-        $query->with(['ancestors' => function ($query) use ($depth, $constraints) {
+        $query->with([$relation => function ($query) use ($depth, $constraints) {
             if ($depth !== null) {
                 $query->upToDepth($depth)->orderByDepth();
             }
@@ -409,16 +409,14 @@ trait BelongsToTree
         }]);
     }
 
+    public function scopeWithAncestors($query, $depth = null, $constraints = null)
+    {
+        $this->scopeWithClosure($query, 'ancestors', $depth, $constraints);
+    }
+
     public function scopeWithDescendants($query, $depth = null, $constraints = null)
     {
-        $query->with(['descendants' => function ($query) use ($depth, $constraints) {
-            if ($depth !== null) {
-                $query->upToDepth($depth)->orderByDepth();
-            }
-            if ($constraints !== null) {
-                $constraints($query);
-            }
-        }]);
+        $this->scopeWithClosure($query, 'descendants', $depth, $constraints);
     }
 
     public function scopeWithDepth($query, $as = 'depth')

@@ -1,6 +1,6 @@
 # Bonsai :deciduous_tree:
 
-[![Version](https://img.shields.io/packagist/v/baril/bonsai?label=version)](https://packagist.org/packages/baril/bonsai)
+[![Version](https://img.shields.io/packagist/v/baril/bonsai?label=stable)](https://packagist.org/packages/baril/bonsai)
 [![License](https://img.shields.io/packagist/l/baril/bonsai)](https://packagist.org/packages/baril/bonsai)
 [![Downloads](https://img.shields.io/packagist/dt/baril/bonsai)](https://packagist.org/packages/baril/bonsai/stats)
 [![Tests](https://img.shields.io/github/actions/workflow/status/michaelbaril/bonsai/run-tests.yml?branch=master&label=tests)](https://github.com/michaelbaril/bonsai/actions/workflows/run-tests.yml)
@@ -233,14 +233,12 @@ multiple roots),
 * `getDepth()`: returns the depth of the item in the tree (the root element's depth is 0),
 * `getSubtreeDepth()`: returns the depth of the subtree of which the item is the root (0 if the item is a leaf).
 
-Also, the `getTree` static method can be used to retrieve the whole tree:
+## Static methods
 
-```php
-$tags = Tag::getTree();
-```
-
-It will return a collection of the root elements, with the `children` relation
-eager-loaded on every element up to the leafs.
+* `getTree` retrieves the whole tree as a collection of the root elements,
+with the `children` relation eager-loaded on every element up to the leafs,
+* `getTreeDepth` returns the maximum depth of the tree (eg. 2 for a tree with
+3 levels : root, children and grandchildren).
 
 ## Query scopes
 

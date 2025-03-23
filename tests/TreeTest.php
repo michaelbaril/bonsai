@@ -83,8 +83,9 @@ class TreeTest extends TestCase
         $this->assertTrue($this->tags['B']->isRoot());
         $this->assertFalse($this->tags['AA']->isRoot());
         $this->assertTrue($this->tags['AA']->isLeaf());
-        $this->assertFalse($this->tags['AB']->isLeaf());
+        $this->assertTrue($this->tags['AB']->hasChildren());
         $this->assertTrue($this->tags['ABA']->isChildOf($this->tags['AB']));
+        $this->assertFalse($this->tags['ABA']->isParentOf($this->tags['AB']));
         $this->assertTrue($this->tags['ABA']->isDescendantOf($this->tags['A']));
         $this->assertTrue($this->tags['AB']->isAncestorOf($this->tags['ABA']));
         $this->assertTrue($this->tags['AB']->isSiblingOf($this->tags['AA']));
@@ -123,6 +124,7 @@ class TreeTest extends TestCase
         $this->assertEquals(2, Tag::whereIsRoot()->count());
         $this->assertEquals(3, Tag::whereIsRoot(false)->count());
         $this->assertEquals(3, Tag::whereIsLeaf()->count());
+        $this->assertEquals(2, Tag::whereHasChildren()->count());
 
         $this->assertEquals(3, Tag::whereIsDescendantOf($this->tags['A'])->count());
         $this->assertEquals(3, Tag::whereIsDescendantOf($this->tags['A']->id)->count());
@@ -145,6 +147,16 @@ class TreeTest extends TestCase
         $this->assertCount(1, $tags[0]->children[1]->children);
         $this->assertCount(0, $tags[0]->children[1]->children[0]->children);
         $this->assertEquals($count, count(DB::getQueryLog())); // checking that no new query has been necessary
+    }
+
+    public function test_with_scoped_descendants()
+    {
+        $tags = Tag::with([
+            'descendants' => function ($query) {
+                $query->whereKey($this->tags['AB']->id);
+            },
+        ])->whereKey($this->tags['A']->id)->get();
+        $this->assertCount(1, $tags[0]->descendants);
     }
 
     public function test_with_descendants_and_limited_depth()
@@ -284,27 +296,38 @@ class TreeTest extends TestCase
         $this->assertNull(Tag::find($this->tags['ABA']->id)->parent_id);
     }
 
-    public function test_recreate_closures()
+    /**
+     * @dataProvider closureRelationIsReadonlyProvider
+     */    
+    public function test_closure_relation_is_readonly($method, ...$args)
     {
-        foreach ($this->tags as &$tag) {
-            $tag->descendants_count = $tag->descendants()->count();
-        }
+        $this->expectException(TreeException::class);
+        $this->tags['A']->descendants()->$method(...$args);
+    }
 
-        $connection = $this->tags['A']->getConnection();
-        $closures = $this->tags['A']->getClosureTable();
-        $count = $connection->table($closures)->count();
-        // Inserting some bogus closure that should be deleted after the command has run:
-        $connection->table($closures)->insert([
-            ['ancestor_id' => $this->tags['A']->id, 'descendant_id' => $this->tags['B']->id, 'depth' => 1],
-        ]);
-        // Removing some legit closures:
-        $connection->table($closures)->where('depth', 2)->delete();
+    public static function closureRelationIsReadonlyProvider()
+    {
+        $testData = [
+            ['save', new Tag()],
+            ['saveMany', [new Tag()]],
+            ['create', ['name' => 'toto']],
+            ['createMany', [['name' => 'kiki']]],
+            ['toggle', [123]],
+            ['syncWithoutDetaching', [123]],
+            ['sync', [123]],
+            ['attach', 123],
+            ['detach'],
+        ];
+        return array_combine(
+            array_map(function ($data) {
+                return $data[0];
+            }, $testData),
+            $testData
+        );
+    }
 
-        $this->artisan('bonsai:fix', ['model' => Tag::class]);
-
-        $this->assertEquals($count, $connection->table($closures)->count());
-        foreach ($this->tags as $tag) {
-            $this->assertEquals($tag->descendants_count, $tag->descendants()->count());
-        }
+    public function test_tree_depth()
+    {
+        $this->assertEquals(2, Tag::getTreeDepth());
     }
 }
