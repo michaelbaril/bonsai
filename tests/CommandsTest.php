@@ -77,7 +77,6 @@ class CommandsTest extends TestCase
             $command
                 ->expectsOutputToContain($ab)
                 ->doesntExpectOutputToContain($aba);
-
         }
 
         $command->assertExitCode(0)->execute();

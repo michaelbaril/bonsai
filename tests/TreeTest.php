@@ -151,11 +151,9 @@ class TreeTest extends TestCase
 
     public function test_with_scoped_descendants()
     {
-        $tags = Tag::with([
-            'descendants' => function ($query) {
-                $query->whereKey($this->tags['AB']->id);
-            },
-        ])->whereKey($this->tags['A']->id)->get();
+        $tags = Tag::withDescendants(null, function ($query) {
+            $query->whereKey($this->tags['AB']->id);
+        })->whereKey($this->tags['A']->id)->get();
         $this->assertCount(1, $tags[0]->descendants);
     }
 
@@ -298,7 +296,7 @@ class TreeTest extends TestCase
 
     /**
      * @dataProvider closureRelationIsReadonlyProvider
-     */    
+     */
     public function test_closure_relation_is_readonly($method, ...$args)
     {
         $this->expectException(TreeException::class);

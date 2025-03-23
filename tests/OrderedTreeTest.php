@@ -9,7 +9,7 @@ class OrderedTreeTest extends TestCase
 {
     protected $items;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->items = factory(Model::class, 8)->create();
