@@ -32,18 +32,19 @@ env_replace() {
     return $?
 }
 
-if [[ $# == 0 || $# == 1 && ($1 == 'help' || $1 == 'h' || $1 == '?') ]]; then
+if [[ $# == 0 || $# == 1 && ($1 == 'help') ]]; then
     echo 'Usage:'
     echo -e "${PURPLE}run <COMMAND> min${NC}: run command with the lowest requirements (PHP 7.3, Laravel 8)"
     echo -e "${PURPLE}run <COMMAND> min${NC}: run command with the highest requirements (PHP 8.2, Laravel 11)"
     echo -e "${PURPLE}run <COMMAND> <PHP_VERSION> <LARAVEL_VERSION> <DEPENDENCY_VERSION=lowest|stable> <MYSQL_VERSION>${NC}: run command with the specicied requirements"
-    echo -e "${PURPLE}run <COMMAND> ${NC}: run command with the same requirements as previous run"
+    echo -e "${PURPLE}run <COMMAND>${NC}: run command with the same requirements as previous run"
     echo
     echo 'Available commands:'
-    echo -e "${PURPLE}test${NC}|${PURPLE}tests${NC}|${PURPLE}t${NC}: run PHPUnit tests"
-    echo -e "${PURPLE}sniff${NC}|${PURPLE}cs${NC}: run PHP_CodeSniffer (show errors)"
-    echo -e "${PURPLE}fix${NC}|${PURPLE}cbf${NC}: run PHP Code Beautifier and Fixer (fix errors)"
-    echo -e "${PURPLE}help${NC}|${PURPLE}h${NC}|${PURPLE}?${NC}: this screen"
+    echo -e "${PURPLE}setup${NC}: just setup the containers with the provided requirements"
+    echo -e "${PURPLE}test${NC}: run PHPUnit tests"
+    echo -e "${PURPLE}cs${NC}: run PHP_CodeSniffer (show errors)"
+    echo -e "${PURPLE}cbf${NC}: run PHP Code Beautifier and Fixer (fix errors)"
+    echo -e "${PURPLE}help${NC}: this screen"
 
     exit 0
 fi
@@ -107,13 +108,13 @@ fi
 
 # Run tests
 echo
-if [[ $1 == 'test' || $1 == 'tests' || $1 == 't' ]]; then
+if [[ $1 == 'test' ]]; then
     docker compose exec php ./vendor/bin/phpunit
-elif [[ $1 == 'sniff' || $1 == 'cs' ]]; then
+elif [[ $1 == 'cs' ]]; then
     docker compose exec php ./vendor/bin/phpcs --standard=./phpcs.xml ./src
-elif [[ $1 == 'fix' || $1 == 'cbf' ]]; then
+elif [[ $1 == 'cbf' ]]; then
     docker compose exec php ./vendor/bin/phpcbf --standard=./phpcs.xml ./src ./tests
-else
+elif [[ $1 != 'setup' ]]; then
     $myself help
     exit $?
 fi
