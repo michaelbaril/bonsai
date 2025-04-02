@@ -18,8 +18,8 @@ class CreateTagTreeTable extends Migration
     public function up()
     {
         Schema::create($this->closureTableName, function (Blueprint $table) {
-            $table->unsignedBigInteger('ancestor_id');
-            $table->unsignedBigInteger('descendant_id');
+            $table->foreignId('ancestor_id')->constrained($this->mainTableName)->onDelete('cascade');
+            $table->foreignId('descendant_id')->constrained($this->mainTableName)->onDelete('cascade');
             $table->unsignedSmallInteger('depth');
 
             $table->unique(['ancestor_id', 'descendant_id']);
