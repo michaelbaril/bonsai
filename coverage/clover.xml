@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1748019150">
-  <project timestamp="1748019150" name="Clover Coverage">
+<coverage generated="1748020108">
+  <project timestamp="1748020108" name="Clover Coverage">
     <package name="Baril\Bonsai">
       <file name="/home/runner/work/bonsai/bonsai/src/BonsaiServiceProvider.php">
         <class name="Baril\Bonsai\BonsaiServiceProvider" namespace="Baril\Bonsai">
