@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1748019150">
+  <project timestamp="1748019150" name="Clover Coverage">
+    <package name="Baril\Bonsai">
+      <file name="/home/runner/work/bonsai/bonsai/src/BonsaiServiceProvider.php">
+        <class name="Baril\Bonsai\BonsaiServiceProvider" namespace="Baril\Bonsai">
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
+        </class>
+        <line num="12" type="method" name="register" visibility="public" complexity="1" crap="1" count="43"/>
+        <line num="14" type="stmt" count="43"/>
+        <line num="15" type="stmt" count="43"/>
+        <line num="16" type="stmt" count="43"/>
+        <line num="17" type="stmt" count="43"/>
+        <line num="18" type="stmt" count="43"/>
+        <metrics loc="21" ncloc="21" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
+      </file>
+      <file name="/home/runner/work/bonsai/bonsai/src/TreeException.php">
+        <class name="Baril\Bonsai\TreeException" namespace="Baril\Bonsai">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="11" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="Baril\Bonsai\Concerns">
+      <file name="/home/runner/work/bonsai/bonsai/src/Concerns/BelongsToOrderedTree.php">
+        <class name="Baril\Bonsai\Concerns\BelongsToOrderedTree" namespace="Baril\Bonsai\Concerns">
+          <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
+        </class>
+        <line num="19" type="method" name="getGroupColumn" visibility="public" complexity="1" crap="1" count="43"/>
+        <line num="21" type="stmt" count="43"/>
+        <line num="27" type="method" name="children" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="29" type="stmt" count="7"/>
+        <line num="32" type="method" name="setChildrenFromDescendants" visibility="protected" complexity="1" crap="1" count="7"/>
+        <line num="34" type="stmt" count="7"/>
+        <line num="41" type="method" name="getTree" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="43" type="stmt" count="2"/>
+        <metrics loc="46" ncloc="36" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="8" coveredelements="8"/>
+      </file>
+      <file name="/home/runner/work/bonsai/bonsai/src/Concerns/BelongsToTree.php">
+        <class name="Baril\Bonsai\Concerns\BelongsToTree" namespace="Baril\Bonsai\Concerns">
+          <metrics complexity="68" methods="38" coveredmethods="38" conditionals="0" coveredconditionals="0" statements="204" coveredstatements="204" elements="242" coveredelements="242"/>
+        </class>
+        <line num="15" type="method" name="bootBelongsToTree" visibility="public" complexity="3" crap="3" count="43"/>
+        <line num="17" type="stmt" count="43"/>
+        <line num="18" type="stmt" count="43"/>
+        <line num="19" type="stmt" count="43"/>
+        <line num="20" type="stmt" count="43"/>
+        <line num="21" type="stmt" count="43"/>
+        <line num="22" type="stmt" count="43"/>
+        <line num="23" type="stmt" count="43"/>
+        <line num="24" type="stmt" count="10"/>
+        <line num="25" type="stmt" count="9"/>
+        <line num="27" type="stmt" count="43"/>
+        <line num="28" type="stmt" count="43"/>
+        <line num="29" type="stmt" count="4"/>
+        <line num="30" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="3"/>
+        <line num="33" type="stmt" count="43"/>
+        <line num="41" type="method" name="getParentForeignKeyName" visibility="public" complexity="2" crap="2" count="43"/>
+        <line num="43" type="stmt" count="43"/>
+        <line num="51" type="method" name="getClosureTable" visibility="public" complexity="2" crap="2" count="43"/>
+        <line num="53" type="stmt" count="43"/>
+        <line num="63" type="method" name="deleteNode" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <line num="69" type="stmt" count="1"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="71" type="stmt" count="1"/>
+        <line num="72" type="stmt" count="1"/>
+        <line num="74" type="stmt" count="1"/>
+        <line num="84" type="method" name="deleteTree" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="88" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="1"/>
+        <line num="100" type="method" name="parent" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="102" type="stmt" count="10"/>
+        <line num="125" type="method" name="children" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="127" type="stmt" count="7"/>
+        <line num="133" type="method" name="ancestors" visibility="public" complexity="1" crap="1" count="12"/>
+        <line num="135" type="stmt" count="12"/>
+        <line num="136" type="stmt" count="12"/>
+        <line num="137" type="stmt" count="12"/>
+        <line num="138" type="stmt" count="12"/>
+        <line num="139" type="stmt" count="12"/>
+        <line num="140" type="stmt" count="12"/>
+        <line num="141" type="stmt" count="12"/>
+        <line num="142" type="stmt" count="12"/>
+        <line num="143" type="stmt" count="12"/>
+        <line num="144" type="stmt" count="12"/>
+        <line num="145" type="stmt" count="12"/>
+        <line num="151" type="method" name="descendants" visibility="public" complexity="1" crap="1" count="22"/>
+        <line num="153" type="stmt" count="22"/>
+        <line num="154" type="stmt" count="22"/>
+        <line num="155" type="stmt" count="22"/>
+        <line num="156" type="stmt" count="22"/>
+        <line num="157" type="stmt" count="22"/>
+        <line num="158" type="stmt" count="22"/>
+        <line num="159" type="stmt" count="22"/>
+        <line num="160" type="stmt" count="22"/>
+        <line num="161" type="stmt" count="22"/>
+        <line num="162" type="stmt" count="22"/>
+        <line num="163" type="stmt" count="22"/>
+        <line num="172" type="method" name="setRelation" visibility="public" complexity="3" crap="3" count="20"/>
+        <line num="175" type="stmt" count="20"/>
+        <line num="176" type="stmt" count="7"/>
+        <line num="177" type="stmt" count="7"/>
+        <line num="178" type="stmt" count="20"/>
+        <line num="179" type="stmt" count="4"/>
+        <line num="180" type="stmt" count="4"/>
+        <line num="182" type="stmt" count="20"/>
+        <line num="192" type="method" name="setChildrenFromDescendants" visibility="protected" complexity="5" crap="5" count="7"/>
+        <line num="194" type="stmt" count="7"/>
+        <line num="195" type="stmt" count="7"/>
+        <line num="197" type="stmt" count="7"/>
+        <line num="198" type="stmt" count="7"/>
+        <line num="199" type="stmt" count="4"/>
+        <line num="200" type="stmt" count="4"/>
+        <line num="202" type="stmt" count="4"/>
+        <line num="204" type="stmt" count="7"/>
+        <line num="207" type="stmt" count="7"/>
+        <line num="208" type="stmt" count="7"/>
+        <line num="209" type="stmt" count="5"/>
+        <line num="211" type="stmt" count="7"/>
+        <line num="213" type="stmt" count="7"/>
+        <line num="214" type="stmt" count="7"/>
+        <line num="215" type="stmt" count="7"/>
+        <line num="225" type="method" name="setParentsFromAncestors" visibility="protected" complexity="4" crap="4" count="4"/>
+        <line num="227" type="stmt" count="4"/>
+        <line num="228" type="stmt" count="4"/>
+        <line num="231" type="stmt" count="4"/>
+        <line num="232" type="stmt" count="4"/>
+        <line num="234" type="stmt" count="4"/>
+        <line num="235" type="stmt" count="4"/>
+        <line num="236" type="stmt" count="3"/>
+        <line num="237" type="stmt" count="4"/>
+        <line num="238" type="stmt" count="3"/>
+        <line num="240" type="stmt" count="4"/>
+        <line num="251" type="method" name="isRoot" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="253" type="stmt" count="1"/>
+        <line num="254" type="stmt" count="1"/>
+        <line num="261" type="method" name="isLeaf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="263" type="stmt" count="1"/>
+        <line num="270" type="method" name="hasChildren" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="272" type="stmt" count="1"/>
+        <line num="279" type="method" name="isChildOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="281" type="stmt" count="1"/>
+        <line num="282" type="stmt" count="1"/>
+        <line num="290" type="method" name="isParentOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="292" type="stmt" count="1"/>
+        <line num="300" type="method" name="isDescendantOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="302" type="stmt" count="1"/>
+        <line num="310" type="method" name="isAncestorOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="312" type="stmt" count="1"/>
+        <line num="320" type="method" name="isSiblingOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="322" type="stmt" count="1"/>
+        <line num="323" type="stmt" count="1"/>
+        <line num="334" type="method" name="findCommonAncestorWith" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="336" type="stmt" count="3"/>
+        <line num="337" type="stmt" count="3"/>
+        <line num="338" type="stmt" count="3"/>
+        <line num="339" type="stmt" count="3"/>
+        <line num="340" type="stmt" count="3"/>
+        <line num="352" type="method" name="getDistanceTo" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="354" type="stmt" count="2"/>
+        <line num="355" type="stmt" count="2"/>
+        <line num="356" type="stmt" count="1"/>
+        <line num="358" type="stmt" count="1"/>
+        <line num="359" type="stmt" count="1"/>
+        <line num="360" type="stmt" count="1"/>
+        <line num="361" type="stmt" count="1"/>
+        <line num="369" type="method" name="getDepth" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="371" type="stmt" count="1"/>
+        <line num="379" type="method" name="getSubtreeDepth" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="381" type="stmt" count="1"/>
+        <line num="389" type="method" name="scopeWithClosure" visibility="protected" complexity="3" crap="3" count="5"/>
+        <line num="391" type="stmt" count="5"/>
+        <line num="392" type="stmt" count="5"/>
+        <line num="393" type="stmt" count="3"/>
+        <line num="395" type="stmt" count="5"/>
+        <line num="396" type="stmt" count="1"/>
+        <line num="398" type="stmt" count="5"/>
+        <line num="401" type="method" name="scopeWithAncestors" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="403" type="stmt" count="1"/>
+        <line num="406" type="method" name="scopeWithDescendants" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="408" type="stmt" count="4"/>
+        <line num="411" type="method" name="scopeWithDepth" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="413" type="stmt" count="1"/>
+        <line num="416" type="method" name="scopeWhereIsRoot" visibility="public" complexity="2" crap="2" count="3"/>
+        <line num="418" type="stmt" count="3"/>
+        <line num="421" type="method" name="scopeWhereIsLeaf" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="423" type="stmt" count="1"/>
+        <line num="424" type="stmt" count="1"/>
+        <line num="426" type="stmt" count="1"/>
+        <line num="430" type="method" name="scopeWhereHasChildren" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="432" type="stmt" count="1"/>
+        <line num="435" type="method" name="scopeWhereIsDescendantOf" visibility="public" complexity="4" crap="4" count="43"/>
+        <line num="437" type="stmt" count="43"/>
+        <line num="438" type="stmt" count="43"/>
+        <line num="439" type="stmt" count="43"/>
+        <line num="440" type="stmt" count="43"/>
+        <line num="441" type="stmt" count="43"/>
+        <line num="442" type="stmt" count="43"/>
+        <line num="443" type="stmt" count="43"/>
+        <line num="444" type="stmt" count="43"/>
+        <line num="445" type="stmt" count="43"/>
+        <line num="446" type="stmt" count="43"/>
+        <line num="448" type="stmt" count="43"/>
+        <line num="449" type="stmt" count="1"/>
+        <line num="451" type="stmt" count="43"/>
+        <line num="452" type="stmt" count="43"/>
+        <line num="453" type="stmt" count="43"/>
+        <line num="456" type="method" name="scopeWhereIsAncestorOf" visibility="public" complexity="4" crap="4" count="4"/>
+        <line num="458" type="stmt" count="4"/>
+        <line num="459" type="stmt" count="4"/>
+        <line num="460" type="stmt" count="4"/>
+        <line num="461" type="stmt" count="4"/>
+        <line num="462" type="stmt" count="4"/>
+        <line num="463" type="stmt" count="4"/>
+        <line num="464" type="stmt" count="4"/>
+        <line num="465" type="stmt" count="4"/>
+        <line num="466" type="stmt" count="4"/>
+        <line num="467" type="stmt" count="1"/>
+        <line num="469" type="stmt" count="4"/>
+        <line num="470" type="stmt" count="1"/>
+        <line num="472" type="stmt" count="4"/>
+        <line num="473" type="stmt" count="4"/>
+        <line num="474" type="stmt" count="4"/>
+        <line num="488" type="method" name="getTree" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="490" type="stmt" count="2"/>
+        <line num="498" type="method" name="getTreeDepth" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="500" type="stmt" count="1"/>
+        <line num="501" type="stmt" count="1"/>
+        <line num="515" type="method" name="checkIfParentIdIsValid" visibility="protected" complexity="4" crap="4" count="43"/>
+        <line num="517" type="stmt" count="43"/>
+        <line num="519" type="stmt" count="43"/>
+        <line num="520" type="stmt" count="43"/>
+        <line num="523" type="stmt" count="43"/>
+        <line num="524" type="stmt" count="43"/>
+        <line num="526" type="stmt" count="3"/>
+        <line num="527" type="stmt" count="3"/>
+        <line num="528" type="stmt" count="3"/>
+        <line num="537" type="method" name="refreshClosures" visibility="public" complexity="3" crap="3" count="43"/>
+        <line num="539" type="stmt" count="43"/>
+        <line num="540" type="stmt" count="43"/>
+        <line num="542" type="stmt" count="43"/>
+        <line num="544" type="stmt" count="43"/>
+        <line num="545" type="stmt" count="43"/>
+        <line num="546" type="stmt" count="43"/>
+        <line num="547" type="stmt" count="43"/>
+        <line num="550" type="stmt" count="43"/>
+        <line num="559" type="stmt" count="9"/>
+        <line num="560" type="stmt" count="9"/>
+        <line num="561" type="stmt" count="9"/>
+        <line num="562" type="stmt" count="9"/>
+        <line num="563" type="stmt" count="9"/>
+        <line num="564" type="stmt" count="9"/>
+        <line num="565" type="stmt" count="9"/>
+        <line num="569" type="stmt" count="43"/>
+        <line num="570" type="stmt" count="43"/>
+        <line num="571" type="stmt" count="43"/>
+        <line num="572" type="stmt" count="43"/>
+        <line num="573" type="stmt" count="43"/>
+        <line num="576" type="stmt" count="43"/>
+        <line num="583" type="stmt" count="43"/>
+        <line num="584" type="stmt" count="43"/>
+        <line num="585" type="stmt" count="43"/>
+        <line num="586" type="stmt" count="43"/>
+        <line num="587" type="stmt" count="43"/>
+        <line num="588" type="stmt" count="43"/>
+        <line num="589" type="stmt" count="43"/>
+        <line num="590" type="stmt" count="43"/>
+        <line num="591" type="stmt" count="43"/>
+        <line num="592" type="stmt" count="43"/>
+        <line num="593" type="stmt" count="43"/>
+        <line num="594" type="stmt" count="43"/>
+        <line num="595" type="stmt" count="43"/>
+        <line num="596" type="stmt" count="43"/>
+        <line num="597" type="stmt" count="43"/>
+        <line num="599" type="stmt" count="43"/>
+        <line num="605" type="method" name="deleteClosuresForLeaf" visibility="protected" complexity="1" crap="1" count="3"/>
+        <line num="607" type="stmt" count="3"/>
+        <line num="608" type="stmt" count="3"/>
+        <metrics loc="611" ncloc="413" classes="1" methods="38" coveredmethods="38" conditionals="0" coveredconditionals="0" statements="204" coveredstatements="204" elements="242" coveredelements="242"/>
+      </file>
+    </package>
+    <package name="Baril\Bonsai\Console">
+      <file name="/home/runner/work/bonsai/bonsai/src/Console/FixTreeCommand.php">
+        <class name="Baril\Bonsai\Console\FixTreeCommand" namespace="Baril\Bonsai\Console">
+          <metrics complexity="6" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="33" elements="37" coveredelements="34"/>
+        </class>
+        <line num="15" type="method" name="handle" visibility="public" complexity="4" crap="4.37" count="1"/>
+        <line num="17" type="stmt" count="1"/>
+        <line num="19" type="stmt" count="1"/>
+        <line num="20" type="stmt" count="1"/>
+        <line num="21" type="stmt" count="1"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="30" type="method" name="rebuildClosures" visibility="protected" complexity="2" crap="2" count="1"/>
+        <line num="32" type="stmt" count="1"/>
+        <line num="33" type="stmt" count="1"/>
+        <line num="34" type="stmt" count="1"/>
+        <line num="35" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="37" type="stmt" count="1"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <line num="69" type="stmt" count="1"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="72" type="stmt" count="1"/>
+        <line num="74" type="stmt" count="1"/>
+        <metrics loc="77" ncloc="67" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="33" elements="37" coveredelements="34"/>
+      </file>
+      <file name="/home/runner/work/bonsai/bonsai/src/Console/GrowTreeCommand.php">
+        <class name="Baril\Bonsai\Console\GrowTreeCommand" namespace="Baril\Bonsai\Console">
+          <metrics complexity="10" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="1" elements="47" coveredelements="2"/>
+        </class>
+        <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="43"/>
+        <line num="22" type="stmt" count="43"/>
+        <line num="25" type="method" name="handle" visibility="public" complexity="6" crap="42" count="0"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="46" type="method" name="writeClosureMigration" visibility="protected" complexity="2" crap="6" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="76" type="method" name="getMigrationContents" visibility="protected" complexity="1" crap="2" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <metrics loc="94" ncloc="89" classes="1" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="1" elements="47" coveredelements="2"/>
+      </file>
+      <file name="/home/runner/work/bonsai/bonsai/src/Console/ShowTreeCommand.php">
+        <class name="Baril\Bonsai\Console\ShowTreeCommand" namespace="Baril\Bonsai\Console">
+          <metrics complexity="13" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="25" elements="30" coveredelements="27"/>
+        </class>
+        <line num="20" type="method" name="handle" visibility="public" complexity="4" crap="4.18" count="1"/>
+        <line num="22" type="stmt" count="1"/>
+        <line num="24" type="stmt" count="1"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="26" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="1"/>
+        <line num="33" type="stmt" count="1"/>
+        <line num="35" type="stmt" count="1"/>
+        <line num="38" type="method" name="showTree" visibility="protected" complexity="2" crap="2" count="1"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="1"/>
+        <line num="42" type="stmt" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="47" type="method" name="showNode" visibility="protected" complexity="7" crap="7" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="51" type="stmt" count="1"/>
+        <line num="52" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="56" type="stmt" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <metrics loc="69" ncloc="69" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="25" elements="30" coveredelements="27"/>
+      </file>
+    </package>
+    <package name="Baril\Bonsai\Migrations">
+      <file name="/home/runner/work/bonsai/bonsai/src/Migrations/MigrationCreator.php">
+        <class name="Baril\Bonsai\Migrations\MigrationCreator" namespace="Baril\Bonsai\Migrations">
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="43"/>
+        <line num="12" type="stmt" count="43"/>
+        <metrics loc="15" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+    </package>
+    <package name="Baril\Bonsai\Relations">
+      <file name="/home/runner/work/bonsai/bonsai/src/Relations/Closure.php">
+        <class name="Baril\Bonsai\Relations\Closure" namespace="Baril\Bonsai\Relations">
+          <metrics complexity="21" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="45" coveredelements="45"/>
+        </class>
+        <line num="13" type="method" name="orderByDepth" visibility="public" complexity="1" crap="1" count="9"/>
+        <line num="15" type="stmt" count="9"/>
+        <line num="18" type="method" name="upToDepth" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="20" type="stmt" count="3"/>
+        <line num="21" type="stmt" count="3"/>
+        <line num="24" type="method" name="excludingSelf" visibility="public" complexity="1" crap="1" count="30"/>
+        <line num="26" type="stmt" count="30"/>
+        <line num="27" type="stmt" count="30"/>
+        <line num="30" type="method" name="includingSelf" visibility="public" complexity="5" crap="5" count="5"/>
+        <line num="32" type="stmt" count="5"/>
+        <line num="33" type="stmt" count="5"/>
+        <line num="34" type="stmt" count="5"/>
+        <line num="37" type="stmt" count="5"/>
+        <line num="39" type="stmt" count="5"/>
+        <line num="40" type="stmt" count="5"/>
+        <line num="41" type="stmt" count="5"/>
+        <line num="42" type="stmt" count="5"/>
+        <line num="43" type="stmt" count="5"/>
+        <line num="46" type="stmt" count="5"/>
+        <line num="47" type="stmt" count="5"/>
+        <line num="56" type="method" name="migratePivotAttributes" visibility="protected" complexity="3" crap="3" count="13"/>
+        <line num="58" type="stmt" count="13"/>
+        <line num="59" type="stmt" count="13"/>
+        <line num="60" type="stmt" count="3"/>
+        <line num="63" type="stmt" count="13"/>
+        <line num="69" type="method" name="readOnly" visibility="protected" complexity="1" crap="1" count="9"/>
+        <line num="71" type="stmt" count="9"/>
+        <line num="74" type="method" name="save" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="79" type="method" name="saveMany" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="81" type="stmt" count="1"/>
+        <line num="84" type="method" name="create" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="89" type="method" name="createMany" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="91" type="stmt" count="1"/>
+        <line num="94" type="method" name="toggle" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="96" type="stmt" count="1"/>
+        <line num="99" type="method" name="syncWithoutDetaching" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="101" type="stmt" count="1"/>
+        <line num="104" type="method" name="sync" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="106" type="stmt" count="1"/>
+        <line num="109" type="method" name="attach" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="111" type="stmt" count="1"/>
+        <line num="114" type="method" name="detach" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="116" type="stmt" count="1"/>
+        <metrics loc="119" ncloc="110" classes="1" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="45" coveredelements="45"/>
+      </file>
+    </package>
+    <metrics files="9" loc="1063" ncloc="830" classes="8" methods="68" coveredmethods="63" conditionals="0" coveredconditionals="0" statements="349" coveredstatements="303" elements="417" coveredelements="366"/>
+  </project>
+</coverage>
