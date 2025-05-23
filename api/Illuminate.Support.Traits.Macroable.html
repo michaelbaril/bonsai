@@ -146,12 +146,12 @@
 			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Console.FixTreeCommand.html"><span>Baril\Bonsai\Console\FixTreeCommand</span></a>
+<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
 
 
 	</li>
 	<li>
-<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
+<a href="Baril.Bonsai.Console.FixTreeCommand.html"><span>Baril\Bonsai\Console\FixTreeCommand</span></a>
 
 
 	</li>
@@ -314,6 +314,29 @@
 	</ul>
 	</li>
 	<li>
+<a href="Illuminate.Database.Grammar.html"><span>Illuminate\Database\Grammar</span></a>
+
+
+		uses
+			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span>Illuminate\Database\Schema\Grammars\Grammar</span></a>
+
+
+		uses
+			<a href="Illuminate.Database.Concerns.CompilesJsonPaths.html"><span title="Illuminate\Database\Concerns\CompilesJsonPaths">CompilesJsonPaths</span></a>
+	</li>
+	<li>
+<a href="Illuminate.Database.Query.Grammars.Grammar.html"><span>Illuminate\Database\Query\Grammars\Grammar</span></a>
+
+
+		uses
+			<a href="Illuminate.Database.Concerns.CompilesJsonPaths.html"><span title="Illuminate\Database\Concerns\CompilesJsonPaths">CompilesJsonPaths</span></a>
+	</li>
+	</ul>
+	</li>
+	<li>
 <a href="Illuminate.Support.LazyCollection.html"><span>Illuminate\Support\LazyCollection</span></a>
 
 		implements
@@ -389,18 +412,10 @@
 	</ul>
 	</li>
 	<li>
-<a href="Illuminate.Http.Request.html"><span>Illuminate\Http\Request</span></a>
+<a href="Illuminate.Database.Schema.Builder.html"><span>Illuminate\Database\Schema\Builder</span></a>
 
-		implements
-			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>, 
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>
 
 		uses
-			<a href="Illuminate.Http.Concerns.CanBePrecognitive.html"><span title="Illuminate\Http\Concerns\CanBePrecognitive">CanBePrecognitive</span></a>, 
-			<a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html"><span title="Illuminate\Http\Concerns\InteractsWithContentTypes">InteractsWithContentTypes</span></a>, 
-			<a href="Illuminate.Http.Concerns.InteractsWithFlashData.html"><span title="Illuminate\Http\Concerns\InteractsWithFlashData">InteractsWithFlashData</span></a>, 
-			<a href="Illuminate.Http.Concerns.InteractsWithInput.html"><span title="Illuminate\Http\Concerns\InteractsWithInput">InteractsWithInput</span></a>, 
-			<a href="Illuminate.Support.Traits.Conditionable.html"><span title="Illuminate\Support\Traits\Conditionable">Conditionable</span></a>, 
 			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
 	</li>
 	<li>
@@ -430,31 +445,30 @@
 	</ul>
 	</li>
 	<li>
-<a href="Illuminate.Database.Schema.ForeignKeyDefinition.html"><span>Illuminate\Database\Schema\ForeignKeyDefinition</span></a>
-
-
-	</li>
-	<li>
 <a href="Illuminate.Database.Schema.IndexDefinition.html"><span>Illuminate\Database\Schema\IndexDefinition</span></a>
 
 
 	</li>
+	<li>
+<a href="Illuminate.Database.Schema.ForeignKeyDefinition.html"><span>Illuminate\Database\Schema\ForeignKeyDefinition</span></a>
+
+
+	</li>
 	</ul>
 	</li>
 	<li>
-<a href="Illuminate.Http.UploadedFile.html"><span>Illuminate\Http\UploadedFile</span></a>
+<a href="Illuminate.Support.Stringable.html"><span>Illuminate\Support\Stringable</span></a>
 
+		implements
+			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
+			<a href="Stringable.html"><span title="Stringable">Stringable</span></a>
 
 		uses
-			<a href="Illuminate.Http.FileHelpers.html"><span title="Illuminate\Http\FileHelpers">FileHelpers</span></a>, 
-			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
-	<ul class="classTree">
-	<li>
-<a href="Illuminate.Http.Testing.File.html"><span>Illuminate\Http\Testing\File</span></a>
-
-
-	</li>
-	</ul>
+			<a href="Illuminate.Support.Traits.Conditionable.html"><span title="Illuminate\Support\Traits\Conditionable">Conditionable</span></a>, 
+			<a href="Illuminate.Support.Traits.Dumpable.html"><span title="Illuminate\Support\Traits\Dumpable">Dumpable</span></a>, 
+			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>, 
+			<a href="Illuminate.Support.Traits.Tappable.html"><span title="Illuminate\Support\Traits\Tappable">Tappable</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Http.JsonResponse.html"><span>Illuminate\Http\JsonResponse</span></a>
@@ -462,6 +476,21 @@
 
 		uses
 			<a href="Illuminate.Http.ResponseTrait.html"><span title="Illuminate\Http\ResponseTrait">ResponseTrait</span></a>, 
+			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
+	</li>
+	<li>
+<a href="Illuminate.Http.Request.html"><span>Illuminate\Http\Request</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>, 
+			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>
+
+		uses
+			<a href="Illuminate.Http.Concerns.CanBePrecognitive.html"><span title="Illuminate\Http\Concerns\CanBePrecognitive">CanBePrecognitive</span></a>, 
+			<a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html"><span title="Illuminate\Http\Concerns\InteractsWithContentTypes">InteractsWithContentTypes</span></a>, 
+			<a href="Illuminate.Http.Concerns.InteractsWithFlashData.html"><span title="Illuminate\Http\Concerns\InteractsWithFlashData">InteractsWithFlashData</span></a>, 
+			<a href="Illuminate.Http.Concerns.InteractsWithInput.html"><span title="Illuminate\Http\Concerns\InteractsWithInput">InteractsWithInput</span></a>, 
+			<a href="Illuminate.Support.Traits.Conditionable.html"><span title="Illuminate\Support\Traits\Conditionable">Conditionable</span></a>, 
 			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
 	</li>
 	<li>
@@ -479,43 +508,6 @@
 			<a href="Illuminate.Support.Traits.Tappable.html"><span title="Illuminate\Support\Traits\Tappable">Tappable</span></a>
 	</li>
 	<li>
-<a href="Illuminate.Database.Schema.Blueprint.html"><span>Illuminate\Database\Schema\Blueprint</span></a>
-
-
-		uses
-			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
-	</li>
-	<li>
-<a href="Illuminate.Database.Schema.Builder.html"><span>Illuminate\Database\Schema\Builder</span></a>
-
-
-		uses
-			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
-	</li>
-	<li>
-<a href="Illuminate.Database.Grammar.html"><span>Illuminate\Database\Grammar</span></a>
-
-
-		uses
-			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
-	<ul class="classTree">
-	<li>
-<a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span>Illuminate\Database\Schema\Grammars\Grammar</span></a>
-
-
-		uses
-			<a href="Illuminate.Database.Concerns.CompilesJsonPaths.html"><span title="Illuminate\Database\Concerns\CompilesJsonPaths">CompilesJsonPaths</span></a>
-	</li>
-	<li>
-<a href="Illuminate.Database.Query.Grammars.Grammar.html"><span>Illuminate\Database\Query\Grammars\Grammar</span></a>
-
-
-		uses
-			<a href="Illuminate.Database.Concerns.CompilesJsonPaths.html"><span title="Illuminate\Database\Concerns\CompilesJsonPaths">CompilesJsonPaths</span></a>
-	</li>
-	</ul>
-	</li>
-	<li>
 <a href="Illuminate.Http.RedirectResponse.html"><span>Illuminate\Http\RedirectResponse</span></a>
 
 
@@ -525,18 +517,11 @@
 			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
 	</li>
 	<li>
-<a href="Illuminate.Support.Stringable.html"><span>Illuminate\Support\Stringable</span></a>
+<a href="Illuminate.Database.Schema.Blueprint.html"><span>Illuminate\Database\Schema\Blueprint</span></a>
 
-		implements
-			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
-			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
-			<a href="Stringable.html"><span title="Stringable">Stringable</span></a>
 
 		uses
-			<a href="Illuminate.Support.Traits.Conditionable.html"><span title="Illuminate\Support\Traits\Conditionable">Conditionable</span></a>, 
-			<a href="Illuminate.Support.Traits.Dumpable.html"><span title="Illuminate\Support\Traits\Dumpable">Dumpable</span></a>, 
-			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>, 
-			<a href="Illuminate.Support.Traits.Tappable.html"><span title="Illuminate\Support\Traits\Tappable">Tappable</span></a>
+			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
 	</li>
 	<li>
 <a href="Illuminate.Routing.Route.html"><span>Illuminate\Routing\Route</span></a>
@@ -559,6 +544,21 @@
 			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
 	</li>
 	<li>
+<a href="Illuminate.Http.UploadedFile.html"><span>Illuminate\Http\UploadedFile</span></a>
+
+
+		uses
+			<a href="Illuminate.Http.FileHelpers.html"><span title="Illuminate\Http\FileHelpers">FileHelpers</span></a>, 
+			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Http.Testing.File.html"><span>Illuminate\Http\Testing\File</span></a>
+
+
+	</li>
+	</ul>
+	</li>
+	<li>
 <a href="Illuminate.Routing.Router.html"><span>Illuminate\Routing\Router</span></a>
 
 		implements
@@ -570,7 +570,7 @@
 			<a href="Illuminate.Support.Traits.Tappable.html"><span title="Illuminate\Support\Traits\Tappable">Tappable</span></a>
 	</li>
 	<li>
-<a href="Illuminate.Routing.PendingResourceRegistration.html"><span>Illuminate\Routing\PendingResourceRegistration</span></a>
+<a href="Illuminate.Routing.PendingSingletonResourceRegistration.html"><span>Illuminate\Routing\PendingSingletonResourceRegistration</span></a>
 
 
 		uses
@@ -578,7 +578,7 @@
 			<b><span class="active" title="Illuminate\Support\Traits\Macroable">Macroable</span></b>
 	</li>
 	<li>
-<a href="Illuminate.Routing.PendingSingletonResourceRegistration.html"><span>Illuminate\Routing\PendingSingletonResourceRegistration</span></a>
+<a href="Illuminate.Routing.PendingResourceRegistration.html"><span>Illuminate\Routing\PendingResourceRegistration</span></a>
 
 
 		uses
