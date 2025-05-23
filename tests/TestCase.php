@@ -5,13 +5,10 @@ namespace Baril\Bonsai\Tests;
 use Baril\Bonsai\BonsaiServiceProvider;
 use Baril\Orderly\OrderlyServiceProvider;
 use Dotenv\Dotenv;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
 {
-    use DatabaseTransactions;
-
     protected function getEnvironmentSetUp($app)
     {
         $this->loadEnv(['.env.test', '.env']);
