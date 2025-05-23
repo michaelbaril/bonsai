@@ -56,7 +56,12 @@ class FixTreeCommand extends Command
                 // WHERE closure_table.depth = $depth - 1"
                 $select = $connection
                     ->table($table, 'main_table')
-                    ->join("$closureTable as closure_table", "main_table.$parentKey", '=', 'closure_table.descendant_id')
+                    ->join(
+                        "$closureTable as closure_table",
+                        "main_table.$parentKey",
+                        '=',
+                        'closure_table.descendant_id'
+                    )
                     ->where('closure_table.depth', '=', $depth - 1)
                     ->select('closure_table.ancestor_id', "main_table.$primaryKey", $connection->raw((string) $depth));
                 $connection->table($closureTable)->insertUsing(['ancestor_id', 'descendant_id', 'depth'], $select);

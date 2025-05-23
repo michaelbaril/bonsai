@@ -7,7 +7,7 @@
 [![Coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fmichaelbaril.github.io%2Fbonsai%2Fcoverage%2Fbadge.json)](https://michaelbaril.github.io/bonsai/coverage/)
 
 This package is an implementation of the "Closure Table" design pattern for
-Laravel and MySQL. This pattern allows for faster querying of tree-like
+Laravel Eloquent. This pattern allows for faster querying of tree-like
 structures stored in a relational database. It is an alternative to nested sets.
 
 You can find the full API documentation [here](https://michaelbaril.github.io/bonsai/api/).
@@ -22,6 +22,9 @@ You can find the full API documentation [here](https://michaelbaril.github.io/bo
  8.x      | 2.x / 3.x
  7.x      | 1.x
  6.x      | 1.x
+
+:warning: Up until version 3.2, only MySQL is supported. Starting with version 3.3,
+all SGBDs supported by Eloquent are supported by this package.
  
 ## Closure Table pattern
 
