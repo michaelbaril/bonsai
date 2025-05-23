@@ -98,6 +98,11 @@
 							QueriesRelationships
 						</a>
 					</li>
+					<li>
+						<a href="Illuminate.Database.Eloquent.Concerns.TransformsToResource.html">
+							TransformsToResource
+						</a>
+					</li>
 			</ul>
 		</div>
 	</div>
@@ -171,6 +176,7 @@
 			<a href="Illuminate.Database.Eloquent.Concerns.HidesAttributes.html"><span title="Illuminate\Database\Eloquent\Concerns\HidesAttributes">HidesAttributes</span></a>, 
 			<a href="Illuminate.Database.Eloquent.Concerns.GuardsAttributes.html"><span title="Illuminate\Database\Eloquent\Concerns\GuardsAttributes">GuardsAttributes</span></a>, 
 			<a href="Illuminate.Database.Eloquent.Concerns.PreventsCircularRecursion.html"><span title="Illuminate\Database\Eloquent\Concerns\PreventsCircularRecursion">PreventsCircularRecursion</span></a>, 
+			<a href="Illuminate.Database.Eloquent.Concerns.TransformsToResource.html"><span title="Illuminate\Database\Eloquent\Concerns\TransformsToResource">TransformsToResource</span></a>, 
 			<a href="Illuminate.Support.Traits.ForwardsCalls.html"><span title="Illuminate\Support\Traits\ForwardsCalls">ForwardsCalls</span></a>, 
 			<a href="Illuminate.Database.Eloquent.HasCollection.html"><span title="Illuminate\Database\Eloquent\HasCollection">HasCollection</span></a>
 	<ul class="classTree">
@@ -1801,6 +1807,37 @@
 			<a href="#_castAttributeAsJson">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getJsonCastFlags" id="_getJsonCastFlags">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getJsonCastFlags(<span>string <var>$key</var></span>): int</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the JSON casting flags for the given attribute.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the JSON casting flags for the given attribute.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getJsonCastFlags">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="asJson" id="_asJson">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1812,7 +1849,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>asJson(<span>mixed <var>$value</var></span>): string</code>
+				<code>asJson(<span>mixed <var>$value</var></span>, <span>int <var>$flags</var> = <span class="php-num">0</span></span>): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3011,7 +3048,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getOriginal(<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): mixed|array</code>
+				<code>getOriginal(<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): ($key is null&nbsp;?&nbsp;array&lt;string, mixed&gt;&nbsp;:&nbsp;mixed)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3042,7 +3079,10 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getOriginalWithoutRewindingModel(<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): mixed|array</code>
+				<code>getOriginalWithoutRewindingModel(
+	<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>,
+	<span>mixed <var>$default</var> = <span class="php-kw">null</span></span>,
+): ($key is null&nbsp;?&nbsp;array&lt;string, mixed&gt;&nbsp;:&nbsp;mixed)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3073,7 +3113,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getRawOriginal(<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): mixed|array</code>
+				<code>getRawOriginal(<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): ($key is null&nbsp;?&nbsp;array&lt;string, mixed&gt;&nbsp;:&nbsp;mixed)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3122,6 +3162,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_only">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="except" id="_except">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>except(<span>array|mixed <var>$attributes</var></span>): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Get all attributes except the given ones.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get all attributes except the given ones.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_except">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="syncOriginal" id="_syncOriginal">
@@ -3494,6 +3565,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_getChanges">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getPrevious" id="_getPrevious">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getPrevious(): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the attributes that were previously original before the model was last saved.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the attributes that were previously original before the model was last saved.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getPrevious">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="originalIsEquivalent" id="_originalIsEquivalent">
@@ -3886,6 +3988,30 @@
 			<a href="#$changes">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="previous" id="$previous">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$previous</var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$previous">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="casts" id="$casts">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3995,6 +4121,7 @@
 	<span class="php-str">'int'</span>,
 	<span class="php-str">'integer'</span>,
 	<span class="php-str">'json'</span>,
+	<span class="php-str">'json:unicode'</span>,
 	<span class="php-str">'object'</span>,
 	<span class="php-str">'real'</span>,
 	<span class="php-str">'string'</span>,

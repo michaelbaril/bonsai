@@ -185,14 +185,14 @@
 			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	<ul class="classTree">
 	<li>
-<a href="Illuminate.Database.Query.Grammars.Grammar.html"><span>Illuminate\Database\Query\Grammars\Grammar</span></a>
+<a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span>Illuminate\Database\Schema\Grammars\Grammar</span></a>
 
 
 		uses
 			<a href="Illuminate.Database.Concerns.CompilesJsonPaths.html"><span title="Illuminate\Database\Concerns\CompilesJsonPaths">CompilesJsonPaths</span></a>
 	</li>
 	<li>
-<a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span>Illuminate\Database\Schema\Grammars\Grammar</span></a>
+<a href="Illuminate.Database.Query.Grammars.Grammar.html"><span>Illuminate\Database\Query\Grammars\Grammar</span></a>
 
 
 		uses
@@ -214,6 +214,37 @@
 				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
 			</tr>
 
+	<tr class="expandable collapsed" data-order="__construct" id="___construct">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>__construct(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>)</code>
+
+
+	<div class="expandable-collapsedView">
+		Create a new grammar instance.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Create a new grammar instance.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#___construct">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="wrapArray" id="_wrapArray">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -225,7 +256,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>wrapArray(<span>array <var>$values</var></span>): array</code>
+				<code>wrapArray(<span>array&lt;<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string&gt; <var>$values</var></span>): array&lt;string&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -256,7 +287,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>wrapTable(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$table</var></span>): string</code>
+				<code>wrapTable(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$table</var></span>, <span>string|null <var>$prefix</var> = <span class="php-kw">null</span></span>): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -359,7 +390,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>wrapAliasedTable(<span>string <var>$value</var></span>): string</code>
+				<code>wrapAliasedTable(<span>string <var>$value</var></span>, <span>string|null <var>$prefix</var> = <span class="php-kw">null</span></span>): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -390,7 +421,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>wrapSegments(<span>array <var>$segments</var></span>): string</code>
+				<code>wrapSegments(<span>list&lt;string&gt; <var>$segments</var></span>): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -521,7 +552,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>columnize(<span>array <var>$columns</var></span>): string</code>
+				<code>columnize(<span>array&lt;<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string&gt; <var>$columns</var></span>): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -552,7 +583,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>parameterize(<span>array <var>$values</var></span>): string</code>
+				<code>parameterize(<span>array&lt;mixed&gt; <var>$values</var></span>): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -614,7 +645,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>quoteString(<span>string|array <var>$value</var></span>): string</code>
+				<code>quoteString(<span>string|array&lt;string&gt; <var>$value</var></span>): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -769,7 +800,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getTablePrefix(): string</code>
+				<code><span class="deprecated">getTablePrefix</span>(): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -779,6 +810,11 @@
 	<div class="expandable-expandedView">
 	<div class="description"><p>Get the grammar's table prefix.</p>
 </div>
+							<h4>Deprecated</h4>
+							<div>
+									<p>Use DB::getTablePrefix()</p>
+
+							</div>
 
 
 
@@ -800,7 +836,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setTablePrefix(<span>string <var>$prefix</var></span>): $this</code>
+				<code><span class="deprecated">setTablePrefix</span>(<span>string <var>$prefix</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -810,6 +846,11 @@
 	<div class="expandable-expandedView">
 	<div class="description"><p>Set the grammar's table prefix.</p>
 </div>
+							<h4>Deprecated</h4>
+							<div>
+									<p>Use DB::setTablePrefix()</p>
+
+							</div>
 
 
 
@@ -818,37 +859,6 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_setTablePrefix">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="setConnection" id="_setConnection">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-					
-					
-				</code>
-			</td>
-
-			<td class="table-cell">
-				<code>setConnection(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>): $this</code>
-
-
-	<div class="expandable-collapsedView">
-		Set the grammar's database connection.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Set the grammar's database connection.</p>
-</div>
-
-
-
-
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#_setConnection">#</a>
 		</td>
 	</tr>
 		</table>
@@ -895,30 +905,6 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$connection">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="tablePrefix" id="$tablePrefix">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-	protected
-					
-					
-				</code>
-			</td>
-
-			<td class="table-cell table-shrink">
-				<code class="nowrap">string</code>
-			</td>
-
-			<td class="table-cell">
-<code><var>$tablePrefix</var> = <span class="php-str">''</span></code>
-				
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#$tablePrefix">#</a>
 		</td>
 	</tr>
 		</table>

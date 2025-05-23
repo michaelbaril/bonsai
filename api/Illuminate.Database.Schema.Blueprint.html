@@ -153,7 +153,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span>string <var>$table</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>string <var>$prefix</var> = <span class="php-str">''</span></span>): void</code>
+				<code>__construct(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span>string <var>$table</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$callback</var> = <span class="php-kw">null</span></span>)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -184,7 +184,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>build(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span><a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span title="Illuminate\Database\Schema\Grammars\Grammar">Grammar</span></a> <var>$grammar</var></span>): void</code>
+				<code>build(): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -215,7 +215,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>toSql(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span><a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span title="Illuminate\Database\Schema\Grammars\Grammar">Grammar</span></a> <var>$grammar</var></span>): array</code>
+				<code>toSql(): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -246,7 +246,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>ensureCommandsAreValid(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>): void</code>
+				<code>ensureCommandsAreValid(): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -320,7 +320,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addImpliedCommands(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span><a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span title="Illuminate\Database\Schema\Grammars\Grammar">Grammar</span></a> <var>$grammar</var></span>): void</code>
+				<code>addImpliedCommands(): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -351,7 +351,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addFluentIndexes(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span><a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span title="Illuminate\Database\Schema\Grammars\Grammar">Grammar</span></a> <var>$grammar</var></span>): void</code>
+				<code>addFluentIndexes(): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -382,7 +382,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addFluentCommands(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span><a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span title="Illuminate\Database\Schema\Grammars\Grammar">Grammar</span></a> <var>$grammar</var></span>): void</code>
+				<code>addFluentCommands(): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -413,7 +413,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addAlterCommands(<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>, <span><a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span title="Illuminate\Database\Schema\Grammars\Grammar">Grammar</span></a> <var>$grammar</var></span>): void</code>
+				<code>addAlterCommands(): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2583,7 +2583,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>dateTime(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>dateTime(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2614,7 +2614,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>dateTimeTz(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>dateTimeTz(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2645,7 +2645,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>time(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>time(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2676,7 +2676,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>timeTz(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>timeTz(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2707,7 +2707,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>timestamp(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>timestamp(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2738,7 +2738,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>timestampTz(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>timestampTz(<span>string <var>$column</var></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2769,7 +2769,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>timestamps(<span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): void</code>
+				<code>timestamps(<span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2800,7 +2800,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>nullableTimestamps(<span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): void</code>
+				<code>nullableTimestamps(<span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2832,7 +2832,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>timestampsTz(<span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): void</code>
+				<code>timestampsTz(<span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2863,7 +2863,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>datetimes(<span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): void</code>
+				<code>datetimes(<span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2894,7 +2894,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>softDeletes(<span>string <var>$column</var> = <span class="php-str">'deleted_at'</span></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>softDeletes(<span>string <var>$column</var> = <span class="php-str">'deleted_at'</span></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2925,7 +2925,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>softDeletesTz(<span>string <var>$column</var> = <span class="php-str">'deleted_at'</span></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>softDeletesTz(<span>string <var>$column</var> = <span class="php-str">'deleted_at'</span></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -2956,7 +2956,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>softDeletesDatetime(<span>string <var>$column</var> = <span class="php-str">'deleted_at'</span></span>, <span>int|null <var>$precision</var> = <span class="php-num">0</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
+				<code>softDeletesDatetime(<span>string <var>$column</var> = <span class="php-str">'deleted_at'</span></span>, <span>int|null <var>$precision</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span title="Illuminate\Database\Schema\ColumnDefinition">ColumnDefinition</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -4010,7 +4010,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getPrefix(): string</code>
+				<code><span class="deprecated">getPrefix</span>(): string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -4020,6 +4020,11 @@
 	<div class="expandable-expandedView">
 	<div class="description"><p>Get the table prefix.</p>
 </div>
+							<h4>Deprecated</h4>
+							<div>
+									<p>Use DB::getTablePrefix()</p>
+
+							</div>
 
 
 
@@ -4190,6 +4195,37 @@
 			<a href="#_getChangedColumns">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="defaultTimePrecision" id="_defaultTimePrecision">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>defaultTimePrecision(): ?int</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the default time precision.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the default time precision.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_defaultTimePrecision">#</a>
+		</td>
+	</tr>
 		</table>
 
 		<table class="table">
@@ -4212,6 +4248,64 @@
 				<th class="table-heading sortable" colspan="4" title="Switch between natural and alphabetical order">Properties</th>
 			</tr>
 
+	<tr class="expandable collapsed" data-order="connection" id="$connection">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a></code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$connection</var></code>
+				
+	<div class="expandable-collapsedView">
+		The database connection instance.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>The database connection instance.</p>
+</div>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$connection">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="grammar" id="$grammar">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Illuminate.Database.Schema.Grammars.Grammar.html"><span title="Illuminate\Database\Schema\Grammars\Grammar">Grammar</span></a></code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$grammar</var></code>
+				
+	<div class="expandable-collapsedView">
+		The schema grammar instance.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>The schema grammar instance.</p>
+</div>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$grammar">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="table" id="$table">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -4234,30 +4328,6 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$table">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="prefix" id="$prefix">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-	protected
-					
-					
-				</code>
-			</td>
-
-			<td class="table-cell table-shrink">
-				<code class="nowrap">string</code>
-			</td>
-
-			<td class="table-cell">
-<code><var>$prefix</var></code>
-				
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#$prefix">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="columns" id="$columns">

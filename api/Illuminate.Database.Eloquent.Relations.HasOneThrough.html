@@ -179,9 +179,14 @@
 <code><a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html"><span title="Illuminate\Database\Eloquent\Relations\HasOneOrManyThrough">HasOneOrManyThrough</span></a>&lt;TRelatedModel, TIntermediateModel, TDeclaringModel, ?TRelatedModel&gt;</code>			</td>
 		</tr>
 		<tr>
+			<th><code>implements</code></th>
+			<td>
+<code><a href="Illuminate.Contracts.Database.Eloquent.SupportsPartialRelations.html"><span title="Illuminate\Contracts\Database\Eloquent\SupportsPartialRelations">SupportsPartialRelations</span></a></code>			</td>
+		</tr>
+		<tr>
 			<th><code>uses</code></th>
 			<td>
-<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels">SupportsDefaultModels</span></a></code>			</td>
+<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\ComparesRelatedModels">ComparesRelatedModels</span></a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\CanBeOneOfMany">CanBeOneOfMany</span></a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels">SupportsDefaultModels</span></a></code>			</td>
 		</tr>
 
 	</table>
@@ -208,8 +213,12 @@
 	<li>
 <b><span class="active">Illuminate\Database\Eloquent\Relations\HasOneThrough</span></b>
 
+		implements
+			<a href="Illuminate.Contracts.Database.Eloquent.SupportsPartialRelations.html"><span title="Illuminate\Contracts\Database\Eloquent\SupportsPartialRelations">SupportsPartialRelations</span></a>
 
 		uses
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\ComparesRelatedModels">ComparesRelatedModels</span></a>, 
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\CanBeOneOfMany">CanBeOneOfMany</span></a>, 
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>, 
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels">SupportsDefaultModels</span></a>
 	</li>
@@ -339,6 +348,121 @@
 			<a href="#_match">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getRelationExistenceQuery" id="_getRelationExistenceQuery">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getRelationExistenceQuery(<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a> <var>$query</var></span>, <span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a> <var>$parentQuery</var></span>, <span><var>$columns</var> = [<span class="php-str">'*'</span>]</span>)</code>
+
+
+	<div class="expandable-collapsedView">
+		Add the constraints for an internal relationship existence query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add the constraints for an internal relationship existence query.</p>
+<p>Essentially, these queries compare on column names like whereColumn.</p>
+</div>
+
+
+
+
+		<h4>Overrides</h4>
+		<ul>
+				<li>
+<a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getRelationExistenceQuery">						<code>Illuminate\Database\Eloquent\Relations\HasOneOrManyThrough::getRelationExistenceQuery()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getRelationExistenceQuery">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="addOneOfManySubQueryConstraints" id="_addOneOfManySubQueryConstraints">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>addOneOfManySubQueryConstraints(<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a> <var>$query</var></span>, <span><var>$column</var> = <span class="php-kw">null</span></span>, <span><var>$aggregate</var> = <span class="php-kw">null</span></span>)</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_addOneOfManySubQueryConstraints">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getOneOfManySubQuerySelectColumns" id="_getOneOfManySubQuerySelectColumns">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getOneOfManySubQuerySelectColumns()</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getOneOfManySubQuerySelectColumns">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="addOneOfManyJoinSubQueryConstraints" id="_addOneOfManyJoinSubQueryConstraints">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>addOneOfManyJoinSubQueryConstraints(<span><a href="Illuminate.Database.Query.JoinClause.html"><span title="Illuminate\Database\Query\JoinClause">JoinClause</span></a> <var>$join</var></span>)</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_addOneOfManyJoinSubQueryConstraints">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="newRelatedInstanceFor" id="_newRelatedInstanceFor">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -370,6 +494,58 @@
 			<a href="#_newRelatedInstanceFor">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getRelatedKeyFrom" id="_getRelatedKeyFrom">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getRelatedKeyFrom(<span><a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$model</var></span>)</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getRelatedKeyFrom">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getParentKey" id="_getParentKey">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getParentKey()</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getParentKey">#</a>
+		</td>
+	</tr>
 		</table>
 		<table class="table">
 			<tr>
@@ -377,7 +553,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#___construct">__construct()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_addConstraints">addConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_performJoin">performJoin()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedParentKeyName">getQualifiedParentKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_throughParentSoftDeletes">throughParentSoftDeletes()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_withTrashedParents">withTrashedParents()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_addEagerConstraints">addEagerConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_buildDictionary">buildDictionary()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOrNew">firstOrNew()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOrCreate">firstOrCreate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_createOrFirst">createOrFirst()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_updateOrCreate">updateOrCreate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstWhere">firstWhere()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_first">first()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOrFail">firstOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOr">firstOr()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_find">find()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findSole">findSole()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findMany">findMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findOrFail">findOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findOr">findOr()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_get">get()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_paginate">paginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_simplePaginate">simplePaginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_cursorPaginate">cursorPaginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_shouldSelect">shouldSelect()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_chunk">chunk()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_chunkById">chunkById()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_chunkByIdDesc">chunkByIdDesc()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_eachById">eachById()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_cursor">cursor()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_each">each()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_lazy">lazy()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_lazyById">lazyById()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_lazyByIdDesc">lazyByIdDesc()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_prepareQueryBuilder">prepareQueryBuilder()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getRelationExistenceQuery">getRelationExistenceQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getRelationExistenceQueryForSelfRelation">getRelationExistenceQueryForSelfRelation()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getRelationExistenceQueryForThroughSelfRelation">getRelationExistenceQueryForThroughSelfRelation()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_take">take()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_limit">limit()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedFarKeyName">getQualifiedFarKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getFirstKeyName">getFirstKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedFirstKeyName">getQualifiedFirstKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getForeignKeyName">getForeignKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedForeignKeyName">getQualifiedForeignKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getLocalKeyName">getLocalKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedLocalKeyName">getQualifiedLocalKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getSecondLocalKeyName">getSecondLocalKeyName()</a></code>				</td>
+<code><a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#___construct">__construct()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_addConstraints">addConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_performJoin">performJoin()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedParentKeyName">getQualifiedParentKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_throughParentSoftDeletes">throughParentSoftDeletes()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_withTrashedParents">withTrashedParents()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_addEagerConstraints">addEagerConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_buildDictionary">buildDictionary()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOrNew">firstOrNew()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOrCreate">firstOrCreate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_createOrFirst">createOrFirst()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_updateOrCreate">updateOrCreate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstWhere">firstWhere()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_first">first()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOrFail">firstOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_firstOr">firstOr()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_find">find()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findSole">findSole()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findMany">findMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findOrFail">findOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_findOr">findOr()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_get">get()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_paginate">paginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_simplePaginate">simplePaginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_cursorPaginate">cursorPaginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_shouldSelect">shouldSelect()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_chunk">chunk()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_chunkById">chunkById()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_chunkByIdDesc">chunkByIdDesc()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_eachById">eachById()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_cursor">cursor()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_each">each()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_lazy">lazy()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_lazyById">lazyById()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_lazyByIdDesc">lazyByIdDesc()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_prepareQueryBuilder">prepareQueryBuilder()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getRelationExistenceQueryForSelfRelation">getRelationExistenceQueryForSelfRelation()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getRelationExistenceQueryForThroughSelfRelation">getRelationExistenceQueryForThroughSelfRelation()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_take">take()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_limit">limit()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedFarKeyName">getQualifiedFarKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getFirstKeyName">getFirstKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedFirstKeyName">getQualifiedFirstKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getForeignKeyName">getForeignKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedForeignKeyName">getQualifiedForeignKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getLocalKeyName">getLocalKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getQualifiedLocalKeyName">getQualifiedLocalKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.HasOneOrManyThrough.html#_getSecondLocalKeyName">getSecondLocalKeyName()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -430,6 +606,26 @@
 
 		<table class="table">
 			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html"><span>Illuminate\Database\Eloquent\Relations\Concerns\ComparesRelatedModels</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html#_is">is()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html#_isNot">isNot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.ComparesRelatedModels.html#_compareKeys">compareKeys()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html"><span>Illuminate\Database\Eloquent\Relations\Concerns\CanBeOneOfMany</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_ofMany">ofMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_latestOfMany">latestOfMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_oldestOfMany">oldestOfMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_getDefaultOneOfManyJoinAlias">getDefaultOneOfManyJoinAlias()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_newOneOfManySubQuery">newOneOfManySubQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_addOneOfManyJoinSubQuery">addOneOfManyJoinSubQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_mergeOneOfManyJoinsTo">mergeOneOfManyJoinsTo()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_getRelationQuery">getRelationQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_getOneOfManySubQuery">getOneOfManySubQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_qualifySubSelectColumn">qualifySubSelectColumn()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_qualifyRelatedColumn">qualifyRelatedColumn()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_guessRelationship">guessRelationship()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_isOneOfMany">isOneOfMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#_getRelationName">getRelationName()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
 				<th class="table-heading">Methods used from <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span>Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary</span></a></th>
 			</tr>
 			<tr>
@@ -447,6 +643,7 @@
 <code><a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html#_withDefault">withDefault()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.SupportsDefaultModels.html#_getDefaultFor">getDefaultFor()</a></code>				</td>
 			</tr>
 		</table>
+
 
 
 
@@ -499,6 +696,17 @@
 
 
 
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties used from <a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html"><span>Illuminate\Database\Eloquent\Relations\Concerns\CanBeOneOfMany</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#$isOneOfMany">$isOneOfMany</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#$relationName">$relationName</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Concerns.CanBeOneOfMany.html#$oneOfManySubQuery">$oneOfManySubQuery</a></var></code>				</td>
+			</tr>
+		</table>
 
 
 		<table class="table">

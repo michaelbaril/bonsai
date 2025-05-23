@@ -361,7 +361,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>bind(<span>string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>, <span>bool <var>$shared</var> = <span class="php-kw">false</span></span>): void</code>
+				<code>bind(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>, <span>bool <var>$shared</var> = <span class="php-kw">false</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -378,6 +378,10 @@
 							<table>
 									<tr>
 										<td><code><a href="TypeError.html"><span>TypeError</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><code><a href="ReflectionException.html"><span>ReflectionException</span></a></code>&nbsp;</td>
 										<td></td>
 									</tr>
 							</table>
@@ -564,7 +568,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addContextualBinding(<span>string <var>$concrete</var></span>, <span>string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$implementation</var></span>): void</code>
+				<code>addContextualBinding(<span>string <var>$concrete</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$implementation</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -600,7 +604,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>bindIf(<span>string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>, <span>bool <var>$shared</var> = <span class="php-kw">false</span></span>): void</code>
+				<code>bindIf(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>, <span>bool <var>$shared</var> = <span class="php-kw">false</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -636,7 +640,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>singleton(<span>string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>singleton(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -672,7 +676,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>singletonIf(<span>string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>singletonIf(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -708,7 +712,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>scoped(<span>string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>scoped(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -744,7 +748,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>scopedIf(<span>string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>scopedIf(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -767,6 +771,79 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_scopedIf">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="bindBasedOnClosureReturnTypes" id="_bindBasedOnClosureReturnTypes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>bindBasedOnClosureReturnTypes(
+	<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string <var>$abstract</var></span>,
+	<span><a href="Closure.html"><span title="Closure">Closure</span></a>|string|null <var>$concrete</var> = <span class="php-kw">null</span></span>,
+	<span>bool <var>$shared</var> = <span class="php-kw">false</span></span>,
+): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Register a binding with the container based on the given Closure's return types.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Register a binding with the container based on the given Closure's return types.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_bindBasedOnClosureReturnTypes">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="closureReturnTypes" id="_closureReturnTypes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>closureReturnTypes(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$closure</var></span>): list&lt;class-string&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the class names / types of the return type of the given Closure.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the class names / types of the return type of the given Closure.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="ReflectionException.html"><span>ReflectionException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_closureReturnTypes">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="extend" id="_extend">
@@ -2306,6 +2383,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_fireCallbackArray">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="currentlyResolving" id="_currentlyResolving">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>currentlyResolving(): class-string|string|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the name of the binding the container is currently resolving.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the name of the binding the container is currently resolving.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_currentlyResolving">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getBindings" id="_getBindings">
