@@ -3,6 +3,9 @@
 namespace Baril\Bonsai\Tests;
 
 use Baril\Bonsai\Tests\Models\Tag;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Orchestra\Testbench\Database\MigrateProcessor;
 
 class CommandsTest extends TestCase
 {
@@ -47,25 +50,46 @@ class CommandsTest extends TestCase
         $this->assertNotContains($this->tags['B']->id, $descendants);
     }
 
-    // public function test_grow_tree()
-    // {
-    //     $schema = $this->tags['A']->getConnection()->getSchemaBuilder();
-    //     $closures = $this->tags['A']->getClosureTable();
-    //     $schema->drop($closures);
-    //     $this->artisan('bonsai:grow', [
-    //         'model' => Tag::class,
-    //         '--name' => 'test_grow_tree',
-    //         '--migrate' => true,
-    //     ]);
-    //     $this->assertDatabaseHas($closures, [
-    //         'ancestor_id' => $this->tags['A']->id,
-    //         'descendant_id' => $this->tags['ABA']->id,
-    //         'depth' => 2,
-    //     ]);
-    //     foreach (glob($this->app->databasePath().DIRECTORY_SEPARATOR.'migrations'.DIRECTORY_SEPARATOR.'*_test_grow_tree.php') as $file) {
-    //         unlink($file);
-    //     }
-    // }
+    public function test_grow_tree()
+    {
+        // Create temporary migration folder:
+        $path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'migrations';
+        File::deleteDirectory($path);
+        File::makeDirectory($path);
+
+        // Create migration:
+        $this->artisan('bonsai:grow', [
+            'model' => Tag::class,
+            '--name' => 'test_grow_tree',
+            '--path' => $path,
+            '--realpath' => true,
+            '--migrate' => false,
+        ]);
+
+        // Assert migration has been created:
+        $this->assertCount(1, File::glob("$path/*_test_grow_tree.php"));
+
+        // Drop closure table:
+        $schema = $this->tags['A']->getConnection()->getSchemaBuilder();
+        $closures = $this->tags['A']->getClosureTable();
+        $schema->drop($closures);
+
+        // Make sure table has been dropped before running the migration:
+        $this->assertFalse(DB::getSchemaBuilder()->hasTable($closures));
+
+        // Run the migration:
+        $migrator = new MigrateProcessor($this, [
+            '--path' => $path,
+            '--realpath' => true,
+        ]);
+        $migrator->up();
+
+        // Assert closure table is back:
+        $this->assertTrue(DB::getSchemaBuilder()->hasTable($closures));
+
+        // Clean stuff:
+        File::deleteDirectory($path);
+    }
 
     public function test_show_tree()
     {
