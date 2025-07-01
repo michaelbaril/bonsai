@@ -5,6 +5,7 @@ namespace Baril\Bonsai\Tests;
 use Baril\Bonsai\BonsaiServiceProvider;
 use Baril\Orderly\OrderlyServiceProvider;
 use Dotenv\Dotenv;
+use Illuminate\Support\Facades\DB;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
@@ -95,6 +96,7 @@ class TestCase extends OrchestraTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        DB::getSchemaBuilder()->dropAllTables();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->withFactories(__DIR__ . '/database/factories');
     }
