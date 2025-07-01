@@ -98,6 +98,5 @@ class TestCase extends OrchestraTestCase
         parent::setUp();
         DB::getSchemaBuilder()->dropAllTables();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-        $this->withFactories(__DIR__ . '/database/factories');
     }
 }

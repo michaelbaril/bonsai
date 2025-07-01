@@ -15,11 +15,11 @@ class CommandsTest extends TestCase
     {
         parent::setUp();
         $this->tags = collect([]);
-        $this->tags['A'] = factory(Tag::class)->create();
-        $this->tags['AA'] = factory(Tag::class)->create(['parent_id' => $this->tags['A']->id]);
-        $this->tags['AB'] = factory(Tag::class)->create(['parent_id' => $this->tags['A']->id]);
-        $this->tags['ABA'] = factory(Tag::class)->create(['parent_id' => $this->tags['AB']->id]);
-        $this->tags['B'] = factory(Tag::class)->create();
+        $this->tags['A'] = Tag::factory()->create();
+        $this->tags['AA'] = Tag::factory()->create(['parent_id' => $this->tags['A']->id]);
+        $this->tags['AB'] = Tag::factory()->create(['parent_id' => $this->tags['A']->id]);
+        $this->tags['ABA'] = Tag::factory()->create(['parent_id' => $this->tags['AB']->id]);
+        $this->tags['B'] = Tag::factory()->create();
     }
 
     public function test_recreate_closures()
