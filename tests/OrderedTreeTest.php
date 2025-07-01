@@ -2,7 +2,7 @@
 
 namespace Baril\Bonsai\Tests;
 
-use Baril\Bonsai\Tests\Models\Tag as Model;
+use Baril\Bonsai\Tests\Models\Tag;
 use Baril\Orderly\PositionException;
 
 class OrderedTreeTest extends TestCase
@@ -12,7 +12,7 @@ class OrderedTreeTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->items = factory(Model::class, 8)->create();
+        $this->items = Tag::factory()->count(8)->create();
     }
 
     protected function setParent($items, $parent)
@@ -26,7 +26,7 @@ class OrderedTreeTest extends TestCase
 
     protected function assertPositionsWithinGroup($expected, $group)
     {
-        $actual = Model::whereGroup($group)->orderBy('id')->pluck('position')->toArray();
+        $actual = Tag::whereGroup($group)->orderBy('id')->pluck('position')->toArray();
         $this->assertEquals($expected, $actual);
     }
 
@@ -47,7 +47,7 @@ class OrderedTreeTest extends TestCase
     {
         $this->setParent(1, 0);
         $this->items[1]->save();
-        $model = factory(Model::class)->make();
+        $model = Tag::factory()->make();
         $model->parent()->associate($this->items[0]);
         $model->save();
         $this->assertEquals(2, $model->position);
@@ -103,7 +103,7 @@ class OrderedTreeTest extends TestCase
         $this->setParent([2, 7], 3);
         $this->setParent([6, 1], 7);
 
-        $items = Model::with('descendants')->where('parent_id', null)->orderBy('id')->get();
+        $items = Tag::with('descendants')->where('parent_id', null)->orderBy('id')->get();
         $this->assertEquals($this->items[5]->id, $items[0]->children[0]->id);
         $this->assertEquals($this->items[4]->id, $items[0]->children[1]->id);
         $this->assertEquals($this->items[2]->id, $items[1]->children[0]->id);
@@ -121,9 +121,9 @@ class OrderedTreeTest extends TestCase
         $this->setParent([5, 4], 0);
         $this->setParent([2, 7], 3);
         $this->setParent([6, 1], 7);
-        $roots = Model::whereIsRoot()->get();
+        $roots = Tag::whereIsRoot()->get();
         $roots[0]->swapWith($roots[1]);
-        $tree = Model::getTree();
+        $tree = Tag::getTree();
 
         $this->assertEquals($this->items[3]->id, $tree[0]->id);
         $this->assertEquals($this->items[2]->id, $tree[0]->children[0]->id);
