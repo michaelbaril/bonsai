@@ -2,7 +2,7 @@
 
 namespace Baril\Bonsai\Concerns;
 
-use Baril\Bonsai\Relations\Closure;
+use Baril\Bonsai\Relations\Closures;
 use Baril\Bonsai\TreeException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -134,7 +134,7 @@ trait BelongsToTree
     public function ancestors()
     {
         $instance = $this->newRelatedInstance(static::class);
-        return (new Closure(
+        return (new Closures(
             $instance->newQuery(),
             $this,
             $this->getClosureTable(),
@@ -152,7 +152,7 @@ trait BelongsToTree
     public function descendants()
     {
         $instance = $this->newRelatedInstance(static::class);
-        return (new Closure(
+        return (new Closures(
             $instance->newQuery(),
             $this,
             $this->getClosureTable(),
@@ -195,19 +195,19 @@ trait BelongsToTree
         $descendants = $descendants->keyBy($this->primaryKey);
         $parentKey = $this->getParentForeignKeyName();
 
-        $descendants->each(function ($item, $key) use ($descendants, $parentKey) {
+        $descendants->each(function ($item) use ($descendants, $parentKey) {
             if ($descendants->has($item->$parentKey)) {
                 if (!$descendants[$item->$parentKey]->relationLoaded('children')) {
-                    $descendants[$item->$parentKey]->setRelation('children', collect([]));
+                    $descendants[$item->$parentKey]->setRelation('children', $this->newCollection());
                 }
                 $descendants[$item->$parentKey]->children->push($item);
             }
         });
 
         // Prevents an unneeded query in case we try to access the children of a leaf.
-        $descendants->each(function ($item, $key) {
+        $descendants->each(function ($item) {
             if (!$item->relationLoaded('children') && $item->closure->_remaining_depth !== 0) {
-                $item->setRelation('children', collect([]));
+                $item->setRelation('children', $this->newCollection());
             }
         });
 
@@ -387,7 +387,7 @@ trait BelongsToTree
     // QUERY SCOPES
     // =========================================================================
 
-    protected function scopeWithClosure($query, $relation, $depth = null, $constraints = null)
+    protected function scopeWithClosures($query, $relation, $depth = null, $constraints = null)
     {
         $query->with([$relation => function ($query) use ($depth, $constraints) {
             if ($depth !== null) {
@@ -401,12 +401,12 @@ trait BelongsToTree
 
     public function scopeWithAncestors($query, $depth = null, $constraints = null)
     {
-        $this->scopeWithClosure($query, 'ancestors', $depth, $constraints);
+        $this->scopeWithClosures($query, 'ancestors', $depth, $constraints);
     }
 
     public function scopeWithDescendants($query, $depth = null, $constraints = null)
     {
-        $this->scopeWithClosure($query, 'descendants', $depth, $constraints);
+        $this->scopeWithClosures($query, 'descendants', $depth, $constraints);
     }
 
     public function scopeWithDepth($query, $as = 'depth')
@@ -422,9 +422,9 @@ trait BelongsToTree
     public function scopeWhereIsLeaf($query, $bool = true)
     {
         if ($bool) {
-            $query->has('descendants', '=', 0);
+            $query->doesntHave('children');
         } else {
-            $query->has('descendants');
+            $query->has('children');
         }
     }
 
@@ -436,43 +436,35 @@ trait BelongsToTree
     public function scopeWhereIsDescendantOf($query, $ancestor, $maxDepth = null, $includingSelf = false)
     {
         $ancestorId = ($ancestor instanceof Model) ? $ancestor->getKey() : $ancestor;
-        $closureTable = $this->getClosureTable();
-        $alias = $closureTable . uniqid();
-        $query->join(
-            $closureTable . ' as ' . $alias,
-            function ($join) use ($ancestorId, $maxDepth, $alias, $includingSelf) {
-                $join->on($alias . '.descendant_id', '=', $this->getQualifiedKeyName());
-                $join->where($alias . '.ancestor_id', '=', $ancestorId);
-                if (!$includingSelf) {
-                    $join->where($alias . '.depth', '>', 0);
+
+        $query->where(function ($nestedWhere) use ($query, $ancestorId, $maxDepth, $includingSelf) {
+            $nestedWhere->whereHas('ancestors', function ($query) use ($ancestorId, $maxDepth) {
+                $query->whereKey($ancestorId);
+                if ($maxDepth) {
+                    $query->where($this->getClosureTable() . '.depth', '<=', $maxDepth);
                 }
-                if ($maxDepth !== null) {
-                    $join->where($alias . '.depth', '<=', $maxDepth);
-                }
+            });
+            if ($includingSelf) {
+                $nestedWhere->orWhere($query->getModel()->getQualifiedKeyName(), '=', $ancestorId);
             }
-        );
-        $query->where($alias . '.ancestor_id', '!=', null);
+        });
     }
 
     public function scopeWhereIsAncestorOf($query, $descendant, $maxDepth = null, $includingSelf = false)
     {
         $descendantId = ($descendant instanceof Model) ? $descendant->getKey() : $descendant;
-        $closureTable = $this->getClosureTable();
-        $alias = $closureTable . uniqid();
-        $query->join(
-            $closureTable . ' as ' . $alias,
-            function ($join) use ($descendantId, $maxDepth, $alias, $includingSelf) {
-                $join->on($alias . '.ancestor_id', '=', $this->getQualifiedKeyName());
-                $join->where($alias . '.descendant_id', '=', $descendantId);
-                if (!$includingSelf) {
-                    $join->where($alias . '.depth', '>', 0);
+
+        $query->where(function ($nestedWhere) use ($query, $descendantId, $maxDepth, $includingSelf) {
+            $nestedWhere->whereHas('descendants', function ($query) use ($descendantId, $maxDepth) {
+                $query->whereKey($descendantId);
+                if ($maxDepth) {
+                    $query->where($this->getClosureTable() . '.depth', '<=', $maxDepth);
                 }
-                if ($maxDepth !== null) {
-                    $join->where($alias . '.depth', '<=', $maxDepth);
-                }
+            });
+            if ($includingSelf) {
+                $nestedWhere->orWhere($query->getModel()->getQualifiedKeyName(), '=', $descendantId);
             }
-        );
-        $query->where($alias . '.ancestor_id', '!=', null);
+        });
     }
 
     // =========================================================================
