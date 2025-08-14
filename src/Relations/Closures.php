@@ -6,7 +6,7 @@ use Baril\Bonsai\TreeException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Closure extends BelongsToMany
+class Closures extends BelongsToMany
 {
     protected $depth = null;
 
@@ -63,7 +63,7 @@ class Closure extends BelongsToMany
         return $values;
     }
 
-    // Since the Closure relation is read-only, all the methods below will
+    // Since the Closures relation is read-only, all the methods below will
     // throw an exception.
 
     protected function readOnly()
