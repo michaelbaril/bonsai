@@ -60,6 +60,54 @@ class TreeTest extends TestCase
     }
 
     /**
+     * @dataProvider changeParentProvider
+     */
+    public function test_change_parent($newParent)
+    {
+        $this->tags['ABAA'] = Tag::factory()->create(['parent_id' => $this->tags['ABA']->id]);
+        $this->tags['ABAAA'] = Tag::factory()->create(['parent_id' => $this->tags['ABAA']->id]);
+
+        $newParent = $this->tags[$newParent];
+        $expectedAncestors = $newParent->ancestors()->orderByDepth()->pluck('id')->prepend($newParent->id)->prepend($this->tags['ABA']->id);
+        $expectedDescendants = $this->tags['ABA']->descendants()->orderByDepth()->pluck('id')->prepend($this->tags['ABA']->id);
+
+        $this->tags['ABA']->parent()->associate($newParent);
+        $this->tags['ABA']->save();
+
+        // ancestors
+        $this->assertEquals(
+            $expectedAncestors->toArray(),
+            $this->tags['ABA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+
+        // descendants
+        $this->assertEquals(
+            $expectedDescendants->toArray(),
+            $this->tags['ABA']->descendants()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+
+        // descendants' ancestors
+        $expectedAncestors->prepend($this->tags['ABAA']->id);
+        $this->assertEquals(
+            $expectedAncestors->toArray(),
+            $this->tags['ABAA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+        $expectedAncestors->prepend($this->tags['ABAAA']->id);
+        $this->assertEquals(
+            $expectedAncestors->toArray(),
+            $this->tags['ABAAA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+    }
+
+    public static function changeParentProvider()
+    {
+        return [
+            'AA' => ['AA'],
+            'B' => ['B'],
+        ];
+    }
+
+    /**
      * @dataProvider redundancyProvider
      */
     public function test_redundancy($tag)

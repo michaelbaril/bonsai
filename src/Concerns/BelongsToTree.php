@@ -86,7 +86,6 @@ trait BelongsToTree
         $this->getConnection()->transaction(function () {
             $this->descendants()->includingSelf()->update([$this->getParentForeignKeyName() => null]);
             $this->descendants()->includingSelf()->delete();
-            $this->deleteClosures();
         });
     }
 
@@ -523,60 +522,57 @@ trait BelongsToTree
     }
 
     /**
-     * @param  bool  $preserveSubtree
-     * @return int
-     */
-    protected function deleteClosures($preserveSubtree = false)
-    {
-        $closureTable = $this->getClosureTable();
-        $id = $this->getKey();
-
-        return $this->getConnection()->table($closureTable, 'closures')
-            ->join("$closureTable as descendants", 'closures.descendant_id', '=', 'descendants.descendant_id')
-            ->where('descendants.ancestor_id', $id)
-            ->when($preserveSubtree, function ($query) {
-                $query->whereColumn('closures.depth', '>', 'descendants.depth');
-            })
-            ->delete();
-    }
-
-    /**
      * Re-calculate the closures when the parent_id has changed on a single item.
      *
-     * @param bool $deleteOldClosures Can be set to false if it's a new item
+     * @param bool isUpdate
      */
-    public function refreshClosures($deleteOldClosures = true)
+    public function refreshClosures($isUpdate = true)
     {
         $connection = $this->getConnection();
         $grammar = $connection->getQueryGrammar();
 
-        $connection->transaction(function () use ($deleteOldClosures, $connection, $grammar) {
+        $connection->transaction(function () use ($isUpdate, $connection, $grammar) {
 
             $closureTable = $this->getClosureTable();
             $parentKey = $this->getParentForeignKeyName();
             $id = $this->getKey();
             $newParentId = $this->$parentKey;
 
-            // Delete old closures:
-            if ($deleteOldClosures) {
-                $this->deleteClosures(true);
+            if ($isUpdate) {
+                // We need to remove the ancestors pivots of the model's
+                // descendants, at least the ones that go "above" the model.
+                // Note: this will also delete the model's own ascending closures,
+                // thanks to the self-closure.
+                $connection->table($closureTable, 'closures')
+                    ->join("$closureTable as descendants", 'closures.descendant_id', '=', 'descendants.descendant_id')
+                    ->join("$closureTable as ancestors", 'closures.ancestor_id', '=', 'ancestors.ancestor_id')
+                    ->where('descendants.ancestor_id', $id)
+                    ->where('ancestors.descendant_id', $id)
+                    ->where('closures.depth', '>', $connection->raw($grammar->wrap('descendants.depth')))
+                    ->delete();
+                // DELETE FROM closures USING $closureTable AS closures
+                //     INNER JOIN $closureTable AS descendants
+                //         ON closures.descendant_id = descendants.descendant_id
+                //     INNER JOIN $closureTable AS ancestors
+                //         ON closures.ancestor_id = ancestors.ancestor_id
+                //     WHERE descendants.ancestor_id = $id
+                //         AND ancestors.descendant_id = $id
+                //         AND closures.depth > descendants.depth
+            } else {
+                // Create self-closure:
+                $connection->table($closureTable)->insertOrIgnore([
+                    'ancestor_id' => $id,
+                    'descendant_id' => $id,
+                    'depth' => 0,
+                ]);
             }
-
-            // Create self-closure if needed:
-            $connection->table($closureTable)->insertOrIgnore([
-                'ancestor_id' => $id,
-                'descendant_id' => $id,
-                'depth' => 0,
-            ]);
 
             // Create new closures:
             if ($newParentId) {
-                // INSERT INTO $closureTable (ancestor_id, descendant_id, depth)
-                // SELECT ancestors.ancestor_id, descendants.descendant_id, ancestors.depth + descendants.depth + 1
-                //     FROM $closureTable AS ancestors
-                //     CROSS JOIN $closureTable AS descendants
-                //     WHERE ancestors.descendant_id = $newParentId
-                //         AND descendants.ancestor_id = $id
+                // The new closures are all the possible combinations
+                // between the model's descending closures (including the self-closure)
+                // and the new parent's ascending closures (including the self-closure),
+                // with a depth that's the sum of both depths + 1.
                 $select = $connection
                     ->table($closureTable, 'ancestors')
                     ->crossJoin("$closureTable AS descendants")
@@ -592,6 +588,12 @@ trait BelongsToTree
                         ))
                     );
                 $connection->table($closureTable)->insertUsing(['ancestor_id', 'descendant_id', 'depth'], $select);
+                // INSERT INTO $closureTable (ancestor_id, descendant_id, depth)
+                // SELECT ancestors.ancestor_id, descendants.descendant_id, ancestors.depth + descendants.depth + 1
+                //     FROM $closureTable AS ancestors
+                //     CROSS JOIN $closureTable AS descendants
+                //     WHERE ancestors.descendant_id = $newParentId
+                //         AND descendants.ancestor_id = $id
             }
         });
     }
