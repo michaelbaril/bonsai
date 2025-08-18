@@ -2,13 +2,25 @@
 
 namespace Baril\Bonsai\Relations;
 
-use Baril\Bonsai\TreeException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use LogicException;
 
-class Closures extends BelongsToMany
+class BelongsToManyThroughClosures extends BelongsToMany
 {
     protected $depth = null;
+
+    /**
+     * Set the base constraints on the relation query.
+     *
+     * @return void
+     */
+    public function addConstraints()
+    {
+        parent::addConstraints();
+
+        $this->as('closure')->withPivot('depth');
+    }
 
     public function orderByDepth($direction = 'asc')
     {
@@ -68,7 +80,7 @@ class Closures extends BelongsToMany
 
     protected function readOnly()
     {
-        throw new TreeException("The $this->relationName relation is read-only!");
+        throw new LogicException("The $this->relationName relation is read-only!");
     }
 
     public function save(Model $model, array $pivotAttributes = [], $touch = true)

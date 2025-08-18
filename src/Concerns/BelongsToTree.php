@@ -2,7 +2,7 @@
 
 namespace Baril\Bonsai\Concerns;
 
-use Baril\Bonsai\Relations\Closures;
+use Baril\Bonsai\Relations\BelongsToManyThroughClosures;
 use Baril\Bonsai\TreeException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -40,7 +40,12 @@ trait BelongsToTree
      */
     public function getParentForeignKeyName()
     {
-        return property_exists($this, 'parentForeignKey') ? $this->parentForeignKey : 'parent_id';
+        return $this->parent()->getForeignKeyName();
+    }
+
+    public function getParentKey()
+    {
+        return $this->parent()->getParentKey();
     }
 
     /**
@@ -99,7 +104,10 @@ trait BelongsToTree
      */
     public function parent()
     {
-        return $this->belongsTo(static::class, $this->getParentForeignKeyName());
+        return $this->belongsTo(
+            static::class,
+            property_exists($this, 'parentForeignKey') ? $this->parentForeignKey : 'parent_id'
+        );
     }
 
     // /**
@@ -132,17 +140,11 @@ trait BelongsToTree
      */
     public function ancestors()
     {
-        $instance = $this->newRelatedInstance(static::class);
-        return (new Closures(
-            $instance->newQuery(),
-            $this,
-            $this->getClosureTable(),
+        return $this->belongsToManyThroughClosures(
             'descendant_id',
             'ancestor_id',
-            $this->getKeyName(),
-            $instance->getKeyName(),
             'ancestors'
-        ))->as('closure')->withPivot('depth')->excludingSelf();
+        )->excludingSelf();
     }
 
     /**
@@ -150,17 +152,26 @@ trait BelongsToTree
      */
     public function descendants()
     {
+        return $this->belongsToManyThroughClosures(
+            'ancestor_id',
+            'descendant_id',
+            'descendants'
+        )->excludingSelf();
+    }
+
+    protected function belongsToManyThroughClosures($foreignPivotKey, $relatedPivotKey, $relationName)
+    {
         $instance = $this->newRelatedInstance(static::class);
-        return (new Closures(
+        return (new BelongsToManyThroughClosures(
             $instance->newQuery(),
             $this,
             $this->getClosureTable(),
-            'ancestor_id',
-            'descendant_id',
+            $foreignPivotKey,
+            $relatedPivotKey,
             $this->getKeyName(),
             $instance->getKeyName(),
-            'descendants'
-        ))->as('closure')->withPivot('depth')->excludingSelf();
+            $relationName
+        ));
     }
 
     /**
@@ -192,14 +203,13 @@ trait BelongsToTree
     protected function setChildrenFromDescendants($descendants)
     {
         $descendants = $descendants->keyBy($this->primaryKey);
-        $parentKey = $this->getParentForeignKeyName();
 
-        $descendants->each(function ($item) use ($descendants, $parentKey) {
-            if ($descendants->has($item->$parentKey)) {
-                if (!$descendants[$item->$parentKey]->relationLoaded('children')) {
-                    $descendants[$item->$parentKey]->setRelation('children', $this->newCollection());
+        $descendants->each(function ($item) use ($descendants) {
+            if ($descendants->has($item->getParentKey())) {
+                if (!$descendants[$item->getParentKey()]->relationLoaded('children')) {
+                    $descendants[$item->getParentKey()]->setRelation('children', $this->newCollection());
                 }
-                $descendants[$item->$parentKey]->children->push($item);
+                $descendants[$item->getParentKey()]->children->push($item);
             }
         });
 
@@ -210,8 +220,8 @@ trait BelongsToTree
             }
         });
 
-        return $this->setRelation('children', $descendants->values()->filter(function ($item) use ($parentKey) {
-            return $item->$parentKey == $this->getKey();
+        return $this->setRelation('children', $descendants->values()->filter(function ($item) {
+            return $item->getParentKey() == $this->getKey();
         })->values());
     }
 
@@ -228,14 +238,13 @@ trait BelongsToTree
             return;
         }
 
-        $parentKey = $this->getParentForeignKeyName();
         $keyedAncestors = $ancestors->keyBy($this->primaryKey);
 
-        $ancestors->merge([$this])->each(function ($model) use ($keyedAncestors, $parentKey) {
-            if (null === $model->$parentKey) {
+        $ancestors->merge([$this])->each(function ($model) use ($keyedAncestors) {
+            if (null === $model->getParentKey()) {
                 $model->setRelation('parent', null);
-            } elseif ($keyedAncestors->has($model->$parentKey)) {
-                $model->setRelation('parent', $keyedAncestors->get($model->$parentKey));
+            } elseif ($keyedAncestors->has($model->getParentKey())) {
+                $model->setRelation('parent', $keyedAncestors->get($model->getParentKey()));
             }
         });
     }
@@ -250,8 +259,7 @@ trait BelongsToTree
      */
     public function isRoot()
     {
-        $parentKey = $this->getParentForeignKeyName();
-        return $this->$parentKey === null;
+        return $this->getParentKey() === null;
     }
 
     /**
@@ -260,7 +268,7 @@ trait BelongsToTree
      */
     public function isLeaf()
     {
-        return !$this->children()->exists();
+        return !$this->hasChildren();
     }
 
     /**
@@ -278,8 +286,7 @@ trait BelongsToTree
      */
     public function isChildOf($item)
     {
-        $parentKey = $this->getParentForeignKeyName();
-        return $item->getKey() == $this->$parentKey;
+        return $item->getKey() == $this->getParentKey();
     }
 
     /**
@@ -319,8 +326,7 @@ trait BelongsToTree
      */
     public function isSiblingOf($item)
     {
-        $parentKey = $this->getParentForeignKeyName();
-        return $item->$parentKey == $this->$parentKey;
+        return $item->getParentKey() == $this->getParentKey();
     }
 
     /**
@@ -506,14 +512,12 @@ trait BelongsToTree
      */
     protected function checkIfParentIdIsValid()
     {
-        $parentKey = $this->getParentForeignKeyName();
-
-        if (is_null($this->$parentKey)) {
+        if (is_null($this->getParentKey())) {
             return;
         }
         if (
-            $this->$parentKey == $this->getKey()
-            || $this->newQuery()->whereKey($this->$parentKey)->whereIsDescendantOf($this->getKey())->exists()
+            $this->getParentKey() == $this->getKey()
+            || $this->newQuery()->whereKey($this->getParentKey())->whereIsDescendantOf($this->getKey())->exists()
         ) {
             throw new TreeException(
                 'Redundancy error! The item\'s parent can\'t be the item itself or one of its descendants.'
@@ -534,9 +538,8 @@ trait BelongsToTree
         $connection->transaction(function () use ($isUpdate, $connection, $grammar) {
 
             $closureTable = $this->getClosureTable();
-            $parentKey = $this->getParentForeignKeyName();
             $id = $this->getKey();
-            $newParentId = $this->$parentKey;
+            $newParentId = $this->getParentKey();
 
             if ($isUpdate) {
                 // We need to remove the ancestors pivots of the model's
