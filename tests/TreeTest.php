@@ -5,6 +5,7 @@ namespace Baril\Bonsai\Tests;
 use Baril\Bonsai\Tests\Models\Tag;
 use Baril\Bonsai\TreeException;
 use Illuminate\Support\Facades\DB;
+use LogicException;
 
 class TreeTest extends TestCase
 {
@@ -347,7 +348,7 @@ class TreeTest extends TestCase
      */
     public function test_closure_relation_is_readonly($method, ...$args)
     {
-        $this->expectException(TreeException::class);
+        $this->expectException(LogicException::class);
         $this->tags['A']->descendants()->$method(...$args);
     }
 
