@@ -316,9 +316,30 @@ class TreeTest extends TestCase
 
     public function test_delete_success()
     {
-        $this->tags['B']->delete();
-        $this->assertNull(Tag::find($this->tags['B']->id));
-    }
+        $id = $this->tags['ABA']->id;
+
+        $totalInitialClosuresCount = DB::table('tag_tree')->count();
+        $modelInitialClosuresCount = DB::table('tag_tree')
+            ->where('descendant_id', $id)
+            ->orWhere('ancestor_id', $id)
+            ->count();
+
+        $this->tags['ABA']->delete();
+
+        $this->assertNull(Tag::find($id));
+
+        $this->assertEquals(
+            0,
+            DB::table('tag_tree')
+                ->where('descendant_id', $id)
+                ->orWhere('ancestor_id', $id)
+                ->count()
+        );
+        $this->assertEquals(
+            $totalInitialClosuresCount - $modelInitialClosuresCount,
+            DB::table('tag_tree')->count()
+        );
+    }           
 
     public function test_delete_tree()
     {
