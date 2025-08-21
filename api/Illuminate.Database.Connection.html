@@ -203,7 +203,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span><a href="PDO.html"><span title="PDO">PDO</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a> <var>$pdo</var></span>, <span>string <var>$database</var> = <span class="php-str">''</span></span>, <span>string <var>$tablePrefix</var> = <span class="php-str">''</span></span>, <span>array <var>$config</var> = []</span>)</code>
+				<code>__construct(<span><a href="PDO.html"><span title="PDO">PDO</span></a>|(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;<a href="PDO.html"><span title="PDO">PDO</span></a>) <var>$pdo</var></span>, <span>string <var>$database</var> = <span class="php-str">''</span></span>, <span>string <var>$tablePrefix</var> = <span class="php-str">''</span></span>, <span>array <var>$config</var> = []</span>)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -451,7 +451,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>table(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a>|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$table</var></span>, <span>string|null <var>$as</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a></code>
+				<code>table(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a>|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|<a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|string <var>$table</var></span>, <span>string|null <var>$as</var> = <span class="php-kw">null</span></span>): <a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -1040,7 +1040,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>pretend(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>): array</code>
+				<code>pretend(<span><a href="Closure.html"><span title="Closure">Closure</span></a>(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed <var>$callback</var></span>): array{query: string, bindings: array, time: (float|null)}[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1107,7 +1107,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>withFreshQueryLog(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>): array</code>
+				<code>withFreshQueryLog(
+	<span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array{query: string, bindings: array, time: (float|null)}[] <var>$callback</var></span>,
+): array{query: string, bindings: array, time: (float|null)}[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1374,7 +1376,10 @@
 			</td>
 
 			<td class="table-cell">
-				<code>whenQueryingForLongerThan(<span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|<a href="Carbon.CarbonInterval.html"><span title="Carbon\CarbonInterval">CarbonInterval</span></a>|float|int <var>$threshold</var></span>, <span>callable <var>$handler</var></span>): void</code>
+				<code>whenQueryingForLongerThan(
+	<span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|<a href="Carbon.CarbonInterval.html"><span title="Carbon\CarbonInterval">CarbonInterval</span></a>|float|int <var>$threshold</var></span>,
+	<span>callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>, class-string&lt;<a href="Illuminate.Database.Events.QueryExecuted.html"><span title="Illuminate\Database\Events\QueryExecuted">QueryExecuted</span></a>&gt;):&nbsp;mixed <var>$handler</var></span>,
+): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2330,7 +2335,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setReconnector(<span>callable <var>$reconnector</var></span>): $this</code>
+				<code>setReconnector(<span>callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed <var>$reconnector</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2888,7 +2893,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getQueryLog(): array</code>
+				<code>getQueryLog(): array{query: string, bindings: array, time: (float|null)}[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3420,7 +3425,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a></code>
+				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;<a href="PDO.html"><span title="PDO">PDO</span></a>)</code>
 			</td>
 
 			<td class="table-cell">
@@ -3444,7 +3449,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a></code>
+				<code class="nowrap"><a href="PDO.html"><span title="PDO">PDO</span></a>|(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;<a href="PDO.html"><span title="PDO">PDO</span></a>)</code>
 			</td>
 
 			<td class="table-cell">
@@ -3564,7 +3569,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">callable</code>
+				<code class="nowrap">callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed</code>
 			</td>
 
 			<td class="table-cell">
@@ -3804,7 +3809,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">array{query: string, bindings: array, time: (float|null)}[]</code>
 			</td>
 
 			<td class="table-cell">
@@ -3876,7 +3881,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">array{has_run: bool, handler: (callable(<b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>, class-string&lt;<a href="Illuminate.Database.Events.QueryExecuted.html"><span title="Illuminate\Database\Events\QueryExecuted">QueryExecuted</span></a>&gt;):&nbsp;mixed)}[]</code>
 			</td>
 
 			<td class="table-cell">
@@ -3948,7 +3953,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="Closure.html"><span title="Closure">Closure</span></a>[]</code>
+				<code class="nowrap">(<a href="Closure.html"><span title="Closure">Closure</span></a>(string, array, <b><span class="active" title="Illuminate\Database\Connection">Connection</span></b>):&nbsp;mixed)[]</code>
 			</td>
 
 			<td class="table-cell">

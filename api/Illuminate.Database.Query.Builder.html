@@ -2365,6 +2365,139 @@
 			<a href="#_orWhereNotBetweenColumns">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="whereValueBetween" id="_whereValueBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whereValueBetween(
+	<span>mixed <var>$value</var></span>,
+	<span>array{(<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string), (<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string)} <var>$columns</var></span>,
+	<span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>,
+	<span>bool <var>$not</var> = <span class="php-kw">false</span></span>,
+): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a where between columns statement using a value to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a where between columns statement using a value to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whereValueBetween">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="orWhereValueBetween" id="_orWhereValueBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orWhereValueBetween(<span>mixed <var>$value</var></span>, <span>array{(<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string), (<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string)} <var>$columns</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add an or where between columns statement using a value to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add an or where between columns statement using a value to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orWhereValueBetween">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whereValueNotBetween" id="_whereValueNotBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whereValueNotBetween(
+	<span>mixed <var>$value</var></span>,
+	<span>array{(<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string), (<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string)} <var>$columns</var></span>,
+	<span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>,
+): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a where not between columns statement using a value to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a where not between columns statement using a value to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whereValueNotBetween">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="orWhereValueNotBetween" id="_orWhereValueNotBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orWhereValueNotBetween(<span>mixed <var>$value</var></span>, <span>array{(<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string), (<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string)} <var>$columns</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add an or where not between columns statement using a value to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add an or where not between columns statement using a value to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orWhereValueNotBetween">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="orWhereNotNull" id="_orWhereNotNull">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -4779,6 +4912,37 @@
 			<a href="#_reorder">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="reorderDesc" id="_reorderDesc">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>reorderDesc(<span><a href="Closure.html"><span title="Closure">Closure</span></a>|<b><span class="active" title="Illuminate\Database\Query\Builder">Builder</span></b>|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string|null <var>$column</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add descending "reorder" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add descending &quot;reorder&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_reorderDesc">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="removeExistingOrdersFor" id="_removeExistingOrdersFor">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -5567,7 +5731,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getCountForPagination(<span>array&lt;string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>&gt; <var>$columns</var> = [<span class="php-str">'*'</span>]</span>): int</code>
+				<code>getCountForPagination(<span>array&lt;string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>&gt; <var>$columns</var> = [<span class="php-str">'*'</span>]</span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6039,7 +6203,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>count(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$columns</var> = <span class="php-str">'*'</span></span>): int</code>
+				<code>count(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$columns</var> = <span class="php-str">'*'</span></span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6381,7 +6545,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>insertOrIgnore(<span>array <var>$values</var></span>): int</code>
+				<code>insertOrIgnore(<span>array <var>$values</var></span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6505,7 +6669,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>update(<span>array <var>$values</var></span>): int</code>
+				<code>update(<span>array <var>$values</var></span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6598,7 +6762,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>upsert(<span>array <var>$values</var></span>, <span>array|string <var>$uniqueBy</var></span>, <span>array|null <var>$update</var> = <span class="php-kw">null</span></span>): int</code>
+				<code>upsert(<span>array <var>$values</var></span>, <span>array|string <var>$uniqueBy</var></span>, <span>?array <var>$update</var> = <span class="php-kw">null</span></span>): int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6629,7 +6793,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>increment(<span>string <var>$column</var></span>, <span>float|int <var>$amount</var> = <span class="php-num">1</span></span>, <span>array <var>$extra</var> = []</span>): int</code>
+				<code>increment(<span>string <var>$column</var></span>, <span>float|int <var>$amount</var> = <span class="php-num">1</span></span>, <span>array <var>$extra</var> = []</span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6667,7 +6831,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>incrementEach(<span>array&lt;string, float|int|numeric-string&gt; <var>$columns</var></span>, <span>array&lt;string, mixed&gt; <var>$extra</var> = []</span>): int</code>
+				<code>incrementEach(<span>array&lt;string, float|int|numeric-string&gt; <var>$columns</var></span>, <span>array&lt;string, mixed&gt; <var>$extra</var> = []</span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6705,7 +6869,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>decrement(<span>string <var>$column</var></span>, <span>float|int <var>$amount</var> = <span class="php-num">1</span></span>, <span>array <var>$extra</var> = []</span>): int</code>
+				<code>decrement(<span>string <var>$column</var></span>, <span>float|int <var>$amount</var> = <span class="php-num">1</span></span>, <span>array <var>$extra</var> = []</span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6743,7 +6907,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>decrementEach(<span>array&lt;string, float|int|numeric-string&gt; <var>$columns</var></span>, <span>array&lt;string, mixed&gt; <var>$extra</var> = []</span>): int</code>
+				<code>decrementEach(<span>array&lt;string, float|int|numeric-string&gt; <var>$columns</var></span>, <span>array&lt;string, mixed&gt; <var>$extra</var> = []</span>): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">

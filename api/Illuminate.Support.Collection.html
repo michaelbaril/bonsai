@@ -642,6 +642,37 @@
 			<a href="#_doesntContain">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="doesntContainStrict" id="_doesntContainStrict">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>doesntContainStrict(<span>mixed <var>$key</var></span>, <span>mixed <var>$operator</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$value</var> = <span class="php-kw">null</span></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if an item is not contained in the enumerable, using strict comparison.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if an item is not contained in the enumerable, using strict comparison.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_doesntContainStrict">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="crossJoin" id="_crossJoin">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1221,7 +1252,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>forget(<span><var>$keys</var></span>): $this</code>
+				<code>forget(<span><a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;array-key, TValue&gt;|iterable&lt;array-key, TKey&gt;|TKey <var>$keys</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1230,7 +1261,6 @@
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Remove an item from the collection by key.</p>
-<p>\Illuminate\Contracts\Support\Arrayable&lt;array-key, TValue&gt;|iterable&lt;array-key, TKey&gt;|TKey  $keys</p>
 </div>
 
 
@@ -2341,7 +2371,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>pop(<span>int <var>$count</var> = <span class="php-num">1</span></span>): static&lt;int, TValue&gt;|TValue|null</code>
+				<code>pop(<span>int <var>$count</var> = <span class="php-num">1</span></span>): ($count is <span class="php-num">1</span>&nbsp;?&nbsp;TValue|null&nbsp;:&nbsp;static&lt;int, TValue&gt;)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2568,7 +2598,7 @@
 				<code>random(
 	<span>(callable(<b><span class="active" title="Illuminate\Support\Collection">self</span></b>&lt;TKey, TValue&gt;):&nbsp;int)|int|null <var>$number</var> = <span class="php-kw">null</span></span>,
 	<span>bool <var>$preserveKeys</var> = <span class="php-kw">false</span></span>,
-): static&lt;int, TValue&gt;|TValue</code>
+): ($number is null&nbsp;?&nbsp;TValue&nbsp;:&nbsp;static&lt;int, TValue&gt;)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2827,7 +2857,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>shift(<span>int <var>$count</var> = <span class="php-num">1</span></span>): static&lt;int, TValue&gt;|TValue|null</code>
+				<code>shift(<span>int&lt;<span class="php-num">0</span>, max&gt; <var>$count</var> = <span class="php-num">1</span></span>): ($count is <span class="php-num">1</span>&nbsp;?&nbsp;TValue|null&nbsp;:&nbsp;static&lt;int, TValue&gt;)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3750,7 +3780,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>transform(<span>callable(TValue, TKey):&nbsp;TValue <var>$callback</var></span>): $this</code>
+				<code>transform&lt;<span title="">TMapValue</span>&gt;(<span>callable(TValue, TKey):&nbsp;TMapValue <var>$callback</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -4047,7 +4077,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>count(): int</code>
+				<code>count(): int&lt;<span class="php-num">0</span>, max&gt;</code>
 
 
 	<div class="expandable-collapsedView">

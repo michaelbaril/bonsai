@@ -196,7 +196,7 @@
 		<tr>
 			<th><code>implements</code></th>
 			<td>
-<code><a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, <a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, <a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a></code>			</td>
+<code><a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, <a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, <a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>, <a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a></code>			</td>
 		</tr>
 		<tr>
 			<th><code>uses</code></th>
@@ -214,6 +214,7 @@
 		implements
 			<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>&lt;TKey, TValue&gt;, 
 			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>&lt;TKey, TValue&gt;, 
+			<a href="IteratorAggregate.html"><span title="IteratorAggregate">IteratorAggregate</span></a>, 
 			<a href="Illuminate.Contracts.Support.Jsonable.html"><span title="Illuminate\Contracts\Support\Jsonable">Jsonable</span></a>, 
 			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>
 
@@ -222,6 +223,11 @@
 			<a href="Illuminate.Support.Traits.InteractsWithData.html"><span title="Illuminate\Support\Traits\InteractsWithData">InteractsWithData</span></a>, 
 			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Schema.IndexDefinition.html"><span>Illuminate\Database\Schema\IndexDefinition</span></a>
+
+
+	</li>
 	<li>
 <a href="Illuminate.Database.Schema.ColumnDefinition.html"><span>Illuminate\Database\Schema\ColumnDefinition</span></a>
 
@@ -233,11 +239,6 @@
 
 	</li>
 	</ul>
-	</li>
-	<li>
-<a href="Illuminate.Database.Schema.IndexDefinition.html"><span>Illuminate\Database\Schema\IndexDefinition</span></a>
-
-
 	</li>
 	<li>
 <a href="Illuminate.Database.Schema.ForeignKeyDefinition.html"><span>Illuminate\Database\Schema\ForeignKeyDefinition</span></a>
@@ -683,6 +684,68 @@
 			<a href="#_toJson">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="isEmpty" id="_isEmpty">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>isEmpty(): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if the fluent instance is empty.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if the fluent instance is empty.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isEmpty">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="isNotEmpty" id="_isNotEmpty">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>isNotEmpty(): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if the fluent instance is not empty.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if the fluent instance is not empty.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isNotEmpty">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="offsetExists" id="_offsetExists">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -825,6 +888,42 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_offsetUnset">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getIterator" id="_getIterator">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getIterator(): <a href="ArrayIterator.html"><span title="ArrayIterator">ArrayIterator</span></a>&lt;TKey, TValue&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		Get an iterator for the attributes.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get an iterator for the attributes.</p>
+</div>
+
+
+
+
+		<h4>Implements</h4>
+		<ul>
+				<li>
+<a href="IteratorAggregate.html#_getIterator">						<code>IteratorAggregate::getIterator()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getIterator">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="__call" id="___call">
@@ -1013,6 +1112,8 @@
 <code><a href="Illuminate.Support.Traits.Macroable.html#_macro">macro()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_mixin">mixin()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_hasMacro">hasMacro()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_flushMacros">flushMacros()</a>, <a href="Illuminate.Support.Traits.Macroable.html#___callStatic">__callStatic()</a>, </code>				</td>
 			</tr>
 		</table>
+
+
 
 
 

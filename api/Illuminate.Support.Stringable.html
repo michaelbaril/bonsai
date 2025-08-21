@@ -899,6 +899,37 @@
 			<a href="#_endsWith">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="doesntEndWith" id="_doesntEndWith">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>doesntEndWith(<span>string|iterable&lt;string&gt; <var>$needles</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if a given string doesn't end with a given substring.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if a given string doesn't end with a given substring.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_doesntEndWith">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="exactly" id="_exactly">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1158,7 +1189,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>isUrl(): bool</code>
+				<code>isUrl(<span>array <var>$protocols</var> = []</span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1189,7 +1220,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>isUuid(): bool</code>
+				<code>isUuid(<span>int&lt;<span class="php-num">0</span>, <span class="php-num">8</span>&gt;|<span class="php-str">'max'</span>|null <var>$version</var> = <span class="php-kw">null</span></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2697,6 +2728,37 @@
 			<a href="#_startsWith">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="doesntStartWith" id="_doesntStartWith">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>doesntStartWith(<span>string|iterable&lt;string&gt; <var>$needles</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if a given string doesn't start with a given substring.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if a given string doesn't start with a given substring.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_doesntStartWith">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="studly" id="_studly">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3255,6 +3317,37 @@
 			<a href="#_whenEndsWith">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="whenDoesntEndWith" id="_whenDoesntEndWith">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whenDoesntEndWith(<span>string|iterable&lt;string&gt; <var>$needles</var></span>, <span>callable <var>$callback</var></span>, <span>callable|null <var>$default</var> = <span class="php-kw">null</span></span>): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Execute the given callback if the string doesn't end with a given substring.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Execute the given callback if the string doesn't end with a given substring.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whenDoesntEndWith">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="whenExactly" id="_whenExactly">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3470,6 +3563,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_whenStartsWith">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whenDoesntStartWith" id="_whenDoesntStartWith">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whenDoesntStartWith(<span>string|iterable&lt;string&gt; <var>$needles</var></span>, <span>callable <var>$callback</var></span>, <span>callable|null <var>$default</var> = <span class="php-kw">null</span></span>): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Execute the given callback if the string doesn't start with a given substring.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Execute the given callback if the string doesn't start with a given substring.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whenDoesntStartWith">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="whenTest" id="_whenTest">
@@ -3782,6 +3906,68 @@
 			<a href="#_hash">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="encrypt" id="_encrypt">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>encrypt(<span>bool <var>$serialize</var> = <span class="php-kw">false</span></span>): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Encrypt the string.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Encrypt the string.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_encrypt">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="decrypt" id="_decrypt">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>decrypt(<span>bool <var>$serialize</var> = <span class="php-kw">false</span></span>): static</code>
+
+
+	<div class="expandable-collapsedView">
+		Decrypt the string.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Decrypt the string.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_decrypt">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="dump" id="_dump">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -4005,6 +4191,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_toDate">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="toUri" id="_toUri">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toUri(): <a href="Illuminate.Support.Uri.html"><span title="Illuminate\Support\Uri">Uri</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Get the underlying string value as a Uri instance.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the underlying string value as a Uri instance.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toUri">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="jsonSerialize" id="_jsonSerialize">

@@ -319,6 +319,37 @@
 			<a href="#_isShared">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getScopedTyped" id="_getScopedTyped">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getScopedTyped(<span><a href="ReflectionClass.html"><span title="ReflectionClass">ReflectionClass</span></a>&lt;object&gt;|class-string <var>$reflection</var></span>): <span class="php-str">'singleton'</span>|<span class="php-str">'scoped'</span>|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if a ReflectionClass has scoping attributes applied.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if a ReflectionClass has scoping attributes applied.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getScopedTyped">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="isAlias" id="_isAlias">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1549,6 +1580,37 @@
 			<a href="#_getConcrete">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getConcreteBindingFromAttributes" id="_getConcreteBindingFromAttributes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getConcreteBindingFromAttributes(<span>string <var>$abstract</var></span>): mixed</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the concrete binding for an abstract from the Bind attribute.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the concrete binding for an abstract from the Bind attribute.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getConcreteBindingFromAttributes">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="getContextualConcrete" id="_getContextualConcrete">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2664,6 +2726,68 @@
 			<a href="#_forgetScopedInstances">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="resolveEnvironmentUsing" id="_resolveEnvironmentUsing">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolveEnvironmentUsing(<span>((callable(array&lt;int, string&gt;|string):&nbsp;bool)|string)|null <var>$callback</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Set the callback which determines the current container environment.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set the callback which determines the current container environment.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveEnvironmentUsing">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="currentEnvironmentIs" id="_currentEnvironmentIs">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>currentEnvironmentIs(<span>array&lt;int, string&gt;|string <var>$environments</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine the environment for the container.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine the environment for the container.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_currentEnvironmentIs">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="flush" id="_flush">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3319,6 +3443,54 @@
 			<a href="#$contextualAttributes">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="checkedForAttributeBindings" id="$checkedForAttributeBindings">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array&lt;class-string, true&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$checkedForAttributeBindings</var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$checkedForAttributeBindings">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="checkedForSingletonOrScopedAttributes" id="$checkedForSingletonOrScopedAttributes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array&lt;class-string, <span class="php-str">'scoped'</span>|<span class="php-str">'singleton'</span>|null&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$checkedForSingletonOrScopedAttributes</var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$checkedForSingletonOrScopedAttributes">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="reboundCallbacks" id="$reboundCallbacks">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3509,6 +3681,30 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$afterResolvingAttributeCallbacks">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="environmentResolver" id="$environmentResolver">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">((callable(array&lt;int, string&gt;|string):&nbsp;bool)|string)|null</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$environmentResolver</var> = <span class="php-kw">null</span></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$environmentResolver">#</a>
 		</td>
 	</tr>
 		</table>

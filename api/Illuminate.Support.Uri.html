@@ -195,7 +195,7 @@
 		<tr>
 			<th><code>implements</code></th>
 			<td>
-<code><a href="Illuminate.Contracts.Support.Htmlable.html"><span title="Illuminate\Contracts\Support\Htmlable">Htmlable</span></a>, <a href="Illuminate.Contracts.Support.Responsable.html"><span title="Illuminate\Contracts\Support\Responsable">Responsable</span></a>, <a href="Stringable.html"><span title="Stringable">Stringable</span></a></code>			</td>
+<code><a href="Illuminate.Contracts.Support.Htmlable.html"><span title="Illuminate\Contracts\Support\Htmlable">Htmlable</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, <a href="Illuminate.Contracts.Support.Responsable.html"><span title="Illuminate\Contracts\Support\Responsable">Responsable</span></a>, <a href="Stringable.html"><span title="Stringable">Stringable</span></a></code>			</td>
 		</tr>
 		<tr>
 			<th><code>uses</code></th>
@@ -1118,6 +1118,37 @@
 			<a href="#_redirect">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="toStringable" id="_toStringable">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toStringable(): <a href="Illuminate.Support.Stringable.html"><span title="Illuminate\Support\Stringable">Stringable</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Get the URI as a Stringable instance.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the URI as a Stringable instance.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toStringable">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="toResponse" id="_toResponse">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1133,11 +1164,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Create an HTTP response that represents the object.
+		Create an HTTP response that represents the URI object.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Create an HTTP response that represents the object.</p>
+	<div class="description"><p>Create an HTTP response that represents the URI object.</p>
 </div>
 
 
@@ -1169,11 +1200,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get content as a string of HTML.
+		Get the URI as a string of HTML.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get content as a string of HTML.</p>
+	<div class="description"><p>Get the URI as a string of HTML.</p>
 </div>
 
 
@@ -1376,6 +1407,42 @@
 			<a href="#_getUri">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="jsonSerialize" id="_jsonSerialize">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>jsonSerialize(): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Convert the object into a value that is JSON serializable.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Convert the object into a value that is JSON serializable.</p>
+</div>
+
+
+
+
+		<h4>Implements</h4>
+		<ul>
+				<li>
+<a href="JsonSerializable.html#_jsonSerialize">						<code>JsonSerializable::jsonSerialize()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_jsonSerialize">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="__toString" id="___toString">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1453,6 +1520,7 @@
 <code><a href="Illuminate.Support.Traits.Tappable.html#_tap">tap()</a></code>				</td>
 			</tr>
 		</table>
+
 
 
 
