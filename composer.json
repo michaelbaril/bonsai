@@ -37,7 +37,6 @@
         }
     },
     "suggest": {
-        "baril/octopus": "Required to use the $node->siblings() relation.",
         "baril/orderly": "Required for ordered trees."
     },
     "extra": {
