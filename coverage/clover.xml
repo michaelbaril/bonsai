@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1751351733">
-  <project timestamp="1751351733" name="Clover Coverage">
+<coverage generated="1755804742">
+  <project timestamp="1755804742" name="Clover Coverage">
     <package name="Baril\Bonsai">
       <file name="/home/runner/work/bonsai/bonsai/src/BonsaiServiceProvider.php">
         <class name="Baril\Bonsai\BonsaiServiceProvider" namespace="Baril\Bonsai">
@@ -38,7 +38,7 @@
       </file>
       <file name="/home/runner/work/bonsai/bonsai/src/Concerns/BelongsToTree.php">
         <class name="Baril\Bonsai\Concerns\BelongsToTree" namespace="Baril\Bonsai\Concerns">
-          <metrics complexity="68" methods="38" coveredmethods="38" conditionals="0" coveredconditionals="0" statements="204" coveredstatements="204" elements="242" coveredelements="242"/>
+          <metrics complexity="69" methods="39" coveredmethods="39" conditionals="0" coveredconditionals="0" statements="208" coveredstatements="208" elements="247" coveredelements="247"/>
         </class>
         <line num="15" type="method" name="bootBelongsToTree" visibility="public" complexity="3" crap="3" count="44"/>
         <line num="17" type="stmt" count="44"/>
@@ -74,12 +74,12 @@
         <line num="87" type="stmt" count="1"/>
         <line num="88" type="stmt" count="1"/>
         <line num="89" type="stmt" count="1"/>
-        <line num="100" type="method" name="parent" visibility="public" complexity="1" crap="1" count="10"/>
-        <line num="102" type="stmt" count="10"/>
-        <line num="125" type="method" name="children" visibility="public" complexity="1" crap="1" count="7"/>
-        <line num="127" type="stmt" count="7"/>
-        <line num="133" type="method" name="ancestors" visibility="public" complexity="1" crap="1" count="12"/>
-        <line num="135" type="stmt" count="12"/>
+        <line num="90" type="stmt" count="1"/>
+        <line num="101" type="method" name="parent" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="103" type="stmt" count="10"/>
+        <line num="126" type="method" name="children" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="128" type="stmt" count="7"/>
+        <line num="134" type="method" name="ancestors" visibility="public" complexity="1" crap="1" count="12"/>
         <line num="136" type="stmt" count="12"/>
         <line num="137" type="stmt" count="12"/>
         <line num="138" type="stmt" count="12"/>
@@ -90,8 +90,8 @@
         <line num="143" type="stmt" count="12"/>
         <line num="144" type="stmt" count="12"/>
         <line num="145" type="stmt" count="12"/>
-        <line num="151" type="method" name="descendants" visibility="public" complexity="1" crap="1" count="22"/>
-        <line num="153" type="stmt" count="22"/>
+        <line num="146" type="stmt" count="12"/>
+        <line num="152" type="method" name="descendants" visibility="public" complexity="1" crap="1" count="22"/>
         <line num="154" type="stmt" count="22"/>
         <line num="155" type="stmt" count="22"/>
         <line num="156" type="stmt" count="22"/>
@@ -102,101 +102,101 @@
         <line num="161" type="stmt" count="22"/>
         <line num="162" type="stmt" count="22"/>
         <line num="163" type="stmt" count="22"/>
-        <line num="172" type="method" name="setRelation" visibility="public" complexity="3" crap="3" count="20"/>
-        <line num="175" type="stmt" count="20"/>
-        <line num="176" type="stmt" count="7"/>
+        <line num="164" type="stmt" count="22"/>
+        <line num="173" type="method" name="setRelation" visibility="public" complexity="3" crap="3" count="20"/>
+        <line num="176" type="stmt" count="20"/>
         <line num="177" type="stmt" count="7"/>
-        <line num="178" type="stmt" count="20"/>
-        <line num="179" type="stmt" count="4"/>
+        <line num="178" type="stmt" count="7"/>
+        <line num="179" type="stmt" count="20"/>
         <line num="180" type="stmt" count="4"/>
-        <line num="182" type="stmt" count="20"/>
-        <line num="192" type="method" name="setChildrenFromDescendants" visibility="protected" complexity="5" crap="5" count="7"/>
-        <line num="194" type="stmt" count="7"/>
+        <line num="181" type="stmt" count="4"/>
+        <line num="183" type="stmt" count="20"/>
+        <line num="193" type="method" name="setChildrenFromDescendants" visibility="protected" complexity="5" crap="5" count="7"/>
         <line num="195" type="stmt" count="7"/>
-        <line num="197" type="stmt" count="7"/>
+        <line num="196" type="stmt" count="7"/>
         <line num="198" type="stmt" count="7"/>
-        <line num="199" type="stmt" count="4"/>
+        <line num="199" type="stmt" count="7"/>
         <line num="200" type="stmt" count="4"/>
-        <line num="202" type="stmt" count="4"/>
-        <line num="204" type="stmt" count="7"/>
-        <line num="207" type="stmt" count="7"/>
+        <line num="201" type="stmt" count="4"/>
+        <line num="203" type="stmt" count="4"/>
+        <line num="205" type="stmt" count="7"/>
         <line num="208" type="stmt" count="7"/>
-        <line num="209" type="stmt" count="5"/>
-        <line num="211" type="stmt" count="7"/>
-        <line num="213" type="stmt" count="7"/>
+        <line num="209" type="stmt" count="7"/>
+        <line num="210" type="stmt" count="5"/>
+        <line num="212" type="stmt" count="7"/>
         <line num="214" type="stmt" count="7"/>
         <line num="215" type="stmt" count="7"/>
-        <line num="225" type="method" name="setParentsFromAncestors" visibility="protected" complexity="4" crap="4" count="4"/>
-        <line num="227" type="stmt" count="4"/>
+        <line num="216" type="stmt" count="7"/>
+        <line num="226" type="method" name="setParentsFromAncestors" visibility="protected" complexity="4" crap="4" count="4"/>
         <line num="228" type="stmt" count="4"/>
-        <line num="231" type="stmt" count="4"/>
+        <line num="229" type="stmt" count="4"/>
         <line num="232" type="stmt" count="4"/>
-        <line num="234" type="stmt" count="4"/>
+        <line num="233" type="stmt" count="4"/>
         <line num="235" type="stmt" count="4"/>
-        <line num="236" type="stmt" count="3"/>
-        <line num="237" type="stmt" count="4"/>
-        <line num="238" type="stmt" count="3"/>
-        <line num="240" type="stmt" count="4"/>
-        <line num="251" type="method" name="isRoot" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="253" type="stmt" count="1"/>
+        <line num="236" type="stmt" count="4"/>
+        <line num="237" type="stmt" count="3"/>
+        <line num="238" type="stmt" count="4"/>
+        <line num="239" type="stmt" count="3"/>
+        <line num="241" type="stmt" count="4"/>
+        <line num="252" type="method" name="isRoot" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="254" type="stmt" count="1"/>
-        <line num="261" type="method" name="isLeaf" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="263" type="stmt" count="1"/>
-        <line num="270" type="method" name="hasChildren" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="272" type="stmt" count="1"/>
-        <line num="279" type="method" name="isChildOf" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="281" type="stmt" count="1"/>
+        <line num="255" type="stmt" count="1"/>
+        <line num="262" type="method" name="isLeaf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="264" type="stmt" count="1"/>
+        <line num="271" type="method" name="hasChildren" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="273" type="stmt" count="1"/>
+        <line num="280" type="method" name="isChildOf" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="282" type="stmt" count="1"/>
-        <line num="290" type="method" name="isParentOf" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="292" type="stmt" count="1"/>
-        <line num="300" type="method" name="isDescendantOf" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="302" type="stmt" count="1"/>
-        <line num="310" type="method" name="isAncestorOf" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="312" type="stmt" count="1"/>
-        <line num="320" type="method" name="isSiblingOf" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="322" type="stmt" count="1"/>
+        <line num="283" type="stmt" count="1"/>
+        <line num="291" type="method" name="isParentOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="293" type="stmt" count="1"/>
+        <line num="301" type="method" name="isDescendantOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="303" type="stmt" count="1"/>
+        <line num="311" type="method" name="isAncestorOf" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="313" type="stmt" count="1"/>
+        <line num="321" type="method" name="isSiblingOf" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="323" type="stmt" count="1"/>
-        <line num="334" type="method" name="findCommonAncestorWith" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="336" type="stmt" count="3"/>
+        <line num="324" type="stmt" count="1"/>
+        <line num="335" type="method" name="findCommonAncestorWith" visibility="public" complexity="1" crap="1" count="3"/>
         <line num="337" type="stmt" count="3"/>
         <line num="338" type="stmt" count="3"/>
         <line num="339" type="stmt" count="3"/>
         <line num="340" type="stmt" count="3"/>
-        <line num="352" type="method" name="getDistanceTo" visibility="public" complexity="2" crap="2" count="2"/>
-        <line num="354" type="stmt" count="2"/>
+        <line num="341" type="stmt" count="3"/>
+        <line num="353" type="method" name="getDistanceTo" visibility="public" complexity="2" crap="2" count="2"/>
         <line num="355" type="stmt" count="2"/>
-        <line num="356" type="stmt" count="1"/>
-        <line num="358" type="stmt" count="1"/>
+        <line num="356" type="stmt" count="2"/>
+        <line num="357" type="stmt" count="1"/>
         <line num="359" type="stmt" count="1"/>
         <line num="360" type="stmt" count="1"/>
         <line num="361" type="stmt" count="1"/>
-        <line num="369" type="method" name="getDepth" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="371" type="stmt" count="1"/>
-        <line num="379" type="method" name="getSubtreeDepth" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="381" type="stmt" count="1"/>
-        <line num="389" type="method" name="scopeWithClosure" visibility="protected" complexity="3" crap="3" count="5"/>
-        <line num="391" type="stmt" count="5"/>
+        <line num="362" type="stmt" count="1"/>
+        <line num="370" type="method" name="getDepth" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="372" type="stmt" count="1"/>
+        <line num="380" type="method" name="getSubtreeDepth" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="382" type="stmt" count="1"/>
+        <line num="390" type="method" name="scopeWithClosure" visibility="protected" complexity="3" crap="3" count="5"/>
         <line num="392" type="stmt" count="5"/>
-        <line num="393" type="stmt" count="3"/>
-        <line num="395" type="stmt" count="5"/>
-        <line num="396" type="stmt" count="1"/>
-        <line num="398" type="stmt" count="5"/>
-        <line num="401" type="method" name="scopeWithAncestors" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="403" type="stmt" count="1"/>
-        <line num="406" type="method" name="scopeWithDescendants" visibility="public" complexity="1" crap="1" count="4"/>
-        <line num="408" type="stmt" count="4"/>
-        <line num="411" type="method" name="scopeWithDepth" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="413" type="stmt" count="1"/>
-        <line num="416" type="method" name="scopeWhereIsRoot" visibility="public" complexity="2" crap="2" count="3"/>
-        <line num="418" type="stmt" count="3"/>
-        <line num="421" type="method" name="scopeWhereIsLeaf" visibility="public" complexity="2" crap="2" count="1"/>
-        <line num="423" type="stmt" count="1"/>
+        <line num="393" type="stmt" count="5"/>
+        <line num="394" type="stmt" count="3"/>
+        <line num="396" type="stmt" count="5"/>
+        <line num="397" type="stmt" count="1"/>
+        <line num="399" type="stmt" count="5"/>
+        <line num="402" type="method" name="scopeWithAncestors" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="404" type="stmt" count="1"/>
+        <line num="407" type="method" name="scopeWithDescendants" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="409" type="stmt" count="4"/>
+        <line num="412" type="method" name="scopeWithDepth" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="414" type="stmt" count="1"/>
+        <line num="417" type="method" name="scopeWhereIsRoot" visibility="public" complexity="2" crap="2" count="3"/>
+        <line num="419" type="stmt" count="3"/>
+        <line num="422" type="method" name="scopeWhereIsLeaf" visibility="public" complexity="2" crap="2" count="1"/>
         <line num="424" type="stmt" count="1"/>
-        <line num="426" type="stmt" count="1"/>
-        <line num="430" type="method" name="scopeWhereHasChildren" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="432" type="stmt" count="1"/>
-        <line num="435" type="method" name="scopeWhereIsDescendantOf" visibility="public" complexity="4" crap="4" count="44"/>
-        <line num="437" type="stmt" count="44"/>
+        <line num="425" type="stmt" count="1"/>
+        <line num="427" type="stmt" count="1"/>
+        <line num="431" type="method" name="scopeWhereHasChildren" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="433" type="stmt" count="1"/>
+        <line num="436" type="method" name="scopeWhereIsDescendantOf" visibility="public" complexity="4" crap="4" count="44"/>
         <line num="438" type="stmt" count="44"/>
         <line num="439" type="stmt" count="44"/>
         <line num="440" type="stmt" count="44"/>
@@ -206,13 +206,13 @@
         <line num="444" type="stmt" count="44"/>
         <line num="445" type="stmt" count="44"/>
         <line num="446" type="stmt" count="44"/>
-        <line num="448" type="stmt" count="44"/>
-        <line num="449" type="stmt" count="1"/>
-        <line num="451" type="stmt" count="44"/>
+        <line num="447" type="stmt" count="44"/>
+        <line num="449" type="stmt" count="44"/>
+        <line num="450" type="stmt" count="1"/>
         <line num="452" type="stmt" count="44"/>
         <line num="453" type="stmt" count="44"/>
-        <line num="456" type="method" name="scopeWhereIsAncestorOf" visibility="public" complexity="4" crap="4" count="4"/>
-        <line num="458" type="stmt" count="4"/>
+        <line num="454" type="stmt" count="44"/>
+        <line num="457" type="method" name="scopeWhereIsAncestorOf" visibility="public" complexity="4" crap="4" count="4"/>
         <line num="459" type="stmt" count="4"/>
         <line num="460" type="stmt" count="4"/>
         <line num="461" type="stmt" count="4"/>
@@ -221,53 +221,53 @@
         <line num="464" type="stmt" count="4"/>
         <line num="465" type="stmt" count="4"/>
         <line num="466" type="stmt" count="4"/>
-        <line num="467" type="stmt" count="1"/>
-        <line num="469" type="stmt" count="4"/>
-        <line num="470" type="stmt" count="1"/>
-        <line num="472" type="stmt" count="4"/>
+        <line num="467" type="stmt" count="4"/>
+        <line num="468" type="stmt" count="1"/>
+        <line num="470" type="stmt" count="4"/>
+        <line num="471" type="stmt" count="1"/>
         <line num="473" type="stmt" count="4"/>
         <line num="474" type="stmt" count="4"/>
-        <line num="488" type="method" name="getTree" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="490" type="stmt" count="2"/>
-        <line num="498" type="method" name="getTreeDepth" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="500" type="stmt" count="1"/>
+        <line num="475" type="stmt" count="4"/>
+        <line num="489" type="method" name="getTree" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="491" type="stmt" count="2"/>
+        <line num="499" type="method" name="getTreeDepth" visibility="public" complexity="1" crap="1" count="1"/>
         <line num="501" type="stmt" count="1"/>
-        <line num="515" type="method" name="checkIfParentIdIsValid" visibility="protected" complexity="4" crap="4" count="44"/>
-        <line num="517" type="stmt" count="44"/>
-        <line num="519" type="stmt" count="44"/>
+        <line num="502" type="stmt" count="1"/>
+        <line num="516" type="method" name="checkIfParentIdIsValid" visibility="protected" complexity="4" crap="4" count="44"/>
+        <line num="518" type="stmt" count="44"/>
         <line num="520" type="stmt" count="44"/>
-        <line num="523" type="stmt" count="44"/>
+        <line num="521" type="stmt" count="44"/>
         <line num="524" type="stmt" count="44"/>
-        <line num="526" type="stmt" count="3"/>
+        <line num="525" type="stmt" count="44"/>
         <line num="527" type="stmt" count="3"/>
         <line num="528" type="stmt" count="3"/>
-        <line num="537" type="method" name="refreshClosures" visibility="public" complexity="3" crap="3" count="44"/>
-        <line num="539" type="stmt" count="44"/>
-        <line num="540" type="stmt" count="44"/>
-        <line num="542" type="stmt" count="44"/>
-        <line num="544" type="stmt" count="44"/>
-        <line num="545" type="stmt" count="44"/>
-        <line num="546" type="stmt" count="44"/>
-        <line num="547" type="stmt" count="44"/>
-        <line num="550" type="stmt" count="44"/>
-        <line num="559" type="stmt" count="9"/>
-        <line num="560" type="stmt" count="9"/>
-        <line num="561" type="stmt" count="9"/>
-        <line num="562" type="stmt" count="9"/>
-        <line num="563" type="stmt" count="9"/>
-        <line num="564" type="stmt" count="9"/>
-        <line num="565" type="stmt" count="9"/>
+        <line num="529" type="stmt" count="3"/>
+        <line num="537" type="method" name="deleteClosures" visibility="protected" complexity="1" crap="1" count="10"/>
+        <line num="539" type="stmt" count="10"/>
+        <line num="540" type="stmt" count="10"/>
+        <line num="542" type="stmt" count="10"/>
+        <line num="543" type="stmt" count="10"/>
+        <line num="544" type="stmt" count="10"/>
+        <line num="545" type="stmt" count="10"/>
+        <line num="546" type="stmt" count="9"/>
+        <line num="547" type="stmt" count="10"/>
+        <line num="548" type="stmt" count="10"/>
+        <line num="556" type="method" name="refreshClosures" visibility="public" complexity="3" crap="3" count="44"/>
+        <line num="558" type="stmt" count="44"/>
+        <line num="559" type="stmt" count="44"/>
+        <line num="561" type="stmt" count="44"/>
+        <line num="563" type="stmt" count="44"/>
+        <line num="564" type="stmt" count="44"/>
+        <line num="565" type="stmt" count="44"/>
+        <line num="566" type="stmt" count="44"/>
         <line num="569" type="stmt" count="44"/>
-        <line num="570" type="stmt" count="44"/>
-        <line num="571" type="stmt" count="44"/>
-        <line num="572" type="stmt" count="44"/>
-        <line num="573" type="stmt" count="44"/>
+        <line num="570" type="stmt" count="9"/>
+        <line num="574" type="stmt" count="44"/>
+        <line num="575" type="stmt" count="44"/>
         <line num="576" type="stmt" count="44"/>
-        <line num="583" type="stmt" count="44"/>
-        <line num="584" type="stmt" count="44"/>
-        <line num="585" type="stmt" count="44"/>
-        <line num="586" type="stmt" count="44"/>
-        <line num="587" type="stmt" count="44"/>
+        <line num="577" type="stmt" count="44"/>
+        <line num="578" type="stmt" count="44"/>
+        <line num="581" type="stmt" count="44"/>
         <line num="588" type="stmt" count="44"/>
         <line num="589" type="stmt" count="44"/>
         <line num="590" type="stmt" count="44"/>
@@ -278,11 +278,16 @@
         <line num="595" type="stmt" count="44"/>
         <line num="596" type="stmt" count="44"/>
         <line num="597" type="stmt" count="44"/>
+        <line num="598" type="stmt" count="44"/>
         <line num="599" type="stmt" count="44"/>
-        <line num="605" type="method" name="deleteClosuresForLeaf" visibility="protected" complexity="1" crap="1" count="3"/>
-        <line num="607" type="stmt" count="3"/>
-        <line num="608" type="stmt" count="3"/>
-        <metrics loc="611" ncloc="413" classes="1" methods="38" coveredmethods="38" conditionals="0" coveredconditionals="0" statements="204" coveredstatements="204" elements="242" coveredelements="242"/>
+        <line num="600" type="stmt" count="44"/>
+        <line num="601" type="stmt" count="44"/>
+        <line num="602" type="stmt" count="44"/>
+        <line num="604" type="stmt" count="44"/>
+        <line num="610" type="method" name="deleteClosuresForLeaf" visibility="protected" complexity="1" crap="1" count="3"/>
+        <line num="612" type="stmt" count="3"/>
+        <line num="613" type="stmt" count="3"/>
+        <metrics loc="616" ncloc="422" classes="1" methods="39" coveredmethods="39" conditionals="0" coveredconditionals="0" statements="208" coveredstatements="208" elements="247" coveredelements="247"/>
       </file>
     </package>
     <package name="Baril\Bonsai\Console">
@@ -482,6 +487,6 @@
         <metrics loc="119" ncloc="110" classes="1" methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="45" coveredelements="45"/>
       </file>
     </package>
-    <metrics files="9" loc="1063" ncloc="830" classes="8" methods="68" coveredmethods="65" conditionals="0" coveredconditionals="0" statements="349" coveredstatements="341" elements="417" coveredelements="406"/>
+    <metrics files="9" loc="1068" ncloc="839" classes="8" methods="69" coveredmethods="66" conditionals="0" coveredconditionals="0" statements="353" coveredstatements="345" elements="422" coveredelements="411"/>
   </project>
 </coverage>
