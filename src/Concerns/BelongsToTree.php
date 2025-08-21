@@ -86,6 +86,7 @@ trait BelongsToTree
         $this->getConnection()->transaction(function () {
             $this->descendants()->includingSelf()->update([$this->getParentForeignKeyName() => null]);
             $this->descendants()->includingSelf()->delete();
+            $this->deleteClosures();
         });
     }
 
@@ -530,6 +531,24 @@ trait BelongsToTree
     }
 
     /**
+     * @param  bool  $preserveSubtree
+     * @return int
+     */
+    protected function deleteClosures($preserveSubtree = false)
+    {
+        $closureTable = $this->getClosureTable();
+        $id = $this->getKey();
+
+        return $this->getConnection()->table($closureTable, 'closures')
+            ->join("$closureTable as descendants", 'closures.descendant_id', '=', 'descendants.descendant_id')
+            ->where('descendants.ancestor_id', $id)
+            ->when($preserveSubtree, function ($query) {
+                $query->whereColumn('closures.depth', '>', 'descendants.depth');
+            })
+            ->delete();
+    }
+
+    /**
      * Re-calculate the closures when the parent_id has changed on a single item.
      *
      * @param bool $deleteOldClosures Can be set to false if it's a new item
@@ -548,21 +567,7 @@ trait BelongsToTree
 
             // Delete old closures:
             if ($deleteOldClosures) {
-                // DELETE FROM closures USING $closureTable AS closures
-                //     INNER JOIN $closureTable AS descendants
-                //         ON closures.descendant_id = descendants.descendant_id
-                //     INNER JOIN $closureTable AS ancestors
-                //         ON closures.ancestor_id = ancestors.ancestor_id
-                //     WHERE descendants.ancestor_id = $id
-                //         AND ancestors.descendant_id = $id
-                //         AND closures.depth > descendants.depth
-                $connection->table($closureTable, 'closures')
-                    ->join("$closureTable as descendants", 'closures.descendant_id', '=', 'descendants.descendant_id')
-                    ->join("$closureTable as ancestors", 'closures.ancestor_id', '=', 'ancestors.ancestor_id')
-                    ->where('descendants.ancestor_id', $id)
-                    ->where('ancestors.descendant_id', $id)
-                    ->where('closures.depth', '>', $connection->raw($grammar->wrap('descendants.depth')))
-                    ->delete();
+                $this->deleteClosures(true);
             }
 
             // Create self-closure if needed:
