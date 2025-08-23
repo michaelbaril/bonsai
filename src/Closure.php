@@ -8,12 +8,24 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class Closure extends Pivot
 {
-    protected $as;
+    /**
+     * Added for compatibility with older Laravel versions.
+     * 
+     * @todo remove in v4
+     *
+     * @var \Illuminate\Database\Eloquent\Model
+     */
+    public $pivotRelated;
 
     /**
      * Alias for the query builder instance that references
      * this model.
-     * 
+     *
+     * @var string
+     */
+    protected $as;
+
+    /**
      * @return string
      */
     protected function getAlias()
@@ -40,6 +52,22 @@ class Closure extends Pivot
     public function setParentModel(Model $parent)
     {
         $this->pivotParent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Set the related model of the relationship.
+     * Added for compatibility with older Laravel versions.
+     * 
+     * @todo remove in v4
+     *
+     * @param  \Illuminate\Database\Eloquent\Model|null  $related
+     * @return $this
+     */
+    public function setRelatedModel(?Model $related = null)
+    {
+        $this->pivotRelated = $related;
 
         return $this;
     }
