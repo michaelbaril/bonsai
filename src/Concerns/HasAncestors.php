@@ -2,6 +2,7 @@
 
 namespace Baril\Bonsai\Concerns;
 
+use Baril\Bonsai\Relations\HasManySiblings;
 use Baril\Bonsai\TreeException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -87,6 +88,38 @@ trait HasAncestors
     {
         return $this->hasManyClosuresWith(static::class, $this->getClosureTable());
     }
+
+    /**
+     * One-to-many relationship to the siblings.
+     *
+     * @return \Baril\Bonsai\Relations\HasManySiblings<$this>
+     */
+    public function siblings()
+    {
+        return $this->hasManySiblings($this->getParentForeignKeyName())->withoutSelf();
+    }
+
+    /**
+     * Define a one-to-many relationship through a parent foreign key.
+     *
+     * @todo move to Octopus in v4
+     * @see \Illuminate\Database\Eloquent\Concerns\HasRelationships::hasMany()
+     *
+     * @param  string  $parentForeignKey
+     * @return \Baril\Bonsai\Relations\HasManySiblings<$this>
+     */
+    public function hasManySiblings($parentForeignKey = 'parent_id')
+    {
+        $instance = $this->newRelatedInstance(static::class);
+
+        return new HasManySiblings(
+            $instance->newQuery(),
+            $this,
+            $instance->qualifyColumn($parentForeignKey),
+            $parentForeignKey
+        );
+    }
+
 
     // =========================================================================
     // QUERY SCOPES
