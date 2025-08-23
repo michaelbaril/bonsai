@@ -31,5 +31,5 @@ class BelongsToManyThroughClosures extends BelongsToMany
     /**
      * @var string
      */
-    protected $accessor = 'closure';    
+    protected $accessor = 'closure';
 }

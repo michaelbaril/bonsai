@@ -41,7 +41,7 @@ trait BelongsToTree
 
     /**
      * @deprecated Use ->onlyRoots() instead
-     * 
+     *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  bool  $bool
      * @return void
@@ -110,12 +110,15 @@ trait BelongsToTree
 
     /**
      * Deletes the model and its descendants from the database.
-     * 
+     *
      * @return bool|null
      */
     public function deleteSubtree()
     {
-        $this->descendants()->withSelf()->delete();
+        $descendantsWithSelf = $this->descendants()->withSelf();
+        // Avoid parent_id constraint violation:
+        $descendantsWithSelf->update([$this->getParentForeignKeyName() => null]);
+        $descendantsWithSelf->delete();
         $this->deleteAllClosures();
     }
 }

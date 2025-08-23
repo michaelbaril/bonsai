@@ -10,7 +10,7 @@ class Closure extends Pivot
 {
     /**
      * Added for compatibility with older Laravel versions.
-     * 
+     *
      * @todo remove in v4
      *
      * @var \Illuminate\Database\Eloquent\Model
@@ -59,7 +59,7 @@ class Closure extends Pivot
     /**
      * Set the related model of the relationship.
      * Added for compatibility with older Laravel versions.
-     * 
+     *
      * @todo remove in v4
      *
      * @param  \Illuminate\Database\Eloquent\Model|null  $related
@@ -147,7 +147,7 @@ class Closure extends Pivot
      * @param  string  $first
      * @param  string  $second
      * @return  void
-     */    
+     */
     public function scopeSelfJoin(Builder $query, $as, $first = null, $second = null)
     {
         $table = $this->getTable();
@@ -174,7 +174,7 @@ class Closure extends Pivot
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed|\Illuminate\Database\Eloquent\Model  $node
      * @return  void
-     */    
+     */
     public function scopeWhereAncestor(Builder $query, $node)
     {
         $value = $this->parseIds($node);
@@ -188,7 +188,7 @@ class Closure extends Pivot
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed|\Illuminate\Database\Eloquent\Model  $node
      * @return  void
-     */    
+     */
     public function scopeWhereDescendant(Builder $query, $node)
     {
         $value = $this->parseIds($node);
@@ -203,7 +203,7 @@ class Closure extends Pivot
      * @param  string  $operator
      * @param  int  $value
      * @return  void
-     */    
+     */
     public function scopeWhereDepth(Builder $query, $operator, $value)
     {
         $query->where('depth', $operator, $value);
@@ -212,7 +212,7 @@ class Closure extends Pivot
     /**
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return  void
-     */    
+     */
     public function scopeWithoutSelf(Builder $query)
     {
         $query->where('depth', '>', 0);
