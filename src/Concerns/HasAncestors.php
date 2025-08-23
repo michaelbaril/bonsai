@@ -119,7 +119,7 @@ trait HasAncestors
 
     /**
      * @deprecated
-     * 
+     *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed|\Illuminate\Database\Eloquent\Model  $ancestor
      * @param  int|null  $maxDepth
@@ -213,7 +213,7 @@ trait HasAncestors
     /**
      * @param  mixed|\Illuminate\Database\Eloquent\Model  $node
      * @return \Baril\Bonsai\Relations\BelongsToManyThroughClosures
-     */    
+     */
     protected function newCommonAncestorQuery($node)
     {
         return $this->ancestors()

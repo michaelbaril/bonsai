@@ -14,7 +14,7 @@ trait InteractsWithClosureTable
     /**
      * The name of the relation that is "closed" by this relation
      * (eg. "parent" for "ancestors").
-     * 
+     *
      * @var string
      */
     protected $closes;
@@ -45,7 +45,7 @@ trait InteractsWithClosureTable
 
     /**
      * @deprecated
-     * 
+     *
      * @return $this
      */
     public function excludingSelf()
@@ -69,7 +69,7 @@ trait InteractsWithClosureTable
 
     /**
      * @deprecated
-     * 
+     *
      * @return $this
      */
     public function includingSelf()

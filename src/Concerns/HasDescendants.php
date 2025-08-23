@@ -72,7 +72,7 @@ trait HasDescendants
 
     /**
      * @deprecated Use ->onlyLeaves() instead
-     * 
+     *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  bool  $bool
      * @return void
@@ -102,7 +102,7 @@ trait HasDescendants
 
     /**
      * @deprecated
-     * 
+     *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  bool  $bool
      * @return void
@@ -128,7 +128,7 @@ trait HasDescendants
 
     /**
      * @deprecated
-     * 
+     *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  mixed|\Illuminate\Database\Eloquent\Model  $descendant
      * @param  int|null  $maxDepth
