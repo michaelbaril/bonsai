@@ -58,6 +58,51 @@ class TreeTest extends TestCase
         // ancestors including self
         array_unshift($expected, $this->tags['ABA']->id);
         $this->assertEquals($expected, $this->tags['ABA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray());
+
+        // ascending closures
+        $expected = [
+            $this->tags['A']->id,
+            $this->tags['AB']->id,
+        ];
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->ascendingClosures->pluck('ancestor_id')->sort()->values()->all()
+        );
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->ascendingClosures->pluck('pivotRelated.id')->sort()->values()->all()
+        );
+
+        // descending closures
+        $expected = [
+            $this->tags['AB']->id,
+            $this->tags['ABA']->id,
+        ];
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->descendingClosures->pluck('descendant_id')->sort()->values()->all()
+        );
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->descendingClosures->pluck('pivotRelated.id')->sort()->values()->all()
+        );
+
+        // closures with related
+        $expected = [
+            $this->tags['AB']->id,
+            $this->tags['ABA']->id,
+        ];
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']
+                ->descendingClosures()
+                ->with('related')
+                ->get()
+                ->pluck('related.id')
+                ->sort()
+                ->values()
+                ->all()
+        );
     }
 
     /**
@@ -170,9 +215,9 @@ class TreeTest extends TestCase
 
     public function test_scopes()
     {
-        $this->assertEquals(2, Tag::whereIsRoot()->count());
-        $this->assertEquals(3, Tag::whereIsRoot(false)->count());
-        $this->assertEquals(3, Tag::whereIsLeaf()->count());
+        $this->assertEquals(2, Tag::onlyRoots()->count());
+        $this->assertEquals(3, Tag::onlyRoots(false)->count());
+        $this->assertEquals(3, Tag::onlyLeaves()->count());
         $this->assertEquals(2, Tag::whereHasChildren()->count());
 
         $this->assertEquals(3, Tag::whereIsDescendantOf($this->tags['A'])->count());
@@ -244,7 +289,8 @@ class TreeTest extends TestCase
                 $query->whereKey($this->tags['A']->id);
             },
         ])->whereKey($this->tags['ABA']->id)->get();
-        $this->assertFalse($tags[0]->relationLoaded('parent'));
+        $this->assertNull($tags[0]->parent);
+        $this->assertTrue($tags[0]->relationLoaded('parent'));
     }
 
     public function test_with_ancestors_and_limited_depth()
@@ -339,7 +385,7 @@ class TreeTest extends TestCase
             $totalInitialClosuresCount - $modelInitialClosuresCount,
             DB::table('tag_tree')->count()
         );
-    }           
+    }
 
     public function test_delete_tree()
     {
