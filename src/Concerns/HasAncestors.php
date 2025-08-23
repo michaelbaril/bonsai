@@ -195,14 +195,31 @@ trait HasAncestors
      */
     public function findCommonAncestorWith($node)
     {
-        return $this->ancestors()
-            ->withSelf()
-            ->whereIsAncestorOf($node, null, true)
+        return $this->newCommonAncestorQuery($node)
             ->orderByDepth()
             ->first();
     }
 
-    // @todo add hasCommonAncestorWith
+    /**
+     * @param  mixed|\Illuminate\Database\Eloquent\Model  $node
+     * @return bool
+     */
+    public function hasCommonAncestorWith($node)
+    {
+        return $this->newCommonAncestorQuery($node)
+            ->exists();
+    }
+
+    /**
+     * @param  mixed|\Illuminate\Database\Eloquent\Model  $node
+     * @return \Baril\Bonsai\Relations\BelongsToManyThroughClosures
+     */    
+    protected function newCommonAncestorQuery($node)
+    {
+        return $this->ancestors()
+            ->withSelf()
+            ->ancestorsOf($node, null, true);
+    }
 
     /**
      * Returns the distance between $this and another $item.
