@@ -40,6 +40,35 @@ class TreeTest extends TestCase
         ];
         $this->assertEquals($expected, $this->tags['A']->children->pluck('id')->toArray());
 
+        // siblings
+        $this->assertEquals([$expected[1]], $this->tags['AA']->siblings()->pluck('id')->sortBy('id')->toArray());
+        $this->assertEquals(
+            [$expected[1]],
+            Tag::whereKey($this->tags['AA']->id)
+                ->with('siblings')
+                ->first()
+                ->siblings
+                ->pluck('id')
+                ->sortBy('id')
+                ->toArray()
+        );
+        $this->assertEquals($expected, $this->tags['AA']->siblings()->withSelf()->pluck('id')->sortBy('id')->toArray());
+        $this->assertEquals(
+            $expected,
+            Tag::whereKey($this->tags['AA']->id)
+                ->with([
+                    'siblings' => function ($query) {
+                        return $query->withSelf();
+                    }
+                ])
+                ->first()
+                ->siblings
+                ->pluck('id')
+                ->sortBy('id')
+                ->toArray()
+        );
+        $this->assertEquals(1, Tag::whereKey($this->tags['AA']->id)->withCount('siblings')->first()->siblings_count);
+
         // descendants
         $expected[] = $this->tags['ABA']->id;
         $this->assertEquals($expected, $this->tags['A']->descendants()->orderByDepth()->pluck('id')->toArray());

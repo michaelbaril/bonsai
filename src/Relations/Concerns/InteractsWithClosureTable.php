@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 trait InteractsWithClosureTable
 {
+    use ExcludesSelf;
     use IsReadOnly;
 
     /**
@@ -54,20 +55,6 @@ trait InteractsWithClosureTable
     }
 
     /**
-     * @return $this
-     */
-    public function withoutSelf()
-    {
-        // Using whereRaw() (instead of just calling wherePivot()
-        // makes it easier to remove the clause when withSelf()
-        // is called.
-
-        $column = $this->qualifyPivotColumn('depth');
-        $this->pivotWheres[] = [$column, '>', 0];
-        return $this->whereRaw("$column > 0");
-    }
-
-    /**
      * @deprecated
      *
      * @return $this
@@ -75,34 +62,6 @@ trait InteractsWithClosureTable
     public function includingSelf()
     {
         return $this->withSelf();
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSelf()
-    {
-        $column = $this->qualifyPivotColumn('depth');
-
-        // Remove clause from $this->pivotWheres:
-        foreach ($this->pivotWheres as $k => $where) {
-            if ($where === [$column, '>', 0]) {
-                unset($this->pivotWheres[$k]);
-            }
-        }
-        $this->pivotWheres = array_values($this->pivotWheres);
-
-        // Remove clause from actual query:
-        $query = $this->getBaseQuery();
-        $sql = "$column > 0";
-        foreach ($query->wheres as $k => $where) {
-            if ($where === ['type' => 'raw', 'sql' => $sql, 'boolean' => 'and']) {
-                unset($query->wheres[$k]);
-            }
-        }
-        $query->wheres = array_values($query->wheres);
-
-        return $this;
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Baril\Bonsai\Relations;
 
 use Baril\Bonsai\Closure;
+use Baril\Bonsai\Relations\Concerns\ExcludesSelf;
 use Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
