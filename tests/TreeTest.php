@@ -189,7 +189,9 @@ class TreeTest extends TestCase
 
     public function test_common_ancestor()
     {
+        $this->assertFalse($this->tags['A']->hasCommonAncestorWith($this->tags['B']));
         $this->assertNull($this->tags['A']->findCommonAncestorWith($this->tags['B']));
+        $this->assertTrue($this->tags['AA']->hasCommonAncestorWith($this->tags['ABA']));
         $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->findCommonAncestorWith($this->tags['AA'])->id);
         $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->findCommonAncestorWith($this->tags['A'])->id);
         $this->assertEquals($this->tags['A']->id, $this->tags['A']->findCommonAncestorWith($this->tags['AA'])->id);
