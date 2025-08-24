@@ -66,7 +66,7 @@ trait ExcludesSelf
                 $related = $model->getRelation($relation);
                 if ($related instanceof EloquentCollection) {
                     $model->setRelation($relation, $related->except($model->getKey()));
-                } elseif ($related instanceof $model && $related->getKey() === $model->getKey()) {
+                } elseif ($related->getTable() == $model->getTable() && $related->getKey() === $model->getKey()) {
                     $this->initRelation([$model], $relation);
                 }
             }
