@@ -2,9 +2,9 @@
 
 namespace Baril\Bonsai\Relations;
 
-use Baril\Bonsai\Closure;
 use Baril\Bonsai\Relations\Concerns\ExcludesSelf;
 use Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable;
+use Baril\Bonsai\Relations\Concerns\IsReadOnly;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
@@ -17,20 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class BelongsToManyThroughClosures extends BelongsToMany
 {
+    use ExcludesSelf;
     use InteractsWithClosureTable;
-
-    /**
-     * @var array
-     */
-    protected $pivotColumns = ['depth'];
-
-    /**
-     * @var string
-     */
-    protected $using = Closure::class;
-
-    /**
-     * @var string
-     */
-    protected $accessor = 'closure';
+    use IsReadOnly;
 }

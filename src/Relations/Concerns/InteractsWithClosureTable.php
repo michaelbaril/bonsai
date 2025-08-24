@@ -2,6 +2,7 @@
 
 namespace Baril\Bonsai\Relations\Concerns;
 
+use Baril\Bonsai\Closure;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -9,9 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 trait InteractsWithClosureTable
 {
-    use ExcludesSelf;
-    use IsReadOnly;
-
     /**
      * The name of the relation that is "closed" by this relation
      * (eg. "parent" for "ancestors").
@@ -24,6 +22,21 @@ trait InteractsWithClosureTable
      * @var int|null
      */
     protected $depth = null;
+
+    /**
+     * Set the base constraints on the relation query.
+     *
+     * @return void
+     */
+    public function addConstraints()
+    {
+        parent::addConstraints();
+
+        $this
+            ->as('closure')
+            ->using(Closure::class)
+            ->withPivot('depth');
+    }
 
     /**
      * @param  string  $relation
