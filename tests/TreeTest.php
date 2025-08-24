@@ -5,6 +5,7 @@ namespace Baril\Bonsai\Tests;
 use Baril\Bonsai\Tests\Models\Tag;
 use Baril\Bonsai\TreeException;
 use Illuminate\Support\Facades\DB;
+use LogicException;
 
 class TreeTest extends TestCase
 {
@@ -39,6 +40,35 @@ class TreeTest extends TestCase
         ];
         $this->assertEquals($expected, $this->tags['A']->children->pluck('id')->toArray());
 
+        // siblings
+        $this->assertEquals([$expected[1]], $this->tags['AA']->siblings()->pluck('id')->sortBy('id')->toArray());
+        $this->assertEquals(
+            [$expected[1]],
+            Tag::whereKey($this->tags['AA']->id)
+                ->with('siblings')
+                ->first()
+                ->siblings
+                ->pluck('id')
+                ->sortBy('id')
+                ->toArray()
+        );
+        $this->assertEquals($expected, $this->tags['AA']->siblings()->withSelf()->pluck('id')->sortBy('id')->toArray());
+        $this->assertEquals(
+            $expected,
+            Tag::whereKey($this->tags['AA']->id)
+                ->with([
+                    'siblings' => function ($query) {
+                        return $query->withSelf();
+                    }
+                ])
+                ->first()
+                ->siblings
+                ->pluck('id')
+                ->sortBy('id')
+                ->toArray()
+        );
+        $this->assertEquals(1, Tag::whereKey($this->tags['AA']->id)->withCount('siblings')->first()->siblings_count);
+
         // descendants
         $expected[] = $this->tags['ABA']->id;
         $this->assertEquals($expected, $this->tags['A']->descendants()->orderByDepth()->pluck('id')->toArray());
@@ -57,6 +87,99 @@ class TreeTest extends TestCase
         // ancestors including self
         array_unshift($expected, $this->tags['ABA']->id);
         $this->assertEquals($expected, $this->tags['ABA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray());
+
+        // ascending closures
+        $expected = [
+            $this->tags['A']->id,
+            $this->tags['AB']->id,
+        ];
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->ascendingClosures->pluck('ancestor_id')->sort()->values()->all()
+        );
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->ascendingClosures->pluck('pivotRelated.id')->sort()->values()->all()
+        );
+
+        // descending closures
+        $expected = [
+            $this->tags['AB']->id,
+            $this->tags['ABA']->id,
+        ];
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->descendingClosures->pluck('descendant_id')->sort()->values()->all()
+        );
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']->descendingClosures->pluck('pivotRelated.id')->sort()->values()->all()
+        );
+
+        // closures with related
+        $expected = [
+            $this->tags['AB']->id,
+            $this->tags['ABA']->id,
+        ];
+        $this->assertEquals(
+            $expected,
+            $this->tags['AB']
+                ->descendingClosures()
+                ->with('related')
+                ->get()
+                ->pluck('related.id')
+                ->sort()
+                ->values()
+                ->all()
+        );
+    }
+
+    /**
+     * @dataProvider changeParentProvider
+     */
+    public function test_change_parent($newParent)
+    {
+        $this->tags['ABAA'] = Tag::factory()->create(['parent_id' => $this->tags['ABA']->id]);
+        $this->tags['ABAAA'] = Tag::factory()->create(['parent_id' => $this->tags['ABAA']->id]);
+
+        $newParent = $this->tags[$newParent];
+        $expectedAncestors = $newParent->ancestors()->orderByDepth()->pluck('id')->prepend($newParent->id)->prepend($this->tags['ABA']->id);
+        $expectedDescendants = $this->tags['ABA']->descendants()->orderByDepth()->pluck('id')->prepend($this->tags['ABA']->id);
+
+        $this->tags['ABA']->parent()->associate($newParent);
+        $this->tags['ABA']->save();
+
+        // ancestors
+        $this->assertEquals(
+            $expectedAncestors->toArray(),
+            $this->tags['ABA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+
+        // descendants
+        $this->assertEquals(
+            $expectedDescendants->toArray(),
+            $this->tags['ABA']->descendants()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+
+        // descendants' ancestors
+        $expectedAncestors->prepend($this->tags['ABAA']->id);
+        $this->assertEquals(
+            $expectedAncestors->toArray(),
+            $this->tags['ABAA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+        $expectedAncestors->prepend($this->tags['ABAAA']->id);
+        $this->assertEquals(
+            $expectedAncestors->toArray(),
+            $this->tags['ABAAA']->ancestors()->includingSelf()->orderByDepth()->pluck('id')->toArray()
+        );
+    }
+
+    public static function changeParentProvider()
+    {
+        return [
+            'AA' => ['AA'],
+            'B' => ['B'],
+        ];
     }
 
     /**
@@ -95,7 +218,9 @@ class TreeTest extends TestCase
 
     public function test_common_ancestor()
     {
+        $this->assertFalse($this->tags['A']->hasCommonAncestorWith($this->tags['B']));
         $this->assertNull($this->tags['A']->findCommonAncestorWith($this->tags['B']));
+        $this->assertTrue($this->tags['AA']->hasCommonAncestorWith($this->tags['ABA']));
         $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->findCommonAncestorWith($this->tags['AA'])->id);
         $this->assertEquals($this->tags['A']->id, $this->tags['ABA']->findCommonAncestorWith($this->tags['A'])->id);
         $this->assertEquals($this->tags['A']->id, $this->tags['A']->findCommonAncestorWith($this->tags['AA'])->id);
@@ -121,9 +246,9 @@ class TreeTest extends TestCase
 
     public function test_scopes()
     {
-        $this->assertEquals(2, Tag::whereIsRoot()->count());
-        $this->assertEquals(3, Tag::whereIsRoot(false)->count());
-        $this->assertEquals(3, Tag::whereIsLeaf()->count());
+        $this->assertEquals(2, Tag::onlyRoots()->count());
+        $this->assertEquals(3, Tag::onlyRoots(false)->count());
+        $this->assertEquals(3, Tag::onlyLeaves()->count());
         $this->assertEquals(2, Tag::whereHasChildren()->count());
 
         $this->assertEquals(3, Tag::whereIsDescendantOf($this->tags['A'])->count());
@@ -195,7 +320,8 @@ class TreeTest extends TestCase
                 $query->whereKey($this->tags['A']->id);
             },
         ])->whereKey($this->tags['ABA']->id)->get();
-        $this->assertFalse($tags[0]->relationLoaded('parent'));
+        $this->assertNull($tags[0]->parent);
+        $this->assertTrue($tags[0]->relationLoaded('parent'));
     }
 
     public function test_with_ancestors_and_limited_depth()
@@ -267,8 +393,29 @@ class TreeTest extends TestCase
 
     public function test_delete_success()
     {
-        $this->tags['B']->delete();
-        $this->assertNull(Tag::find($this->tags['B']->id));
+        $id = $this->tags['ABA']->id;
+
+        $totalInitialClosuresCount = DB::table('tag_tree')->count();
+        $modelInitialClosuresCount = DB::table('tag_tree')
+            ->where('descendant_id', $id)
+            ->orWhere('ancestor_id', $id)
+            ->count();
+
+        $this->tags['ABA']->delete();
+
+        $this->assertNull(Tag::find($id));
+
+        $this->assertEquals(
+            0,
+            DB::table('tag_tree')
+                ->where('descendant_id', $id)
+                ->orWhere('ancestor_id', $id)
+                ->count()
+        );
+        $this->assertEquals(
+            $totalInitialClosuresCount - $modelInitialClosuresCount,
+            DB::table('tag_tree')->count()
+        );
     }
 
     public function test_delete_tree()
@@ -299,7 +446,7 @@ class TreeTest extends TestCase
      */
     public function test_closure_relation_is_readonly($method, ...$args)
     {
-        $this->expectException(TreeException::class);
+        $this->expectException(LogicException::class);
         $this->tags['A']->descendants()->$method(...$args);
     }
 

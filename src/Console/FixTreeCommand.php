@@ -1,7 +1,5 @@
 <?php
 
-// @todo make agnostic
-
 namespace Baril\Bonsai\Console;
 
 use Illuminate\Console\Command;
