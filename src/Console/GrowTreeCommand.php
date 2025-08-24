@@ -47,17 +47,20 @@ class GrowTreeCommand extends MigrateMakeCommand
     {
         // Retrieve all informations about the tree:
         $instance = new $model();
-        $table = $instance->getTable();
         $closureTable = $instance->getClosureTable();
-        $keyName = $instance->getKeyName();
 
         // Get the name for the migration file:
         $name = $this->input->getOption('name') ?: 'create_' . $closureTable . '_table';
         $name = Str::snake(trim($name));
-        $className = Str::studly($name);
+        $migrationClassName = Str::studly($name);
 
         // Generate the content of the migration file:
-        $contents = $this->getMigrationContents($className, $table, $closureTable, $keyName);
+        $contents = $this->getMigrationContents([
+            '%migration%' => $migrationClassName,
+            '%closureTable%' => $closureTable,
+            '%mainTable%' => $instance->getTable(),
+            '%model%' => get_class($instance),
+        ]);
 
         // Generate the file:
         $file = $this->creator->create(
@@ -73,20 +76,14 @@ class GrowTreeCommand extends MigrateMakeCommand
         $this->line("<info>Created Migration:</info> {$file}");
     }
 
-    protected function getMigrationContents($className, $table, $closureTable, $keyName)
+    protected function getMigrationContents($replacements)
     {
         $contents = file_get_contents(__DIR__ . '/../Migrations/stubs/grow_tree.stub');
-        $contents = str_replace([
-            'class CreateExampleTreeTable',
-            '$mainTableName = "example"',
-            '$closureTableName = "example_tree"',
-            '$mainTableKey = "id"',
-        ], [
-            'class ' . $className,
-            '$mainTableName = "' . $table . '"',
-            '$closureTableName = "' . $closureTable . '"',
-            '$mainTableKey = "' . $keyName . '"',
-        ], $contents);
+        $contents = str_replace(
+            array_keys($replacements),
+            array_values($replacements),
+            $contents
+        );
         $contents = preg_replace('/\;[\s]*\/\/.*\n/U', ";\n", $contents);
         return $contents;
     }
