@@ -96,7 +96,8 @@ trait HasAncestors
      */
     public function siblings()
     {
-        return $this->hasManySiblings($this->getParentForeignKeyName())->withoutSelf();
+        return $this->hasManySiblings($this->getParentForeignKeyName())
+            ->withoutSelf();
     }
 
     /**
