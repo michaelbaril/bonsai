@@ -2,25 +2,21 @@
 
 namespace Baril\Bonsai\Console;
 
+use Baril\Bonsai\Console\Concerns\InteractsWithTree;
 use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\Model;
 
 class FixTreeCommand extends Command
 {
-    protected $signature = 'bonsai:fix {model : The model class.}';
+    use InteractsWithTree;
+
+    protected $signature = 'bonsai:fix {model : The model class}';
     protected $description = 'Rebuilds the closures for a given tree';
 
     public function handle()
     {
         $model = $this->input->getArgument('model');
-        if (
-            !class_exists($model)
-            || !is_subclass_of($model, Model::class)
-            || !method_exists($model, 'getClosureTable')
-        ) {
-            $this->error('{model} must be a valid model class and use the BelongsToTree trait!');
-            return;
-        }
+        
+        $this->checkModel($model);
 
         $this->rebuildClosures($model);
     }

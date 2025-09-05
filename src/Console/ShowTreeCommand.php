@@ -2,14 +2,16 @@
 
 namespace Baril\Bonsai\Console;
 
+use Baril\Bonsai\Console\Concerns\InteractsWithTree;
 use Illuminate\Console\Command;
-use Illuminate\Database\Eloquent\Model;
 
 class ShowTreeCommand extends Command
 {
-    protected $signature = 'bonsai:show {model : The model class.}
-        {--label= : The property to use as label.}
-        {--depth= : The depth limit.}';
+    use InteractsWithTree;
+
+    protected $signature = 'bonsai:show {model : The model class}
+        {--label= : The property to use as label}
+        {--depth= : The depth limit}';
     protected $description = 'Outputs the content of the table in tree form';
 
     protected $model;
@@ -19,18 +21,10 @@ class ShowTreeCommand extends Command
 
     public function handle()
     {
-        $model = $this->input->getArgument('model');
-        if (
-            !class_exists($model)
-            || !is_subclass_of($model, Model::class)
-            || !method_exists($model, 'getClosureTable')
-        ) {
-            $this->error('{model} must be a valid model class and use the BelongsToTree trait!');
-            return;
-        }
-
-        $this->model = $model;
+        $this->model = $this->input->getArgument('model');
         $this->label = $this->input->getOption('label');
+
+        $this->checkModel($this->model);
 
         $this->showTree($this->input->getOption('depth'));
     }
