@@ -2,37 +2,29 @@
 
 namespace Baril\Bonsai\Console;
 
-use Baril\Bonsai\Migrations\MigrationCreator;
+use Baril\Bonsai\Console\Concerns\InteractsWithTree;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Composer;
 use Illuminate\Support\Str;
 
+/**
+ * @todo remove --migrate option in v4
+ */
 class GrowTreeCommand extends MigrateMakeCommand
 {
-    protected $signature = 'bonsai:grow {model : The model class.}
-        {--name= : The name of the migration.}
-        {--path= : The location where the migration file should be created.}
-        {--realpath : Indicate any provided migration file paths are pre-resolved absolute paths.}
-        {--migrate : Migrate the database and fill the table after the migration file has been created.}';
-    protected $description = 'Create the migration file for a closure table, and optionally run the migration';
+    use InteractsWithTree;
 
-    public function __construct(MigrationCreator $creator, Composer $composer)
-    {
-        parent::__construct($creator, $composer);
-    }
+    protected $signature = 'bonsai:grow {model : The model class}
+        {--name= : The name of the migration}
+        {--path= : The location where the migration file should be created}
+        {--realpath : Indicate any provided migration file paths are pre-resolved absolute paths}
+        {--migrate : Migrate the database and fill the table after the migration file has been created. (Deprecated)}';
+    protected $description = 'Create the migration file for a closure table, and optionally run the migration';
 
     public function handle()
     {
         $model = $this->input->getArgument('model');
-        if (
-            !class_exists($model)
-            || !is_subclass_of($model, Model::class)
-            || !method_exists($model, 'getClosureTable')
-        ) {
-            $this->error('{model} must be a valid model class and use the BelongsToTree trait!');
-            return;
-        }
+        
+        $this->checkModel($model);
 
         $this->writeClosureMigration($model);
         $this->composer->dumpAutoloads();

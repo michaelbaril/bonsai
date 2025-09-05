@@ -8,6 +8,8 @@ use Dotenv\Dotenv;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Database\Migrations\MigrationCreator;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
@@ -21,6 +23,12 @@ abstract class TestCase extends OrchestraTestCase
     {
         parent::setUp();
         DB::getSchemaBuilder()->dropAllTables();
+        $this->app->bind(MigrationCreator::class, function ($app) {
+            return new MigrationCreator(
+                $app->make(Filesystem::class),
+                ''
+            );
+        });
     }
 
     protected function getEnvironmentSetUp($app)
