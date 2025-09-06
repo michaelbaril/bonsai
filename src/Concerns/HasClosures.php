@@ -163,10 +163,7 @@ trait HasClosures
         });
 
         // Prevents an unneeded query in case we try to access the relation on a leaf/root:
-        $modelsWhereRelationShouldBeLoaded = $related->filter(function ($model) {
-            return $model->closure->_remaining_depth !== 0;
-        })->push($this)->all();
-        $relation->initRelation($modelsWhereRelationShouldBeLoaded, $relationName);
+        $relation->initRelation($models, $relationName);
 
         // Set relation for all related models and parent model:
         $relation->match(
