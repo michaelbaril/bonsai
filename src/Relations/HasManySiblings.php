@@ -83,11 +83,8 @@ class HasManySiblings extends HasMany
 
             $whereIn = $this->whereInMethod($this->parent, $this->localKey);
 
-            $this->whereInEager(
-                $whereIn,
-                $this->foreignKey,
-                $keys,
-                $nestedWhere
+            $nestedWhere->{$whereIn}(
+                $this->foreignKey, $keys
             );
 
             // At this point, the custom constraints that may have been
