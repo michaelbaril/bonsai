@@ -4,7 +4,7 @@ namespace Baril\Bonsai\Relations;
 
 use Baril\Bonsai\Relations\Concerns\ExcludesSelf;
 use Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable;
-use Baril\Bonsai\Relations\Concerns\IsReadOnly;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
@@ -17,7 +17,5 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class BelongsToManyThroughClosures extends BelongsToMany
 {
-    use ExcludesSelf;
     use InteractsWithClosureTable;
-    use IsReadOnly;
 }

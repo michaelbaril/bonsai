@@ -3,6 +3,7 @@
 namespace Baril\Bonsai\Relations\Concerns;
 
 use Baril\Bonsai\Closure;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -10,6 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 trait InteractsWithClosureTable
 {
+    use ExcludesSelf {
+        match as _match;
+    }    
+    use IsReadOnly;
+
     /**
      * The name of the relation that is "closed" by this relation
      * (eg. "parent" for "ancestors").
@@ -36,6 +42,34 @@ trait InteractsWithClosureTable
             ->as('closure')
             ->using(Closure::class)
             ->withPivot('depth');
+    }
+
+    /**
+     * Match the eagerly loaded results to their parents.
+     *
+     * @param  array<int, TDeclaringModel>  $models
+     * @param  \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>  $results
+     * @param  string  $relation
+     * @return array<int, TDeclaringModel>
+     */
+    public function match(array $models, EloquentCollection $results, $relation)
+    {
+        $models = $this->_match($models, $results, $relation);
+
+        // When the relation has been queried with a max depth,
+        // we don't want the closed relation to be set to null
+        // or empty collection on models that belong to the
+        // last level before the limit.
+        if (null !== $this->depth && $this->closes) {
+            $results->merge($models)->map(function ($model) {
+                $depth = $model->closure->depth ?? 0;
+                if ($depth >= $this->depth) {
+                    $model->unsetRelation($this->closes);
+                }
+            });
+        }
+
+        return $models;
     }
 
     /**
@@ -84,7 +118,7 @@ trait InteractsWithClosureTable
      */
     public function upToDepth($depth)
     {
-        // We'll need the depth again when we migrate the pivot attributes:
+        // We'll need the depth again when we match the eager-loaded models:
         $this->depth = $depth;
         return $this->wherePivot('depth', '<=', $depth);
     }
@@ -96,26 +130,5 @@ trait InteractsWithClosureTable
     public function orderByDepth($direction = 'asc')
     {
         return $this->orderBy($this->table . '.depth', $direction);
-    }
-
-    /**
-     * Get the pivot attributes from a model.
-     *
-     * @see \Illuminate\Database\Eloquent\Relations\BelongsToMany::migratePivotAttributes()
-     * @see \Baril\Bonsai\Concerns\BelongsToTree::setClosedRelation()
-     *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return array
-     */
-    protected function migratePivotAttributes(Model $model)
-    {
-        $values = parent::migratePivotAttributes($model);
-
-        if ($this->depth !== null) {
-            // This will be used when we set the "closed" relation:
-            $values['_remaining_depth'] = $this->depth - $values['depth'];
-        }
-
-        return $values;
     }
 }
