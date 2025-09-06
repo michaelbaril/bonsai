@@ -35,7 +35,7 @@ trait HasClosures
      * @param  string|null  $as
      * @return \Illuminate\Database\Query\Builder
      */
-    protected function newClosureQuery($as = null)
+    public function newClosureQuery($as = null)
     {
         return $this
             ->newClosure(new static(), [], false)
@@ -212,7 +212,7 @@ trait HasClosures
 
         $query->whereHas($relation, function ($query) use ($relatedId, $scope, $maxDepth, $withSelf) {
             $query->$scope($relatedId)
-                ->when($maxDepth, function ($query, $maxDepth) {
+                ->when(null !== $maxDepth, function ($query) use ($maxDepth) {
                     $query->whereDepth('<=', $maxDepth);
                 })
                 ->when(!$withSelf, function ($query) {
