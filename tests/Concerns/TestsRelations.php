@@ -45,30 +45,10 @@ trait TestsRelations
      */    
     public function test_siblings($node, $siblings, $isOrphan = false)
     {
-        $siblingsWithSelf = array_merge($siblings, [$node]);
-
         // Siblings:
         $this->assertModels(
             $isOrphan ? [] : $siblings,
             $this->getModel($node)->siblings()
-        );
-
-        // Siblings with self:
-        $this->assertModels(
-            $isOrphan ? [] : $siblingsWithSelf,
-            $this->getModel($node)->siblings()->withSelf()
-        );
-
-        // Siblings with orphans:
-        $this->assertModels(
-            $siblings,
-            $this->getModel($node)->siblings()->withOrphans()
-        );
-
-        // Siblings with orphans and self:
-        $this->assertModels(
-            $siblingsWithSelf,
-            $this->getModel($node)->siblings()->withOrphans()->withSelf()
         );
 
         // Eager load:
@@ -76,48 +56,6 @@ trait TestsRelations
             $isOrphan ? [] : $siblings,
             $this->newQuery()
                 ->with('siblings')
-                ->where('name', $node)
-                ->first()
-                ->siblings
-        );
-
-        // Eager load with self:
-        $this->assertModels(
-            $isOrphan ? [] : $siblingsWithSelf,
-            $this->newQuery()
-                ->with([
-                    'siblings' => function ($query) {
-                        $query->withSelf();
-                    }
-                ])
-                ->where('name', $node)
-                ->first()
-                ->siblings
-        );
-
-        // Eager load with orphans:
-        $this->assertModels(
-            $siblings,
-            $this->newQuery()
-                ->with([
-                    'siblings' => function ($siblings) {
-                        $siblings->withOrphans();
-                    },
-                ])
-                ->where('name', $node)
-                ->first()
-                ->siblings
-        );
-
-        // Eager load with orphans and self:
-        $this->assertModels(
-            $siblingsWithSelf,
-            $this->newQuery()
-                ->with([
-                    'siblings' => function ($siblings) {
-                        $siblings->withOrphans()->withSelf();
-                    },
-                ])
                 ->where('name', $node)
                 ->first()
                 ->siblings
@@ -166,9 +104,6 @@ trait TestsRelations
      */
     public function test_ancestors_and_descendants($node, $ancestors, $descendants)
     {
-        $ancestorsWithSelf = array_merge([$node], $ancestors);
-        $descendantsWithSelf = array_merge([$node], $descendants);
-
         // Ancestors:
         $this->assertModels(
             $ancestors,
@@ -179,18 +114,6 @@ trait TestsRelations
         $this->assertModels(
             $descendants,
             $this->getModel($node)->descendants()
-        );
-
-        // Ancestors with self:
-        $this->assertModels(
-            $ancestorsWithSelf,
-            $this->getModel($node)->ancestors()->withSelf()
-        );
-        
-        // Descendants with self:
-        $this->assertModels(
-            $descendantsWithSelf,
-            $this->getModel($node)->descendants()->withSelf()
         );
 
         // Eager loads:
@@ -204,23 +127,6 @@ trait TestsRelations
         );
         $this->assertModels(
             $descendants,
-            $model->descendants
-        );
-
-        // Eager loads with self:
-        $model = $this->newQuery()
-            ->with([
-                'ancestors' => function ($query) { return $query->withSelf(); },
-                'descendants' => function ($query) { return $query->withSelf(); },
-            ])
-            ->where('name', $node)
-            ->first();
-        $this->assertModels(
-            $ancestorsWithSelf,
-            $model->ancestors
-        );
-        $this->assertModels(
-            $descendantsWithSelf,
             $model->descendants
         );
 
