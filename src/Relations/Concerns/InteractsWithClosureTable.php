@@ -3,8 +3,8 @@
 namespace Baril\Bonsai\Relations\Concerns;
 
 use Baril\Bonsai\Closure;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -13,6 +13,7 @@ trait InteractsWithClosureTable
 {
     use ExcludesSelf {
         match as _match;
+        getRelationExistenceQuery as _getRelationExistenceQuery;
     }    
     use IsReadOnly;
 
@@ -71,6 +72,27 @@ trait InteractsWithClosureTable
 
         return $models;
     }
+
+    /**
+     * Add the constraints for an internal relationship existence query.
+     *
+     * Essentially, these queries compare on column names like whereColumn.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
+     * @param  \Illuminate\Database\Eloquent\Builder<TDeclaringModel>  $parentQuery
+     * @param  mixed  $columns
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
+     */
+    public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
+    {
+        $query = $this->_getRelationExistenceQuery($query, $parentQuery, $columns);
+
+        $query->macro('upToDepth', function ($query, $depth) {
+            $query->where($this->qualifyPivotColumn('depth'), '<=', $depth);
+        });
+
+        return $query;
+    }    
 
     /**
      * @param  string  $relation

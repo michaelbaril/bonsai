@@ -92,11 +92,19 @@ trait ExcludesSelf
 
         return parent::getRelationExistenceQuery($query, $parentQuery, $columns)
             ->when($excludeSelf, function ($query) use ($parentQuery) {
-                $query->whereColumn(
-                    $parentQuery->qualifyColumn($this->parent->getKeyName()),
-                    '!=',
-                    $query->qualifyColumn($this->related->getKeyName())
+                $query->withGlobalScope(
+                    'excludeSelfFromResults',
+                    function ($query) use ($parentQuery) {
+                        $query->whereColumn(
+                            $parentQuery->qualifyColumn($this->parent->getKeyName()),
+                            '!=',
+                            $query->qualifyColumn($this->related->getKeyName())
+                        );
+                    }
                 );
+                $query->macro('withSelf', function ($query) {
+                    $query->withoutGlobalScope('excludeSelfFromResults');
+                });
             });
     }
 }
