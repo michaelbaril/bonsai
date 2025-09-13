@@ -13,6 +13,8 @@ trait HasDescendants
 
     /**
      * One-to-many relation to the children nodes.
+     * 
+     * @todo add chaperone in v4
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
