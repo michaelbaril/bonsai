@@ -24,7 +24,7 @@ jobs:
         php: [8.4, 8.3, 8.2, 8.1, 8.0, 7.4, 7.3]
         laravel: [12.*, 11.*, 10.*, 9.*, 8.*]
         dependency-version: [lowest, stable]
-        database-engine: [mysql]
+        database-engine: [sqlite, mysql, mariadb, pgsql, sqlsrv]
         exclude:
           - laravel: 12.*
             php: 8.1
@@ -66,22 +66,62 @@ jobs:
           - laravel: 8.*
             php: 8.2
             dependency-version: lowest
+          - database-engine: mysql
+          - database-engine: mariadb
+          - database-engine: pgsql
+          - database-engine: sqlsrv
         include:
-          - php: 8.4
-            database-version: 8.4
-          - php: 8.3
-            database-version: 8.4
-          - php: 8.2
-            database-version: 8.4
-          - php: 8.1
-            database-version: 8.4
-          - php: 8.0
-            database-version: 8.4
-          - php: 7.4
-            database-version: 8.4
+          - database-engine: sqlite
+            database-version: "-"
+          # MySQL / min
           - php: 7.3
+            laravel: 8.*
+            dependency-version: lowest
+            database-engine: mysql
             database-version: 5.7
-    name: "php:${{ matrix.php }}/lara:${{ matrix.laravel }}/${{ matrix.dependency-version }}/${{ matrix.database-engine }}:${{ matrix.database-version }}"
+          # MySQL / max
+          - php: 8.4
+            laravel: 12.*
+            dependency-version: stable
+            database-engine: mysql
+            database-version: 8.4
+          # MariaDB / min
+          - php: 7.3
+            laravel: 8.*
+            dependency-version: lowest
+            database-engine: mariadb
+            database-version: 10.2
+          # MariaDB / max
+          - php: 8.4
+            laravel: 12.*
+            dependency-version: stable
+            database-engine: mariadb
+            database-version: 11.7
+          # PostgreSQL / min
+          - php: 7.3
+            laravel: 8.*
+            dependency-version: lowest
+            database-engine: pgsql
+            database-version: 9.6
+          # PostgreSQL / min
+          - php: 8.4
+            laravel: 12.*
+            dependency-version: stable
+            database-engine: pgsql
+            database-version: 17.4
+          # SQL Server / min
+          - php: 8.1
+            laravel: 8.*
+            dependency-version: lowest
+            database-engine: sqlsrv
+            database-version: 2019
+          # SQL Server / max
+          - php: 8.4
+            laravel: 12.*
+            dependency-version: stable
+            database-engine: sqlsrv
+            database-version: 2022
+    name: php:${{ matrix.php }}/lara:${{ matrix.laravel }}/${{ matrix.dependency-version }}/${{ matrix.database-engine }}:${{ matrix.database-version }}
     uses: michaelbaril/shared/.github/workflows/run-tests.yml@main
     with:
       php-version: ${{ matrix.php }}
