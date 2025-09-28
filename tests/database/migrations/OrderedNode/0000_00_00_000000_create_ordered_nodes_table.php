@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagsTable extends Migration
+class CreateOrderedNodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('parent_id')->nullable();
+        Schema::create('ordered_nodes', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
+            $table->foreignIdFor(\Baril\Bonsai\Tests\Models\OrderedNode::class, 'parent_id')->nullable();
             $table->unsignedInteger('position');
             $table->timestamps();
-
-            $table->foreign('parent_id')->references('id')->on('tags');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('ordered_nodes');
     }
 }

@@ -5,11 +5,24 @@ namespace Baril\Bonsai\Tests;
 use Baril\Bonsai\BonsaiServiceProvider;
 use Baril\Orderly\OrderlyServiceProvider;
 use Dotenv\Dotenv;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-class TestCase extends OrchestraTestCase
+
+abstract class TestCase extends OrchestraTestCase
 {
+    protected $models;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        DB::getSchemaBuilder()->dropAllTables();
+    }
+
     protected function getEnvironmentSetUp($app)
     {
         $this->loadEnv(['.env.test', '.env']);
@@ -93,10 +106,109 @@ class TestCase extends OrchestraTestCase
         ];
     }
 
-    protected function setUp(): void
+    protected function newQuery()
     {
-        parent::setUp();
-        DB::getSchemaBuilder()->dropAllTables();
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $class = static::$defaultModelClass;
+        return $class::query();
+    }
+
+    protected function getModel($name)
+    {
+        return $this->models->get($name);
+    }
+
+    protected function getFresh($name)
+    {
+        return $this->models->get($name)->fresh();
+    }
+
+    protected function getId($name)
+    {
+        $model = $this->getModel($name);
+
+        return $model ? $model->getKey() : null;
+    }
+
+    protected function assertModel($expected, $actual, $class = null)
+    {
+        $this->assertModels(
+            Arr::wrap($expected),
+            Arr::wrap($actual),
+            $class,
+            true
+        );
+    }
+
+    protected function assertModels($expected, $actual, $class = null, $checkOrder = false)
+    {
+        $this->assertEquals(
+            $this->parseModels($expected, !$checkOrder, $class),
+            $this->parseModels($actual, !$checkOrder, $class)
+        );
+    }
+
+    protected function assertModelsOrdered($expected, $actual, $class = null)
+    {
+        $this->assertModels($expected, $actual, $class, true);
+    }
+
+    protected function assertModelsContain($expected, $actual, $class = null)
+    {
+        foreach ($this->parseModels($expected, true, $class) as $model) {
+            $this->assertContains($model, $this->parseModels($actual, true, $class));
+        }
+    }
+
+    protected function assertModelsDontContain($expected, $actual, $class = null)
+    {
+        foreach ($this->parseModels($expected, true, $class) as $model) {
+            $this->assertNotContains($model, $this->parseModels($actual, true, $class));
+        }
+    }
+
+    protected function parseModels($models, $orderById = false, $class = null)
+    {
+        if ($models instanceof Model) {
+            $models = [$models];
+        }
+        if ($models instanceof Builder || $models instanceof Relation) {
+            $class = $class ?? get_class($models->getModel());
+            $models = $models->pluck($models->getModel()->getKeyName());
+        } else {
+            $models = collect($models);
+        }
+
+        $class = $class
+            ?? $models->map(function ($model) {
+                return $model instanceof Model ? get_class($model) : null;
+            })->filter()->first()
+            ?? static::$defaultModelClass;
+
+        return collect($models)
+            ->map(function ($model) use ($class) {
+                if (is_scalar($model)) {
+                    if (is_numeric($model) || strpos($model, 'uniqid_') === 0) {
+                        $id = $model;
+                        $model = $this->models->filter(function ($model) use ($class, $id) {
+                            return get_class($model) == $class && $model->getKey() == $id;
+                        })->first();
+                    } elseif (is_string($model)) {
+                        $model = $this->getModel($model);
+                    }
+                }
+                return [
+                    'class' => class_basename($model),
+                    'id' => $model->getKey(),
+                    'name' => $model->name,
+                ];
+            })
+            ->values()
+            ->when($orderById, function ($collection) {
+                return $collection->sortBy(['class', 'id'])->values();
+            })
+            ->map(function ($model) {
+                return "{$model['class']} #{$model['id']}: {$model['name']}";
+            })
+            ->all();
     }
 }
