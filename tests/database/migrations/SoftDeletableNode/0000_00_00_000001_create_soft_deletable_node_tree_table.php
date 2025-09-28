@@ -4,12 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagTreeTable extends Migration
+class CreateSoftDeletableNodeTreeTable extends Migration
 {
-    protected $mainTableName = 'tags';
-    protected $closureTableName = 'tag_tree';
-    protected $mainTableKey = 'id';
-
     /**
      * Run the migrations.
      *
@@ -17,9 +13,9 @@ class CreateTagTreeTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->closureTableName, function (Blueprint $table) {
-            $table->foreignId('ancestor_id');//->constrained($this->mainTableName)->onDelete('cascade');
-            $table->foreignId('descendant_id');//->constrained($this->mainTableName)->onDelete('cascade');
+        Schema::create('soft_deletable_node_tree', function (Blueprint $table) {
+            $table->foreignIdFor(\Baril\Bonsai\Tests\Models\SoftDeletableNode::class, 'ancestor_id')->constrained('soft_deletable_nodes')->onDelete('cascade');
+            $table->foreignIdFor(\Baril\Bonsai\Tests\Models\SoftDeletableNode::class, 'descendant_id')->constrained('soft_deletable_nodes')->onDelete('cascade');
             $table->unsignedSmallInteger('depth');
 
             $table->unique(['ancestor_id', 'descendant_id']);
@@ -35,6 +31,6 @@ class CreateTagTreeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->closureTableName);
+        Schema::dropIfExists('soft_deletable_node_tree');
     }
 }

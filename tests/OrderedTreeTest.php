@@ -2,131 +2,60 @@
 
 namespace Baril\Bonsai\Tests;
 
-use Baril\Bonsai\Tests\Models\Tag;
-use Baril\Orderly\PositionException;
+use Baril\Bonsai\Tests\Models\OrderedNode;
 
-class OrderedTreeTest extends TestCase
+class OrderedTreeTest extends TreeTestCase
 {
-    protected $items;
+    protected static $defaultModelClass = OrderedNode::class;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->items = Tag::factory()->count(8)->create();
+
+        // Just to make sure the models are not in the order they were inserted
+        // let's order them alphabetically:
+        $this->getModel('céréales')->moveBefore($this->getModel('fruits'));
+        $this->getModel('fraises')->moveBefore($this->getModel('framboises'));
+        $this->getModel('brocolis')->moveBefore($this->getModel('haricots verts'));
     }
 
-    protected function setParent($items, $parent)
+    protected function sortTree($tree)
     {
-        foreach ((array) $items as $item) {
-            $this->items[$item] = $this->items[$item]->fresh();
-            $this->items[$item]->parent()->associate($this->items[$parent]);
-            $this->items[$item]->save();
-        }
+        return collect($tree)->map(function ($value, $key) {
+            return is_array($value) ? $this->sortTree($value) : $value;
+        })->sortBy(function ($value, $key) {
+            return is_array($value) ? $key : $value;
+        })->all();
     }
 
-    protected function assertPositionsWithinGroup($expected, $group)
+    /**
+     * @dataProvider childrenAreOrderedProvider
+     */
+    public function test_children_are_ordered($node, $children)
     {
-        $actual = Tag::whereGroup($group)->orderBy('id')->pluck('position')->toArray();
-        $this->assertEquals($expected, $actual);
+        $this->assertModelsOrdered(
+            $children,
+            $this->getModel($node)->children()
+        );
     }
 
-    protected function assertPositionsForChildren($expected, $parent)
+    public static function childrenAreOrderedProvider()
     {
-        $this->assertPositionsWithinGroup($expected, $this->items[$parent]->id);
+        return [
+            ['fruits rouges', ['fraises', 'framboises', 'myrtilles']],
+            ['légumes', ['brocolis', 'haricots verts', 'tomates']],
+        ];
     }
 
-    public function test_positions_on_parent_change()
+    public function test_tree_is_ordered()
     {
-        $this->setParent(1, 0);
-        $this->items[1]->save();
-        $this->assertEquals(1, $this->items[1]->position);
-        $this->assertPositionsWithinGroup([1, 2, 3, 4, 5, 6, 7], null);
-    }
-
-    public function test_position_on_create()
-    {
-        $this->setParent(1, 0);
-        $this->items[1]->save();
-        $model = Tag::factory()->make();
-        $model->parent()->associate($this->items[0]);
-        $model->save();
-        $this->assertEquals(2, $model->position);
-    }
-
-    public function test_positions_on_delete()
-    {
-        $this->setParent([1, 2, 3], 0);
-        $this->items[2]->delete();
-        $this->assertPositionsForChildren([1, 2], 0);
-    }
-
-    public function test_move()
-    {
-        $this->setParent([0, 1, 2, 3, 4], 6);
-        $this->assertPositionsForChildren([1, 2, 3, 4, 5], 6);
-        $this->items[1]->fresh()->moveToOffset(-2);
-        $this->assertPositionsForChildren([1, 4, 2, 3, 5], 6);
-        $this->items[2]->fresh()->moveToStart();
-        $this->assertPositionsForChildren([2, 4, 1, 3, 5], 6);
-        $this->items[3]->fresh()->moveToEnd();
-        $this->assertPositionsForChildren([2, 3, 1, 5, 4], 6);
-        $this->items[4]->fresh()->moveToPosition(3);
-        $this->assertPositionsForChildren([2, 4, 1, 5, 3], 6);
-        $this->items[0]->fresh()->moveToPosition(4);
-        $this->assertPositionsForChildren([4, 3, 1, 5, 2], 6);
-        $this->items[1]->fresh()->swapWith($this->items[3]->fresh());
-        $this->assertPositionsForChildren([4, 5, 1, 3, 2], 6);
-        $this->items[2]->fresh()->moveBefore($this->items[0]->fresh());
-        $this->assertPositionsForChildren([4, 5, 3, 2, 1], 6);
-        $this->items[3]->fresh()->moveAfter($this->items[1]->fresh());
-        $this->assertPositionsForChildren([3, 4, 2, 5, 1], 6);
-        $this->items[3]->fresh()->moveBefore($this->items[1]->fresh());
-        $this->assertPositionsForChildren([3, 5, 2, 4, 1], 6);
-        $this->items[3]->fresh()->moveAfter($this->items[4]->fresh());
-        $this->assertPositionsForChildren([4, 5, 3, 2, 1], 6);
-    }
-
-    public function test_move_to_invalid_position()
-    {
-        $this->setParent([0, 1, 2, 3, 4], 6);
-        $this->expectException(PositionException::class);
-        $this->items[0]->moveToPosition(7);
-    }
-
-    public function test_ordered_descendants()
-    {
-        // 0     3
-        // 5 4   2 7
-        //         6 1
-
-        $this->setParent([5, 4], 0);
-        $this->setParent([2, 7], 3);
-        $this->setParent([6, 1], 7);
-
-        $items = Tag::with('descendants')->where('parent_id', null)->orderBy('id')->get();
-        $this->assertEquals($this->items[5]->id, $items[0]->children[0]->id);
-        $this->assertEquals($this->items[4]->id, $items[0]->children[1]->id);
-        $this->assertEquals($this->items[2]->id, $items[1]->children[0]->id);
-        $this->assertEquals($this->items[7]->id, $items[1]->children[1]->id);
-        $this->assertEquals($this->items[6]->id, $items[1]->children[1]->children[0]->id);
-        $this->assertEquals($this->items[1]->id, $items[1]->children[1]->children[1]->id);
-    }
-
-    public function test_tree_order()
-    {
-        // 3     0
-        // 2 7   5 4
-        //   6 1
-
-        $this->setParent([5, 4], 0);
-        $this->setParent([2, 7], 3);
-        $this->setParent([6, 1], 7);
-        $roots = Tag::whereIsRoot()->get();
-        $roots[0]->swapWith($roots[1]);
-        $tree = Tag::getTree();
-
-        $this->assertEquals($this->items[3]->id, $tree[0]->id);
-        $this->assertEquals($this->items[2]->id, $tree[0]->children[0]->id);
-        $this->assertEquals($this->items[6]->id, $tree[0]->children[1]->children[0]->id);
+        $model = static::$defaultModelClass;
+       
+        $this->assertTree(
+            $this->sortTree(static::$tree),
+            $model::getTree(),
+            null,
+            true
+        );
     }
 }
