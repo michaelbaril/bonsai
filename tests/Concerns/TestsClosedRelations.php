@@ -37,7 +37,7 @@ trait TestsClosedRelations
         $this->assertModels(
             $related,
             $mergedRelated
-        );      
+        );
     }
 
     public static function loadClosedRelationProvider()

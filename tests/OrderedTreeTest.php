@@ -50,7 +50,7 @@ class OrderedTreeTest extends TreeTestCase
     public function test_tree_is_ordered()
     {
         $model = static::$defaultModelClass;
-       
+
         $this->assertTree(
             $this->sortTree(static::$tree),
             $model::getTree(),

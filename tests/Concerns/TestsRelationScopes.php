@@ -6,7 +6,7 @@ trait TestsRelationScopes
 {
     /**
      * @dataProvider ancestorsAndDescendantsProvider
-     */    
+     */
     public function test_ancestors_and_descendants_with_or_without_self($node, $ancestors, $descendants)
     {
         $ancestorsWithSelf = array_merge([$node], $ancestors);
@@ -17,7 +17,7 @@ trait TestsRelationScopes
             $ancestorsWithSelf,
             $this->getModel($node)->ancestors()->includingSelf()
         );
-        
+
         // Descendants with self:
         $this->assertModels(
             $descendantsWithSelf,
@@ -29,7 +29,7 @@ trait TestsRelationScopes
             $ancestors,
             $this->getModel($node)->ancestors()->includingSelf()->excludingSelf()
         );
-        
+
         // Descendants without self:
         $this->assertModels(
             $descendants,
@@ -39,8 +39,12 @@ trait TestsRelationScopes
         // Eager loads with self:
         $model = $this->newQuery()
             ->with([
-                'ancestors' => function ($query) { return $query->includingSelf(); },
-                'descendants' => function ($query) { return $query->includingSelf(); },
+                'ancestors' => function ($query) {
+                    return $query->includingSelf();
+                },
+                'descendants' => function ($query) {
+                    return $query->includingSelf();
+                },
             ])
             ->where('name', $node)
             ->first();
@@ -56,8 +60,12 @@ trait TestsRelationScopes
         // Count:
         $model = $this->newQuery()
             ->withCount([
-                'ancestors' => function ($query) { $query->withSelf(); },
-                'descendants' => function ($query) { $query->withSelf(); },
+                'ancestors' => function ($query) {
+                    $query->withSelf();
+                },
+                'descendants' => function ($query) {
+                    $query->withSelf();
+                },
             ])
             ->where('name', $node)
             ->first();
@@ -67,8 +75,12 @@ trait TestsRelationScopes
         // Exists:
         $model = $this->newQuery()
             ->withExists([
-                'ancestors' => function ($query) { $query->withSelf(); },
-                'descendants' => function ($query) { $query->withSelf(); },
+                'ancestors' => function ($query) {
+                    $query->withSelf();
+                },
+                'descendants' => function ($query) {
+                    $query->withSelf();
+                },
             ])
             ->where('name', $node)
             ->first();
@@ -164,7 +176,9 @@ trait TestsRelationScopes
             $isOrphan ? 0 : count($siblings) + 1,
             $this->newQuery()
                 ->withCount([
-                    'siblings' => function ($query) { $query->withSelf(); }
+                    'siblings' => function ($query) {
+                        $query->withSelf();
+                    }
                 ])
                 ->where('name', $node)
                 ->first()
@@ -257,7 +271,7 @@ trait TestsRelationScopes
                     ['framboises', 'fraises', 'myrtilles'],
                     ['fraises des bois', 'fraises tagada'],
                 ],
-                
+
             ],
         ];
     }

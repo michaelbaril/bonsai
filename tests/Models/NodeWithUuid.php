@@ -17,7 +17,7 @@ class NodeWithUuid extends Model
             $item->id = uniqid('uniqid_');
         });
     }
-    
+
     use BelongsToTree;
 
     protected $table = 'nodes_with_uuid';

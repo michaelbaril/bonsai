@@ -2,9 +2,7 @@
 
 namespace Baril\Bonsai\Relations;
 
-use Baril\Bonsai\Relations\Concerns\ExcludesSelf;
 use Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable;
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**

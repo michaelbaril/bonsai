@@ -42,7 +42,7 @@ trait TestsRelations
 
     /**
      * @dataProvider siblingsProvider
-     */    
+     */
     public function test_siblings($node, $siblings, $isOrphan = false)
     {
         // Siblings:

@@ -100,7 +100,7 @@ trait TestsDelete
         $descendants->merge([$model])->each(function ($model) {
             $this->assertFalse($this->newQuery()->whereKey($model->getKey())->exists());
         });
-        
+
         // Check that closures have been deleted:
         if ($parent) {
             $this->assertEquals(
