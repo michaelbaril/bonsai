@@ -57,7 +57,7 @@ abstract class TreeTestCase extends TestCase
     protected function createNode($node, $parent)
     {
         [$class, $name] = $this->parseNode($node);
-        $instance = new $class;
+        $instance = new $class();
         $parentKey = $instance->getParentForeignKeyName();
         return $class::create([
             'name' => $name,
@@ -80,8 +80,7 @@ abstract class TreeTestCase extends TestCase
     protected function assertTree($expected, $actual, $class = null, $checkOrder = false)
     {
         $expectedCurrentLevel = [];
-        foreach ($expected as $k => $v)
-        {
+        foreach ($expected as $k => $v) {
             $expectedCurrentLevel[] = is_array($v) ? $k : $v;
         }
 

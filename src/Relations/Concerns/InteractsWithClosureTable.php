@@ -14,7 +14,7 @@ trait InteractsWithClosureTable
     use ExcludesSelf {
         match as _match;
         getRelationExistenceQuery as _getRelationExistenceQuery;
-    }    
+    }
     use IsReadOnly;
 
     /**
@@ -92,7 +92,7 @@ trait InteractsWithClosureTable
         });
 
         return $query;
-    }    
+    }
 
     /**
      * @param  string  $relation

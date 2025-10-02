@@ -23,7 +23,7 @@ class GrowTreeCommand extends MigrateMakeCommand
     public function handle()
     {
         $model = $this->input->getArgument('model');
-        
+
         $this->checkModel($model);
 
         $this->writeClosureMigration($model);

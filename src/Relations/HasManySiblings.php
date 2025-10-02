@@ -84,7 +84,8 @@ class HasManySiblings extends HasMany
             $whereIn = $this->whereInMethod($this->parent, $this->localKey);
 
             $nestedWhere->{$whereIn}(
-                $this->foreignKey, $keys
+                $this->foreignKey,
+                $keys
             );
 
             // At this point, the custom constraints that may have been
@@ -127,7 +128,7 @@ class HasManySiblings extends HasMany
 
         return $query->orWhere(function ($nestedWhere) use ($as) {
             $nestedWhere->whereNull($this->getQualifiedParentKeyName());
-            $nestedWhere->whereNull($as.'.'.$this->getForeignKeyName());
+            $nestedWhere->whereNull($as . '.' . $this->getForeignKeyName());
         });
     }
 }

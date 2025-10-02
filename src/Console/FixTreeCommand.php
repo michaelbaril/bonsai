@@ -15,7 +15,7 @@ class FixTreeCommand extends Command
     public function handle()
     {
         $model = $this->input->getArgument('model');
-        
+
         $this->checkModel($model);
 
         $this->rebuildClosures($model);

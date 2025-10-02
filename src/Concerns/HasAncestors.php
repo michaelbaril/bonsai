@@ -128,7 +128,7 @@ trait HasAncestors
 
     /**
      * @deprecated Use ->with() instead
-     * 
+     *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  int|null  $depth
      * @param  callable|null  $constraints
