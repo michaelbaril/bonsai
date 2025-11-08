@@ -186,7 +186,7 @@ trait HasClosures
     {
         $query->with([$relation => function ($query) use ($depth, $constraints) {
             if ($depth !== null) {
-                $query->upToDepth($depth)->orderByDepth();
+                $query->maxDepth($depth)->orderByDepth();
             }
             if ($constraints !== null) {
                 $constraints($query);

@@ -94,7 +94,7 @@ trait InteractsWithClosureTable
     {
         $query = parent::getRelationExistenceQuery($query, $parentQuery, $columns);
 
-        $query->macro('upToDepth', function ($query, $depth) {
+        $query->macro('maxDepth', function ($query, $depth) {
             $query->where($this->qualifyPivotColumn('depth'), '<=', $depth);
         });
 
@@ -141,11 +141,23 @@ trait InteractsWithClosureTable
     }
 
     /**
-     * @see \Illuminate\Database\Eloquent\Relations\BelongsToMany::wherePivot()
+     * @deprecated
      *
+     * @param  int  $depth
      * @return $this
      */
     public function upToDepth($depth)
+    {
+        return $this->maxDepth($depth);
+    }
+
+    /**
+     * @see \Illuminate\Database\Eloquent\Relations\BelongsToMany::wherePivot()
+     *
+     * @param  int  $depth
+     * @return $this
+     */
+    public function maxDepth($depth)
     {
         // We'll need the depth again when we match the eager-loaded models:
         $this->depth = $depth;
