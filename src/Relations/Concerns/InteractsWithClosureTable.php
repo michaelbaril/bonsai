@@ -77,7 +77,7 @@ trait InteractsWithClosureTable
             });
         }
 
-        return $models;        
+        return $models;
     }
 
     /**
@@ -99,7 +99,7 @@ trait InteractsWithClosureTable
         });
 
         return $query;
-    }  
+    }
 
     /**
      * @param  string  $relation

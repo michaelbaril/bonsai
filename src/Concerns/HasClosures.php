@@ -16,9 +16,8 @@ trait HasClosures
     protected $_closureTable;
 
     /**
-     * Return the name of the closure table, optionally aliased.
+     * Return the name of the closure table.
      *
-     * @param  string|null  $as
      * @return string
      */
     public function getClosureTable()

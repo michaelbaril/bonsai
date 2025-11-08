@@ -137,12 +137,11 @@ trait ExcludesSelf
      * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
      * @param  \Illuminate\Database\Eloquent\Builder<TDeclaringModel>  $parentQuery
      * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
-     */    
+     */
     protected function excludeSelfFromRelationExistenceQueryIfExcluded(
         Builder $query,
         Builder $parentQuery,
-    )
-    {
+    ) {
         return $query
             ->when($this->excludeSelf, function ($query) use ($parentQuery) {
                 $query->withGlobalScope(
