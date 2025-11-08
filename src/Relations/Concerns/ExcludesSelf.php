@@ -4,6 +4,7 @@ namespace Baril\Bonsai\Relations\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Relations\Relation
@@ -59,16 +60,37 @@ trait ExcludesSelf
      */
     public function match(array $models, EloquentCollection $results, $relation)
     {
-        $models = parent::match($models, $results, $relation);
+        return $this->excludeSelfFromMatchesIfExcluded(
+            parent::match($models, $results, $relation),
+            $relation
+        );
+    }
 
-        if ($this->excludeSelf) {
-            foreach ($models as $model) {
-                $related = $model->getRelation($relation);
-                if ($related instanceof EloquentCollection) {
-                    $model->setRelation($relation, $related->except($model->getKey()));
-                } elseif ($related->getTable() == $model->getTable() && $related->getKey() === $model->getKey()) {
-                    $this->initRelation([$model], $relation);
-                }
+    /**
+     * @param  array<int, \Illuminate\Database\Eloquent\Model>  $models
+     * @param  string  $relation
+     * @return array<int, \Illuminate\Database\Eloquent\Model>
+     */
+    protected function excludeSelfFromMatchesIfExcluded(array $models, $relation)
+    {
+        if (! $this->excludeSelf) {
+            return $models;
+        }
+
+        foreach ($models as $model) {
+            $related = $model->getRelation($relation);
+            if (
+                $related instanceof EloquentCollection
+                && $related->contains($model)
+            ) {
+                $model->setRelation($relation, $related->except($model->getKey()));
+            }
+            if (
+                $related instanceof Model
+                && $related->getTable() == $model->getTable()
+                && $related->getKey() === $model->getKey()
+            ) {
+                $this->initRelation([$model], $relation);
             }
         }
 
@@ -78,20 +100,51 @@ trait ExcludesSelf
     /**
      * Add the constraints for a relationship query on the same table.
      *
-     * @see \Illuminate\Database\Eloquent\Relations\Relation::getRelationExistenceQuery()
+     * @see \Illuminate\Database\Eloquent\Relations\HasOneOrMany::getRelationExistenceQueryForSelfRelation()
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
-     * @param  array|mixed  $columns
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
+     * @param  \Illuminate\Database\Eloquent\Builder<TDeclaringModel>  $parentQuery
+     * @param  mixed  $columns
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
      */
-    public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
+    public function getRelationExistenceQueryForSelfRelation(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
-        $excludeSelf = $this->excludeSelf
-            && $parentQuery->getQuery()->from == $query->getQuery()->from;
+        return $this->excludeSelfFromRelationExistenceQueryIfExcluded(
+            parent::getRelationExistenceQueryForSelfRelation($query, $parentQuery, $columns),
+            $parentQuery
+        );
+    }
 
-        return parent::getRelationExistenceQuery($query, $parentQuery, $columns)
-            ->when($excludeSelf, function ($query) use ($parentQuery) {
+    /**
+     * Add the constraints for a relationship query on the same table.
+     *
+     * @see \Illuminate\Database\Eloquent\Relations\BelongsToMany::getRelationExistenceQueryForSelfJoin()
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
+     * @param  \Illuminate\Database\Eloquent\Builder<TDeclaringModel>  $parentQuery
+     * @param  mixed  $columns
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
+     */
+    public function getRelationExistenceQueryForSelfJoin(Builder $query, Builder $parentQuery, $columns = ['*'])
+    {
+        return $this->excludeSelfFromRelationExistenceQueryIfExcluded(
+            parent::getRelationExistenceQueryForSelfJoin($query, $parentQuery, $columns),
+            $parentQuery
+        );
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<TRelatedModel>  $query
+     * @param  \Illuminate\Database\Eloquent\Builder<TDeclaringModel>  $parentQuery
+     * @return \Illuminate\Database\Eloquent\Builder<TRelatedModel>
+     */    
+    protected function excludeSelfFromRelationExistenceQueryIfExcluded(
+        Builder $query,
+        Builder $parentQuery,
+    )
+    {
+        return $query
+            ->when($this->excludeSelf, function ($query) use ($parentQuery) {
                 $query->withGlobalScope(
                     'excludeSelfFromResults',
                     function ($query) use ($parentQuery) {

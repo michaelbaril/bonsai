@@ -2,7 +2,9 @@
 
 namespace Baril\Bonsai\Relations;
 
+use Baril\Bonsai\Relations\Concerns\ExcludesSelf;
 use Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
@@ -15,5 +17,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class BelongsToManyThroughClosures extends BelongsToMany
 {
+    use ExcludesSelf {
+        ExcludesSelf::match as _match;
+    }
     use InteractsWithClosureTable;
+
+    /**
+     * Match the eagerly loaded results to their parents.
+     *
+     * @param  array<int, TDeclaringModel>  $models
+     * @param  \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>  $results
+     * @param  string  $relation
+     * @return array<int, TDeclaringModel>
+     */
+    public function match(array $models, EloquentCollection $results, $relation)
+    {
+        return $this->pruneClosedRelation(
+            $this->_match($models, $results, $relation),
+            $results
+        );
+    }
 }
