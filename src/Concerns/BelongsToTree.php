@@ -2,6 +2,7 @@
 
 namespace Baril\Bonsai\Concerns;
 
+use Baril\Bonsai\Relations\BelongsToManyThroughClosures;
 use Illuminate\Database\Eloquent\Builder;
 
 trait BelongsToTree
@@ -20,7 +21,13 @@ trait BelongsToTree
      */
     public static function getTree($depth = null)
     {
-        return static::query()->onlyRoots()->withDescendants($depth)->get();
+        return static::query()->onlyRoots()->with([
+            'descendants' => function (BelongsToManyThroughClosures $relation) use ($depth) {
+                if (null !== $depth) {
+                    $relation->maxDepth($depth);
+                }
+            },
+        ])->get();
     }
 
     /**
