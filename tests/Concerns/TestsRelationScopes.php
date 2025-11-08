@@ -207,9 +207,9 @@ trait TestsRelationScopes
     }
 
     /**
-     * @dataProvider upToDepthProvider
+     * @dataProvider maxDepthProvider
      */
-    public function test_up_to_depth($node, $relation, $related)
+    public function test_max_depth($node, $relation, $related)
     {
         $expected = [];
         $closedRelation = $this->getModel($node)->$relation()->getClosedRelation();
@@ -228,7 +228,7 @@ trait TestsRelationScopes
             // Eager load:
             $model = $this->newQuery()->with([
                 $relation => function ($query) use ($level) {
-                    $query->upToDepth($level + 1);
+                    $query->maxDepth($level + 1);
                 }
             ])->whereName($node)->first();
             $eagerResults = $model->$relation;
@@ -250,7 +250,7 @@ trait TestsRelationScopes
             // Relation count:
             $model = $this->newQuery()->withCount([
                 $relation => function ($query) use ($level) {
-                    $query->upToDepth($level + 1);
+                    $query->maxDepth($level + 1);
                 }
             ])->whereName($node)->first();
             $this->assertEquals(
@@ -260,7 +260,7 @@ trait TestsRelationScopes
         }
     }
 
-    public static function upToDepthProvider()
+    public static function maxDepthProvider()
     {
         return [
             [
