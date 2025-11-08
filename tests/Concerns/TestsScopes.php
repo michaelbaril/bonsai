@@ -20,6 +20,23 @@ trait TestsScopes
                 [],
                 ['fruits', 'légumes', 'céréales'],
             ],
+            'withoutRoots' => [
+                'whereIsRoot',
+                [false],
+                [
+                    'fruits rouges',
+                    'framboises',
+                    'fraises',
+                    'fraises des bois',
+                    'fraises tagada',
+                    'myrtilles',
+                    'kiwis',
+                    'haricots verts',
+                    'brocolis',
+                    'brocolis pour mettre dans le minestrone',
+                    'tomates',
+                ],
+            ],
             'onlyLeaves' => [
                 'whereIsLeaf',
                 [],

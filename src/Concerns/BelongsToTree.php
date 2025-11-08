@@ -48,19 +48,35 @@ trait BelongsToTree
      */
     public function scopeWhereIsRoot(Builder $query, $bool = true)
     {
-        $this->scopeOnlyRoots($query, $bool);
+        if ($bool) {
+            $this->scopeOnlyRoots($query);
+        } else {
+            $this->scopeWithoutRoots($query);
+        }
     }
 
     /**
      * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  bool  $bool
      * @return void
      */
-    public function scopeOnlyRoots(Builder $query, $bool = true)
+    public function scopeOnlyRoots(Builder $query)
     {
         $query->where(
             $this->getParentForeignKeyName(),
-            ($bool ? '=' : '!='),
+            '=',
+            null
+        );
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return void
+     */
+    public function scopeWithoutRoots(Builder $query)
+    {
+        $query->where(
+            $this->getParentForeignKeyName(),
+            '!=',
             null
         );
     }
