@@ -11,10 +11,6 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  */
 trait InteractsWithClosureTable
 {
-    use ExcludesSelf {
-        match as _match;
-        getRelationExistenceQuery as _getRelationExistenceQuery;
-    }
     use IsReadOnly;
 
     /**
@@ -55,8 +51,19 @@ trait InteractsWithClosureTable
      */
     public function match(array $models, EloquentCollection $results, $relation)
     {
-        $models = $this->_match($models, $results, $relation);
+        return $this->pruneClosedRelation(
+            parent::match($models, $results, $relation),
+            $results
+        );
+    }
 
+    /**
+     * @param  array<int, TDeclaringModel>  $models
+     * @param  \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>  $results
+     * @return array<int, TDeclaringModel>
+     */
+    protected function pruneClosedRelation(array $models, EloquentCollection $results)
+    {
         // When the relation has been queried with a max depth,
         // we don't want the closed relation to be set to null
         // or empty collection on models that belong to the
@@ -70,7 +77,7 @@ trait InteractsWithClosureTable
             });
         }
 
-        return $models;
+        return $models;        
     }
 
     /**
@@ -85,14 +92,14 @@ trait InteractsWithClosureTable
      */
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
-        $query = $this->_getRelationExistenceQuery($query, $parentQuery, $columns);
+        $query = parent::getRelationExistenceQuery($query, $parentQuery, $columns);
 
         $query->macro('upToDepth', function ($query, $depth) {
             $query->where($this->qualifyPivotColumn('depth'), '<=', $depth);
         });
 
         return $query;
-    }
+    }  
 
     /**
      * @param  string  $relation

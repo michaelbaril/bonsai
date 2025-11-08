@@ -14,10 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class HasManySiblings extends HasMany
 {
-    use ExcludesSelf {
-        getRelationExistenceQuery as _getRelationExistenceQuery;
-        match as _match;
-    }
+    use ExcludesSelf;
 
     protected $withOrphans = false;
 
@@ -102,13 +99,14 @@ class HasManySiblings extends HasMany
     /** @inheritDoc */
     public function match(array $models, EloquentCollection $results, $relation)
     {
-        return $this->_match(
-            $models,
-            $results->when(! $this->withOrphans, function ($results) {
-                $foreignKey = explode('.', $this->foreignKey);
-                $foreignKey = end($foreignKey);
-                return $results->whereNotNull($foreignKey);
-            }),
+        $results = $results->when(! $this->withOrphans, function ($results) {
+            $foreignKey = explode('.', $this->foreignKey);
+            $foreignKey = end($foreignKey);
+            return $results->whereNotNull($foreignKey);
+        });
+
+        return $this->excludeSelfFromMatchesIfExcluded(
+            parent::match($models, $results, $relation),
             $relation
         );
     }
@@ -116,13 +114,13 @@ class HasManySiblings extends HasMany
     /** @inheritDoc */
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
-        $query = $this->_getRelationExistenceQuery($query, $parentQuery, $columns);
+        $query = parent::getRelationExistenceQuery($query, $parentQuery, $columns);
 
         if (! $this->withOrphans) {
             return $query;
         }
 
-        $from = $query->getquery()->from;
+        $from = $query->getQuery()->from;
         $segments = preg_split('/\s+as\s+/i', $from);
         $as = end($segments);
 
