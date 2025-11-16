@@ -2,10 +2,16 @@
 
 namespace Baril\Bonsai\Concerns;
 
+use Illuminate\Database\Eloquent\Builder;
+
+/**
+ * @deprecated Instead, use Orderable or Ordered trait together with BelongsToTree.
+ */
 trait BelongsToOrderedTree
 {
     use BelongsToTree {
         children as _children;
+        descendants as _descendants;
         getTree as _getTree;
     }
     use Orderable;
@@ -19,6 +25,19 @@ trait BelongsToOrderedTree
     }
 
     /**
+     * Many-to-many relation to the descendants through the closure table.
+     *
+     * @return \Baril\Bonsai\Relations\BelongsToManyThroughClosures<static::class, $this, \Illuminate\Database\Eloquent\Relations\Pivot>
+     */
+    public function descendants()
+    {
+        return $this->_descendants()
+            ->closes('children', function ($models, $results) {
+                return [$models, $results->sortBy($this->getOrderColumn())];
+            });
+    }
+
+    /**
      * @param  int|null  $depth
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -28,23 +47,5 @@ trait BelongsToOrderedTree
             // Sort roots (the rest is already sorted):
             ->sortBy((new static())->getOrderColumn())
             ->values();
-    }
-
-    /**
-     * Set the given relationship on the model.
-     * 
-     * @see \Illuminate\Database\Eloquent\Model::setRelation()
-     *
-     * @param  string  $relation
-     * @param  mixed  $value
-     * @return $this
-     */
-    public function setRelation($relation, $value)
-    {
-        if ('children' == $relation) {
-            $value = $value->sortBy($this->getOrderColumn());
-        }
-
-        return parent::setRelation($relation, $value);
     }
 }

@@ -39,6 +39,31 @@ class OrderedTreeTest extends TreeTestCase
         );
     }
 
+    /**
+     * @dataProvider childrenAreOrderedProvider
+     */
+    public function test_children_are_ordered_when_eager_loaded($node, $children)
+    {
+        // Eager-loaded:
+        $models = $this->newQuery()->with('children')->get();
+        $this->assertModelsOrdered(
+            $children,
+            $models->where('name', $node)->first()->children
+        );
+    }
+
+    /**
+     * @dataProvider childrenAreOrderedProvider
+     */
+    public function test_children_are_ordered_when_auto_loaded($node, $children)
+    {
+        $models = $this->newQuery()->with('descendants')->get();
+        $this->assertModelsOrdered(
+            $children,
+            $models->where('name', $node)->first()->children
+        );
+    }
+
     public static function childrenAreOrderedProvider()
     {
         return [
