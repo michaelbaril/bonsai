@@ -5,26 +5,58 @@ namespace Baril\Bonsai\Relations\Concerns;
 use Baril\Bonsai\Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Relations\BelongsToMany
  */
 trait InteractsWithClosureTable
 {
+    use AutoloadsOtherRelations;
     use IsReadOnly;
-
-    /**
-     * The name of the relation that is "closed" by this relation
-     * (eg. "parent" for "ancestors").
-     *
-     * @var string
-     */
-    protected $closes;
 
     /**
      * @var int|null
      */
     protected $depth = null;
+
+    /**
+     * @param  string  $relation
+     * @return $this
+     */
+    public function closes($relation, $callback = null)
+    {
+        $defaultCallback = function (array $models, EloquentCollection $results) {
+            // When the relation has been queried with a max depth,
+            // we don't want the closed relation to be set to null
+            // or empty collection on models that belong to the
+            // last level before the limit.
+            if (null !== $this->depth) {
+                $models = array_filter(
+                    $models,
+                    function ($model) {
+                        $depth = $model->closure->depth ?? 0;
+                        return $depth < $this->depth;
+                    }
+                );
+            }
+
+            return [
+                $models,
+                $results->unique()
+            ];
+        };
+
+        return $this->autoloads(
+            $relation,
+            $callback
+                ? function ($models, $results) use ($callback, $defaultCallback) {
+                    list($models, $results) = $defaultCallback($models, $results);
+                    return $callback($models, $results);
+                }
+                : $defaultCallback
+        );
+    }
 
     /**
      * Set the base constraints on the relation query.
@@ -39,45 +71,6 @@ trait InteractsWithClosureTable
             ->as('closure')
             ->using(Closure::class)
             ->withPivot('depth');
-    }
-
-    /**
-     * Match the eagerly loaded results to their parents.
-     *
-     * @param  array<int, TDeclaringModel>  $models
-     * @param  \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>  $results
-     * @param  string  $relation
-     * @return array<int, TDeclaringModel>
-     */
-    public function match(array $models, EloquentCollection $results, $relation)
-    {
-        return $this->pruneClosedRelation(
-            parent::match($models, $results, $relation),
-            $results
-        );
-    }
-
-    /**
-     * @param  array<int, TDeclaringModel>  $models
-     * @param  \Illuminate\Database\Eloquent\Collection<int, TRelatedModel>  $results
-     * @return array<int, TDeclaringModel>
-     */
-    protected function pruneClosedRelation(array $models, EloquentCollection $results)
-    {
-        // When the relation has been queried with a max depth,
-        // we don't want the closed relation to be set to null
-        // or empty collection on models that belong to the
-        // last level before the limit.
-        if (null !== $this->depth && $this->closes) {
-            $results->merge($models)->map(function ($model) {
-                $depth = $model->closure->depth ?? 0;
-                if ($depth >= $this->depth) {
-                    $model->unsetRelation($this->closes);
-                }
-            });
-        }
-
-        return $models;
     }
 
     /**
@@ -99,25 +92,6 @@ trait InteractsWithClosureTable
         });
 
         return $query;
-    }
-
-    /**
-     * @param  string  $relation
-     * @return $this
-     */
-    public function closes($relation)
-    {
-        $this->closes = $relation;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getClosedRelation()
-    {
-        return $this->closes;
     }
 
     /**

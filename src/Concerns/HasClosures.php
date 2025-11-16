@@ -6,7 +6,6 @@ use Baril\Bonsai\Relations\BelongsToManyThroughClosures;
 use Baril\Bonsai\Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Relation;
 
 trait HasClosures
 {
@@ -117,61 +116,6 @@ trait HasClosures
             $closure->qualifyColumn($foreignPivotKey),
             $this->getKeyName()
         );
-    }
-
-    /**
-     * Set the given relationship on the model.
-     *
-     * @see \Illuminate\Database\Eloquent\Model::setRelation()
-     *
-     * @param  string  $relation
-     * @param  mixed  $value
-     * @return $this
-     */
-    public function setRelation($relationName, $value)
-    {
-        if (
-            $this->isRelation($relationName)
-            && ($relation = $this->$relationName()) instanceof BelongsToManyThroughClosures
-            && ($closedRelationName = $relation->getClosedRelation())
-        ) {
-            $this->setClosedRelation($closedRelationName, $value);
-        }
-
-        return parent::setRelation($relationName, $value);
-    }
-
-    /**
-     * On $this, and on each of the related models that were loaded by
-     * a "through-closures" relation (eg. "ancestors"), load the corresponding
-     * "closed" relation (eg. "parent").
-     *
-     * @param  string  $relationName
-     * @param  \Illuminate\Database\Eloquent\Collection  $related
-     * @return $this
-     */
-    public function setClosedRelation($relationName, $related)
-    {
-        $models = $related->merge([$this])->all();
-
-        /**
-         * @var \Illuminate\Database\Eloquent\Relations\Relation
-         */
-        $relation = Relation::noConstraints(function () use ($relationName) {
-            return $this->$relationName();
-        });
-
-        // Prevents an unneeded query in case we try to access the relation on a leaf/root:
-        $relation->initRelation($models, $relationName);
-
-        // Set relation for all related models and parent model:
-        $relation->match(
-            $models,
-            $related,
-            $relationName
-        );
-
-        return $this;
     }
 
     /**

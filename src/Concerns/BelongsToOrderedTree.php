@@ -7,7 +7,6 @@ trait BelongsToOrderedTree
     use BelongsToTree {
         children as _children;
         getTree as _getTree;
-        setClosedRelation as _setClosedRelation;
     }
     use Orderable;
 
@@ -32,15 +31,20 @@ trait BelongsToOrderedTree
     }
 
     /**
-     * @param  string  $relationName
-     * @param  \Illuminate\Database\Eloquent\Collection  $related
+     * Set the given relationship on the model.
+     * 
+     * @see \Illuminate\Database\Eloquent\Model::setRelation()
+     *
+     * @param  string  $relation
+     * @param  mixed  $value
      * @return $this
      */
-    public function setClosedRelation($relationName, $related)
+    public function setRelation($relation, $value)
     {
-        return $this->_setClosedRelation(
-            $relationName,
-            $related->sortBy($this->getOrderColumn())
-        );
+        if ('children' == $relation) {
+            $value = $value->sortBy($this->getOrderColumn());
+        }
+
+        return parent::setRelation($relation, $value);
     }
 }
