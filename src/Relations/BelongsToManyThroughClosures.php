@@ -32,9 +32,11 @@ class BelongsToManyThroughClosures extends BelongsToMany
      */
     public function match(array $models, EloquentCollection $results, $relation)
     {
-        return $this->pruneClosedRelation(
-            $this->_match($models, $results, $relation),
-            $results
-        );
+        $this->_match($models, $results, $relation);
+
+        $this->matchOtherRelations($models, $results);
+        $this->matchOtherRelations($results->all(), $results);
+        
+        return $models;
     }
 }

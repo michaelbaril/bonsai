@@ -209,10 +209,9 @@ trait TestsRelationScopes
     /**
      * @dataProvider maxDepthProvider
      */
-    public function test_max_depth($node, $relation, $related)
+    public function test_max_depth($node, $relation, $closedRelation, $related)
     {
         $expected = [];
-        $closedRelation = $this->getModel($node)->$relation()->getClosedRelation();
 
         foreach ($related as $level => $levelRelated) {
             $previousLevels = $expected;
@@ -266,6 +265,7 @@ trait TestsRelationScopes
             [
                 'fruits',
                 'descendants',
+                'children',
                 [
                     ['fruits rouges', 'kiwis'],
                     ['framboises', 'fraises', 'myrtilles'],
