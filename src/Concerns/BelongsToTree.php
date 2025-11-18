@@ -148,4 +148,44 @@ trait BelongsToTree
         $descendantsWithSelf->delete();
         $this->deleteAllClosures();
     }
+
+    /**
+     * Attach $newChild to $this.
+     * 
+     * @param  static  $newChild
+     * @return $this
+     */
+    public function graft($newChild)
+    {
+        $this->children()->save($newChild);
+
+        return $this;
+    }
+
+    /**
+     * Attach $this to $newParent.
+     * 
+     * @param  static  $newParent
+     * @return $this
+     */
+    public function graftOnto($newParent)
+    {
+        $this->parent()->associate($newParent);
+        $this->save();
+
+        return $this;
+    }
+
+    /**
+     * Detach $this from its current parent and make it a new root.
+     * 
+     * @return $this
+     */
+    public function cut()
+    {
+        $this->parent()->dissociate();
+        $this->save();
+
+        return $this;
+    }
 }
