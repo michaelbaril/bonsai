@@ -13,6 +13,8 @@ trait BelongsToTree
     use ManagesClosures;
 
     /**
+     * @deprecated
+     * 
      * Shortcut method that returns a collection of the tree roots, with their
      * eager-loaded descendants.
      *
@@ -31,6 +33,8 @@ trait BelongsToTree
     }
 
     /**
+     * @deprecated
+     * 
      * Return the depth of the tree (0 if the tree is flat).
      *
      * @return int
