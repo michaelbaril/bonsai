@@ -204,11 +204,23 @@ trait HasDescendants
     }
 
     /**
+     * @deprecated use getHeight() instead
+     * 
      * Returns the depth of the subtree of which $this is a root.
      *
      * @return int
      */
     public function getSubtreeDepth()
+    {
+        return $this->getHeight();
+    }
+
+    /**
+     * Returns the depth of the subtree of which $this is a root.
+     *
+     * @return int
+     */
+    public function getHeight()
     {
         return (int) $this->descendants()->max('depth');
     }
