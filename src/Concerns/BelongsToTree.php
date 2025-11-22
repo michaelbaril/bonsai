@@ -142,7 +142,8 @@ trait BelongsToTree
             ->select(array_filter([
                 $this->getKeyName(),
                 $this->usesTimestamps() ? $this->getUpdatedAtColumn() : null,
-                static::isSoftDeletable() ? $this->getDeletedAtColumn() : null,
+                // @todo replace with static::isSoftDeletable()
+                method_exists($this, 'getDeletedAtColumn') ? $this->getDeletedAtColumn() : null,
             ]))
             ->cursor()
             ->map

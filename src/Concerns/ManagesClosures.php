@@ -157,7 +157,8 @@ trait ManagesClosures
      */
     protected function deleteAllClosures()
     {
-        if (static::isSoftDeletable() && !$this->forceDeleting) {
+        // @todo replace with static::isSoftDeletable()
+        if (property_exists($this, 'forceDeleting') && !$this->forceDeleting) {
             return 0;
         }
 

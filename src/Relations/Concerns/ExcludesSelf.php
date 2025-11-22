@@ -140,7 +140,7 @@ trait ExcludesSelf
      */
     protected function excludeSelfFromRelationExistenceQueryIfExcluded(
         Builder $query,
-        Builder $parentQuery,
+        Builder $parentQuery
     ) {
         return $query
             ->when($this->excludeSelf, function ($query) use ($parentQuery) {
