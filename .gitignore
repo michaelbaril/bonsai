@@ -4,3 +4,4 @@
 composer.lock
 /coverage
 /vendor
+current-setup.yml
