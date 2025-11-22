@@ -65,7 +65,7 @@ trait TestsClosedRelations
      */
     public function test_eager_load_closed_relation($class, $relation, $closedRelation, $checkModel = true, $checkRelated = true)
     {
-        $models = $this->newQuery($class)->with($relation)->get();        
+        $models = $this->newQuery($class)->with($relation)->get();
 
         $models->each(function ($model) use ($relation, $closedRelation, $checkModel, $checkRelated) {
             if ($checkModel) {

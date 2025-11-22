@@ -44,12 +44,12 @@ trait ManagesClosures
      *
      * @throws \Baril\Bonsai\TreeException
      * @return void
-     */    
+     */
     protected function checkIfDeletable()
     {
         if ($this->children()->exists()) {
             throw new TreeException('Can\'t delete an item with children!');
-        }        
+        }
     }
 
     /**
