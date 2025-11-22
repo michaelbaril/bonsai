@@ -2,8 +2,6 @@
 
 namespace Baril\Bonsai\Concerns;
 
-use Illuminate\Database\Eloquent\Builder;
-
 /**
  * @deprecated Instead, use Orderable or Ordered trait together with BelongsToTree.
  */

@@ -5,7 +5,6 @@ namespace Baril\Bonsai\Relations\Concerns;
 use Baril\Bonsai\Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Database\Eloquent\Relations\Relation;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Relations\BelongsToMany

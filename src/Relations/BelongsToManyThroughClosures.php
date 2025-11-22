@@ -36,7 +36,7 @@ class BelongsToManyThroughClosures extends BelongsToMany
 
         $this->matchOtherRelations($models, $results);
         $this->matchOtherRelations($results->all(), $results);
-        
+
         return $models;
     }
 }

@@ -14,7 +14,7 @@ trait BelongsToTree
 
     /**
      * @deprecated
-     * 
+     *
      * Shortcut method that returns a collection of the tree roots, with their
      * eager-loaded descendants.
      *
@@ -34,7 +34,7 @@ trait BelongsToTree
 
     /**
      * @deprecated
-     * 
+     *
      * Return the depth of the tree (0 if the tree is flat).
      *
      * @return int
@@ -106,7 +106,7 @@ trait BelongsToTree
 
     /**
      * @deprecated
-     * 
+     *
      * Deletes the model after having attached its children to its parent.
      *
      * @return bool|null
@@ -152,7 +152,7 @@ trait BelongsToTree
 
     /**
      * Attach $newChild to $this.
-     * 
+     *
      * @param  static  $newChild
      * @return $this
      */
@@ -165,7 +165,7 @@ trait BelongsToTree
 
     /**
      * Attach $this to $newParent.
-     * 
+     *
      * @param  static  $newParent
      * @return $this
      */
@@ -179,7 +179,7 @@ trait BelongsToTree
 
     /**
      * Detach $this from its current parent and make it a new root.
-     * 
+     *
      * @return $this
      */
     public function cut()

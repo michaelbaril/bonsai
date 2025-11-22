@@ -205,7 +205,7 @@ trait HasDescendants
 
     /**
      * @deprecated use getHeight() instead
-     * 
+     *
      * Returns the depth of the subtree of which $this is a root.
      *
      * @return int

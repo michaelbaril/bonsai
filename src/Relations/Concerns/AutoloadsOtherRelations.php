@@ -38,7 +38,7 @@ trait AutoloadsOtherRelations
 
     /**
      * Match the eagerly loaded results to their parents.
-     * 
+     *
      * @see \Illuminate\Database\Eloquent\Relations\BelongsToMany::match()
      *
      * @param  array<int, TDeclaringModel>  $models
