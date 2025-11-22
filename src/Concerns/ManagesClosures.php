@@ -30,15 +30,26 @@ trait ManagesClosures
         });
 
         static::deleting(function ($item) {
-            if ($item->children()->exists()) {
-                throw new TreeException('Can\'t delete an item with children!');
-            }
+            $item->checkIfDeletable();
         });
 
         static::deleted(function ($item) {
             // Delete the node's closures:
             $item->deleteAllClosures();
         });
+    }
+
+    /**
+     * Check if the node can be deleted.
+     *
+     * @throws \Baril\Bonsai\TreeException
+     * @return void
+     */    
+    protected function checkIfDeletable()
+    {
+        if ($this->children()->exists()) {
+            throw new TreeException('Can\'t delete an item with children!');
+        }        
     }
 
     /**
@@ -52,6 +63,10 @@ trait ManagesClosures
     {
         if (is_null($parentKey = $this->getParentKey())) {
             return;
+        }
+
+        if (!$this->parent()->exists()) {
+            throw new TreeException('The item\'s parent doesn\'t exist!');
         }
 
         if (
@@ -142,6 +157,10 @@ trait ManagesClosures
      */
     protected function deleteAllClosures()
     {
+        if (static::isSoftDeletable() && !$this->forceDeleting) {
+            return 0;
+        }
+
         return $this->deleteClosures();
     }
 

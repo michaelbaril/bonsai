@@ -3,7 +3,7 @@
 namespace Baril\Bonsai\Tests\Models;
 
 use Baril\Bonsai\Concerns\BelongsToTree;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Baril\Bonsai\Concerns\SoftDeletes;
 
 class SoftDeletableNode extends Model
 {

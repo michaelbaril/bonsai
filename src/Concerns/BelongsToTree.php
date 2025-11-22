@@ -105,6 +105,8 @@ trait BelongsToTree
     }
 
     /**
+     * @deprecated
+     * 
      * Deletes the model after having attached its children to its parent.
      *
      * @return bool|null
@@ -116,7 +118,10 @@ trait BelongsToTree
         if ($this->parent) {
             $this->parent->children()->saveMany($this->children);
         } else {
-            $this->children->each(function ($child) {
+            $this->children()->get([
+                $this->getKeyName(),
+                $this->getParentForeignKeyName(),
+            ])->each(function ($child) {
                 $child->parent()->dissociate();
                 $child->save();
             });
@@ -126,27 +131,23 @@ trait BelongsToTree
     }
 
     /**
-     * @deprecated
-     *
-     * @return bool|null
+     * @return int
      */
     public function deleteTree()
     {
-        return $this->deleteSubtree();
-    }
-
-    /**
-     * Deletes the model and its descendants from the database.
-     *
-     * @return bool|null
-     */
-    public function deleteSubtree()
-    {
-        $descendantsWithSelf = $this->descendants()->withSelf();
-        // Avoid parent_id constraint violation:
-        $descendantsWithSelf->update([$this->getParentForeignKeyName() => null]);
-        $descendantsWithSelf->delete();
-        $this->deleteAllClosures();
+        return $this
+            ->descendants()
+            ->withSelf()
+            ->orderByDepth('desc')
+            ->select(array_filter([
+                $this->getKeyName(),
+                $this->usesTimestamps() ? $this->getUpdatedAtColumn() : null,
+                static::isSoftDeletable() ? $this->getDeletedAtColumn() : null,
+            ]))
+            ->cursor()
+            ->map
+            ->delete()
+            ->sum();
     }
 
     /**

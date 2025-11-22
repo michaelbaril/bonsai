@@ -180,7 +180,7 @@ trait TestsRelations
     }
 
     /**
-     * @dataProvider ancestorsAndDescendantsProvider
+     * @dataProvider closuresProvider
      */
     public function test_closure_relations($node, $ancestors, $descendants)
     {
@@ -218,7 +218,11 @@ trait TestsRelations
             $ascending,
             $this->getModel($node)
                 ->ascendingClosures()
-                ->with('related')
+                ->with([
+                    'related' => function ($query) {
+                        $query->withoutGlobalScopes();
+                    },
+                ])
                 ->get()
                 ->pluck('related')
         );
@@ -228,9 +232,18 @@ trait TestsRelations
             $descending,
             $this->getModel($node)
                 ->descendingClosures()
-                ->with('related')
+                ->with([
+                    'related' => function ($query) {
+                        $query->withoutGlobalScopes();
+                    },
+                ])
                 ->get()
                 ->pluck('related')
         );
+    }
+
+    public static function closuresProvider()
+    {
+        return static::ancestorsAndDescendantsProvider();
     }
 }
