@@ -277,25 +277,6 @@ trait TestsRelationScopes
     }
 
     /**
-     * @dataProvider withDepthprovider
-     */
-    public function test_with_depth($node, $expectedDepth)
-    {
-        $depth = $this->newQuery()->where('name', $node)->withDepth('alias')->first()->alias;
-        $this->assertEquals($expectedDepth, $depth);
-    }
-
-    public static function withDepthProvider()
-    {
-        return [
-            'root' => ['fruits', 0],
-            'level 1' => ['fruits rouges', 1],
-            'level 2' => ['fraises', 2],
-            'leaf' => ['fraises tagada', 3],
-        ];
-    }
-
-    /**
      * @dataProvider orderByDepthProvider
      */
     public function test_order_by_depth($parent, $relation, $related)

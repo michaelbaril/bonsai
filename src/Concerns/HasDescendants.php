@@ -75,6 +75,16 @@ trait HasDescendants
     }
 
     /**
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $as
+     * @return void
+     */
+    public function scopeWithHeight(Builder $query, $as = 'height')
+    {
+        $query->withMax("descendants as $as", $this->getClosureTable() . '.depth');
+    }
+
+    /**
      * @deprecated Use ->onlyLeaves() instead
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
