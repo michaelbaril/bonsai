@@ -11,6 +11,7 @@
   },
   "repository": "{repo}",
   "reurls": {
-    "README.md": "index.html"
+    "README.md": "index.html",
+    "CHANGELOG.md": "changelog.html"
   }
 }
