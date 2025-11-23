@@ -146,11 +146,7 @@ trait HasAncestors
      */
     public function scopeWithDepth(Builder $query, $as = 'depth')
     {
-        $query->withCount([
-            "ascendingClosures as $as" => function ($query) {
-                $query->withoutSelf();
-            },
-        ]);
+        $query->withCount("ancestors as $as");
     }
 
     /**
