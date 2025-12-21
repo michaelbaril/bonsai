@@ -6,14 +6,10 @@ use Baril\Bonsai\Relations\BelongsToManyThroughClosures;
 use Baril\Bonsai\Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 trait HasClosures
 {
-    /**
-     * @var string
-     */
-    protected $_closureTable;
-
     /**
      * Return the name of the closure table.
      *
@@ -21,9 +17,9 @@ trait HasClosures
      */
     public function getClosureTable()
     {
-        return $this->_closureTable
-            = $this->_closureTable
-            ?? $this->ancestors()->getTable();
+        return property_exists($this, 'closureTable')
+            ? $this->closureTable
+            : Str::snake(class_basename($this)) . '_tree';
     }
 
     /**

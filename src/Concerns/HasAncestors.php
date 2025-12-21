@@ -6,15 +6,9 @@ use Baril\Bonsai\Relations\HasManySiblings;
 use Baril\Bonsai\TreeException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 trait HasAncestors
 {
-    /**
-     * @var string
-     */
-    protected $_parentForeignKey;
-
     /**
      * Return the name of the "parent_id" column.
      *
@@ -22,8 +16,9 @@ trait HasAncestors
      */
     public function getParentForeignKeyName()
     {
-        return $this->_parentForeignKey = $this->_parentForeignKey
-            ?? $this->parent()->getForeignKeyName();
+        return property_exists($this, 'parentForeignKey')
+            ? $this->parentForeignKey
+            : 'parent_id';
     }
 
     /**
@@ -42,7 +37,6 @@ trait HasAncestors
 
     /**
      * Many-to-one relation to the parent node.
-     * Override this method if the foreign key is not "parent_id".
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -50,17 +44,12 @@ trait HasAncestors
     {
         return $this->belongsTo(
             static::class,
-            // Explicitely setting the $parentForeignKey property
-            // is @deprecated in favor of overriding this method
-            property_exists($this, 'parentForeignKey')
-                ? $this->parentForeignKey
-                : 'parent_id'
+            $this->getParentForeignKeyName()
         );
     }
 
     /**
      * Many-to-many relation to the ancestors through the closure table.
-     * Override this method to customize the closure table name.
      *
      * @return \Baril\Bonsai\Relations\BelongsToManyThroughClosures<static::class, $this, \Illuminate\Database\Eloquent\Relations\Pivot>
      */
@@ -69,11 +58,7 @@ trait HasAncestors
         return
             $this->belongsToManyThroughClosures(
                 static::class,
-                // Explicitely setting the $closureTable property
-                // is @deprecated in favor of overriding this method
-                isset($this->closureTable)
-                    ? $this->closureTable
-                    : Str::snake(class_basename($this)) . '_tree',
+                $this->getClosureTable()
             )
             ->withoutSelf()
             ->closes('parent');
