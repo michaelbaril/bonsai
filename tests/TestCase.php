@@ -13,6 +13,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Ramsey\Uuid\Uuid;
 
 abstract class TestCase extends OrchestraTestCase
 {
@@ -194,7 +195,7 @@ abstract class TestCase extends OrchestraTestCase
         return collect($models)
             ->map(function ($model) use ($class) {
                 if (is_scalar($model)) {
-                    if (is_numeric($model) || strpos($model, 'uniqid_') === 0) {
+                    if (is_numeric($model) || (is_string($model) && Uuid::isValid($model))) {
                         $id = $model;
                         $model = $this->models->filter(function ($model) use ($class, $id) {
                             return get_class($model) == $class && $model->getKey() == $id;

@@ -14,7 +14,7 @@ class CreateNodesWithUuidTable extends Migration
     public function up()
     {
         Schema::create('nodes_with_uuid', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->foreignIdFor(\Baril\Bonsai\Tests\Models\NodeWithUuid::class, 'parent_id')->nullable();
             $table->timestamps();
