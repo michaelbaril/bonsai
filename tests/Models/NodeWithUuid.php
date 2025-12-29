@@ -3,6 +3,7 @@
 namespace Baril\Bonsai\Tests\Models;
 
 use Baril\Bonsai\Concerns\BelongsToTree;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @todo use HasUuids trait in v4
@@ -14,7 +15,7 @@ class NodeWithUuid extends Model
         parent::boot();
 
         static::creating(function ($item) {
-            $item->id = uniqid('uniqid_');
+            $item->id = (string) Uuid::uuid4();
         });
     }
 
