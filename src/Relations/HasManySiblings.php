@@ -129,4 +129,18 @@ class HasManySiblings extends HasMany
             $nestedWhere->whereNull($as . '.' . $this->getForeignKeyName());
         });
     }
+
+    /**
+     * Overridden in order to allow null keys in Laravel 12.44+
+     * (see https://github.com/laravel/framework/commit/095ef3cd5bd0d32492cc918282d98d72e9c59fd5).
+     *
+     * @param  mixed  $attribute
+     * @return mixed
+     *
+     * @throws \InvalidArgumentException
+     */
+    protected function getDictionaryKey($attribute)
+    {
+        return (null === $attribute) ? '' : parent::getDictionaryKey($attribute);
+    }
 }
