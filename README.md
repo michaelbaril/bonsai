@@ -233,7 +233,7 @@ in the query results too.
 * `withDepth($as = 'depth')`: will add a `depth` column (or whatever alias
 you provided) to your resulting models.
 * `withHeight($as = 'height')`: will add a `height` column (or whatever alias
-you provided) to your resulting models.
+you provided) to your resulting models (will work only with Laravel 10+).
 
 ## Special trees
 
