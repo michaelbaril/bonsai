@@ -37,6 +37,12 @@ abstract class TreeTestCase extends TestCase
 
     protected function createTree($data)
     {
+        // Making sure the table is empty
+        // to avoid issues with PostgreSQL:
+        $class = static::$defaultModelClass;
+        (new $class())->newClosureQuery()->delete();
+        $class::query()->delete();
+
         $this->models = collect();
         $this->addToTree($data);
     }
