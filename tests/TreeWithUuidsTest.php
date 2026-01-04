@@ -12,4 +12,11 @@ class TreeWithUuidsTest extends TreeTestCase
     use TestsCommands;
 
     protected static $defaultModelClass = NodeWithUuid::class;
+
+    public static function showTreeProvider()
+    {
+        return [
+            [0, 'céréales', 'fruits rouges'],
+        ];
+    }
 }
