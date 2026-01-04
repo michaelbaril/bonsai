@@ -152,7 +152,7 @@ trait TestsCommands
 
         if (method_exists($command, 'expectsOutputToContain')) { // Only for Laravel >= 9
             if ($shouldContain) {
-                $model = $this->getModel($shouldContain);
+                $model = $this->getModel($shouldContain)->fresh();
                 $command->expectsOutputToContain("#{$model->getKey()}: {$model->name}");
             }
             if ($shouldNotContain) {

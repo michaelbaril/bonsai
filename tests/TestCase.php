@@ -198,7 +198,7 @@ abstract class TestCase extends OrchestraTestCase
                     if (is_numeric($model) || (is_string($model) && Uuid::isValid($model))) {
                         $id = $model;
                         $model = $this->models->filter(function ($model) use ($class, $id) {
-                            return get_class($model) == $class && $model->getKey() == $id;
+                            return get_class($model) == $class && strtolower((string) $model->getKey()) == strtolower($id);
                         })->first();
                     } elseif (is_string($model)) {
                         $model = $this->getModel($model);
@@ -206,7 +206,7 @@ abstract class TestCase extends OrchestraTestCase
                 }
                 return [
                     'class' => class_basename($model),
-                    'id' => $model->getKey(),
+                    'id' => strtolower((string) $model->getKey()),
                     'name' => $model->name,
                 ];
             })
