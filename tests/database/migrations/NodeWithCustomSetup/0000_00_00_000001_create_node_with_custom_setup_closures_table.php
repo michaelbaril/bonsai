@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\SqlServerBuilder;
 
 class CreateNodeWithCustomSetupClosuresTable extends Migration
 {
@@ -13,9 +14,18 @@ class CreateNodeWithCustomSetupClosuresTable extends Migration
      */
     public function up()
     {
-        Schema::create('node_with_custom_setup_closures', function (Blueprint $table) {
-            $table->foreignIdFor(\Baril\Bonsai\Tests\Models\NodeWithCustomSetup::class, 'ancestor_id')->constrained('nodes_with_custom_setup')->onDelete('cascade');
-            $table->foreignIdFor(\Baril\Bonsai\Tests\Models\NodeWithCustomSetup::class, 'descendant_id')->constrained('nodes_with_custom_setup')->onDelete('cascade');
+        $schema = Schema::getFacadeRoot();
+        $shouldAddConstraints = !($schema instanceof SqlServerBuilder);
+
+        Schema::create('node_with_custom_setup_closures', function (Blueprint $table) use ($shouldAddConstraints) {
+            $table->foreignIdFor(\Baril\Bonsai\Tests\Models\NodeWithCustomSetup::class, 'ancestor_id')
+                ->when($shouldAddConstraints, function ($foreignId) {
+                    $foreignId->constrained('nodes_with_custom_setup')->onDelete('cascade');
+                });
+            $table->foreignIdFor(\Baril\Bonsai\Tests\Models\NodeWithCustomSetup::class, 'descendant_id')
+                ->when($shouldAddConstraints, function ($foreignId) {
+                    $foreignId->constrained('nodes_with_custom_setup')->onDelete('cascade');
+                });
             $table->unsignedSmallInteger('depth');
 
             $table->unique(['ancestor_id', 'descendant_id']);
