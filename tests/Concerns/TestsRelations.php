@@ -139,12 +139,13 @@ trait TestsRelations
         $this->assertEquals(count($descendants), $model->descendants_count);
 
         // Exists:
-        $model = $this->newQuery()
-            ->withExists(['ancestors', 'descendants'])
-            ->where('name', $node)
-            ->first();
-        $this->assertEquals(!empty($ancestors), $model->ancestors_exists);
-        $this->assertEquals(!empty($descendants), $model->descendants_exists);
+        foreach (['ancestors', 'descendants'] as $relation) {
+            $exists = $this->newQuery()
+                ->whereHas($relation)
+                ->where('name', $node)
+                ->exists();
+            $this->assertEquals(!empty($$relation), $exists);
+        }
     }
 
     public static function ancestorsAndDescendantsProvider()
