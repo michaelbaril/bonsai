@@ -27,9 +27,15 @@ trait TestsDelete
      */
     public function test_delete_success($node, $method = 'delete', $shouldDeleteClosures = true)
     {
+        $callback = function ($closure) {
+            return "{$closure->ancestor_id}->{$closure->descendant_id}";
+        };
+
         $model = $this->getModel($node);
-        $closuresCount = $model->newClosureQuery()->count();
-        $modelClosuresCount = $model->ascendingClosures()->count() + $model->descendingClosures()->count() - 1;
+        $closuresBefore = $model->newClosureQuery()->get()->map($callback)->sort()->values();
+        $modelClosures = $model->ascendingClosures()->get()->map($callback)
+            ->merge($model->descendingClosures()->get()->map($callback))
+            ->unique();
 
         $model->$method();
 
@@ -43,11 +49,17 @@ trait TestsDelete
             !$shouldDeleteClosures,
             $model->newClosureQuery()->where('descendant_id', $model->getKey())->exists()
         );
+
+        $expectedClosures = $shouldDeleteClosures
+                ? $closuresBefore->diff($modelClosures)->sort()->values()
+                : $closuresBefore;
+        $remainingClosures = $model->newClosureQuery()->get()->map($callback)->sort()->values();
+
+        // We are just comparing $expectedClosures with $remainingClosures, but both collections are
+        // reordered (with the common elements first) to make the diff easier to read when the test fails:
         $this->assertEquals(
-            $shouldDeleteClosures
-                ? $closuresCount - $modelClosuresCount
-                : $closuresCount,
-            $model->newClosureQuery()->count()
+            $expectedClosures->intersect($remainingClosures)->merge($expectedClosures->diff($remainingClosures))->values()->all(),
+            $remainingClosures->intersect($expectedClosures)->merge($remainingClosures->diff($expectedClosures))->values()->all()
         );
     }
 
