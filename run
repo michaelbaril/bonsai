@@ -11,6 +11,11 @@ compose_project_name=${PWD##*\/}
 # Presets
 preset_min='7.3 8.* lowest'
 preset_max='8.4 12.* stable'
+preset_eight='8.1 8.* stable'
+preset_nine='8.2 9.* stable'
+preset_ten='8.3 10.* stable'
+preset_eleven='8.4 11.* stable'
+preset_twelve='8.4 12.* stable'
 preset_sqlite_min="$preset_min sqlite"
 preset_sqlite_max="$preset_max sqlite"
 preset_sqlite="$preset_sqlite_max"
