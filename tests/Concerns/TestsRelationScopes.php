@@ -73,19 +73,15 @@ trait TestsRelationScopes
         $this->assertEquals(count($descendantsWithSelf), $model->descendants_count);
 
         // Exists:
-        $model = $this->newQuery()
-            ->withExists([
-                'ancestors' => function ($query) {
+        foreach (['ancestors', 'descendants'] as $relation) {
+            $exists = $this->newQuery()
+                ->whereHas($relation, function ($query) {
                     $query->withSelf();
-                },
-                'descendants' => function ($query) {
-                    $query->withSelf();
-                },
-            ])
-            ->where('name', $node)
-            ->first();
-        $this->assertEquals(true, $model->ancestors_exists);
-        $this->assertEquals(true, $model->descendants_exists);
+                })
+                ->where('name', $node)
+                ->exists();
+            $this->assertTrue($exists);
+        }
     }
 
     /**
