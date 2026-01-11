@@ -55,7 +55,7 @@ env_replace() {
 }
 
 # Help
-if [[ $# == 0 || $# == 1 && ($1 == 'help') ]]; then
+if [[ $# == 0 || $# == 1 && ($1 == 'help') || $# == 1 && ($1 == 'info') ]]; then
     echo 'Usage:'
     echo -e "${PURPLE}setup <PRESET=min|max|...>${NC}: setup the containers with the provided preset"
     echo -e "${PURPLE}setup <PHP_VERSION> <LARAVEL_VERSION> <DEPENDENCY_VERSION> <DB_ENGINE> <DATABASE_VERSION>${NC}: setup the containers with the provided requirements"
@@ -65,6 +65,11 @@ if [[ $# == 0 || $# == 1 && ($1 == 'help') ]]; then
     echo -e "${PURPLE}cbf${NC}: run PHP Code Beautifier and Fixer (fix errors)"
     echo -e "${PURPLE}stan{NC}: run PHPStan"
     echo -e "${PURPLE}help${NC}: this screen"
+    if [[ -f current-setup.yml ]]; then
+        echo -e ''
+        echo -e 'Current setup:'
+        sed -E "s/([[:space:]]*)([[:alnum:]_]+:)/\1$(printf '%b' "${PURPLE}")\2$(printf '%b' "${NC}")/g" current-setup.yml
+    fi
     exit 0
 fi
 
