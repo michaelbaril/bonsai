@@ -25,7 +25,7 @@ trait TestsDelete
     /**
      * @dataProvider deleteSuccessProvider
      */
-    public function test_delete_success($node, $method = 'delete', $shouldDeleteClosures = true)
+    public function test_delete_success($node, $method = 'delete', $shouldDeleteClosures = true, $additionalClosuresToDelete = [])
     {
         $callback = function ($closure) {
             return "{$closure->ancestor_id}->{$closure->descendant_id}";
@@ -33,8 +33,14 @@ trait TestsDelete
 
         $model = $this->getModel($node);
         $closuresBefore = $model->newClosureQuery()->get()->map($callback)->sort()->values();
-        $modelClosures = $model->ascendingClosures()->get()->map($callback)
-            ->merge($model->descendingClosures()->get()->map($callback))
+
+        $closuresToDelete = collect($additionalClosuresToDelete)
+            ->when($shouldDeleteClosures, function ($collection) use ($model) {
+                return $collection
+                    ->merge($model->ascendingClosures()->get())
+                    ->merge($model->descendingClosures()->get());
+            })
+            ->map($callback)
             ->unique();
 
         $model->$method();
@@ -50,9 +56,7 @@ trait TestsDelete
             $model->newClosureQuery()->where('descendant_id', $model->getKey())->exists()
         );
 
-        $expectedClosures = $shouldDeleteClosures
-                ? $closuresBefore->diff($modelClosures)->sort()->values()
-                : $closuresBefore;
+        $expectedClosures = $closuresBefore->diff($closuresToDelete)->sort()->values();
         $remainingClosures = $model->newClosureQuery()->get()->map($callback)->sort()->values();
 
         // We are just comparing $expectedClosures with $remainingClosures, but both collections are
