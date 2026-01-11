@@ -128,11 +128,31 @@ class SoftDeletableTreeTest extends TreeTestCase
     {
         return [
             'leaf' => ['fraises tagada', 'delete', false],
-            'leaf (force)' => ['fraises tagada', 'forceDelete', true],
             'node with trashed descendants' => ['céréales', 'delete', false],
-            'node with trashed descendants (force)' => ['céréales', 'forceDelete', true],
-            'trashed node (force)' => ['bananes', 'forceDelete', true],
-            'trashed leaf (force)' => ['bananes plantain', 'forceDelete', true],
+        ];
+    }
+
+    /**
+     * @dataProvider forceDeleteSuccessProvider
+     */
+    public function test_force_delete_success($node)
+    {
+        $model = $this->getModel($node);
+        $additionalClosuresToDelete = $model->newClosureQuery()
+            ->whereIn('descendant_id', $model->descendants()->withTrashed()->pluck('id'))
+            ->whereIn('ancestor_id', $model->ancestors()->pluck('id'))
+            ->get();
+
+        $this->test_delete_success($node, 'forceDelete', true, $additionalClosuresToDelete);
+    }
+
+    public static function forceDeleteSuccessProvider()
+    {
+        return [
+            'leaf' => ['fraises tagada'],
+            'node with trashed descendants' => ['céréales'],
+            'trashed node' => ['bananes'],
+            'trashed leaf' => ['bananes plantain'],
         ];
     }
 
@@ -160,9 +180,9 @@ class SoftDeletableTreeTest extends TreeTestCase
     }
 
     /**
-     * @dataProvider forceDeleteWithTrashedDescendantsProvider
+     * @dataProvider forceDeleteTreeWithTrashedDescendantsProvider
      */
-    public function test_force_delete_with_trashed_descendants($node, $withTrashed)
+    public function test_force_delete_tree_with_trashed_descendants($node, $withTrashed)
     {
         $model = $this->getModel($node);
         $descendants = $model->descendants()->get();
@@ -182,7 +202,7 @@ class SoftDeletableTreeTest extends TreeTestCase
         );
     }
 
-    public static function forceDeleteWithTrashedDescendantsProvider()
+    public static function forceDeleteTreeWithTrashedDescendantsProvider()
     {
         return [
             'with' => ['fruits', true],
