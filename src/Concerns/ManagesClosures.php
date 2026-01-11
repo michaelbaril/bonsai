@@ -35,7 +35,12 @@ trait ManagesClosures
 
         static::deleted(function ($item) {
             // Delete the node's closures:
-            $item->deleteAllClosures();
+            // @todo replace with !static::isSoftDeletable()
+            if (!property_exists($item, 'forceDeleting')) {
+                $item->deleteClosures();    
+            } elseif ($item->forceDeleting) {
+                $item->deleteClosures('>=');
+            }
         });
     }
 
@@ -149,34 +154,19 @@ trait ManagesClosures
      */
     protected function detachSubtree()
     {
-        return $this->deleteClosures(true);
+        return $this->deleteClosures('>');
     }
 
     /**
-     * @return int
-     */
-    protected function deleteAllClosures()
-    {
-        // @todo replace with static::isSoftDeletable()
-        if (property_exists($this, 'forceDeleting') && !$this->forceDeleting) {
-            return 0;
-        }
-
-        return $this->deleteClosures();
-    }
-
-    /**
-     * Delete the ascending closures of the model and its
+     * Delete the ascending closures of the model and optionally its
      * descendants.
-     * If $preserveSubtree is true, only the closures that
-     * attach the subtree to the main tree will be deleted.
-     * If not, the "internal" closures of the subtree will
-     * be deleted as well.
      *
-     * @param  bool  $preserveSubtree
+     * @param  string|null  $operator  - '>' to detach the subtree (including the node) from the main tree
+     *                                 - '>=' to detach the descendants from the node
+     *                                 - null to delete all the subtree closures
      * @return int
      */
-    protected function deleteClosures($preserveSubtree = false)
+    protected function deleteClosures($operator = null)
     {
         // DELETE FROM closures USING $closureTable AS closures
         //     INNER JOIN $closureTable AS descendants
@@ -184,13 +174,14 @@ trait ManagesClosures
         //     WHERE descendants.ancestor_id = $id
         //         AND closures.depth > descendants.depth
 
-        return $this->newClosureQuery('closures_to_delete')
+        $query = $this->newClosureQuery('closures_to_delete')
             ->selfJoin('descendants', 'descendant_id')
             ->where('descendants.ancestor_id', $this->id)
             // This condition preserves the internal closures:
-            ->when($preserveSubtree, function ($query) {
-                $query->whereColumn('closures_to_delete.depth', '>', 'descendants.depth');
-            })
-            ->delete();
+            ->when($operator, function ($query, $operator) {
+                $query->whereColumn('closures_to_delete.depth', $operator, 'descendants.depth');
+            });
+
+        return $query->delete();
     }
 }
