@@ -6,7 +6,21 @@ use Illuminate\Database\Eloquent\SoftDeletes as EloquentSoftDeletes;
 
 trait SoftDeletes
 {
-    use EloquentSoftDeletes;
+    use EloquentSoftDeletes {
+        bootSoftDeletes as _bootSoftDeletes;
+    }
+
+    public static function bootSoftDeletes()
+    {
+        static::_bootSoftDeletes();
+
+        // When we're force deleting, we need to delete the closures before
+        // the node is deleted, because the ON CASCADE would delete the node's
+        // closure and we wouldn't be able to detach its ancestors any more.
+        static::forceDeleting(function ($item) {
+            $item->deleteClosures('>=');
+        });
+    }
 
     /**
      * Force a hard delete on a soft deleted model and its descendants.
