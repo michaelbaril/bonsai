@@ -36,10 +36,8 @@ trait ManagesClosures
         static::deleted(function ($item) {
             // Delete the node's closures:
             // @todo replace with !static::isSoftDeletable()
-            if (!property_exists($item, 'forceDeleting')) {
-                $item->deleteClosures();    
-            } elseif ($item->forceDeleting) {
-                $item->deleteClosures('>=');
+            if (!property_exists($item, 'forceDeleting') || $item->forceDeleting) {
+                $item->deleteClosures();
             }
         });
     }
