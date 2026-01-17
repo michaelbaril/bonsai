@@ -14,6 +14,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Ramsey\Uuid\Uuid;
+use Throwable;
 
 abstract class TestCase extends OrchestraTestCase
 {
@@ -218,5 +219,30 @@ abstract class TestCase extends OrchestraTestCase
                 return "{$model['class']} #{$model['id']}: {$model['name']}";
             })
             ->all();
+    }
+
+    protected function withQueryLog($callback)
+    {
+        DB::enableQueryLog();
+        try {
+            $callback();
+        } catch (Throwable $e) {
+            $this->showQueryLog();
+            throw $e;
+        }
+        $this->showQueryLog();
+    }
+
+    protected function showQueryLog()
+    {
+        $grammar = DB::getQueryGrammar();
+        $queries = collect(DB::getQueryLog())
+            ->map(function ($query) use ($grammar) {
+                return $grammar->substituteBindingsIntoRawSql(
+                    $query['query'],
+                    $query['bindings']
+                );
+            })->all();
+        dump($queries);
     }
 }

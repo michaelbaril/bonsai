@@ -99,4 +99,16 @@ abstract class TreeTestCase extends TestCase
             }
         });
     }
+
+    protected function showClosures()
+    {
+        $closures = $this->models->first()->newClosureQuery()->get()
+            ->sortBy(['ancestor_id', 'descendant_id'])
+            ->map(function ($closure) {
+                return "{$closure->ancestor_id} -> {$closure->descendant_id} ({$closure->depth})";
+            })
+            ->values()
+            ->all();
+        dump($closures);
+    }
 }
