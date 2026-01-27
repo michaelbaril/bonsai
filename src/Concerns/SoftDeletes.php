@@ -17,8 +17,11 @@ trait SoftDeletes
         // When we're force deleting, we need to delete the closures before
         // the node is deleted, because the ON CASCADE would delete the node's
         // closure and we wouldn't be able to detach its ancestors any more.
-        static::forceDeleting(function ($item) {
-            $item->deleteClosures('>=');
+        // @todo replace with forceDeleting in v4 and remove if
+        static::deleting(function ($item) {
+            if ($item->forceDeleting) {
+                $item->deleteClosures('>=');
+            }
         });
     }
 
