@@ -136,14 +136,18 @@
 			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
-
-
-	</li>
-	<li>
 <a href="Baril.Bonsai.Console.FixTreeCommand.html"><span>Baril\Bonsai\Console\FixTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
+	</li>
+	<li>
+<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
+
+
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Console.Migrations.BaseCommand.html"><span>Illuminate\Database\Console\Migrations\BaseCommand</span></a>
@@ -161,6 +165,8 @@
 <a href="Baril.Bonsai.Console.GrowTreeCommand.html"><span>Baril\Bonsai\Console\GrowTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	</ul>
 	</li>
@@ -226,7 +232,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>argument(<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>): array|string|bool|null</code>
+				<code>argument(
+	<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>,
+): ($key is null&nbsp;?&nbsp;array&lt;array|string|float|int|bool|null&gt;&nbsp;:&nbsp;array|string|float|int|bool|null)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -257,7 +265,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>arguments(): array</code>
+				<code>arguments(): array&lt;array|string|float|int|bool|null&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -319,7 +327,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>option(<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>): string|array|bool|null</code>
+				<code>option(
+	<span>string|null <var>$key</var> = <span class="php-kw">null</span></span>,
+): ($key is null&nbsp;?&nbsp;array&lt;array|string|float|int|bool|null&gt;&nbsp;:&nbsp;array|string|float|int|bool|null)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -350,7 +360,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>options(): array</code>
+				<code>options(): array&lt;array|string|float|int|bool|null&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -474,7 +484,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>askWithCompletion(<span>string <var>$question</var></span>, <span>array|callable <var>$choices</var></span>, <span>string|null <var>$default</var> = <span class="php-kw">null</span></span>): mixed</code>
+				<code>askWithCompletion(<span>string <var>$question</var></span>, <span>iterable|(callable(string):&nbsp;string[]) <var>$choices</var></span>, <span>string|null <var>$default</var> = <span class="php-kw">null</span></span>): mixed</code>
 
 
 	<div class="expandable-collapsedView">
@@ -538,9 +548,9 @@
 			<td class="table-cell">
 				<code>choice(
 	<span>string <var>$question</var></span>,
-	<span>array <var>$choices</var></span>,
+	<span>array&lt;<a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|float|int|bool&gt; <var>$choices</var></span>,
 	<span>string|int|null <var>$default</var> = <span class="php-kw">null</span></span>,
-	<span>mixed|null <var>$attempts</var> = <span class="php-kw">null</span></span>,
+	<span>?positive-int <var>$attempts</var> = <span class="php-kw">null</span></span>,
 	<span>bool <var>$multiple</var> = <span class="php-kw">false</span></span>,
 ): string|array</code>
 
@@ -573,7 +583,12 @@
 			</td>
 
 			<td class="table-cell">
-				<code>table(<span>array <var>$headers</var></span>, <span><a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array <var>$rows</var></span>, <span><a href="Symfony.Component.Console.Helper.TableStyle.html"><span title="Symfony\Component\Console\Helper\TableStyle">TableStyle</span></a>|string <var>$tableStyle</var> = <span class="php-str">'default'</span></span>, <span>array <var>$columnStyles</var> = []</span>): void</code>
+				<code>table(
+	<span>array <var>$headers</var></span>,
+	<span><a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array <var>$rows</var></span>,
+	<span><a href="Symfony.Component.Console.Helper.TableStyle.html"><span title="Symfony\Component\Console\Helper\TableStyle">TableStyle</span></a>|string <var>$tableStyle</var> = <span class="php-str">'default'</span></span>,
+	<span>array&lt;int, <a href="Symfony.Component.Console.Helper.TableStyle.html"><span title="Symfony\Component\Console\Helper\TableStyle">TableStyle</span></a>|string&gt; <var>$columnStyles</var> = []</span>,
+): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -604,7 +619,10 @@
 			</td>
 
 			<td class="table-cell">
-				<code>withProgressBar(<span>iterable|int <var>$totalSteps</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>): mixed|void</code>
+				<code>withProgressBar&lt;<span title="">TKey</span> is array-key, <span title="">TValue</span>, <span title="">TIterable</span> is iterable&lt;TKey, TValue&gt;&gt;(
+	<span>TIterable|int <var>$totalSteps</var></span>,
+	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Symfony.Component.Console.Helper.ProgressBar.html"><span title="Symfony\Component\Console\Helper\ProgressBar">ProgressBar</span></a>):&nbsp;mixed)|(<a href="Closure.html"><span title="Closure">Closure</span></a>(TValue, <a href="Symfony.Component.Console.Helper.ProgressBar.html"><span title="Symfony\Component\Console\Helper\ProgressBar">ProgressBar</span></a>, TKey):&nbsp;mixed) <var>$callback</var></span>,
+): ($totalSteps is iterable&nbsp;?&nbsp;TIterable&nbsp;:&nbsp;void)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -635,7 +653,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>info(<span>string <var>$string</var></span>, <span>int|string|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>info(<span>string <var>$string</var></span>, <span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -666,7 +684,11 @@
 			</td>
 
 			<td class="table-cell">
-				<code>line(<span>string <var>$string</var></span>, <span>string|null <var>$style</var> = <span class="php-kw">null</span></span>, <span>int|string|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>line(
+	<span>string <var>$string</var></span>,
+	<span><span class="php-str">'info'</span>|<span class="php-str">'comment'</span>|<span class="php-str">'question'</span>|<span class="php-str">'error'</span>|<span class="php-str">'warn'</span>|<span class="php-str">'alert'</span>|null <var>$style</var> = <span class="php-kw">null</span></span>,
+	<span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$verbosity</var> = <span class="php-kw">null</span></span>,
+): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -697,7 +719,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>comment(<span>string <var>$string</var></span>, <span>int|string|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>comment(<span>string <var>$string</var></span>, <span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -728,7 +750,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>question(<span>string <var>$string</var></span>, <span>int|string|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>question(<span>string <var>$string</var></span>, <span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -759,7 +781,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>error(<span>string <var>$string</var></span>, <span>int|string|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>error(<span>string <var>$string</var></span>, <span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -790,7 +812,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>warn(<span>string <var>$string</var></span>, <span>int|string|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>warn(<span>string <var>$string</var></span>, <span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -821,7 +843,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>alert(<span>string <var>$string</var></span>, <span>int|string|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
+				<code>alert(<span>string <var>$string</var></span>, <span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$verbosity</var> = <span class="php-kw">null</span></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -945,7 +967,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setVerbosity(<span>string|int <var>$level</var></span>): void</code>
+				<code>setVerbosity(<span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_* <var>$level</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -976,7 +998,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>parseVerbosity(<span>string|int|null <var>$level</var> = <span class="php-kw">null</span></span>): int</code>
+				<code>parseVerbosity(<span><span class="php-str">'v'</span>|<span class="php-str">'vv'</span>|<span class="php-str">'vvv'</span>|<span class="php-str">'quiet'</span>|<span class="php-str">'normal'</span>|<a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*|null <var>$level</var> = <span class="php-kw">null</span></span>): int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1148,7 +1170,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">int</code>
+				<code class="nowrap"><a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*</code>
 			</td>
 
 			<td class="table-cell">
@@ -1172,7 +1194,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">array&lt;string, <a href="Symfony.Component.Console.Output.OutputInterface.html"><span title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</span></a>::VERBOSITY_*&gt;</code>
 			</td>
 
 			<td class="table-cell">

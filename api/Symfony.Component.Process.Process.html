@@ -265,7 +265,7 @@ $process-&gt;run(null, ['MY_VAR' =&gt; $theValue]);</p>
 			<a href="#_fromShellCommandline">#</a>
 		</td>
 	</tr>
-	<tr class="expandable collapsed" data-order="__sleep" id="___sleep">
+	<tr class="expandable collapsed" data-order="__serialize" id="___serialize">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
 					
@@ -276,7 +276,7 @@ $process-&gt;run(null, ['MY_VAR' =&gt; $theValue]);</p>
 			</td>
 
 			<td class="table-cell">
-				<code>__sleep(): array</code>
+				<code>__serialize(): array</code>
 
 
 
@@ -288,10 +288,10 @@ $process-&gt;run(null, ['MY_VAR' =&gt; $theValue]);</p>
 	</div>
 			</td>
 		<td class="table-anchor">
-			<a href="#___sleep">#</a>
+			<a href="#___serialize">#</a>
 		</td>
 	</tr>
-	<tr class="expandable collapsed" data-order="__wakeup" id="___wakeup">
+	<tr class="expandable collapsed" data-order="__unserialize" id="___unserialize">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
 					
@@ -302,7 +302,7 @@ $process-&gt;run(null, ['MY_VAR' =&gt; $theValue]);</p>
 			</td>
 
 			<td class="table-cell">
-				<code>__wakeup(): void</code>
+				<code>__unserialize(<span>array <var>$data</var></span>): void</code>
 
 
 
@@ -314,7 +314,7 @@ $process-&gt;run(null, ['MY_VAR' =&gt; $theValue]);</p>
 	</div>
 			</td>
 		<td class="table-anchor">
-			<a href="#___wakeup">#</a>
+			<a href="#___unserialize">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="__destruct" id="___destruct">
@@ -380,7 +380,7 @@ $process-&gt;run(null, ['MY_VAR' =&gt; $theValue]);</p>
 			</td>
 
 			<td class="table-cell">
-				<code>run(<span>callable|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): int</code>
+				<code>run(<span>(callable(<span class="php-str">'out'</span>|<span class="php-str">'err'</span>, string):&nbsp;void)|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -456,7 +456,7 @@ output available on STDOUT or STDERR</p>
 			</td>
 
 			<td class="table-cell">
-				<code>mustRun(<span>?callable <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): $this</code>
+				<code>mustRun(<span>(callable(<span class="php-str">'out'</span>|<span class="php-str">'err'</span>, string):&nbsp;void)|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -469,13 +469,47 @@ output available on STDOUT or STDERR</p>
 exits with a non-zero exit code.</p>
 </div>
 
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$callback</var>&nbsp;&nbsp;</td>
+										<td><p>A PHP callback to run whenever there is some
+output available on STDOUT or STDERR</p>
+</td>
+									</tr>
+							</table>
 
 
 							<h4>Throws</h4>
 							<table>
 									<tr>
 										<td><code><a href="Symfony.Component.Process.Exception.ProcessFailedException.html"><span>Symfony\Component\Process\Exception\ProcessFailedException</span></a></code>&nbsp;</td>
-										<td><p>if the process didn't terminate successfully</p>
+										<td><p>When process didn't terminate successfully</p>
+</td>
+									</tr>
+									<tr>
+										<td><code><a href="Symfony.Component.Process.Exception.RuntimeException.html"><span>Symfony\Component\Process\Exception\RuntimeException</span></a></code>&nbsp;</td>
+										<td><p>When process can't be launched</p>
+</td>
+									</tr>
+									<tr>
+										<td><code><a href="Symfony.Component.Process.Exception.RuntimeException.html"><span>Symfony\Component\Process\Exception\RuntimeException</span></a></code>&nbsp;</td>
+										<td><p>When process is already running</p>
+</td>
+									</tr>
+									<tr>
+										<td><code><a href="Symfony.Component.Process.Exception.ProcessTimedOutException.html"><span>Symfony\Component\Process\Exception\ProcessTimedOutException</span></a></code>&nbsp;</td>
+										<td><p>When process timed out</p>
+</td>
+									</tr>
+									<tr>
+										<td><code><a href="Symfony.Component.Process.Exception.ProcessSignaledException.html"><span>Symfony\Component\Process\Exception\ProcessSignaledException</span></a></code>&nbsp;</td>
+										<td><p>When process stopped after receiving signal</p>
+</td>
+									</tr>
+									<tr>
+										<td><code><a href="Symfony.Component.Process.Exception.LogicException.html"><span>Symfony\Component\Process\Exception\LogicException</span></a></code>&nbsp;</td>
+										<td><p>In case a callback is provided and output has been disabled</p>
 </td>
 									</tr>
 							</table>
@@ -497,7 +531,7 @@ exits with a non-zero exit code.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>start(<span>callable|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): void</code>
+				<code>start(<span>(callable(<span class="php-str">'out'</span>|<span class="php-str">'err'</span>, string):&nbsp;void)|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -561,7 +595,7 @@ output available on STDOUT or STDERR</p>
 			</td>
 
 			<td class="table-cell">
-				<code>restart(<span>callable|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): static</code>
+				<code>restart(<span>(callable(<span class="php-str">'out'</span>|<span class="php-str">'err'</span>, string):&nbsp;void)|null <var>$callback</var> = <span class="php-kw">null</span></span>, <span>array <var>$env</var> = []</span>): static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -615,7 +649,7 @@ output available on STDOUT or STDERR</p>
 			</td>
 
 			<td class="table-cell">
-				<code>wait(<span>callable|null <var>$callback</var> = <span class="php-kw">null</span></span>): int</code>
+				<code>wait(<span>(callable(<span class="php-str">'out'</span>|<span class="php-str">'err'</span>, string):&nbsp;void)|null <var>$callback</var> = <span class="php-kw">null</span></span>): int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -633,7 +667,8 @@ It allows to have feedback from the independent process during execution.</p>
 							<table>
 									<tr>
 										<td><var>$callback</var>&nbsp;&nbsp;</td>
-										<td><p>A valid PHP callback</p>
+										<td><p>A PHP callback to run whenever there is some
+output available on STDOUT or STDERR</p>
 </td>
 									</tr>
 							</table>
@@ -678,7 +713,7 @@ It allows to have feedback from the independent process during execution.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>waitUntil(<span>callable <var>$callback</var></span>): bool</code>
+				<code>waitUntil(<span>(callable(<span class="php-str">'out'</span>|<span class="php-str">'err'</span>, string):&nbsp;bool)|null <var>$callback</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -692,6 +727,15 @@ from the output in real-time while writing the standard input to the process.
 It allows to have feedback from the independent process during execution.</p>
 </div>
 
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$callback</var>&nbsp;&nbsp;</td>
+										<td><p>A PHP callback to run whenever there is some
+output available on STDOUT or STDERR</p>
+</td>
+									</tr>
+							</table>
 
 
 							<h4>Throws</h4>
@@ -2424,7 +2468,7 @@ trigger this method regularly to ensure the process timeout</p>
 			</td>
 
 			<td class="table-cell">
-				<code>buildCallback(<span>callable|null <var>$callback</var> = <span class="php-kw">null</span></span>): <a href="Closure.html"><span title="Closure">Closure</span></a></code>
+				<code>buildCallback(<span>?callable <var>$callback</var> = <span class="php-kw">null</span></span>): <a href="Closure.html"><span title="Closure">Closure</span></a>(<span class="php-str">'out'</span>|<span class="php-str">'err'</span>, string):&nbsp;bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2437,14 +2481,6 @@ trigger this method regularly to ensure the process timeout</p>
 the user callback (if present) with the received output.</p>
 </div>
 
-							<h4>Parameters</h4>
-							<table>
-									<tr>
-										<td><var>$callback</var>&nbsp;&nbsp;</td>
-										<td><p>The user defined PHP callback</p>
-</td>
-									</tr>
-							</table>
 
 
 

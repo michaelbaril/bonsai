@@ -277,6 +277,70 @@
 			<a href="#_setMultiline">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getTimeout" id="_getTimeout">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getTimeout(): ?int</code>
+
+
+	<div class="expandable-collapsedView">
+		Returns the timeout in seconds.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Returns the timeout in seconds.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getTimeout">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="setTimeout" id="_setTimeout">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>setTimeout(<span>?int <var>$seconds</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Sets the maximum time the user has to answer the question.
+If the user does not answer within this time, an exception…
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Sets the maximum time the user has to answer the question.
+If the user does not answer within this time, an exception will be thrown.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_setTimeout">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="isHidden" id="_isHidden">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -489,7 +553,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getAutocompleterCallback(): ?callable</code>
+				<code>getAutocompleterCallback(): (callable(string):&nbsp;string[])|null</code>
 
 
 	<div class="expandable-collapsedView">
@@ -520,7 +584,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setAutocompleterCallback(<span>?callable <var>$callback</var></span>): $this</code>
+				<code>setAutocompleterCallback(<span>(callable(string):&nbsp;string[])|null <var>$callback</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -552,7 +616,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setValidator(<span>?callable <var>$validator</var></span>): $this</code>
+				<code>setValidator(<span>(callable(mixed):&nbsp;mixed)|null <var>$validator</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -583,7 +647,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getValidator(): ?callable</code>
+				<code>getValidator(): (callable(mixed):&nbsp;mixed)|null</code>
 
 
 	<div class="expandable-collapsedView">
@@ -686,7 +750,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setNormalizer(<span>callable <var>$normalizer</var></span>): $this</code>
+				<code>setNormalizer(<span>callable(mixed):&nbsp;mixed <var>$normalizer</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -695,7 +759,6 @@
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Sets a normalizer for the response.</p>
-<p>The normalizer can be a callable (a string), a closure or a class implementing __invoke.</p>
 </div>
 
 
@@ -718,7 +781,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getNormalizer(): ?callable</code>
+				<code>getNormalizer(): (callable(mixed):&nbsp;mixed)|null</code>
 
 
 	<div class="expandable-collapsedView">
@@ -727,7 +790,6 @@
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Gets the normalizer for the response.</p>
-<p>The normalizer can ba a callable (a string), a closure or a class implementing __invoke.</p>
 </div>
 
 

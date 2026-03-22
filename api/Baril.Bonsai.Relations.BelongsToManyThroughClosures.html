@@ -1,0 +1,377 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Class Baril\Bonsai\Relations\BelongsToManyThroughClosures |  API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.html">Baril</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.Bonsai.html">Bonsai</a>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.Concerns.html">Concerns</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.Console.html">Console</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.Migrations.html">Migrations</a>
+			</li>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.Bonsai.Relations.html">Relations</a>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.Relations.Concerns.html">Concerns</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Classes</h3>
+			<ul>
+					<li class="active">
+						<a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html">
+							BelongsToManyThroughClosures
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Relations.HasManySiblings.html">
+							HasManySiblings
+						</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Baril.Bonsai.Relations.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html">Class</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Class <a href="namespace-Baril.html">Baril</a>\<a href="namespace-Baril.Bonsai.html">Bonsai</a>\<a href="namespace-Baril.Bonsai.Relations.html">Relations</a>\<a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html">BelongsToManyThroughClosures</a>
+		</h1>
+
+			<h2><code>&lt;<span title="">TRelatedModel</span> is <a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>, <span title="">TDeclaringModel</span> is <a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>, <span title="">TPivotModel</span> is <a href="Baril.Bonsai.Closure.html"><span title="Baril\Bonsai\Closure">Closure</span></a> = <a href="Baril.Bonsai.Closure.html"><span title="Baril\Bonsai\Closure">Closure</span></a>, <span title="">TAccessor</span> is string = <span class="php-str">'closure'</span>&gt;</code></h2>
+
+	<table class="classLikeSignatureTable">
+
+
+
+		<tr>
+			<th><code>extends</code></th>
+			<td>
+<code><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html"><span title="Illuminate\Database\Eloquent\Relations\BelongsToMany">BelongsToMany</span></a>&lt;TRelatedModel, TDeclaringModel, TPivotModel, TAccessor&gt;</code>			</td>
+		</tr>
+		<tr>
+			<th><code>uses</code></th>
+			<td>
+<code><a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span title="Baril\Bonsai\Relations\Concerns\ExcludesSelf">ExcludesSelf</span></a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span title="Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable">InteractsWithClosureTable</span></a></code>			</td>
+		</tr>
+
+	</table>
+
+			<div class="classLikeSection">
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span>Illuminate\Database\Eloquent\Relations\Relation</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Database.Eloquent.Builder.html"><span title="Illuminate\Contracts\Database\Eloquent\Builder">Builder</span></a>
+
+		uses
+			<a href="Illuminate.Support.Traits.ForwardsCalls.html"><span title="Illuminate\Support\Traits\ForwardsCalls">ForwardsCalls</span></a>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html"><span>Illuminate\Database\Eloquent\Relations\BelongsToMany</span></a>
+
+
+		uses
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>, 
+			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithPivotTable">InteractsWithPivotTable</span></a>
+	<ul class="classTree">
+	<li>
+<b><span class="active">Baril\Bonsai\Relations\BelongsToManyThroughClosures</span></b>
+
+
+		uses
+			<a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span title="Baril\Bonsai\Relations\Concerns\ExcludesSelf">ExcludesSelf</span></a>, 
+			<a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span title="Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable">InteractsWithClosureTable</span></a>
+	</li>
+	</ul>
+	</li>
+	</ul>
+	</li>
+	</ul>
+			</div>
+
+		<div class="classLikeSection">
+			<b>Located at</b> <a href="source-Relations.BelongsToManyThroughClosures.html#18" title="Go to source code">Relations/BelongsToManyThroughClosures.php</a><br>
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="match" id="_match">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Relations.BelongsToManyThroughClosures.html#25-41" title="Go to source code">match</a>(
+	<span>array&lt;int, TDeclaringModel&gt; <var>$models</var></span>,
+	<span><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a>&lt;int, TRelatedModel&gt; <var>$results</var></span>,
+	<span>string <var>$relation</var></span>,
+): array&lt;int, TDeclaringModel&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		Match the eagerly loaded results to their parents.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Match the eagerly loaded results to their parents.</p>
+</div>
+
+
+
+
+		<h4>Overrides</h4>
+		<ul>
+				<li>
+<a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_match">						<code>Illuminate\Database\Eloquent\Relations\BelongsToMany::match()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_match">#</a>
+		</td>
+	</tr>
+		</table>
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods inherited from <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html"><span>Illuminate\Database\Eloquent\Relations\BelongsToMany</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#___construct">__construct()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_resolveTableName">resolveTableName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_addConstraints">addConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_performJoin">performJoin()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_addWhereConstraints">addWhereConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_addEagerConstraints">addEagerConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_initRelation">initRelation()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_buildDictionary">buildDictionary()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getPivotClass">getPivotClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_using">using()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_as">as()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_wherePivot">wherePivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_wherePivotBetween">wherePivotBetween()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orWherePivotBetween">orWherePivotBetween()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_wherePivotNotBetween">wherePivotNotBetween()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orWherePivotNotBetween">orWherePivotNotBetween()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_wherePivotIn">wherePivotIn()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orWherePivot">orWherePivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_withPivotValue">withPivotValue()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orWherePivotIn">orWherePivotIn()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_wherePivotNotIn">wherePivotNotIn()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orWherePivotNotIn">orWherePivotNotIn()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_wherePivotNull">wherePivotNull()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_wherePivotNotNull">wherePivotNotNull()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orWherePivotNull">orWherePivotNull()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orWherePivotNotNull">orWherePivotNotNull()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orderByPivot">orderByPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orderByPivotDesc">orderByPivotDesc()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_findOrNew">findOrNew()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_firstOrNew">firstOrNew()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_firstOrCreate">firstOrCreate()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_createOrFirst">createOrFirst()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_updateOrCreate">updateOrCreate()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_find">find()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_findSole">findSole()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_findMany">findMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_findOrFail">findOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_findOr">findOr()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_firstWhere">firstWhere()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_first">first()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_firstOrFail">firstOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_firstOr">firstOr()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getResults">getResults()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_get">get()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_shouldSelect">shouldSelect()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_aliasedPivotColumns">aliasedPivotColumns()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_paginate">paginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_simplePaginate">simplePaginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_cursorPaginate">cursorPaginate()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_chunk">chunk()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_chunkById">chunkById()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_chunkByIdDesc">chunkByIdDesc()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_eachById">eachById()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_orderedChunkById">orderedChunkById()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_each">each()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_lazy">lazy()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_lazyById">lazyById()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_lazyByIdDesc">lazyByIdDesc()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_cursor">cursor()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_prepareQueryBuilder">prepareQueryBuilder()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_hydratePivotRelation">hydratePivotRelation()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_migratePivotAttributes">migratePivotAttributes()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_touchIfTouching">touchIfTouching()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_touchingParent">touchingParent()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_guessInverseRelation">guessInverseRelation()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_touch">touch()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_allRelatedIds">allRelatedIds()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_save">save()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_saveQuietly">saveQuietly()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_saveMany">saveMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_saveManyQuietly">saveManyQuietly()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_create">create()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_createMany">createMany()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getRelationExistenceQuery">getRelationExistenceQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getRelationExistenceQueryForSelfJoin">getRelationExistenceQueryForSelfJoin()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_take">take()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_limit">limit()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getExistenceCompareKey">getExistenceCompareKey()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_withTimestamps">withTimestamps()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_createdAt">createdAt()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_updatedAt">updatedAt()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getForeignPivotKeyName">getForeignPivotKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getQualifiedForeignPivotKeyName">getQualifiedForeignPivotKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getRelatedPivotKeyName">getRelatedPivotKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getQualifiedRelatedPivotKeyName">getQualifiedRelatedPivotKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getParentKeyName">getParentKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getQualifiedParentKeyName">getQualifiedParentKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getRelatedKeyName">getRelatedKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getQualifiedRelatedKeyName">getQualifiedRelatedKeyName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getTable">getTable()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getRelationName">getRelationName()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getPivotAccessor">getPivotAccessor()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_getPivotColumns">getPivotColumns()</a>, <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#_qualifyPivotColumn">qualifyPivotColumn()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods inherited from <a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span>Illuminate\Database\Eloquent\Relations\Relation</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Relations.Relation.html#_noConstraints">noConstraints()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getEager">getEager()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_sole">sole()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_rawUpdate">rawUpdate()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getRelationExistenceCountQuery">getRelationExistenceCountQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getRelationCountHash">getRelationCountHash()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getKeys">getKeys()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getRelationQuery">getRelationQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getQuery">getQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getBaseQuery">getBaseQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_toBase">toBase()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getParent">getParent()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getRelated">getRelated()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_relatedUpdatedAt">relatedUpdatedAt()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_whereInEager">whereInEager()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_whereInMethod">whereInMethod()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_requireMorphMap">requireMorphMap()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_requiresMorphMap">requiresMorphMap()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_enforceMorphMap">enforceMorphMap()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_morphMap">morphMap()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_buildMorphMapFromModels">buildMorphMapFromModels()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getMorphedModel">getMorphedModel()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#_getMorphAlias">getMorphAlias()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#___call">__call()</a>, <a href="Illuminate.Database.Eloquent.Relations.Relation.html#___clone">__clone()</a></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Support.Traits.ForwardsCalls.html"><span>Illuminate\Support\Traits\ForwardsCalls</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Support.Traits.ForwardsCalls.html#_forwardCallTo">forwardCallTo()</a>, <a href="Illuminate.Support.Traits.ForwardsCalls.html#_forwardDecoratedCallTo">forwardDecoratedCallTo()</a>, <a href="Illuminate.Support.Traits.ForwardsCalls.html#_throwBadMethodCallException">throwBadMethodCallException()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Support.Traits.Macroable.html"><span>Illuminate\Support\Traits\Macroable</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Support.Traits.Macroable.html#_macro">macro()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_mixin">mixin()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_hasMacro">hasMacro()</a>, <a href="Illuminate.Support.Traits.Macroable.html#_flushMacros">flushMacros()</a>, <a href="Illuminate.Support.Traits.Macroable.html#___callStatic">__callStatic()</a>, </code>				</td>
+			</tr>
+		</table>
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span>Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html#_getDictionaryKey">getDictionaryKey()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html"><span>Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithPivotTable</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_toggle">toggle()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_toggleOrFail">toggleOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithoutDetaching">syncWithoutDetaching()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_sync">sync()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncOrFail">syncOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithoutDetachingOrFail">syncWithoutDetachingOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithPivotValues">syncWithPivotValues()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithPivotValuesOrFail">syncWithPivotValuesOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatRecordsList">formatRecordsList()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachNew">attachNew()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivot">updateExistingPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivotOrFail">updateExistingPivotOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivotUsingCustomClass">updateExistingPivotUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attach">attach()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachOrFail">attachOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachUsingCustomClass">attachUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatAttachRecords">formatAttachRecords()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatAttachRecord">formatAttachRecord()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_extractAttachIdAndAttributes">extractAttachIdAndAttributes()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_baseAttachRecord">baseAttachRecord()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_addTimestampsToAttachment">addTimestampsToAttachment()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_hasPivotColumn">hasPivotColumn()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detach">detach()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detachOrFail">detachOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detachUsingCustomClass">detachUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getCurrentlyAttachedPivots">getCurrentlyAttachedPivots()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getCurrentlyAttachedPivotsForIds">getCurrentlyAttachedPivotsForIds()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivot">newPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newExistingPivot">newExistingPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotStatement">newPivotStatement()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotStatementForId">newPivotStatementForId()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotQuery">newPivotQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_withPivot">withPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_parseIds">parseIds()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_parseId">parseId()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castKeys">castKeys()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castKey">castKey()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castAttributes">castAttributes()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getTypeSwapValue">getTypeSwapValue()</a></code>				</td>
+			</tr>
+		</table>
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span>Baril\Bonsai\Relations\Concerns\ExcludesSelf</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html#_withoutSelf">withoutSelf()</a>, <a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html#_withSelf">withSelf()</a>, <a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html#_excludeSelfFromMatchesIfExcluded">excludeSelfFromMatchesIfExcluded()</a>, <a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html#_getRelationExistenceQueryForSelfRelation">getRelationExistenceQueryForSelfRelation()</a>, <a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html#_getRelationExistenceQueryForSelfJoin">getRelationExistenceQueryForSelfJoin()</a>, <a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html#_excludeSelfFromRelationExistenceQueryIfExcluded">excludeSelfFromRelationExistenceQueryIfExcluded()</a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods used from <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span>Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_closes">closes()</a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_addConstraints">addConstraints()</a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_getRelationExistenceQuery">getRelationExistenceQuery()</a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_excludingSelf" class="deprecated">excludingSelf()</a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_includingSelf" class="deprecated">includingSelf()</a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_upToDepth" class="deprecated">upToDepth()</a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_maxDepth">maxDepth()</a>, <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#_orderByDepth">orderByDepth()</a></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties inherited from <a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html"><span>Illuminate\Database\Eloquent\Relations\BelongsToMany</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$table">$table</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$foreignPivotKey">$foreignPivotKey</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$relatedPivotKey">$relatedPivotKey</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$parentKey">$parentKey</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$relatedKey">$relatedKey</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$relationName">$relationName</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$pivotColumns">$pivotColumns</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$pivotWheres">$pivotWheres</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$pivotWhereIns">$pivotWhereIns</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$pivotWhereNulls">$pivotWhereNulls</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$pivotValues">$pivotValues</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$withTimestamps">$withTimestamps</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$pivotCreatedAt">$pivotCreatedAt</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$pivotUpdatedAt">$pivotUpdatedAt</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$using">$using</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.BelongsToMany.html#$accessor">$accessor</a></var></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties inherited from <a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span>Illuminate\Database\Eloquent\Relations\Relation</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$query">$query</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$parent">$parent</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$related">$related</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$eagerKeysWereEmpty">$eagerKeysWereEmpty</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$constraints">$constraints</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$morphMap">$morphMap</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$requireMorphMap">$requireMorphMap</a></var>, <var><a href="Illuminate.Database.Eloquent.Relations.Relation.html#$selfJoinCount">$selfJoinCount</a></var></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties used from <a href="Illuminate.Support.Traits.Macroable.html"><span>Illuminate\Support\Traits\Macroable</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Illuminate.Support.Traits.Macroable.html#$macros">$macros</a></var></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+
+
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties used from <a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span>Baril\Bonsai\Relations\Concerns\ExcludesSelf</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html#$excludeSelf">$excludeSelf</a></var></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Properties used from <a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span>Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><var><a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html#$depth">$depth</a></var></code>				</td>
+			</tr>
+		</table>
+
+
+		</div>
+
+		<div class="layout-footer">
+			 API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.6</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

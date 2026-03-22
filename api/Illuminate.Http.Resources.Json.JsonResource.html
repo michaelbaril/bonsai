@@ -326,6 +326,68 @@
 			<a href="#_resolve">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="toAttributes" id="_toAttributes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toAttributes(<span><a href="Illuminate.Http.Request.html"><span title="Illuminate\Http\Request">Request</span></a> <var>$request</var></span>): array|<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Transform the resource into an array.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Transform the resource into an array.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toAttributes">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolveResourceData" id="_resolveResourceData">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolveResourceData(<span><a href="Illuminate.Http.Request.html"><span title="Illuminate\Http\Request">Request</span></a> <var>$request</var></span>): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Resolve the resource data to an array.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Resolve the resource data to an array.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveResourceData">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="toArray" id="_toArray">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -377,11 +439,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Convert the model instance to JSON.
+		Convert the resource to JSON.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Convert the model instance to JSON.</p>
+	<div class="description"><p>Convert the resource to JSON.</p>
 </div>
 
 
@@ -398,6 +460,44 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_toJson">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="toPrettyJson" id="_toPrettyJson">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toPrettyJson(<span>int <var>$options</var> = <span class="php-num">0</span></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Convert the resource to pretty print formatted JSON.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Convert the resource to pretty print formatted JSON.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Illuminate.Database.Eloquent.JsonEncodingException.html"><span>Illuminate\Database\Eloquent\JsonEncodingException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toPrettyJson">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="with" id="_with">
@@ -446,11 +546,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add additional meta data to the resource response.
+		Add additional metadata to the resource response.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add additional meta data to the resource response.</p>
+	<div class="description"><p>Add additional metadata to the resource response.</p>
 </div>
 
 
@@ -522,6 +622,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_withResponse">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolveRequestFromContainer" id="_resolveRequestFromContainer">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolveRequestFromContainer(): <a href="Illuminate.Http.Request.html"><span title="Illuminate\Http\Request">Request</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Resolve the HTTP request instance from container.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Resolve the HTTP request instance from container.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveRequestFromContainer">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="wrap" id="_wrap">
@@ -694,6 +825,37 @@
 			<a href="#_jsonSerialize">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="flushState" id="_flushState">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>flushState(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Flush the resource's global state.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Flush the resource's global state.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_flushState">#</a>
+		</td>
+	</tr>
 		</table>
 
 		<table class="table">
@@ -824,6 +986,30 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$wrap">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="forceWrapping" id="$forceWrapping">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">bool</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$forceWrapping</var> = <span class="php-kw">false</span></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$forceWrapping">#</a>
 		</td>
 	</tr>
 		</table>

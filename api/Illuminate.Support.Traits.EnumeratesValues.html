@@ -74,6 +74,11 @@
 						</a>
 					</li>
 					<li>
+						<a href="Illuminate.Support.Traits.ReflectsClosures.html">
+							ReflectsClosures
+						</a>
+					</li>
+					<li>
 						<a href="Illuminate.Support.Traits.Tappable.html">
 							Tappable
 						</a>
@@ -134,6 +139,17 @@
 
 	<ul class="classTree">
 	<li>
+<a href="Illuminate.Support.LazyCollection.html"><span>Illuminate\Support\LazyCollection</span></a>
+
+		implements
+			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
+			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
+
+		uses
+			<b><span class="active" title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></b>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
+	</li>
+	<li>
 <a href="Illuminate.Support.Collection.html"><span>Illuminate\Support\Collection</span></a>
 
 		implements
@@ -156,17 +172,6 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithDictionary.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary">InteractsWithDictionary</span></a>
 	</li>
 	</ul>
-	</li>
-	<li>
-<a href="Illuminate.Support.LazyCollection.html"><span>Illuminate\Support\LazyCollection</span></a>
-
-		implements
-			<a href="Illuminate.Contracts.Support.CanBeEscapedWhenCastToString.html"><span title="Illuminate\Contracts\Support\CanBeEscapedWhenCastToString">CanBeEscapedWhenCastToString</span></a>, 
-			<a href="Illuminate.Support.Enumerable.html"><span title="Illuminate\Support\Enumerable">Enumerable</span></a>&lt;TKey, TValue&gt;
-
-		uses
-			<b><span class="active" title="Illuminate\Support\Traits\EnumeratesValues">EnumeratesValues</span></b>, 
-			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	</li>
 	</ul>
 	</li>
@@ -651,6 +656,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_firstWhere">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="hasMany" id="_hasMany">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>hasMany(<span>(callable(TValue, TKey):&nbsp;bool)|string|null <var>$key</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$operator</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$value</var> = <span class="php-kw">null</span></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determine if the collection contains multiple items, optionally matching the given criteria.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determine if the collection contains multiple items, optionally matching the given criteria.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_hasMany">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="value" id="_value">
@@ -2002,6 +2038,37 @@
 			<a href="#_toJson">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="toPrettyJson" id="_toPrettyJson">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toPrettyJson(<span>int <var>$options</var> = <span class="php-num">0</span></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Get the collection of items as pretty print formatted JSON.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the collection of items as pretty print formatted JSON.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toPrettyJson">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="getCachingIterator" id="_getCachingIterator">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2438,6 +2505,8 @@
 	<span class="php-str">'first'</span>,
 	<span class="php-str">'flatMap'</span>,
 	<span class="php-str">'groupBy'</span>,
+	<span class="php-str">'hasMany'</span>,
+	<span class="php-str">'hasSole'</span>,
 	<span class="php-str">'keyBy'</span>,
 	<span class="php-str">'last'</span>,
 	<span class="php-str">'map'</span>,
@@ -2706,6 +2775,54 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$groupBy">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="hasMany" id="$hasMany">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					readonly
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Illuminate.Support.HigherOrderCollectionProxy.html"><span title="Illuminate\Support\HigherOrderCollectionProxy">HigherOrderCollectionProxy</span></a>&lt;TKey, TValue&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$hasMany</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$hasMany">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="hasSole" id="$hasSole">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					readonly
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Illuminate.Support.HigherOrderCollectionProxy.html"><span title="Illuminate\Support\HigherOrderCollectionProxy">HigherOrderCollectionProxy</span></a>&lt;TKey, TValue&gt;</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$hasSole</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$hasSole">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="keyBy" id="$keyBy">

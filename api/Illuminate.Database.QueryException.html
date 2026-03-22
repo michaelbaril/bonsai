@@ -230,7 +230,14 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span>string <var>$connectionName</var></span>, <span>string <var>$sql</var></span>, <span>array <var>$bindings</var></span>, <span><a href="Throwable.html"><span title="Throwable">Throwable</span></a> <var>$previous</var></span>)</code>
+				<code>__construct(
+	<span>string <var>$connectionName</var></span>,
+	<span>string <var>$sql</var></span>,
+	<span>array <var>$bindings</var></span>,
+	<span><a href="Throwable.html"><span title="Throwable">Throwable</span></a> <var>$previous</var></span>,
+	<span>array <var>$connectionDetails</var> = []</span>,
+	<span>null|<span class="php-str">'read'</span>|<span class="php-str">'write'</span> <var>$readWriteType</var> = <span class="php-kw">null</span></span>,
+)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -284,6 +291,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_formatMessage">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="formatConnectionDetails" id="_formatConnectionDetails">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>formatConnectionDetails(): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Format the connection details for the error message.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Format the connection details for the error message.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_formatConnectionDetails">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getConnectionName" id="_getConnectionName">
@@ -410,6 +448,37 @@
 			<a href="#_getBindings">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getConnectionDetails" id="_getConnectionDetails">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getConnectionDetails(): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Get information about the connection such as host, port, database, etc.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get information about the connection such as host, port, database, etc.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getConnectionDetails">#</a>
+		</td>
+	</tr>
 		</table>
 
 
@@ -524,6 +593,54 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$bindings">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="readWriteType" id="$readWriteType">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">null|<span class="php-str">'read'</span>|<span class="php-str">'write'</span></code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$readWriteType</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$readWriteType">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="connectionDetails" id="$connectionDetails">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$connectionDetails</var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$connectionDetails">#</a>
 		</td>
 	</tr>
 		</table>

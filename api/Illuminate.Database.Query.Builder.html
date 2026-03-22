@@ -273,6 +273,37 @@
 			<a href="#_selectSub">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="selectExpression" id="_selectExpression">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>selectExpression(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$expression</var></span>, <span>string <var>$as</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a select expression to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a select expression to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_selectExpression">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="selectRaw" id="_selectRaw">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -357,11 +388,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a raw from clause to the query.
+		Add a raw "from" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a raw from clause to the query.</p>
+	<div class="description"><p>Add a raw &quot;from&quot; clause to the query.</p>
 </div>
 
 
@@ -502,6 +533,41 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_addSelect">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="selectVectorDistance" id="_selectVectorDistance">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>selectVectorDistance(
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>,
+	<span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>&lt;int, float&gt;|<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array&lt;int, float&gt;|string <var>$vector</var></span>,
+	<span>string|null <var>$as</var> = <span class="php-kw">null</span></span>,
+): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a vector-similarity selection to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a vector-similarity selection to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_selectVectorDistance">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="distinct" id="_distinct">
@@ -681,11 +747,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a join clause to the query.
+		Add a "join" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a join clause to the query.</p>
+	<div class="description"><p>Add a &quot;join&quot; clause to the query.</p>
 </div>
 
 
@@ -757,11 +823,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a subquery join clause to the query.
+		Add a "subquery join" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a subquery join clause to the query.</p>
+	<div class="description"><p>Add a &quot;subquery join&quot; clause to the query.</p>
 </div>
 
 
@@ -795,11 +861,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a lateral join clause to the query.
+		Add a "lateral join" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a lateral join clause to the query.</p>
+	<div class="description"><p>Add a &quot;lateral join&quot; clause to the query.</p>
 </div>
 
 
@@ -1142,11 +1208,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get a new join clause.
+		Get a new "join" clause.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get a new join clause.</p>
+	<div class="description"><p>Get a new &quot;join&quot; clause.</p>
 </div>
 
 
@@ -1173,11 +1239,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get a new join lateral clause.
+		Get a new "join lateral" clause.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get a new join lateral clause.</p>
+	<div class="description"><p>Get a new &quot;join lateral&quot; clause.</p>
 </div>
 
 
@@ -1204,11 +1270,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Merge an array of where clauses and bindings.
+		Merge an array of "where" clauses and bindings.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Merge an array of where clauses and bindings.</p>
+	<div class="description"><p>Merge an array of &quot;where&quot; clauses and bindings.</p>
 </div>
 
 
@@ -1240,11 +1306,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a basic where clause to the query.
+		Add a basic "where" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a basic where clause to the query.</p>
+	<div class="description"><p>Add a basic &quot;where&quot; clause to the query.</p>
 </div>
 
 
@@ -1271,11 +1337,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an array of where clauses to the query.
+		Add an array of "where" clauses to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an array of where clauses to the query.</p>
+	<div class="description"><p>Add an array of &quot;where&quot; clauses to the query.</p>
 </div>
 
 
@@ -1584,6 +1650,121 @@
 			<a href="#_orWhereColumn">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="whereVectorSimilarTo" id="_whereVectorSimilarTo">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whereVectorSimilarTo(
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>,
+	<span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>&lt;int, float&gt;|<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array&lt;int, float&gt;|string <var>$vector</var></span>,
+	<span>float <var>$minSimilarity</var> = <span class="php-num">0.6</span></span>,
+	<span>bool <var>$order</var> = <span class="php-kw">true</span></span>,
+): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a vector similarity clause to the query, filtering by minimum similarity and ordering by similarity.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a vector similarity clause to the query, filtering by minimum similarity and ordering by similarity.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$minSimilarity</var>&nbsp;&nbsp;</td>
+										<td><p>A value between 0.0 and 1.0, where 1.0 is identical.</p>
+</td>
+									</tr>
+							</table>
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whereVectorSimilarTo">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whereVectorDistanceLessThan" id="_whereVectorDistanceLessThan">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whereVectorDistanceLessThan(
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>,
+	<span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>&lt;int, float&gt;|<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array&lt;int, float&gt;|string <var>$vector</var></span>,
+	<span>float <var>$maxDistance</var></span>,
+	<span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>,
+): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a vector distance "where" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a vector distance &quot;where&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whereVectorDistanceLessThan">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="orWhereVectorDistanceLessThan" id="_orWhereVectorDistanceLessThan">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orWhereVectorDistanceLessThan(
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>,
+	<span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>&lt;int, float&gt;|<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array&lt;int, float&gt;|string <var>$vector</var></span>,
+	<span>float <var>$maxDistance</var></span>,
+): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a vector distance "or where" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a vector distance &quot;or where&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orWhereVectorDistanceLessThan">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="whereRaw" id="_whereRaw">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1599,11 +1780,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a raw where clause to the query.
+		Add a raw "where" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a raw where clause to the query.</p>
+	<div class="description"><p>Add a raw &quot;where&quot; clause to the query.</p>
 </div>
 
 
@@ -1630,11 +1811,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a raw or where clause to the query.
+		Add a raw "or where" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a raw or where clause to the query.</p>
+	<div class="description"><p>Add a raw &quot;or where&quot; clause to the query.</p>
 </div>
 
 
@@ -1774,6 +1955,68 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_orWhereNotLike">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whereNullSafeEquals" id="_whereNullSafeEquals">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whereNullSafeEquals(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>mixed <var>$value</var></span>, <span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a "where null safe equals" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a &quot;where null safe equals&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whereNullSafeEquals">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="orWhereNullSafeEquals" id="_orWhereNullSafeEquals">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orWhereNullSafeEquals(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>mixed <var>$value</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add an "or where null safe equals" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add an &quot;or where null safe equals&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orWhereNullSafeEquals">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="whereIn" id="_whereIn">
@@ -2128,15 +2371,20 @@
 			</td>
 
 			<td class="table-cell">
-				<code>whereBetween(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>iterable <var>$values</var></span>, <span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>, <span>bool <var>$not</var> = <span class="php-kw">false</span></span>): $this</code>
+				<code>whereBetween(
+	<span><b><span class="active" title="Illuminate\Database\Query\Builder">Builder</span></b>|<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt;|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>,
+	<span>iterable <var>$values</var></span>,
+	<span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>,
+	<span>bool <var>$not</var> = <span class="php-kw">false</span></span>,
+): $this</code>
 
 
 	<div class="expandable-collapsedView">
-		Add a where between statement to the query.
+		Add a "where between" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where between statement to the query.</p>
+	<div class="description"><p>Add a &quot;where between&quot; statement to the query.</p>
 </div>
 
 
@@ -2163,11 +2411,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a where between statement using columns to the query.
+		Add a "where between" statement using columns to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where between statement using columns to the query.</p>
+	<div class="description"><p>Add a &quot;where between&quot; statement using columns to the query.</p>
 </div>
 
 
@@ -2190,15 +2438,15 @@
 			</td>
 
 			<td class="table-cell">
-				<code>orWhereBetween(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>iterable <var>$values</var></span>): $this</code>
+				<code>orWhereBetween(<span><b><span class="active" title="Illuminate\Database\Query\Builder">Builder</span></b>|<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt;|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>iterable <var>$values</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
-		Add an or where between statement to the query.
+		Add an "or where between" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an or where between statement to the query.</p>
+	<div class="description"><p>Add an &quot;or where between&quot; statement to the query.</p>
 </div>
 
 
@@ -2225,11 +2473,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an or where between statement using columns to the query.
+		Add an "or where between" statement using columns to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an or where between statement using columns to the query.</p>
+	<div class="description"><p>Add an &quot;or where between&quot; statement using columns to the query.</p>
 </div>
 
 
@@ -2252,15 +2500,15 @@
 			</td>
 
 			<td class="table-cell">
-				<code>whereNotBetween(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>iterable <var>$values</var></span>, <span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>): $this</code>
+				<code>whereNotBetween(<span><b><span class="active" title="Illuminate\Database\Query\Builder">Builder</span></b>|<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt;|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>iterable <var>$values</var></span>, <span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
-		Add a where not between statement to the query.
+		Add a "where not between" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where not between statement to the query.</p>
+	<div class="description"><p>Add a &quot;where not between&quot; statement to the query.</p>
 </div>
 
 
@@ -2287,11 +2535,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a where not between statement using columns to the query.
+		Add a "where not between" statement using columns to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where not between statement using columns to the query.</p>
+	<div class="description"><p>Add a &quot;where not between&quot; statement using columns to the query.</p>
 </div>
 
 
@@ -2314,15 +2562,15 @@
 			</td>
 
 			<td class="table-cell">
-				<code>orWhereNotBetween(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>iterable <var>$values</var></span>): $this</code>
+				<code>orWhereNotBetween(<span><b><span class="active" title="Illuminate\Database\Query\Builder">Builder</span></b>|<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt;|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>iterable <var>$values</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
-		Add an or where not between statement to the query.
+		Add an "or where not between" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an or where not between statement to the query.</p>
+	<div class="description"><p>Add an &quot;or where not between&quot; statement to the query.</p>
 </div>
 
 
@@ -2349,11 +2597,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an or where not between statement using columns to the query.
+		Add an "or where not between" statement using columns to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an or where not between statement using columns to the query.</p>
+	<div class="description"><p>Add an &quot;or where not between&quot; statement using columns to the query.</p>
 </div>
 
 
@@ -2385,11 +2633,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a where between columns statement using a value to the query.
+		Add a "where between columns" statement using a value to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where between columns statement using a value to the query.</p>
+	<div class="description"><p>Add a &quot;where between columns&quot; statement using a value to the query.</p>
 </div>
 
 
@@ -2416,11 +2664,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an or where between columns statement using a value to the query.
+		Add an "or where between columns" statement using a value to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an or where between columns statement using a value to the query.</p>
+	<div class="description"><p>Add an &quot;or where between columns&quot; statement using a value to the query.</p>
 </div>
 
 
@@ -2451,11 +2699,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a where not between columns statement using a value to the query.
+		Add a "where not between columns" statement using a value to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where not between columns statement using a value to the query.</p>
+	<div class="description"><p>Add a &quot;where not between columns&quot; statement using a value to the query.</p>
 </div>
 
 
@@ -2482,11 +2730,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an or where not between columns statement using a value to the query.
+		Add an "or where not between columns" statement using a value to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an or where not between columns statement using a value to the query.</p>
+	<div class="description"><p>Add an &quot;or where not between columns&quot; statement using a value to the query.</p>
 </div>
 
 
@@ -2936,11 +3184,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a nested where statement to the query.
+		Add a nested "where" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a nested where statement to the query.</p>
+	<div class="description"><p>Add a nested &quot;where&quot; statement to the query.</p>
 </div>
 
 
@@ -3060,11 +3308,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an exists clause to the query.
+		Add an "exists" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an exists clause to the query.</p>
+	<div class="description"><p>Add an &quot;exists&quot; clause to the query.</p>
 </div>
 
 
@@ -3091,11 +3339,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an or exists clause to the query.
+		Add an "or where exists" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an or exists clause to the query.</p>
+	<div class="description"><p>Add an &quot;or where exists&quot; clause to the query.</p>
 </div>
 
 
@@ -3122,11 +3370,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a where not exists clause to the query.
+		Add a "where not exists" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where not exists clause to the query.</p>
+	<div class="description"><p>Add a &quot;where not exists&quot; clause to the query.</p>
 </div>
 
 
@@ -3153,11 +3401,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a where not exists clause to the query.
+		Add an "or where not exists" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a where not exists clause to the query.</p>
+	<div class="description"><p>Add an &quot;or where not exists&quot; clause to the query.</p>
 </div>
 
 
@@ -3184,11 +3432,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add an exists clause to the query.
+		Add an "exists" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add an exists clause to the query.</p>
+	<div class="description"><p>Add an &quot;exists&quot; clause to the query.</p>
 </div>
 
 
@@ -3749,11 +3997,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a single dynamic where clause statement to the query.
+		Add a single dynamic "where" clause statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a single dynamic where clause statement to the query.</p>
+	<div class="description"><p>Add a single dynamic &quot;where&quot; clause statement to the query.</p>
 </div>
 
 
@@ -3811,11 +4059,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a "or where fulltext" clause to the query.
+		Add an "or where fulltext" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a &quot;or where fulltext&quot; clause to the query.</p>
+	<div class="description"><p>Add an &quot;or where fulltext&quot; clause to the query.</p>
 </div>
 
 
@@ -4074,11 +4322,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a raw groupBy clause to the query.
+		Add a raw "groupBy" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a raw groupBy clause to the query.</p>
+	<div class="description"><p>Add a raw &quot;groupBy&quot; clause to the query.</p>
 </div>
 
 
@@ -4176,11 +4424,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a nested having statement to the query.
+		Add a nested "having" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a nested having statement to the query.</p>
+	<div class="description"><p>Add a nested &quot;having&quot; statement to the query.</p>
 </div>
 
 
@@ -4362,11 +4610,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a "having between " clause to the query.
+		Add a "having between" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a &quot;having between &quot; clause to the query.</p>
+	<div class="description"><p>Add a &quot;having between&quot; clause to the query.</p>
 </div>
 
 
@@ -4376,6 +4624,130 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_havingBetween">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="havingNotBetween" id="_havingNotBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>havingNotBetween(<span>string <var>$column</var></span>, <span>iterable <var>$values</var></span>, <span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a "having not between" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a &quot;having not between&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_havingNotBetween">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="orHavingBetween" id="_orHavingBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orHavingBetween(<span>string <var>$column</var></span>, <span>iterable <var>$values</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add an "or having between" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add an &quot;or having between&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orHavingBetween">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="orHavingNotBetween" id="_orHavingNotBetween">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orHavingNotBetween(<span>string <var>$column</var></span>, <span>iterable <var>$values</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add an "or having not between" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add an &quot;or having not between&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orHavingNotBetween">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolveDatePeriodBounds" id="_resolveDatePeriodBounds">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolveDatePeriodBounds(<span><a href="DatePeriod.html"><span title="DatePeriod">DatePeriod</span></a> <var>$period</var></span>): array{<a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>, <a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>}</code>
+
+
+	<div class="expandable-collapsedView">
+		Resolve the start and end dates from a DatePeriod.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Resolve the start and end dates from a DatePeriod.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveDatePeriodBounds">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="havingRaw" id="_havingRaw">
@@ -4393,11 +4765,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a raw having clause to the query.
+		Add a raw "having" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a raw having clause to the query.</p>
+	<div class="description"><p>Add a raw &quot;having&quot; clause to the query.</p>
 </div>
 
 
@@ -4424,11 +4796,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a raw or having clause to the query.
+		Add a raw "or having" clause to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a raw or having clause to the query.</p>
+	<div class="description"><p>Add a raw &quot;or having&quot; clause to the query.</p>
 </div>
 
 
@@ -4571,6 +4943,37 @@
 			<a href="#_oldest">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="orderByVectorDistance" id="_orderByVectorDistance">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orderByVectorDistance(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>&lt;int, float&gt;|<a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array&lt;int, float&gt; <var>$vector</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a vector-distance "order by" clause to the query.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a vector-distance &quot;order by&quot; clause to the query.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orderByVectorDistance">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="inRandomOrder" id="_inRandomOrder">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -4600,6 +5003,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_inRandomOrder">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="inOrderOf" id="_inOrderOf">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>inOrderOf(<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span><a href="Illuminate.Contracts.Support.Arrayable.html"><span title="Illuminate\Contracts\Support\Arrayable">Arrayable</span></a>|array <var>$values</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add an "order by" clause to order results by a given sequence of values.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add an &quot;order by&quot; clause to order results by a given sequence of values.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_inOrderOf">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="orderByRaw" id="_orderByRaw">
@@ -4989,11 +5423,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a union statement to the query.
+		Add a "union" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a union statement to the query.</p>
+	<div class="description"><p>Add a &quot;union&quot; statement to the query.</p>
 </div>
 
 
@@ -5020,11 +5454,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Add a union all statement to the query.
+		Add a "union all" statement to the query.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Add a union all statement to the query.</p>
+	<div class="description"><p>Add a &quot;union all&quot; statement to the query.</p>
 </div>
 
 
@@ -5127,6 +5561,44 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_sharedLock">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="timeout" id="_timeout">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>timeout(<span>int|null <var>$seconds</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Set a query execution timeout in seconds.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set a query execution timeout in seconds.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="InvalidArgumentException.html"><span>InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_timeout">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="beforeQuery" id="_beforeQuery">
@@ -5326,7 +5798,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>find(<span>int|string <var>$id</var></span>, <span>string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|array&lt;string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>&gt; <var>$columns</var> = [<span class="php-str">'*'</span>]</span>): object|null</code>
+				<code>find(<span>int|string <var>$id</var></span>, <span>string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|array&lt;string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>&gt; <var>$columns</var> = [<span class="php-str">'*'</span>]</span>): <a href="stdClass.html"><span title="stdClass">stdClass</span></a>|null</code>
 
 
 	<div class="expandable-collapsedView">
@@ -5361,7 +5833,7 @@
 	<span>mixed <var>$id</var></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;TValue)|string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|array&lt;string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>&gt; <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;TValue)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
-): object|TValue</code>
+): <a href="stdClass.html"><span title="stdClass">stdClass</span></a>|TValue</code>
 
 
 	<div class="expandable-collapsedView">
@@ -6980,11 +7452,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Run a truncate statement on the table.
+		Run a "truncate" statement on the table.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Run a truncate statement on the table.</p>
+	<div class="description"><p>Run a &quot;truncate&quot; statement on the table.</p>
 </div>
 
 
@@ -7553,6 +8025,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_getConnection">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="ensureConnectionSupportsVectors" id="_ensureConnectionSupportsVectors">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>ensureConnectionSupportsVectors(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Ensure the database connection supports vector queries.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Ensure the database connection supports vector queries.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_ensureConnectionSupportsVectors">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getProcessor" id="_getProcessor">
@@ -8533,6 +9036,30 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$lock">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="timeout" id="$timeout">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">int|null</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$timeout</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$timeout">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="beforeQueryCallbacks" id="$beforeQueryCallbacks">

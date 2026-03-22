@@ -136,7 +136,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span>string <var>$storageKey</var> = <span class="php-str">'_sf2_meta'</span></span>, <span>int <var>$updateThreshold</var> = <span class="php-num">0</span></span>)</code>
+				<code>__construct(<span>string <var>$storageKey</var> = <span class="php-str">'_sf2_meta'</span></span>, <span>int <var>$updateThreshold</var> = <span class="php-num">0</span></span>, <span>int|null <var>$cookieLifetime</var> = <span class="php-kw">null</span></span>)</code>
 
 
 
@@ -152,6 +152,11 @@
 									<tr>
 										<td><var>$updateThreshold</var>&nbsp;&nbsp;</td>
 										<td><p>The time to wait between two UPDATED updates</p>
+</td>
+									</tr>
+									<tr>
+										<td><var>$cookieLifetime</var>&nbsp;&nbsp;</td>
+										<td><p>The configured cookie lifetime; null to read from php.ini</p>
 </td>
 									</tr>
 							</table>

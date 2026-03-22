@@ -8,27 +8,57 @@
 			<url><loc>namespace-Baril.Bonsai.html</loc></url>
 			<url><loc>namespace-Baril.Bonsai.Concerns.html</loc></url>
 			<url><loc>namespace-Baril.Bonsai.Console.html</loc></url>
+			<url><loc>namespace-Baril.Bonsai.Console.Concerns.html</loc></url>
 			<url><loc>namespace-Baril.Bonsai.Migrations.html</loc></url>
 			<url><loc>namespace-Baril.Bonsai.Relations.html</loc></url>
+			<url><loc>namespace-Baril.Bonsai.Relations.Concerns.html</loc></url>
 
 			<url><loc>Baril.Bonsai.BonsaiServiceProvider.html</loc></url>
+			<url><loc>Baril.Bonsai.Closure.html</loc></url>
 			<url><loc>Baril.Bonsai.Concerns.BelongsToOrderedTree.html</loc></url>
 			<url><loc>Baril.Bonsai.Concerns.BelongsToTree.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.HasAncestors.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.HasClosures.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.HasDescendants.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.ManagesClosures.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.Orderable.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.Ordered.html</loc></url>
+			<url><loc>Baril.Bonsai.Concerns.SoftDeletes.html</loc></url>
+			<url><loc>Baril.Bonsai.Console.Concerns.InteractsWithTree.html</loc></url>
 			<url><loc>Baril.Bonsai.Console.FixTreeCommand.html</loc></url>
 			<url><loc>Baril.Bonsai.Console.GrowTreeCommand.html</loc></url>
 			<url><loc>Baril.Bonsai.Console.ShowTreeCommand.html</loc></url>
 			<url><loc>Baril.Bonsai.Migrations.MigrationCreator.html</loc></url>
-			<url><loc>Baril.Bonsai.Relations.Closure.html</loc></url>
+			<url><loc>Baril.Bonsai.Relations.BelongsToManyThroughClosures.html</loc></url>
+			<url><loc>Baril.Bonsai.Relations.Concerns.AutoloadsOtherRelations.html</loc></url>
+			<url><loc>Baril.Bonsai.Relations.Concerns.ExcludesSelf.html</loc></url>
+			<url><loc>Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html</loc></url>
+			<url><loc>Baril.Bonsai.Relations.Concerns.IsReadOnly.html</loc></url>
+			<url><loc>Baril.Bonsai.Relations.HasManySiblings.html</loc></url>
 			<url><loc>Baril.Bonsai.TreeException.html</loc></url>
 
 
 			<url><loc>source-BonsaiServiceProvider.html</loc></url>
+			<url><loc>source-Closure.html</loc></url>
 			<url><loc>source-Concerns.BelongsToOrderedTree.html</loc></url>
 			<url><loc>source-Concerns.BelongsToTree.html</loc></url>
+			<url><loc>source-Concerns.HasAncestors.html</loc></url>
+			<url><loc>source-Concerns.HasClosures.html</loc></url>
+			<url><loc>source-Concerns.HasDescendants.html</loc></url>
+			<url><loc>source-Concerns.ManagesClosures.html</loc></url>
+			<url><loc>source-Concerns.Orderable.html</loc></url>
+			<url><loc>source-Concerns.Ordered.html</loc></url>
+			<url><loc>source-Concerns.SoftDeletes.html</loc></url>
+			<url><loc>source-Console.Concerns.InteractsWithTree.html</loc></url>
 			<url><loc>source-Console.FixTreeCommand.html</loc></url>
 			<url><loc>source-Console.GrowTreeCommand.html</loc></url>
 			<url><loc>source-Console.ShowTreeCommand.html</loc></url>
 			<url><loc>source-Migrations.MigrationCreator.html</loc></url>
-			<url><loc>source-Relations.Closure.html</loc></url>
+			<url><loc>source-Relations.BelongsToManyThroughClosures.html</loc></url>
+			<url><loc>source-Relations.Concerns.AutoloadsOtherRelations.html</loc></url>
+			<url><loc>source-Relations.Concerns.ExcludesSelf.html</loc></url>
+			<url><loc>source-Relations.Concerns.InteractsWithClosureTable.html</loc></url>
+			<url><loc>source-Relations.Concerns.IsReadOnly.html</loc></url>
+			<url><loc>source-Relations.HasManySiblings.html</loc></url>
 			<url><loc>source-TreeException.html</loc></url>
 </urlset>

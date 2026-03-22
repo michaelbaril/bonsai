@@ -163,6 +163,41 @@
 				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
 			</tr>
 
+	<tr class="expandable collapsed" data-order="toIriString" id="_toIriString">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toIriString(<span><a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a>|<a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$uri</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Generate an IRI string representation (RFC3987) from its parsed representation
+returned by League\UriString::parse() or…
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Generate an IRI string representation (RFC3987) from its parsed representation
+returned by League\UriString::parse() or PHP's parse_url.</p>
+<p>If you supply your own array, you are responsible for providing
+valid components without their URI delimiters.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toIriString">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="build" id="_build">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -209,16 +244,22 @@ valid components without their URI delimiters.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>buildUri(<span>?string <var>$scheme</var></span>, <span>?string <var>$authority</var></span>, <span>string <var>$path</var></span>, <span>?string <var>$query</var></span>, <span>?string <var>$fragment</var></span>): string</code>
+				<code>buildUri(
+	<span>?string <var>$scheme</var> = <span class="php-kw">null</span></span>,
+	<span>?string <var>$authority</var> = <span class="php-kw">null</span></span>,
+	<span>?string <var>$path</var> = <span class="php-kw">null</span></span>,
+	<span>?string <var>$query</var> = <span class="php-kw">null</span></span>,
+	<span>?string <var>$fragment</var> = <span class="php-kw">null</span></span>,
+): string</code>
 
 
 	<div class="expandable-collapsedView">
-		Generate a URI string representation based on RFC3986 algorithm.
+		Generates a URI string representation based on RFC3986 algorithm.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Generate a URI string representation based on RFC3986 algorithm.</p>
-<p>valid URI component MUST be provided without their URI delimiters
+	<div class="description"><p>Generates a URI string representation based on RFC3986 algorithm.</p>
+<p>Valid URI component MUST be provided without their URI delimiters
 but properly encoded.</p>
 </div>
 
@@ -262,6 +303,249 @@ but properly encoded.</p>
 			<a href="#_buildAuthority">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="parseNormalized" id="_parseNormalized">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>parseNormalized(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$uri</var></span>): <a href="League.Uri.UriString.html#~ComponentMap"><span title="array&#123;scheme: ?string, user: ?string, pass: ?string, host: ?string, port: ?int, path: string, query: ?string, fragment: ?string}">ComponentMap</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Parses and normalizes the URI following RFC3986 destructive and non-destructive constraints.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Parses and normalizes the URI following RFC3986 destructive and non-destructive constraints.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="League.Uri.Exceptions.SyntaxError.html"><span>League\Uri\Exceptions\SyntaxError</span></a></code>&nbsp;</td>
+										<td><p>if the URI is not parsable</p>
+</td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_parseNormalized">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="normalize" id="_normalize">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>normalize(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$uri</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Parses and normalizes the URI following RFC3986 destructive and non-destructive constraints.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Parses and normalizes the URI following RFC3986 destructive and non-destructive constraints.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="League.Uri.Exceptions.SyntaxError.html"><span>League\Uri\Exceptions\SyntaxError</span></a></code>&nbsp;</td>
+										<td><p>if the URI is not parsable</p>
+</td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_normalize">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="normalizeAuthority" id="_normalizeAuthority">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>normalizeAuthority(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|null <var>$authority</var></span>): ?string</code>
+
+
+	<div class="expandable-collapsedView">
+		Parses and normalizes the URI following RFC3986 destructive and non-destructive constraints.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Parses and normalizes the URI following RFC3986 destructive and non-destructive constraints.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="League.Uri.Exceptions.SyntaxError.html"><span>League\Uri\Exceptions\SyntaxError</span></a></code>&nbsp;</td>
+										<td><p>if the URI is not parsable</p>
+</td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_normalizeAuthority">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolve" id="_resolve">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolve(<span><a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a>|<a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$uri</var></span>, <span><a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a>|<a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|null <var>$baseUri</var> = <span class="php-kw">null</span></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Resolves a URI against a base URI using RFC3986 rules.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Resolves a URI against a base URI using RFC3986 rules.</p>
+<p>This method MUST retain the state of the submitted URI instance, and return
+a URI instance of the same type that contains the applied modifications.</p>
+<p>This method MUST be transparent when dealing with error and exceptions.
+It MUST not alter or silence them apart from validating its own parameters.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="League.Uri.Exceptions.SyntaxError.html"><span>League\Uri\Exceptions\SyntaxError</span></a></code>&nbsp;</td>
+										<td><p>if the BaseUri is not absolute or in absence of a BaseUri if the uri is not absolute</p>
+</td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolve">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="removeDotSegments" id="_removeDotSegments">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>removeDotSegments(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$path</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Filter Dot segment according to RFC3986.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Filter Dot segment according to RFC3986.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_removeDotSegments">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="containsRfc3986Chars" id="_containsRfc3986Chars">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>containsRfc3986Chars(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$uri</var></span>): bool</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_containsRfc3986Chars">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="containsRfc3987Chars" id="_containsRfc3987Chars">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>containsRfc3987Chars(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$uri</var></span>): bool</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_containsRfc3987Chars">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="parse" id="_parse">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -273,7 +557,7 @@ but properly encoded.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>parse(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|int <var>$uri</var></span>): <a href="League.Uri.UriString.html#~ComponentMap"><span title="array&#123;scheme: ?string, user: ?string, pass: ?string, host: ?string, port: ?int, path: string, query: ?string, fragment: ?string}">ComponentMap</span></a></code>
+				<code>parse(<span><a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a>|<a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|int <var>$uri</var></span>): <a href="League.Uri.UriString.html#~ComponentMap"><span title="array&#123;scheme: ?string, user: ?string, pass: ?string, host: ?string, port: ?int, path: string, query: ?string, fragment: ?string}">ComponentMap</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -349,7 +633,7 @@ differences:</p>
 			</td>
 
 			<td class="table-cell">
-				<code>parseAuthority(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|null <var>$authority</var></span>): <a href="League.Uri.UriString.html#~AuthorityMap"><span title="array&#123;user: ?string, pass: ?string, host: ?string, port: ?int}">AuthorityMap</span></a></code>
+				<code>parseAuthority(<span><a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a>|<a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|null <var>$authority</var></span>): <a href="League.Uri.UriString.html#~AuthorityMap"><span title="array&#123;user: ?string, pass: ?string, host: ?string, port: ?int}">AuthorityMap</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -375,6 +659,73 @@ differences:</p>
 			</td>
 		<td class="table-anchor">
 			<a href="#_parseAuthority">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="isValidScheme" id="_isValidScheme">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>isValidScheme(<span><a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a>|<a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|null <var>$scheme</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Tells whether the scheme component is valid.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Tells whether the scheme component is valid.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isValidScheme">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="isValidHost" id="_isValidHost">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><span class="deprecated">isValidHost</span>(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string|null <var>$host</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		DEPRECATION WARNING! This method will be removed in the next major point release.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>DEPRECATION WARNING! This method will be removed in the next major point release.</p>
+</div>
+							<h4>Deprecated</h4>
+							<div>
+									<p>Since version 7.6.0</p>
+
+							</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isValidHost">#</a>
 		</td>
 	</tr>
 		</table>

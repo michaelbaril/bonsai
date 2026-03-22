@@ -979,6 +979,42 @@
 			<a href="#_userAgent">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="getAcceptableContentTypes" id="_getAcceptableContentTypes">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getAcceptableContentTypes(): array</code>
+
+
+	<div class="expandable-collapsedView">
+		&#123;@inheritdoc}
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>{@inheritdoc}</p>
+</div>
+
+
+
+
+		<h4>Overrides</h4>
+		<ul>
+				<li>
+<a href="Symfony.Component.HttpFoundation.Request.html#_getAcceptableContentTypes">						<code>Symfony\Component\HttpFoundation\Request::getAcceptableContentTypes()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getAcceptableContentTypes">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="merge" id="_merge">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1083,7 +1119,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>get(<span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): mixed</code>
+				<code><span class="deprecated">get</span>(<span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): mixed</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1094,10 +1130,20 @@
 	<div class="description"><p>This method belongs to Symfony HttpFoundation and is not usually needed when using Laravel.</p>
 <p>Instead, you may use the &quot;input&quot; method.</p>
 </div>
+							<h4>Deprecated</h4>
+							<div>
+									<p>use -&gt;input() instead</p>
+
+							</div>
 
 
 
 
+		<h4>Overrides</h4>
+		<ul>
+				<li>
+<a href="Symfony.Component.HttpFoundation.Request.html#_get" class="deprecated">						<code>Symfony\Component\HttpFoundation\Request::get()</code></a>				</li>
+		</ul>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -1403,6 +1449,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Symfony.Component.HttpFoundation.Exception.SessionNotFoundException.html"><span>Symfony\Component\HttpFoundation\Exception\SessionNotFoundException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 		<h4>Overrides</h4>
 		<ul>
@@ -2211,7 +2264,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Symfony.Component.HttpFoundation.Request.html#___construct">__construct()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_initialize">initialize()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_createFromGlobals">createFromGlobals()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_create">create()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setFactory">setFactory()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#___clone">__clone()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#___toString">__toString()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_overrideGlobals">overrideGlobals()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setTrustedProxies">setTrustedProxies()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getTrustedProxies">getTrustedProxies()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getTrustedHeaderSet">getTrustedHeaderSet()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setTrustedHosts">setTrustedHosts()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getTrustedHosts">getTrustedHosts()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_normalizeQueryString">normalizeQueryString()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_enableHttpMethodParameterOverride">enableHttpMethodParameterOverride()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getHttpMethodParameterOverride">getHttpMethodParameterOverride()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_hasPreviousSession">hasPreviousSession()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setSession">setSession()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getClientIps">getClientIps()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getClientIp">getClientIp()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getScriptName">getScriptName()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPathInfo">getPathInfo()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getBasePath">getBasePath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getBaseUrl">getBaseUrl()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getScheme">getScheme()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPort">getPort()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUser">getUser()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPassword">getPassword()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUserInfo">getUserInfo()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getHttpHost">getHttpHost()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRequestUri">getRequestUri()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getSchemeAndHttpHost">getSchemeAndHttpHost()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUri">getUri()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUriForPath">getUriForPath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRelativeUriForPath">getRelativeUriForPath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getQueryString">getQueryString()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isSecure">isSecure()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getHost">getHost()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setMethod">setMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getMethod">getMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRealMethod">getRealMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getMimeType">getMimeType()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getMimeTypes">getMimeTypes()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getFormat">getFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setFormat">setFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRequestFormat">getRequestFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setRequestFormat">setRequestFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getContentTypeFormat">getContentTypeFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setDefaultLocale">setDefaultLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getDefaultLocale">getDefaultLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setLocale">setLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getLocale">getLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethod">isMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethodSafe">isMethodSafe()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethodIdempotent">isMethodIdempotent()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethodCacheable">isMethodCacheable()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getProtocolVersion">getProtocolVersion()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getContent">getContent()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPayload">getPayload()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getETags">getETags()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isNoCache">isNoCache()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPreferredFormat">getPreferredFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPreferredLanguage">getPreferredLanguage()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getLanguages">getLanguages()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getCharsets">getCharsets()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getEncodings">getEncodings()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getAcceptableContentTypes">getAcceptableContentTypes()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isXmlHttpRequest">isXmlHttpRequest()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_preferSafeContent">preferSafeContent()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_prepareRequestUri">prepareRequestUri()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_prepareBaseUrl">prepareBaseUrl()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_prepareBasePath">prepareBasePath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_preparePathInfo">preparePathInfo()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_initializeFormats">initializeFormats()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isFromTrustedProxy">isFromTrustedProxy()</a></code>				</td>
+<code><a href="Symfony.Component.HttpFoundation.Request.html#___construct">__construct()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_initialize">initialize()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_createFromGlobals">createFromGlobals()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_create">create()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setFactory">setFactory()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#___clone">__clone()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#___toString">__toString()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_overrideGlobals">overrideGlobals()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setTrustedProxies">setTrustedProxies()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getTrustedProxies">getTrustedProxies()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getTrustedHeaderSet">getTrustedHeaderSet()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setTrustedHosts">setTrustedHosts()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getTrustedHosts">getTrustedHosts()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_normalizeQueryString">normalizeQueryString()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_enableHttpMethodParameterOverride">enableHttpMethodParameterOverride()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getHttpMethodParameterOverride">getHttpMethodParameterOverride()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setAllowedHttpMethodOverride">setAllowedHttpMethodOverride()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getAllowedHttpMethodOverride">getAllowedHttpMethodOverride()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_hasPreviousSession">hasPreviousSession()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setSession">setSession()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getClientIps">getClientIps()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getClientIp">getClientIp()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getScriptName">getScriptName()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPathInfo">getPathInfo()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getBasePath">getBasePath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getBaseUrl">getBaseUrl()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getScheme">getScheme()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPort">getPort()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUser">getUser()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPassword">getPassword()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUserInfo">getUserInfo()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getHttpHost">getHttpHost()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRequestUri">getRequestUri()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getSchemeAndHttpHost">getSchemeAndHttpHost()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUri">getUri()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getUriForPath">getUriForPath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRelativeUriForPath">getRelativeUriForPath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getQueryString">getQueryString()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isSecure">isSecure()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getHost">getHost()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setMethod">setMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getMethod">getMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRealMethod">getRealMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getMimeType">getMimeType()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getMimeTypes">getMimeTypes()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getFormat">getFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setFormat">setFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getRequestFormat">getRequestFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setRequestFormat">setRequestFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getContentTypeFormat">getContentTypeFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setDefaultLocale">setDefaultLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getDefaultLocale">getDefaultLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_setLocale">setLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getLocale">getLocale()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethod">isMethod()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethodSafe">isMethodSafe()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethodIdempotent">isMethodIdempotent()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isMethodCacheable">isMethodCacheable()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getProtocolVersion">getProtocolVersion()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getContent">getContent()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPayload">getPayload()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getETags">getETags()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isNoCache">isNoCache()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPreferredFormat">getPreferredFormat()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getPreferredLanguage">getPreferredLanguage()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getLanguages">getLanguages()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getCharsets">getCharsets()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_getEncodings">getEncodings()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isXmlHttpRequest">isXmlHttpRequest()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_preferSafeContent">preferSafeContent()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_prepareRequestUri">prepareRequestUri()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_prepareBaseUrl">prepareBaseUrl()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_prepareBasePath">prepareBasePath()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_preparePathInfo">preparePathInfo()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_initializeFormats">initializeFormats()</a>, <a href="Symfony.Component.HttpFoundation.Request.html#_isFromTrustedProxy">isFromTrustedProxy()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -2225,7 +2278,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Http.Concerns.CanBePrecognitive.html#_filterPrecognitiveRules">filterPrecognitiveRules()</a>, <a href="Illuminate.Http.Concerns.CanBePrecognitive.html#_isAttemptingPrecognition">isAttemptingPrecognition()</a>, <a href="Illuminate.Http.Concerns.CanBePrecognitive.html#_isPrecognitive">isPrecognitive()</a></code>				</td>
+<code><a href="Illuminate.Http.Concerns.CanBePrecognitive.html#_filterPrecognitiveRules">filterPrecognitiveRules()</a>, <a href="Illuminate.Http.Concerns.CanBePrecognitive.html#_shouldValidatePrecognitiveAttribute">shouldValidatePrecognitiveAttribute()</a>, <a href="Illuminate.Http.Concerns.CanBePrecognitive.html#_isAttemptingPrecognition">isAttemptingPrecognition()</a>, <a href="Illuminate.Http.Concerns.CanBePrecognitive.html#_isPrecognitive">isPrecognitive()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -2235,7 +2288,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_isJson">isJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_expectsJson">expectsJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_wantsJson">wantsJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_accepts">accepts()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_prefers">prefers()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_acceptsAnyContentType">acceptsAnyContentType()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_acceptsJson">acceptsJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_acceptsHtml">acceptsHtml()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_matchesType">matchesType()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_format">format()</a></code>				</td>
+<code><a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_isJson">isJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_expectsJson">expectsJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_wantsJson">wantsJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_wantsMarkdown">wantsMarkdown()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_accepts">accepts()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_prefers">prefers()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_acceptsAnyContentType">acceptsAnyContentType()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_acceptsJson">acceptsJson()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_acceptsMarkdown">acceptsMarkdown()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_acceptsHtml">acceptsHtml()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_matchesType">matchesType()</a>, <a href="Illuminate.Http.Concerns.InteractsWithContentTypes.html#_format">format()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -2287,7 +2340,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Symfony.Component.HttpFoundation.Request.html#HEADER_FORWARDED"><code>HEADER_FORWARDED</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_FOR"><code>HEADER_X_FORWARDED_FOR</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_HOST"><code>HEADER_X_FORWARDED_HOST</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_PROTO"><code>HEADER_X_FORWARDED_PROTO</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_PORT"><code>HEADER_X_FORWARDED_PORT</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_PREFIX"><code>HEADER_X_FORWARDED_PREFIX</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_AWS_ELB"><code>HEADER_X_FORWARDED_AWS_ELB</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_TRAEFIK"><code>HEADER_X_FORWARDED_TRAEFIK</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_HEAD"><code>METHOD_HEAD</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_GET"><code>METHOD_GET</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_POST"><code>METHOD_POST</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_PUT"><code>METHOD_PUT</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_PATCH"><code>METHOD_PATCH</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_DELETE"><code>METHOD_DELETE</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_PURGE"><code>METHOD_PURGE</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_OPTIONS"><code>METHOD_OPTIONS</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_TRACE"><code>METHOD_TRACE</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_CONNECT"><code>METHOD_CONNECT</code></a></code>				</td>
+<code><a href="Symfony.Component.HttpFoundation.Request.html#HEADER_FORWARDED"><code>HEADER_FORWARDED</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_FOR"><code>HEADER_X_FORWARDED_FOR</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_HOST"><code>HEADER_X_FORWARDED_HOST</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_PROTO"><code>HEADER_X_FORWARDED_PROTO</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_PORT"><code>HEADER_X_FORWARDED_PORT</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_PREFIX"><code>HEADER_X_FORWARDED_PREFIX</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_AWS_ELB"><code>HEADER_X_FORWARDED_AWS_ELB</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#HEADER_X_FORWARDED_TRAEFIK"><code>HEADER_X_FORWARDED_TRAEFIK</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_HEAD"><code>METHOD_HEAD</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_GET"><code>METHOD_GET</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_POST"><code>METHOD_POST</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_PUT"><code>METHOD_PUT</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_PATCH"><code>METHOD_PATCH</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_DELETE"><code>METHOD_DELETE</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_PURGE"><code>METHOD_PURGE</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_OPTIONS"><code>METHOD_OPTIONS</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_TRACE"><code>METHOD_TRACE</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_CONNECT"><code>METHOD_CONNECT</code></a>, <a href="Symfony.Component.HttpFoundation.Request.html#METHOD_QUERY"><code>METHOD_QUERY</code></a></code>				</td>
 			</tr>
 		</table>
 
@@ -2399,6 +2452,30 @@
 			<a href="#$routeResolver">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="cachedAcceptHeader" id="$cachedAcceptHeader">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">string|null</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$cachedAcceptHeader</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$cachedAcceptHeader">#</a>
+		</td>
+	</tr>
 		</table>
 		<table class="table">
 			<tr>
@@ -2406,7 +2483,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><var><a href="Symfony.Component.HttpFoundation.Request.html#$trustedProxies">$trustedProxies</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$trustedHostPatterns">$trustedHostPatterns</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$trustedHosts">$trustedHosts</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$httpMethodParameterOverride">$httpMethodParameterOverride</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$attributes">$attributes</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$request">$request</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$query">$query</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$server">$server</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$files">$files</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$cookies">$cookies</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$headers">$headers</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$content">$content</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$languages">$languages</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$charsets">$charsets</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$encodings">$encodings</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$acceptableContentTypes">$acceptableContentTypes</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$pathInfo">$pathInfo</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$requestUri">$requestUri</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$baseUrl">$baseUrl</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$basePath">$basePath</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$method">$method</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$format">$format</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$session">$session</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$locale">$locale</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$defaultLocale">$defaultLocale</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$formats">$formats</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$requestFactory">$requestFactory</a></var></code>				</td>
+<code><var><a href="Symfony.Component.HttpFoundation.Request.html#$trustedProxies">$trustedProxies</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$trustedHostPatterns">$trustedHostPatterns</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$trustedHosts">$trustedHosts</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$httpMethodParameterOverride">$httpMethodParameterOverride</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$allowedHttpMethodOverride">$allowedHttpMethodOverride</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$attributes">$attributes</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$request">$request</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$query">$query</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$server">$server</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$files">$files</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$cookies">$cookies</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$headers">$headers</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$content">$content</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$languages">$languages</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$charsets">$charsets</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$encodings">$encodings</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$acceptableContentTypes">$acceptableContentTypes</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$pathInfo">$pathInfo</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$requestUri">$requestUri</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$baseUrl">$baseUrl</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$basePath">$basePath</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$method">$method</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$format">$format</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$session">$session</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$locale">$locale</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$defaultLocale">$defaultLocale</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$formats">$formats</a></var>, <var><a href="Symfony.Component.HttpFoundation.Request.html#$requestFactory">$requestFactory</a></var></code>				</td>
 			</tr>
 		</table>
 

@@ -188,6 +188,11 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.AsPivot.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\AsPivot">AsPivot</span></a>
 	<ul class="classTree">
 	<li>
+<a href="Baril.Bonsai.Closure.html"><span>Baril\Bonsai\Closure</span></a>
+
+
+	</li>
+	<li>
 <a href="Illuminate.Database.Eloquent.Relations.MorphPivot.html"><span>Illuminate\Database\Eloquent\Relations\MorphPivot</span></a>
 
 
@@ -285,7 +290,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>observe(<span>object|array|string <var>$classes</var></span>): void</code>
+				<code>observe(<span>object|string[]|string <var>$classes</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -361,7 +366,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getObservableEvents(): array</code>
+				<code>getObservableEvents(): string[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -392,7 +397,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>setObservableEvents(<span>array <var>$observables</var></span>): $this</code>
+				<code>setObservableEvents(<span>string[] <var>$observables</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -423,7 +428,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addObservableEvents(<span>array|mixed <var>$observables</var></span>): void</code>
+				<code>addObservableEvents(<span>string|string[] <var>$observables</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -454,7 +459,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>removeObservableEvents(<span>array|mixed <var>$observables</var></span>): void</code>
+				<code>removeObservableEvents(<span>string|string[] <var>$observables</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -547,7 +552,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>fireCustomModelEvent(<span>string <var>$event</var></span>, <span>string <var>$method</var></span>): mixed|null</code>
+				<code>fireCustomModelEvent(<span>string <var>$event</var></span>, <span><span class="php-str">'until'</span>|<span class="php-str">'dispatch'</span> <var>$method</var></span>): array|null|void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1112,7 +1117,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">array&lt;string, class-string&gt;</code>
 			</td>
 
 			<td class="table-cell">
@@ -1136,7 +1141,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">array</code>
+				<code class="nowrap">string[]</code>
 			</td>
 
 			<td class="table-cell">

@@ -105,7 +105,7 @@
 <p>This class is optimized for a standard CLI environment.</p>
 <p>Usage:</p>
 <p>$app = new Application('myapp', '1.0 (stable)');
-$app-&gt;add(new SimpleCommand());
+$app-&gt;addCommand(new SimpleCommand());
 $app-&gt;run();</p>
 </div>
 		</div>
@@ -949,7 +949,7 @@ $app-&gt;run();</p>
 			</td>
 
 			<td class="table-cell">
-				<code>addCommands(<span><a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a>[] <var>$commands</var></span>): void</code>
+				<code>addCommands(<span>callable[]|<a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a>[] <var>$commands</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -989,7 +989,38 @@ $app-&gt;run();</p>
 			</td>
 
 			<td class="table-cell">
-				<code>add(<span><a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a> <var>$command</var></span>): ?<a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a></code>
+				<code><span class="deprecated">add</span>(<span><a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a> <var>$command</var></span>): ?<a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a></code>
+
+
+
+	<div class="expandable-expandedView">
+							<h4>Deprecated</h4>
+							<div>
+									<p>since Symfony 7.4, use Application::addCommand() instead</p>
+
+							</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_add">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="addCommand" id="_addCommand">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>addCommand(<span>callable|<a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a> <var>$command</var></span>): ?<a href="Symfony.Component.Console.Command.Command.html"><span title="Symfony\Component\Console\Command\Command">Command</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -1008,7 +1039,7 @@ If the command is not enabled it will not be added.</p>
 	</div>
 			</td>
 		<td class="table-anchor">
-			<a href="#_add">#</a>
+			<a href="#_addCommand">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="get" id="_get">

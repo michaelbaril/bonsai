@@ -146,9 +146,12 @@
 			<b><span class="active" title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithPivotTable">InteractsWithPivotTable</span></b>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Relations.Closure.html"><span>Baril\Bonsai\Relations\Closure</span></a>
+<a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html"><span>Baril\Bonsai\Relations\BelongsToManyThroughClosures</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span title="Baril\Bonsai\Relations\Concerns\ExcludesSelf">ExcludesSelf</span></a>, 
+			<a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span title="Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable">InteractsWithClosureTable</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Eloquent.Relations.MorphToMany.html"><span>Illuminate\Database\Eloquent\Relations\MorphToMany</span></a>
@@ -203,6 +206,44 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_toggle">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="toggleOrFail" id="_toggleOrFail">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toggleOrFail(<span>mixed <var>$ids</var></span>, <span>bool <var>$touch</var> = <span class="php-kw">true</span></span>): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Toggles a model (or models) from the parent within a transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Toggles a model (or models) from the parent within a transaction.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Throwable.html"><span>Throwable</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toggleOrFail">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="syncWithoutDetaching" id="_syncWithoutDetaching">
@@ -270,6 +311,82 @@
 			<a href="#_sync">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="syncOrFail" id="_syncOrFail">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>syncOrFail(<span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>|array <var>$ids</var></span>, <span>bool <var>$detaching</var> = <span class="php-kw">true</span></span>): array{attached: array, detached: array, updated: array}</code>
+
+
+	<div class="expandable-collapsedView">
+		Sync the intermediate tables with a list of IDs or collection of models within a transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Sync the intermediate tables with a list of IDs or collection of models within a transaction.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Throwable.html"><span>Throwable</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_syncOrFail">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="syncWithoutDetachingOrFail" id="_syncWithoutDetachingOrFail">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>syncWithoutDetachingOrFail(<span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>|array <var>$ids</var></span>): array{attached: array, detached: array, updated: array}</code>
+
+
+	<div class="expandable-collapsedView">
+		Sync the intermediate tables with a list of IDs without detaching within a transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Sync the intermediate tables with a list of IDs without detaching within a transaction.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Throwable.html"><span>Throwable</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_syncWithoutDetachingOrFail">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="syncWithPivotValues" id="_syncWithPivotValues">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -303,6 +420,48 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_syncWithPivotValues">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="syncWithPivotValuesOrFail" id="_syncWithPivotValuesOrFail">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>syncWithPivotValuesOrFail(
+	<span><a href="Illuminate.Support.Collection.html"><span title="Illuminate\Support\Collection">Collection</span></a>|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>|array|int|string <var>$ids</var></span>,
+	<span>array <var>$values</var></span>,
+	<span>bool <var>$detaching</var> = <span class="php-kw">true</span></span>,
+): array{attached: array, detached: array, updated: array}</code>
+
+
+	<div class="expandable-collapsedView">
+		Sync the intermediate tables with a list of IDs with the given pivot values within a transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Sync the intermediate tables with a list of IDs with the given pivot values within a transaction.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Throwable.html"><span>Throwable</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_syncWithPivotValuesOrFail">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="formatRecordsList" id="_formatRecordsList">
@@ -398,6 +557,44 @@
 			<a href="#_updateExistingPivot">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="updateExistingPivotOrFail" id="_updateExistingPivotOrFail">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>updateExistingPivotOrFail(<span>mixed <var>$id</var></span>, <span>array <var>$attributes</var></span>, <span>bool <var>$touch</var> = <span class="php-kw">true</span></span>): int</code>
+
+
+	<div class="expandable-collapsedView">
+		Update an existing pivot record on the table within a transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Update an existing pivot record on the table within a transaction.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Throwable.html"><span>Throwable</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_updateExistingPivotOrFail">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="updateExistingPivotUsingCustomClass" id="_updateExistingPivotUsingCustomClass">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -458,6 +655,44 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_attach">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="attachOrFail" id="_attachOrFail">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>attachOrFail(<span>mixed <var>$ids</var></span>, <span>array <var>$attributes</var> = []</span>, <span>bool <var>$touch</var> = <span class="php-kw">true</span></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Attach a model to the parent within a transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Attach a model to the parent within a transaction.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Throwable.html"><span>Throwable</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_attachOrFail">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="attachUsingCustomClass" id="_attachUsingCustomClass">
@@ -706,6 +941,44 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_detach">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="detachOrFail" id="_detachOrFail">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>detachOrFail(<span>mixed <var>$ids</var> = <span class="php-kw">null</span></span>, <span>bool <var>$touch</var> = <span class="php-kw">true</span></span>): int</code>
+
+
+	<div class="expandable-collapsedView">
+		Detach models from the relationship within a transaction.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Detach models from the relationship within a transaction.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Throwable.html"><span>Throwable</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_detachOrFail">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="detachUsingCustomClass" id="_detachUsingCustomClass">
@@ -967,7 +1240,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>withPivot(<span>array|mixed <var>$columns</var></span>): $this</code>
+				<code>withPivot(<span>mixed <var>$columns</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">

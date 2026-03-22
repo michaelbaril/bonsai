@@ -193,6 +193,70 @@
 			<a href="#_onQueue">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="onGroup" id="_onGroup">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>onGroup(<span><a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|string <var>$group</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Set the desired job "group".
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set the desired job &quot;group&quot;.</p>
+<p>This feature is only supported by some queues, such as Amazon SQS.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_onGroup">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="withDeduplicator" id="_withDeduplicator">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withDeduplicator(<span>callable|null <var>$deduplicator</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Set the desired job deduplicator callback.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set the desired job deduplicator callback.</p>
+<p>This feature is only supported by some queues, such as Amazon SQS FIFO.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withDeduplicator">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="delay" id="_delay">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -368,6 +432,54 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$queue">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="messageGroup" id="$messageGroup">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">string|null</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$messageGroup</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$messageGroup">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="deduplicator" id="$deduplicator">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Laravel.SerializableClosure.SerializableClosure.html"><span title="Laravel\SerializableClosure\SerializableClosure">SerializableClosure</span></a>|null</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$deduplicator</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$deduplicator">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="delay" id="$delay">

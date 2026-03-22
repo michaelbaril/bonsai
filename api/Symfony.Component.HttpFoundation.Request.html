@@ -948,6 +948,116 @@ If these methods are not protected against CSRF, this presents a possible vulner
 			<a href="#_getHttpMethodParameterOverride">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="setAllowedHttpMethodOverride" id="_setAllowedHttpMethodOverride">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>setAllowedHttpMethodOverride(<span>uppercase-string[]|null <var>$methods</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Sets the list of HTTP methods that can be overridden.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Sets the list of HTTP methods that can be overridden.</p>
+<p>Set to null to allow all methods to be overridden (default). Set to an
+empty array to disallow overrides entirely. Otherwise, provide the list
+of uppercased method names that are allowed.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_setAllowedHttpMethodOverride">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getAllowedHttpMethodOverride" id="_getAllowedHttpMethodOverride">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getAllowedHttpMethodOverride(): uppercase-string[]|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Gets the list of HTTP methods that can be overridden.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Gets the list of HTTP methods that can be overridden.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getAllowedHttpMethodOverride">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="get" id="_get">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><span class="deprecated">get</span>(<span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): mixed</code>
+
+
+	<div class="expandable-collapsedView">
+		Gets a "parameter" value from any bag.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Gets a &quot;parameter&quot; value from any bag.</p>
+<p>This method is mainly useful for libraries that want to provide some flexibility. If you don't need the
+flexibility in controllers, it is better to explicitly get request parameters from the appropriate
+public property instead (attributes, query, request).</p>
+<p>Order of precedence: PATH (routing placeholders or custom attributes), GET, POST</p>
+</div>
+							<h4>Deprecated</h4>
+							<div>
+									<p>since Symfony 7.4, use properties <code>-&gt;attributes</code>, <code>query</code> or <code>request</code> directly instead</p>
+
+							</div>
+
+
+
+
+		<h4>Overriden by</h4>
+		<ul>
+				<li>
+<a href="Illuminate.Http.Request.html#_get" class="deprecated">						<code>Illuminate\Http\Request::get()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_get">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="getSession" id="_getSession">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1227,7 +1337,7 @@ argument of the Request::setTrustedProxies() method instead.</p>
 <p>Suppose this request is instantiated from /mysite on localhost:</p>
 <ul>
 <li>
-<a href="http://localhost/mysite">http://localhost/mysite</a>              returns an empty string</li>
+<a href="http://localhost/mysite">http://localhost/mysite</a>              returns '/'</li>
 <li>
 <a href="http://localhost/mysite/about">http://localhost/mysite/about</a>        returns '/about'</li>
 <li>
@@ -1987,7 +2097,7 @@ but only if enableHttpMethodParameterOverride() has been called.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>getFormat(<span>?string <var>$mimeType</var></span>): ?string</code>
+				<code>getFormat(<span>string|null <var>$mimeType</var></span>): ?string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1996,8 +2106,29 @@ but only if enableHttpMethodParameterOverride() has been called.</p>
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Gets the format associated with the mime type.</p>
+<p>Resolution order:</p>
+<ol>
+<li>Exact match on the full MIME type (e.g. &quot;application/json&quot;).</li>
+<li>Match on the canonical MIME type (i.e. before the first &quot;;&quot; parameter).</li>
+<li>If the type is &quot;application/*+suffix&quot;, use the structured syntax suffix
+mapping (e.g. &quot;application/foo+json&quot; → &quot;json&quot;), when available.</li>
+<li>If $subtypeFallback is true and no match was found:
+<ul>
+<li>return the MIME subtype (without &quot;x-&quot; prefix), provided it does not
+contain a &quot;+&quot; (e.g. &quot;application/x-yaml&quot; → &quot;yaml&quot;, &quot;text/csv&quot; → &quot;csv&quot;).</li>
+</ul>
+</li>
+</ol>
 </div>
 
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$mimeType</var>&nbsp;&nbsp;</td>
+										<td><p>The mime type to check</p>
+</td>
+									</tr>
+							</table>
 
 
 
@@ -2018,7 +2149,7 @@ but only if enableHttpMethodParameterOverride() has been called.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>setFormat(<span>?string <var>$format</var></span>, <span>string|string[] <var>$mimeTypes</var></span>): void</code>
+				<code>setFormat(<span>string <var>$format</var></span>, <span>string|string[] <var>$mimeTypes</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2031,6 +2162,11 @@ but only if enableHttpMethodParameterOverride() has been called.</p>
 
 							<h4>Parameters</h4>
 							<table>
+									<tr>
+										<td><var>$format</var>&nbsp;&nbsp;</td>
+										<td><p>The format to set</p>
+</td>
+									</tr>
 									<tr>
 										<td><var>$mimeTypes</var>&nbsp;&nbsp;</td>
 										<td><p>The associated mime types (the preferred one must be the first as it will be used as the content type)</p>
@@ -2811,6 +2947,11 @@ in the response to prevent any issues with intermediary HTTP caches.</p>
 
 
 
+		<h4>Overriden by</h4>
+		<ul>
+				<li>
+<a href="Illuminate.Http.Request.html#_getAcceptableContentTypes">						<code>Illuminate\Http\Request::getAcceptableContentTypes()</code></a>				</li>
+		</ul>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -3415,6 +3556,25 @@ contents of a proxy-specific header.</p>
 			<a href="#METHOD_CONNECT">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="METHOD_QUERY" id="METHOD_QUERY">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+				</code>
+			</td>
+
+			<td class="table-cell">
+<code>METHOD_QUERY = <span class="php-str">'QUERY'</span></code>
+
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#METHOD_QUERY">#</a>
+		</td>
+	</tr>
 		</table>
 
 
@@ -3520,6 +3680,30 @@ contents of a proxy-specific header.</p>
 			<a href="#$httpMethodParameterOverride">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="allowedHttpMethodOverride" id="$allowedHttpMethodOverride">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">uppercase-string[]|null</code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$allowedHttpMethodOverride</var> = <span class="php-kw">null</span></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$allowedHttpMethodOverride">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="attributes" id="$attributes">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -3588,19 +3772,14 @@ contents of a proxy-specific header.</p>
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="Symfony.Component.HttpFoundation.InputBag.html"><span title="Symfony\Component\HttpFoundation\InputBag">InputBag</span></a></code>
+				<code class="nowrap"><a href="Symfony.Component.HttpFoundation.InputBag.html"><span title="Symfony\Component\HttpFoundation\InputBag">InputBag</span></a>&lt;string&gt;</code>
 			</td>
 
 			<td class="table-cell">
 <code><var>$query</var></code>
 				
-	<div class="expandable-collapsedView">
-		Query string parameters ($_GET).
-	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Query string parameters ($_GET).</p>
-</div>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -3675,19 +3854,14 @@ contents of a proxy-specific header.</p>
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap"><a href="Symfony.Component.HttpFoundation.InputBag.html"><span title="Symfony\Component\HttpFoundation\InputBag">InputBag</span></a></code>
+				<code class="nowrap"><a href="Symfony.Component.HttpFoundation.InputBag.html"><span title="Symfony\Component\HttpFoundation\InputBag">InputBag</span></a>&lt;string&gt;</code>
 			</td>
 
 			<td class="table-cell">
 <code><var>$cookies</var></code>
 				
-	<div class="expandable-collapsedView">
-		Cookies ($_COOKIE).
-	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Cookies ($_COOKIE).</p>
-</div>
 	</div>
 			</td>
 		<td class="table-anchor">

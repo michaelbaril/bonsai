@@ -910,6 +910,37 @@ that would result in an object in invalid state.</p>
 			<a href="#_getUsername">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="withUsername" id="_withUsername">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withUsername(<span>?string <var>$user</var></span>): <b><span class="active" title="League\Uri\Contracts\UriInterface">self</span></b></code>
+
+
+	<div class="expandable-collapsedView">
+		returns a new URI instance with the user component updated.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>returns a new URI instance with the user component updated.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withUsername">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="getPassword" id="_getPassword">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -941,6 +972,99 @@ that would result in an object in invalid state.</p>
 			<a href="#_getPassword">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="withPassword" id="_withPassword">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withPassword(<span>?string <var>$password</var></span>): <b><span class="active" title="League\Uri\Contracts\UriInterface">self</span></b></code>
+
+
+	<div class="expandable-collapsedView">
+		returns a new URI instance with the password component updated.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>returns a new URI instance with the password component updated.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withPassword">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="toAsciiString" id="_toAsciiString">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toAsciiString(): string</code>
+
+
+	<div class="expandable-collapsedView">
+		returns the string representation of the URI in its RFC3986 form
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>returns the string representation of the URI in its RFC3986 form</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toAsciiString">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="toUnicodeString" id="_toUnicodeString">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>toUnicodeString(): string</code>
+
+
+	<div class="expandable-collapsedView">
+		returns the string representation of the URI in its RFC3987 form (the host is in its IDN form)
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>returns the string representation of the URI in its RFC3987 form (the host is in its IDN form)</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_toUnicodeString">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="toComponents" id="_toComponents">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -970,6 +1094,99 @@ that would result in an object in invalid state.</p>
 			</td>
 		<td class="table-anchor">
 			<a href="#_toComponents">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="normalize" id="_normalize">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>normalize(): <b><span class="active" title="League\Uri\Contracts\UriInterface">self</span></b></code>
+
+
+	<div class="expandable-collapsedView">
+		returns a new URI instance with normalized components
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>returns a new URI instance with normalized components</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_normalize">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolve" id="_resolve">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>resolve(<span><b><span class="active" title="League\Uri\Contracts\UriInterface">UriInterface</span></b> <var>$uri</var></span>): <b><span class="active" title="League\Uri\Contracts\UriInterface">self</span></b></code>
+
+
+	<div class="expandable-collapsedView">
+		resolves a URI against a base URI using RFC3986 rules
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>resolves a URI against a base URI using RFC3986 rules</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolve">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="relativize" id="_relativize">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>relativize(<span><b><span class="active" title="League\Uri\Contracts\UriInterface">UriInterface</span></b> <var>$uri</var></span>): <b><span class="active" title="League\Uri\Contracts\UriInterface">self</span></b></code>
+
+
+	<div class="expandable-collapsedView">
+		relativize a URI against a base URI using RFC3986 rules
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>relativize a URI against a base URI using RFC3986 rules</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_relativize">#</a>
 		</td>
 	</tr>
 		</table>

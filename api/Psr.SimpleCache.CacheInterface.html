@@ -1,0 +1,551 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="robots" content="noindex">
+	<title>Interface Psr\SimpleCache\CacheInterface |  API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.html">Baril</a>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.html">Bonsai</a>
+			</li>
+	</ul>
+			</li>
+			<li class="menuGroup-item active">
+				<a href="namespace-Psr.html">Psr</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Psr.SimpleCache.html">SimpleCache</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Interfaces</h3>
+			<ul>
+					<li>
+						<a href="Psr.SimpleCache.CacheException.html">
+							CacheException
+						</a>
+					</li>
+					<li class="active">
+						<a href="Psr.SimpleCache.CacheInterface.html">
+							CacheInterface
+						</a>
+					</li>
+					<li>
+						<a href="Psr.SimpleCache.InvalidArgumentException.html">
+							InvalidArgumentException
+						</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Psr.SimpleCache.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Psr.SimpleCache.CacheInterface.html">Interface</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Interface <a href="namespace-Psr.html">Psr</a>\<a href="namespace-Psr.SimpleCache.html">SimpleCache</a>\<a href="Psr.SimpleCache.CacheInterface.html">CacheInterface</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+
+	</table>
+
+			<div class="classLikeSection">
+	<ul class="classTree">
+	<li>
+<b><span class="active">Psr\SimpleCache\CacheInterface</span></b>
+
+
+	<ul class="classTree">
+	<li>
+<a href="Illuminate.Contracts.Cache.Repository.html"><span>Illuminate\Contracts\Cache\Repository</span></a>
+		extends
+			<b><span class="active" title="Psr\SimpleCache\CacheInterface">CacheInterface</span></b>
+
+
+	</li>
+	</ul>
+	</li>
+	</ul>
+			</div>
+
+		<div class="classLikeSection">
+
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="get" id="_get">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>get(<span>string <var>$key</var></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): mixed</code>
+
+
+	<div class="expandable-collapsedView">
+		Fetches a value from the cache.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Fetches a value from the cache.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$key</var>&nbsp;&nbsp;</td>
+										<td><p>The unique key of this item in the cache.</p>
+</td>
+									</tr>
+									<tr>
+										<td><var>$default</var>&nbsp;&nbsp;</td>
+										<td><p>Default value to return if the key does not exist.</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>The value of the item from the cache, or $default in case of cache miss.</p>
+</div>
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_get">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="set" id="_set">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>set(<span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>, <span>null|int|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a> <var>$ttl</var> = <span class="php-kw">null</span></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$key</var>&nbsp;&nbsp;</td>
+										<td><p>The key of the item to store.</p>
+</td>
+									</tr>
+									<tr>
+										<td><var>$value</var>&nbsp;&nbsp;</td>
+										<td><p>The value of the item to store, must be serializable.</p>
+</td>
+									</tr>
+									<tr>
+										<td><var>$ttl</var>&nbsp;&nbsp;</td>
+										<td><p>Optional. The TTL value of this item. If no value is sent and
+the driver supports TTL then the library may set a default value
+for it or let the driver take care of that.</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>True on success and false on failure.</p>
+</div>
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_set">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="delete" id="_delete">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>delete(<span>string <var>$key</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Delete an item from the cache by its unique key.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Delete an item from the cache by its unique key.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$key</var>&nbsp;&nbsp;</td>
+										<td><p>The unique cache key of the item to delete.</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>True if the item was successfully removed. False if there was an error.</p>
+</div>
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_delete">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="clear" id="_clear">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>clear(): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Wipes clean the entire cache's keys.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Wipes clean the entire cache's keys.</p>
+</div>
+
+
+							<h4>Returns</h4>
+							<div><p>True on success and false on failure.</p>
+</div>
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_clear">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getMultiple" id="_getMultiple">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getMultiple(<span>iterable&lt;string&gt; <var>$keys</var></span>, <span>mixed <var>$default</var> = <span class="php-kw">null</span></span>): iterable&lt;string, mixed&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		Obtains multiple cache items by their unique keys.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Obtains multiple cache items by their unique keys.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$keys</var>&nbsp;&nbsp;</td>
+										<td><p>A list of keys that can be obtained in a single operation.</p>
+</td>
+									</tr>
+									<tr>
+										<td><var>$default</var>&nbsp;&nbsp;</td>
+										<td><p>Default value to return for keys that do not exist.</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>A list of key =&gt; value pairs. Cache keys that do not exist or are stale will have $default as value.</p>
+</div>
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getMultiple">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="setMultiple" id="_setMultiple">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>setMultiple(<span>iterable <var>$values</var></span>, <span>null|int|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a> <var>$ttl</var> = <span class="php-kw">null</span></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Persists a set of key =&gt; value pairs in the cache, with an optional TTL.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Persists a set of key =&gt; value pairs in the cache, with an optional TTL.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$values</var>&nbsp;&nbsp;</td>
+										<td><p>A list of key =&gt; value pairs for a multiple-set operation.</p>
+</td>
+									</tr>
+									<tr>
+										<td><var>$ttl</var>&nbsp;&nbsp;</td>
+										<td><p>Optional. The TTL value of this item. If no value is sent and
+the driver supports TTL then the library may set a default value
+for it or let the driver take care of that.</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>True on success and false on failure.</p>
+</div>
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_setMultiple">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="deleteMultiple" id="_deleteMultiple">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>deleteMultiple(<span>iterable&lt;string&gt; <var>$keys</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Deletes multiple cache items in a single operation.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Deletes multiple cache items in a single operation.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$keys</var>&nbsp;&nbsp;</td>
+										<td><p>A list of string-based keys to be deleted.</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>True if the items were successfully removed. False if there was an error.</p>
+</div>
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_deleteMultiple">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="has" id="_has">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>has(<span>string <var>$key</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Determines whether an item is present in the cache.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Determines whether an item is present in the cache.</p>
+<p>NOTE: It is recommended that has() is only to be used for cache warming type purposes
+and not to be used within your live applications operations for get/set, as this method
+is subject to a race condition where your has() will return true and immediately after,
+another script can remove it making the state of your app out of date.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$key</var>&nbsp;&nbsp;</td>
+										<td><p>The cache item key.</p>
+</td>
+									</tr>
+							</table>
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_has">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+
+
+		</div>
+
+		<div class="layout-footer">
+			 API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.6</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

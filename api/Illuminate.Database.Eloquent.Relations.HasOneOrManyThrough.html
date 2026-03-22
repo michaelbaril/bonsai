@@ -368,11 +368,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the fully qualified parent key name.
+		Get the fully-qualified parent key name.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the fully qualified parent key name.</p>
+	<div class="description"><p>Get the fully-qualified parent key name.</p>
 </div>
 
 
@@ -498,7 +498,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>buildDictionary(<span><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a>&lt;int, TRelatedModel&gt; <var>$results</var></span>): array&lt;array&lt;TRelatedModel&gt;&gt;</code>
+				<code>buildDictionary(<span><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a>&lt;int, TRelatedModel&gt; <var>$results</var></span>): array&lt;array&lt;array-key, TRelatedModel&gt;&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -560,7 +560,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>firstOrCreate(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TRelatedModel</code>
+				<code>firstOrCreate(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TRelatedModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -591,7 +591,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>createOrFirst(<span>array <var>$attributes</var> = []</span>, <span>array <var>$values</var> = []</span>): TRelatedModel</code>
+				<code>createOrFirst(<span>array <var>$attributes</var> = []</span>, <span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>): TRelatedModel</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1015,7 +1015,7 @@
 	<span>int|null <var>$perPage</var> = <span class="php-kw">null</span></span>,
 	<span>array <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 	<span>string <var>$pageName</var> = <span class="php-str">'page'</span></span>,
-	<span>int <var>$page</var> = <span class="php-kw">null</span></span>,
+	<span>int|null <var>$page</var> = <span class="php-kw">null</span></span>,
 ): <a href="Illuminate.Pagination.LengthAwarePaginator.html"><span title="Illuminate\Pagination\LengthAwarePaginator">LengthAwarePaginator</span></a></code>
 
 
@@ -1513,7 +1513,7 @@
 				<code>getRelationExistenceQueryForSelfRelation(
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt; <var>$query</var></span>,
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TDeclaringModel&gt; <var>$parentQuery</var></span>,
-	<span>array|mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
+	<span>mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 ): <a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;</code>
 
 
@@ -1548,7 +1548,7 @@
 				<code>getRelationExistenceQueryForThroughSelfRelation(
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt; <var>$query</var></span>,
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TDeclaringModel&gt; <var>$parentQuery</var></span>,
-	<span>array|mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
+	<span>mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 ): <a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;</code>
 
 

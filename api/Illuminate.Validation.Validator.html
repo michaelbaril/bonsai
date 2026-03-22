@@ -390,6 +390,74 @@
 			<a href="#_fails">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="whenPasses" id="_whenPasses">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whenPasses&lt;<span title="">TWhenReturnType</span>&gt;(
+	<span>callable($this):&nbsp;TWhenReturnType <var>$callback</var></span>,
+	<span>(callable($this):&nbsp;TWhenReturnType)|null <var>$default</var> = <span class="php-kw">null</span></span>,
+): $this|TWhenReturnType</code>
+
+
+	<div class="expandable-collapsedView">
+		Execute the callback if the data passes the validation rules.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Execute the callback if the data passes the validation rules.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whenPasses">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whenFails" id="_whenFails">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whenFails&lt;<span title="">TWhenReturnType</span>&gt;(
+	<span>callable($this):&nbsp;TWhenReturnType <var>$callback</var></span>,
+	<span>(callable($this):&nbsp;TWhenReturnType)|null <var>$default</var> = <span class="php-kw">null</span></span>,
+): $this|TWhenReturnType</code>
+
+
+	<div class="expandable-collapsedView">
+		Execute the callback if the data fails the validation rules.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Execute the callback if the data fails the validation rules.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whenFails">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="shouldBeExcluded" id="_shouldBeExcluded">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1648,7 +1716,7 @@
 			<a href="#_setRules">#</a>
 		</td>
 	</tr>
-	<tr class="expandable collapsed" data-order="addRules" id="_addRules">
+	<tr class="expandable collapsed" data-order="appendRules" id="_appendRules">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
 					
@@ -1659,15 +1727,15 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addRules(<span>array <var>$rules</var></span>): void</code>
+				<code>appendRules(<span>array <var>$rules</var></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
-		Parse the given rules and merge them into current rules.
+		Append new validation rules to the validator.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Parse the given rules and merge them into current rules.</p>
+	<div class="description"><p>Append new validation rules to the validator.</p>
 </div>
 
 
@@ -1676,7 +1744,7 @@
 	</div>
 			</td>
 		<td class="table-anchor">
-			<a href="#_addRules">#</a>
+			<a href="#_appendRules">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="sometimes" id="_sometimes">
@@ -2535,6 +2603,99 @@
 			<a href="#_callClassBasedExtension">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="encodeAttributeWithPlaceholder" id="_encodeAttributeWithPlaceholder">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>encodeAttributeWithPlaceholder(<span>string <var>$attribute</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Encode the attribute with the placeholder hash.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Encode the attribute with the placeholder hash.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_encodeAttributeWithPlaceholder">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="decodeAttributeWithPlaceholder" id="_decodeAttributeWithPlaceholder">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>decodeAttributeWithPlaceholder(<span>string <var>$attribute</var></span>): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Decode an attribute with a placeholder hash.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Decode an attribute with a placeholder hash.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_decodeAttributeWithPlaceholder">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="flushState" id="_flushState">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					static
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>flushState(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Flush the validator's global state.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Flush the validator's global state.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_flushState">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="__call" id="___call">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2581,7 +2742,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getMessage">getMessage()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getInlineMessage">getInlineMessage()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getFromLocalArray">getFromLocalArray()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getCustomMessageFromTranslator">getCustomMessageFromTranslator()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getWildcardCustomMessages">getWildcardCustomMessages()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getSizeMessage">getSizeMessage()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeType">getAttributeType()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_makeReplacements">makeReplacements()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getDisplayableAttribute">getDisplayableAttribute()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeFromTranslations">getAttributeFromTranslations()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeFromLocalArray">getAttributeFromLocalArray()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceAttributePlaceholder">replaceAttributePlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceIndexPlaceholder">replaceIndexPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replacePositionPlaceholder">replacePositionPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceIndexOrPositionPlaceholder">replaceIndexOrPositionPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_numberToIndexOrPositionWord">numberToIndexOrPositionWord()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceInputPlaceholder">replaceInputPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getDisplayableValue">getDisplayableValue()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeList">getAttributeList()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_callReplacer">callReplacer()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_callClassBasedReplacer">callClassBasedReplacer()</a></code>				</td>
+<code><a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getMessage">getMessage()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getInlineMessage">getInlineMessage()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getFromLocalArray">getFromLocalArray()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getCustomMessageFromTranslator">getCustomMessageFromTranslator()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getWildcardCustomMessages">getWildcardCustomMessages()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getSizeMessage">getSizeMessage()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeType">getAttributeType()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_makeReplacements">makeReplacements()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getDisplayableAttribute">getDisplayableAttribute()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeFromTranslations">getAttributeFromTranslations()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeFromLocalArray">getAttributeFromLocalArray()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceAttributePlaceholder">replaceAttributePlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceIndexPlaceholder">replaceIndexPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replacePositionPlaceholder">replacePositionPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceOrdinalPositionPlaceholder">replaceOrdinalPositionPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceIndexOrPositionPlaceholder">replaceIndexOrPositionPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_numberToIndexOrPositionWord">numberToIndexOrPositionWord()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_replaceInputPlaceholder">replaceInputPlaceholder()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getDisplayableValue">getDisplayableValue()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_getAttributeList">getAttributeList()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_callReplacer">callReplacer()</a>, <a href="Illuminate.Validation.Concerns.FormatsMessages.html#_callClassBasedReplacer">callClassBasedReplacer()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -2591,7 +2752,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAccepted">validateAccepted()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAcceptedIf">validateAcceptedIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDeclined">validateDeclined()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDeclinedIf">validateDeclinedIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateActiveUrl">validateActiveUrl()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDnsRecords">getDnsRecords()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAscii">validateAscii()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBail">validateBail()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBefore">validateBefore()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBeforeOrEqual">validateBeforeOrEqual()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAfter">validateAfter()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAfterOrEqual">validateAfterOrEqual()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_compareDates">compareDates()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateFormat">getDateFormat()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateTimestamp">getDateTimestamp()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_checkDateTimeOrder">checkDateTimeOrder()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateTimeWithOptionalFormat">getDateTimeWithOptionalFormat()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateTime">getDateTime()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAlpha">validateAlpha()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAlphaDash">validateAlphaDash()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAlphaNum">validateAlphaNum()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateArray">validateArray()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateList">validateList()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredArrayKeys">validateRequiredArrayKeys()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBetween">validateBetween()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBoolean">validateBoolean()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateConfirmed">validateConfirmed()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateContains">validateContains()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDoesntContain">validateDoesntContain()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateCurrentPassword">validateCurrentPassword()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDate">validateDate()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDateFormat">validateDateFormat()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDateEquals">validateDateEquals()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDecimal">validateDecimal()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDifferent">validateDifferent()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDigits">validateDigits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDigitsBetween">validateDigitsBetween()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDimensions">validateDimensions()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_failsBasicDimensionChecks">failsBasicDimensionChecks()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_failsRatioCheck">failsRatioCheck()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDistinct">validateDistinct()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDistinctValues">getDistinctValues()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_extractDistinctValues">extractDistinctValues()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateEmail">validateEmail()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExists">validateExists()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getExistCount">getExistCount()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUnique">validateUnique()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getUniqueIds">getUniqueIds()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_prepareUniqueId">prepareUniqueId()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getUniqueExtra">getUniqueExtra()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_parseTable">parseTable()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getQueryColumn">getQueryColumn()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_guessColumnForQuery">guessColumnForQuery()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getExtraConditions">getExtraConditions()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExtensions">validateExtensions()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateFile">validateFile()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateFilled">validateFilled()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateGt">validateGt()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateLt">validateLt()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateGte">validateGte()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateLte">validateLte()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateLowercase">validateLowercase()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUppercase">validateUppercase()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateHexColor">validateHexColor()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateImage">validateImage()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIn">validateIn()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateInArray">validateInArray()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateInArrayKeys">validateInArrayKeys()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateInteger">validateInteger()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIp">validateIp()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIpv4">validateIpv4()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIpv6">validateIpv6()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMacAddress">validateMacAddress()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateJson">validateJson()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMax">validateMax()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMaxDigits">validateMaxDigits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMimes">validateMimes()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMimetypes">validateMimetypes()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_shouldBlockPhpUpload">shouldBlockPhpUpload()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMin">validateMin()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMinDigits">validateMinDigits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissing">validateMissing()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingIf">validateMissingIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingUnless">validateMissingUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingWith">validateMissingWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingWithAll">validateMissingWithAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMultipleOf">validateMultipleOf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNullable">validateNullable()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNotIn">validateNotIn()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNumeric">validateNumeric()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresent">validatePresent()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentIf">validatePresentIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentUnless">validatePresentUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentWith">validatePresentWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentWithAll">validatePresentWithAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRegex">validateRegex()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNotRegex">validateNotRegex()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequired">validateRequired()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredIf">validateRequiredIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredIfAccepted">validateRequiredIfAccepted()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredIfDeclined">validateRequiredIfDeclined()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibited">validateProhibited()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedIf">validateProhibitedIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedIfAccepted">validateProhibitedIfAccepted()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedIfDeclined">validateProhibitedIfDeclined()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedUnless">validateProhibitedUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibits">validateProhibits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExclude">validateExclude()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeIf">validateExcludeIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeUnless">validateExcludeUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredUnless">validateRequiredUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeWith">validateExcludeWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeWithout">validateExcludeWithout()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_parseDependentRuleParameters">parseDependentRuleParameters()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_shouldConvertToBoolean">shouldConvertToBoolean()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_convertValuesToBoolean">convertValuesToBoolean()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_convertValuesToNull">convertValuesToNull()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWith">validateRequiredWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWithAll">validateRequiredWithAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWithout">validateRequiredWithout()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWithoutAll">validateRequiredWithoutAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_anyFailingRequired">anyFailingRequired()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_allFailingRequired">allFailingRequired()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateSame">validateSame()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateSize">validateSize()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateSometimes">validateSometimes()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateStartsWith">validateStartsWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDoesntStartWith">validateDoesntStartWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateEndsWith">validateEndsWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDoesntEndWith">validateDoesntEndWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateString">validateString()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateTimezone">validateTimezone()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUrl">validateUrl()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUlid">validateUlid()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUuid">validateUuid()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getSize">getSize()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_isValidFileInstance">isValidFileInstance()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_compare">compare()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_parseNamedParameters">parseNamedParameters()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_requireParameterCount">requireParameterCount()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_isSameType">isSameType()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_shouldBeNumeric">shouldBeNumeric()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_trim">trim()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_ensureExponentWithinAllowedRange">ensureExponentWithinAllowedRange()</a></code>				</td>
+<code><a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAccepted">validateAccepted()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAcceptedIf">validateAcceptedIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDeclined">validateDeclined()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDeclinedIf">validateDeclinedIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateActiveUrl">validateActiveUrl()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDnsRecords">getDnsRecords()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAscii">validateAscii()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBail">validateBail()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBefore">validateBefore()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBeforeOrEqual">validateBeforeOrEqual()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAfter">validateAfter()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAfterOrEqual">validateAfterOrEqual()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_compareDates">compareDates()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateFormat">getDateFormat()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateTimestamp">getDateTimestamp()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_checkDateTimeOrder">checkDateTimeOrder()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateTimeWithOptionalFormat">getDateTimeWithOptionalFormat()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDateTime">getDateTime()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAlpha">validateAlpha()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAlphaDash">validateAlphaDash()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateAlphaNum">validateAlphaNum()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateArray">validateArray()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateList">validateList()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredArrayKeys">validateRequiredArrayKeys()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBetween">validateBetween()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateBoolean">validateBoolean()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateConfirmed">validateConfirmed()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateContains">validateContains()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDoesntContain">validateDoesntContain()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateCurrentPassword">validateCurrentPassword()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDate">validateDate()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDateFormat">validateDateFormat()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDateEquals">validateDateEquals()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDecimal">validateDecimal()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDifferent">validateDifferent()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDigits">validateDigits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDigitsBetween">validateDigitsBetween()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDimensions">validateDimensions()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_failsBasicDimensionChecks">failsBasicDimensionChecks()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_failsRatioCheck">failsRatioCheck()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDistinct">validateDistinct()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getDistinctValues">getDistinctValues()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_extractDistinctValues">extractDistinctValues()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateEmail">validateEmail()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateEncoding">validateEncoding()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExists">validateExists()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getExistCount">getExistCount()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUnique">validateUnique()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getUniqueIds">getUniqueIds()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_prepareUniqueId">prepareUniqueId()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getUniqueExtra">getUniqueExtra()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_parseTable">parseTable()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getQueryColumn">getQueryColumn()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_guessColumnForQuery">guessColumnForQuery()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getExtraConditions">getExtraConditions()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExtensions">validateExtensions()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateFile">validateFile()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateFilled">validateFilled()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateGt">validateGt()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateLt">validateLt()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateGte">validateGte()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateLte">validateLte()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateLowercase">validateLowercase()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUppercase">validateUppercase()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateHexColor">validateHexColor()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateImage">validateImage()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIn">validateIn()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateInArray">validateInArray()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateInArrayKeys">validateInArrayKeys()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateInteger">validateInteger()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIp">validateIp()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIpv4">validateIpv4()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateIpv6">validateIpv6()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMacAddress">validateMacAddress()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateJson">validateJson()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMax">validateMax()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMaxDigits">validateMaxDigits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMimes">validateMimes()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMimetypes">validateMimetypes()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_shouldBlockPhpUpload">shouldBlockPhpUpload()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMin">validateMin()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMinDigits">validateMinDigits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissing">validateMissing()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingIf">validateMissingIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingUnless">validateMissingUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingWith">validateMissingWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMissingWithAll">validateMissingWithAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateMultipleOf">validateMultipleOf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNullable">validateNullable()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNotIn">validateNotIn()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNumeric">validateNumeric()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresent">validatePresent()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentIf">validatePresentIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentUnless">validatePresentUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentWith">validatePresentWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validatePresentWithAll">validatePresentWithAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRegex">validateRegex()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateNotRegex">validateNotRegex()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequired">validateRequired()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredIf">validateRequiredIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredIfAccepted">validateRequiredIfAccepted()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredIfDeclined">validateRequiredIfDeclined()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibited">validateProhibited()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedIf">validateProhibitedIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedIfAccepted">validateProhibitedIfAccepted()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedIfDeclined">validateProhibitedIfDeclined()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibitedUnless">validateProhibitedUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateProhibits">validateProhibits()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExclude">validateExclude()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeIf">validateExcludeIf()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeUnless">validateExcludeUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredUnless">validateRequiredUnless()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeWith">validateExcludeWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateExcludeWithout">validateExcludeWithout()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_parseDependentRuleParameters">parseDependentRuleParameters()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_shouldConvertToBoolean">shouldConvertToBoolean()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_convertValuesToBoolean">convertValuesToBoolean()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_convertValuesToNull">convertValuesToNull()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWith">validateRequiredWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWithAll">validateRequiredWithAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWithout">validateRequiredWithout()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateRequiredWithoutAll">validateRequiredWithoutAll()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_anyFailingRequired">anyFailingRequired()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_allFailingRequired">allFailingRequired()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateSame">validateSame()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateSize">validateSize()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateSometimes">validateSometimes()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateStartsWith">validateStartsWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDoesntStartWith">validateDoesntStartWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateEndsWith">validateEndsWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateDoesntEndWith">validateDoesntEndWith()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateString">validateString()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateTimezone">validateTimezone()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUrl">validateUrl()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUlid">validateUlid()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_validateUuid">validateUuid()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_getSize">getSize()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_isValidFileInstance">isValidFileInstance()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_compare">compare()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_parseNamedParameters">parseNamedParameters()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_requireParameterCount">requireParameterCount()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_isSameType">isSameType()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_shouldBeNumeric">shouldBeNumeric()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_trim">trim()</a>, <a href="Illuminate.Validation.Concerns.ValidatesAttributes.html#_ensureExponentWithinAllowedRange">ensureExponentWithinAllowedRange()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -3149,7 +3310,19 @@
 			</td>
 
 			<td class="table-cell">
-<code><var>$fileRules</var> = [<span class="php-str">'Between'</span>, <span class="php-str">'Dimensions'</span>, <span class="php-str">'Extensions'</span>, <span class="php-str">'File'</span>, <span class="php-str">'Image'</span>, <span class="php-str">'Max'</span>, <span class="php-str">'Mimes'</span>, <span class="php-str">'Mimetypes'</span>, <span class="php-str">'Min'</span>, <span class="php-str">'Size'</span>]</code>
+<code><var>$fileRules</var> = [
+	<span class="php-str">'Between'</span>,
+	<span class="php-str">'Dimensions'</span>,
+	<span class="php-str">'Encoding'</span>,
+	<span class="php-str">'Extensions'</span>,
+	<span class="php-str">'File'</span>,
+	<span class="php-str">'Image'</span>,
+	<span class="php-str">'Max'</span>,
+	<span class="php-str">'Mimes'</span>,
+	<span class="php-str">'Mimetypes'</span>,
+	<span class="php-str">'Min'</span>,
+	<span class="php-str">'Size'</span>,
+]</code>
 				
 
 	<div class="expandable-expandedView">
@@ -3379,7 +3552,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">string</code>
+				<code class="nowrap">string|null</code>
 			</td>
 
 			<td class="table-cell">

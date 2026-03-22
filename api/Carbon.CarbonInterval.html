@@ -160,7 +160,7 @@
 		<tr>
 			<th><code>implements</code></th>
 			<td>
-<code><a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a></code>			</td>
+<code><a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a>, <a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a></code>			</td>
 		</tr>
 		<tr>
 			<th><code>uses</code></th>
@@ -187,7 +187,8 @@ Weeks are calculated based on the total days of the current instance.</p>
 <b><span class="active">Carbon\CarbonInterval</span></b>
 
 		implements
-			<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a>
+			<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a>, 
+			<a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a>
 
 		uses
 			<a href="Carbon.Traits.LocalFactory.html"><span title="Carbon\Traits\LocalFactory">LocalFactory</span></a>, 
@@ -7812,12 +7813,12 @@ we recommend to use the explicit methods -&gt;betweenIncluded() or -&gt;betweenE
 			<td class="table-cell">
 <code>SPECIAL_TRANSLATIONS = [
 	<span class="php-num">1</span> =&gt; [
-		<span class="php-str">'option'</span> =&gt; <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#ONE_DAY_WORDS">ONE_DAY_WORDS</a>,
+		<span class="php-str">'option'</span> =&gt; <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::ONE_DAY_WORDS,
 		<span class="php-str">'future'</span> =&gt; <span class="php-str">'diff_tomorrow'</span>,
 		<span class="php-str">'past'</span> =&gt; <span class="php-str">'diff_yesterday'</span>,
 	],
 	<span class="php-num">2</span> =&gt; [
-		<span class="php-str">'option'</span> =&gt; <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::<a href="Carbon.CarbonInterface.html#TWO_DAY_WORDS">TWO_DAY_WORDS</a>,
+		<span class="php-str">'option'</span> =&gt; <a href="Carbon.CarbonInterface.html"><span title="Carbon\CarbonInterface">CarbonInterface</span></a>::TWO_DAY_WORDS,
 		<span class="php-str">'future'</span> =&gt; <span class="php-str">'diff_after_tomorrow'</span>,
 		<span class="php-str">'past'</span> =&gt; <span class="php-str">'diff_before_yesterday'</span>,
 	],
@@ -7836,6 +7837,16 @@ we recommend to use the explicit methods -&gt;betweenIncluded() or -&gt;betweenE
 
 
 
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Constants inherited from <a href="Carbon.Constants.UnitValue.html"><span>Carbon\Constants\UnitValue</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Carbon.Constants.UnitValue.html#SUNDAY"><code>SUNDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#MONDAY"><code>MONDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#TUESDAY"><code>TUESDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#WEDNESDAY"><code>WEDNESDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#THURSDAY"><code>THURSDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#FRIDAY"><code>FRIDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#SATURDAY"><code>SATURDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#JANUARY"><code>JANUARY</code></a>, <a href="Carbon.Constants.UnitValue.html#FEBRUARY"><code>FEBRUARY</code></a>, <a href="Carbon.Constants.UnitValue.html#MARCH"><code>MARCH</code></a>, <a href="Carbon.Constants.UnitValue.html#APRIL"><code>APRIL</code></a>, <a href="Carbon.Constants.UnitValue.html#MAY"><code>MAY</code></a>, <a href="Carbon.Constants.UnitValue.html#JUNE"><code>JUNE</code></a>, <a href="Carbon.Constants.UnitValue.html#JULY"><code>JULY</code></a>, <a href="Carbon.Constants.UnitValue.html#AUGUST"><code>AUGUST</code></a>, <a href="Carbon.Constants.UnitValue.html#SEPTEMBER"><code>SEPTEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#OCTOBER"><code>OCTOBER</code></a>, <a href="Carbon.Constants.UnitValue.html#NOVEMBER"><code>NOVEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#DECEMBER"><code>DECEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_MILLENNIUM"><code>YEARS_PER_MILLENNIUM</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_CENTURY"><code>YEARS_PER_CENTURY</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_DECADE"><code>YEARS_PER_DECADE</code></a>, <a href="Carbon.Constants.UnitValue.html#MONTHS_PER_YEAR"><code>MONTHS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#MONTHS_PER_QUARTER"><code>MONTHS_PER_QUARTER</code></a>, <a href="Carbon.Constants.UnitValue.html#QUARTERS_PER_YEAR"><code>QUARTERS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#WEEKS_PER_YEAR"><code>WEEKS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#WEEKS_PER_MONTH"><code>WEEKS_PER_MONTH</code></a>, <a href="Carbon.Constants.UnitValue.html#DAYS_PER_YEAR"><code>DAYS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#DAYS_PER_WEEK"><code>DAYS_PER_WEEK</code></a>, <a href="Carbon.Constants.UnitValue.html#HOURS_PER_DAY"><code>HOURS_PER_DAY</code></a>, <a href="Carbon.Constants.UnitValue.html#MINUTES_PER_HOUR"><code>MINUTES_PER_HOUR</code></a>, <a href="Carbon.Constants.UnitValue.html#SECONDS_PER_MINUTE"><code>SECONDS_PER_MINUTE</code></a>, <a href="Carbon.Constants.UnitValue.html#MILLISECONDS_PER_SECOND"><code>MILLISECONDS_PER_SECOND</code></a>, <a href="Carbon.Constants.UnitValue.html#MICROSECONDS_PER_MILLISECOND"><code>MICROSECONDS_PER_MILLISECOND</code></a>, <a href="Carbon.Constants.UnitValue.html#MICROSECONDS_PER_SECOND"><code>MICROSECONDS_PER_SECOND</code></a></code>				</td>
+			</tr>
+		</table>
 
 
 

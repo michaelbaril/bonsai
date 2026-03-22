@@ -140,14 +140,18 @@
 			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
-
-
-	</li>
-	<li>
 <a href="Baril.Bonsai.Console.FixTreeCommand.html"><span>Baril\Bonsai\Console\FixTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
+	</li>
+	<li>
+<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
+
+
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Console.Migrations.BaseCommand.html"><span>Illuminate\Database\Console\Migrations\BaseCommand</span></a>
@@ -165,6 +169,8 @@
 <a href="Baril.Bonsai.Console.GrowTreeCommand.html"><span>Baril\Bonsai\Console\GrowTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	</ul>
 	</li>
@@ -261,7 +267,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span>string|null <var>$name</var> = <span class="php-kw">null</span></span>)</code>
+				<code>__construct(<span>string|null <var>$name</var> = <span class="php-kw">null</span></span>, <span>?callable <var>$code</var> = <span class="php-kw">null</span></span>)</code>
 
 
 
@@ -706,6 +712,40 @@ in a sub-class.</p>
 			</td>
 		<td class="table-anchor">
 			<a href="#_complete">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getCode" id="_getCode">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getCode(): ?callable</code>
+
+
+	<div class="expandable-collapsedView">
+		Gets the code that is executed by the command.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Gets the code that is executed by the command.</p>
+</div>
+
+
+							<h4>Returns</h4>
+							<div><p>null if the code has not been set with setCode()</p>
+</div>
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getCode">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="setCode" id="_setCode">

@@ -188,6 +188,11 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.AsPivot.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\AsPivot">AsPivot</span></a>
 	<ul class="classTree">
 	<li>
+<a href="Baril.Bonsai.Closure.html"><span>Baril\Bonsai\Closure</span></a>
+
+
+	</li>
+	<li>
 <a href="Illuminate.Database.Eloquent.Relations.MorphPivot.html"><span>Illuminate\Database\Eloquent\Relations\MorphPivot</span></a>
 
 
@@ -1700,7 +1705,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getEnumCaseFromValue(<span>string <var>$enumClass</var></span>, <span>string|int <var>$value</var></span>): <a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|<a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a></code>
+				<code>getEnumCaseFromValue(<span>string <var>$enumClass</var></span>, <span>string|int <var>$value</var></span>): <a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -1731,7 +1736,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getStorableEnumValue(<span>string <var>$expectedEnum</var></span>, <span><a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a>|<a href="BackedEnum.html"><span title="BackedEnum">BackedEnum</span></a> <var>$value</var></span>): string|int</code>
+				<code>getStorableEnumValue(<span>string <var>$expectedEnum</var></span>, <span><a href="UnitEnum.html"><span title="UnitEnum">UnitEnum</span></a> <var>$value</var></span>): string|int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1762,7 +1767,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getArrayAttributeWithValue(<span>string <var>$path</var></span>, <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): $this</code>
+				<code>getArrayAttributeWithValue(<span>string <var>$path</var></span>, <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2351,7 +2356,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getDates(): array</code>
+				<code>getDates(): array&lt;int, string|null&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -2919,6 +2924,37 @@
 			<a href="#_mergeAttributesFromCachedCasts">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="mergeAttributeFromCachedCasts" id="_mergeAttributeFromCachedCasts">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>mergeAttributeFromCachedCasts(<span>string <var>$key</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Merge the a cast class and attribute cast attribute back into the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Merge the a cast class and attribute cast attribute back into the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_mergeAttributeFromCachedCasts">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="mergeAttributesFromClassCasts" id="_mergeAttributesFromClassCasts">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2950,6 +2986,37 @@
 			<a href="#_mergeAttributesFromClassCasts">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="mergeAttributeFromClassCasts" id="_mergeAttributeFromClassCasts">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>mergeAttributeFromClassCasts(<span>string <var>$key</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Merge the cast class attribute back into the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Merge the cast class attribute back into the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_mergeAttributeFromClassCasts">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="mergeAttributesFromAttributeCasts" id="_mergeAttributesFromAttributeCasts">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -2979,6 +3046,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_mergeAttributesFromAttributeCasts">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="mergeAttributeFromAttributeCasts" id="_mergeAttributeFromAttributeCasts">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>mergeAttributeFromAttributeCasts(<span>string <var>$key</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Merge the cast class attribute back into the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Merge the cast class attribute back into the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_mergeAttributeFromAttributeCasts">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="normalizeCastClassResponse" id="_normalizeCastClassResponse">
@@ -3881,6 +3979,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_hasAppended">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="withoutAppends" id="_withoutAppends">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>withoutAppends(): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Remove all appended properties from the model.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Remove all appended properties from the model.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withoutAppends">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getMutatedAttributes" id="_getMutatedAttributes">

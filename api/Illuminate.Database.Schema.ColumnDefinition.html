@@ -469,11 +469,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Set the starting value of an auto-incrementing field (MySQL / PostgreSQL)
+		Set the starting value of an auto-incrementing field (MySQL/PostgreSQL)
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Set the starting value of an auto-incrementing field (MySQL / PostgreSQL)</p>
+	<div class="description"><p>Set the starting value of an auto-incrementing field (MySQL/PostgreSQL)</p>
 </div>
 
 
@@ -483,6 +483,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_from">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="fulltext" id="_fulltext">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>fulltext(<span>bool|string <var>$indexName</var> = <span class="php-kw">null</span></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a fulltext index
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a fulltext index</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_fulltext">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="generatedAs" id="_generatedAs">
@@ -514,6 +545,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_generatedAs">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="instant" id="_instant">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>instant(): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Specify that algorithm=instant should be used for the column operation (MySQL)
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Specify that algorithm=instant should be used for the column operation (MySQL)</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_instant">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="index" id="_index">
@@ -576,6 +638,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_invisible">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="lock" id="_lock">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>lock(<span><span class="php-str">'none'</span>|<span class="php-str">'shared'</span>|<span class="php-str">'default'</span>|<span class="php-str">'exclusive'</span> <var>$value</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Specify the DDL lock mode for the column operation (MySQL)
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Specify the DDL lock mode for the column operation (MySQL)</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_lock">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="nullable" id="_nullable">
@@ -671,37 +764,6 @@
 			<a href="#_primary">#</a>
 		</td>
 	</tr>
-	<tr class="expandable collapsed" data-order="fulltext" id="_fulltext">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-					
-					
-				</code>
-			</td>
-
-			<td class="table-cell">
-				<code>fulltext(<span>bool|string <var>$indexName</var> = <span class="php-kw">null</span></span>): $this</code>
-
-
-	<div class="expandable-collapsedView">
-		Add a fulltext index
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Add a fulltext index</p>
-</div>
-
-
-
-
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#_fulltext">#</a>
-		</td>
-	</tr>
 	<tr class="expandable collapsed" data-order="spatialIndex" id="_spatialIndex">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -731,6 +793,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_spatialIndex">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="vectorIndex" id="_vectorIndex">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>vectorIndex(<span>bool|string <var>$indexName</var> = <span class="php-kw">null</span></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add a vector index
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add a vector index</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_vectorIndex">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="startingValue" id="_startingValue">
@@ -988,7 +1081,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Support.Fluent.html#___construct">__construct()</a>, <a href="Illuminate.Support.Fluent.html#_make">make()</a>, <a href="Illuminate.Support.Fluent.html#_get">get()</a>, <a href="Illuminate.Support.Fluent.html#_set">set()</a>, <a href="Illuminate.Support.Fluent.html#_fill">fill()</a>, <a href="Illuminate.Support.Fluent.html#_value">value()</a>, <a href="Illuminate.Support.Fluent.html#_scope">scope()</a>, <a href="Illuminate.Support.Fluent.html#_all">all()</a>, <a href="Illuminate.Support.Fluent.html#_data">data()</a>, <a href="Illuminate.Support.Fluent.html#_getAttributes">getAttributes()</a>, <a href="Illuminate.Support.Fluent.html#_toArray">toArray()</a>, <a href="Illuminate.Support.Fluent.html#_jsonSerialize">jsonSerialize()</a>, <a href="Illuminate.Support.Fluent.html#_toJson">toJson()</a>, <a href="Illuminate.Support.Fluent.html#_isEmpty">isEmpty()</a>, <a href="Illuminate.Support.Fluent.html#_isNotEmpty">isNotEmpty()</a>, <a href="Illuminate.Support.Fluent.html#_offsetExists">offsetExists()</a>, <a href="Illuminate.Support.Fluent.html#_offsetGet">offsetGet()</a>, <a href="Illuminate.Support.Fluent.html#_offsetSet">offsetSet()</a>, <a href="Illuminate.Support.Fluent.html#_offsetUnset">offsetUnset()</a>, <a href="Illuminate.Support.Fluent.html#_getIterator">getIterator()</a>, <a href="Illuminate.Support.Fluent.html#___call">__call()</a>, <a href="Illuminate.Support.Fluent.html#___get">__get()</a>, <a href="Illuminate.Support.Fluent.html#___set">__set()</a>, <a href="Illuminate.Support.Fluent.html#___isset">__isset()</a>, <a href="Illuminate.Support.Fluent.html#___unset">__unset()</a></code>				</td>
+<code><a href="Illuminate.Support.Fluent.html#___construct">__construct()</a>, <a href="Illuminate.Support.Fluent.html#_make">make()</a>, <a href="Illuminate.Support.Fluent.html#_get">get()</a>, <a href="Illuminate.Support.Fluent.html#_set">set()</a>, <a href="Illuminate.Support.Fluent.html#_fill">fill()</a>, <a href="Illuminate.Support.Fluent.html#_value">value()</a>, <a href="Illuminate.Support.Fluent.html#_scope">scope()</a>, <a href="Illuminate.Support.Fluent.html#_all">all()</a>, <a href="Illuminate.Support.Fluent.html#_data">data()</a>, <a href="Illuminate.Support.Fluent.html#_getAttributes">getAttributes()</a>, <a href="Illuminate.Support.Fluent.html#_toArray">toArray()</a>, <a href="Illuminate.Support.Fluent.html#_jsonSerialize">jsonSerialize()</a>, <a href="Illuminate.Support.Fluent.html#_toJson">toJson()</a>, <a href="Illuminate.Support.Fluent.html#_toPrettyJson">toPrettyJson()</a>, <a href="Illuminate.Support.Fluent.html#_isEmpty">isEmpty()</a>, <a href="Illuminate.Support.Fluent.html#_isNotEmpty">isNotEmpty()</a>, <a href="Illuminate.Support.Fluent.html#_offsetExists">offsetExists()</a>, <a href="Illuminate.Support.Fluent.html#_offsetGet">offsetGet()</a>, <a href="Illuminate.Support.Fluent.html#_offsetSet">offsetSet()</a>, <a href="Illuminate.Support.Fluent.html#_offsetUnset">offsetUnset()</a>, <a href="Illuminate.Support.Fluent.html#_getIterator">getIterator()</a>, <a href="Illuminate.Support.Fluent.html#___call">__call()</a>, <a href="Illuminate.Support.Fluent.html#___get">__get()</a>, <a href="Illuminate.Support.Fluent.html#___set">__set()</a>, <a href="Illuminate.Support.Fluent.html#___isset">__isset()</a>, <a href="Illuminate.Support.Fluent.html#___unset">__unset()</a></code>				</td>
 			</tr>
 		</table>
 
@@ -1010,7 +1103,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Support.Traits.InteractsWithData.html#_exists">exists()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_has">has()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_hasAny">hasAny()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_whenHas">whenHas()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_filled">filled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_isNotFilled">isNotFilled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_anyFilled">anyFilled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_whenFilled">whenFilled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_missing">missing()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_whenMissing">whenMissing()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_isEmptyString">isEmptyString()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_str">str()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_string">string()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_boolean">boolean()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_integer">integer()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_float">float()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_date">date()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_enum">enum()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_enums">enums()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_isBackedEnum">isBackedEnum()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_array">array()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_collect">collect()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_only">only()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_except">except()</a></code>				</td>
+<code><a href="Illuminate.Support.Traits.InteractsWithData.html#_exists">exists()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_has">has()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_hasAny">hasAny()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_whenHas">whenHas()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_filled">filled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_isNotFilled">isNotFilled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_anyFilled">anyFilled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_whenFilled">whenFilled()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_missing">missing()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_whenMissing">whenMissing()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_isEmptyString">isEmptyString()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_str">str()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_string">string()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_boolean">boolean()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_integer">integer()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_float">float()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_clamp">clamp()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_date">date()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_interval">interval()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_enum">enum()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_enums">enums()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_isBackedEnum">isBackedEnum()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_array">array()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_collect">collect()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_only">only()</a>, <a href="Illuminate.Support.Traits.InteractsWithData.html#_except">except()</a></code>				</td>
 			</tr>
 		</table>
 

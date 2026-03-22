@@ -207,9 +207,12 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithPivotTable">InteractsWithPivotTable</span></a>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Relations.Closure.html"><span>Baril\Bonsai\Relations\Closure</span></a>
+<a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html"><span>Baril\Bonsai\Relations\BelongsToManyThroughClosures</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span title="Baril\Bonsai\Relations\Concerns\ExcludesSelf">ExcludesSelf</span></a>, 
+			<a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span title="Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable">InteractsWithClosureTable</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Eloquent.Relations.MorphToMany.html"><span>Illuminate\Database\Eloquent\Relations\MorphToMany</span></a>
@@ -520,6 +523,11 @@
 
 
 
+		<h4>Overriden by</h4>
+		<ul>
+				<li>
+<a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html#_match">						<code>Baril\Bonsai\Relations\BelongsToManyThroughClosures::match()</code></a>				</li>
+		</ul>
 		<h4>Implements</h4>
 		<ul>
 				<li>
@@ -542,7 +550,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>buildDictionary(<span><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a>&lt;int, TRelatedModel&gt; <var>$results</var></span>): array&lt;array&lt;string, TRelatedModel&gt;&gt;</code>
+				<code>buildDictionary(<span><a href="Illuminate.Database.Eloquent.Collection.html"><span title="Illuminate\Database\Eloquent\Collection">Collection</span></a>&lt;int, TRelatedModel&gt; <var>$results</var></span>): array&lt;array&lt;array-key, TRelatedModel&gt;&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1159,6 +1167,37 @@
 			<a href="#_orderByPivot">#</a>
 		</td>
 	</tr>
+	<tr class="expandable collapsed" data-order="orderByPivotDesc" id="_orderByPivotDesc">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>orderByPivotDesc(<span>string|<a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a> <var>$column</var></span>): $this</code>
+
+
+	<div class="expandable-collapsedView">
+		Add an "order by desc" clause for a pivot table column.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Add an &quot;order by desc&quot; clause for a pivot table column.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_orderByPivotDesc">#</a>
+		</td>
+	</tr>
 	<tr class="expandable collapsed" data-order="findOrNew" id="_findOrNew">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -1237,7 +1276,7 @@
 			<td class="table-cell">
 				<code>firstOrCreate(
 	<span>array <var>$attributes</var> = []</span>,
-	<span>array <var>$values</var> = []</span>,
+	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>,
 	<span>array <var>$joining</var> = []</span>,
 	<span>bool <var>$touch</var> = <span class="php-kw">true</span></span>,
 ): TRelatedModel&amp;object{pivot: TPivotModel}</code>
@@ -1273,7 +1312,7 @@
 			<td class="table-cell">
 				<code>createOrFirst(
 	<span>array <var>$attributes</var> = []</span>,
-	<span>array <var>$values</var> = []</span>,
+	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;array)|array <var>$values</var> = []</span>,
 	<span>array <var>$joining</var> = []</span>,
 	<span>bool <var>$touch</var> = <span class="php-kw">true</span></span>,
 ): TRelatedModel&amp;object{pivot: TPivotModel}</code>
@@ -2313,11 +2352,6 @@
 
 
 
-		<h4>Overriden by</h4>
-		<ul>
-				<li>
-<a href="Baril.Bonsai.Relations.Closure.html#_migratePivotAttributes">						<code>Baril\Bonsai\Relations\Closure::migratePivotAttributes()</code></a>				</li>
-		</ul>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -2510,11 +2544,6 @@
 
 
 
-		<h4>Overriden by</h4>
-		<ul>
-				<li>
-<a href="Baril.Bonsai.Relations.Closure.html#_save">						<code>Baril\Bonsai\Relations\Closure::save()</code></a>				</li>
-		</ul>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -2584,11 +2613,6 @@
 
 
 
-		<h4>Overriden by</h4>
-		<ul>
-				<li>
-<a href="Baril.Bonsai.Relations.Closure.html#_saveMany">						<code>Baril\Bonsai\Relations\Closure::saveMany()</code></a>				</li>
-		</ul>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -2654,11 +2678,6 @@
 
 
 
-		<h4>Overriden by</h4>
-		<ul>
-				<li>
-<a href="Baril.Bonsai.Relations.Closure.html#_create">						<code>Baril\Bonsai\Relations\Closure::create()</code></a>				</li>
-		</ul>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -2690,11 +2709,6 @@
 
 
 
-		<h4>Overriden by</h4>
-		<ul>
-				<li>
-<a href="Baril.Bonsai.Relations.Closure.html#_createMany">						<code>Baril\Bonsai\Relations\Closure::createMany()</code></a>				</li>
-		</ul>
 	</div>
 			</td>
 		<td class="table-anchor">
@@ -2757,7 +2771,7 @@
 				<code>getRelationExistenceQueryForSelfJoin(
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt; <var>$query</var></span>,
 	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TDeclaringModel&gt; <var>$parentQuery</var></span>,
-	<span>array|mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
+	<span>mixed <var>$columns</var> = [<span class="php-str">'*'</span>]</span>,
 ): <a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;</code>
 
 
@@ -2882,7 +2896,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>withTimestamps(<span>mixed <var>$createdAt</var> = <span class="php-kw">null</span></span>, <span>mixed <var>$updatedAt</var> = <span class="php-kw">null</span></span>): $this</code>
+				<code>withTimestamps(<span>string|null|false <var>$createdAt</var> = <span class="php-kw">null</span></span>, <span>string|null|false <var>$updatedAt</var> = <span class="php-kw">null</span></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -3020,11 +3034,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the fully qualified foreign key for the relation.
+		Get the fully-qualified foreign key for the relation.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the fully qualified foreign key for the relation.</p>
+	<div class="description"><p>Get the fully-qualified foreign key for the relation.</p>
 </div>
 
 
@@ -3082,11 +3096,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the fully qualified "related key" for the relation.
+		Get the fully-qualified "related key" for the relation.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the fully qualified &quot;related key&quot; for the relation.</p>
+	<div class="description"><p>Get the fully-qualified &quot;related key&quot; for the relation.</p>
 </div>
 
 
@@ -3144,11 +3158,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the fully qualified parent key name for the relation.
+		Get the fully-qualified parent key name for the relation.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the fully qualified parent key name for the relation.</p>
+	<div class="description"><p>Get the fully-qualified parent key name for the relation.</p>
 </div>
 
 
@@ -3211,11 +3225,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the fully qualified related key name for the relation.
+		Get the fully-qualified related key name for the relation.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the fully qualified related key name for the relation.</p>
+	<div class="description"><p>Get the fully-qualified related key name for the relation.</p>
 </div>
 
 
@@ -3433,7 +3447,7 @@
 			</tr>
 			<tr>
 				<td class="table-cell">
-<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_toggle">toggle()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithoutDetaching">syncWithoutDetaching()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_sync">sync()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithPivotValues">syncWithPivotValues()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatRecordsList">formatRecordsList()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachNew">attachNew()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivot">updateExistingPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivotUsingCustomClass">updateExistingPivotUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attach">attach()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachUsingCustomClass">attachUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatAttachRecords">formatAttachRecords()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatAttachRecord">formatAttachRecord()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_extractAttachIdAndAttributes">extractAttachIdAndAttributes()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_baseAttachRecord">baseAttachRecord()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_addTimestampsToAttachment">addTimestampsToAttachment()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_hasPivotColumn">hasPivotColumn()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detach">detach()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detachUsingCustomClass">detachUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getCurrentlyAttachedPivots">getCurrentlyAttachedPivots()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getCurrentlyAttachedPivotsForIds">getCurrentlyAttachedPivotsForIds()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivot">newPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newExistingPivot">newExistingPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotStatement">newPivotStatement()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotStatementForId">newPivotStatementForId()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotQuery">newPivotQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_withPivot">withPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_parseIds">parseIds()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_parseId">parseId()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castKeys">castKeys()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castKey">castKey()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castAttributes">castAttributes()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getTypeSwapValue">getTypeSwapValue()</a></code>				</td>
+<code><a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_toggle">toggle()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_toggleOrFail">toggleOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithoutDetaching">syncWithoutDetaching()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_sync">sync()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncOrFail">syncOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithoutDetachingOrFail">syncWithoutDetachingOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithPivotValues">syncWithPivotValues()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_syncWithPivotValuesOrFail">syncWithPivotValuesOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatRecordsList">formatRecordsList()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachNew">attachNew()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivot">updateExistingPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivotOrFail">updateExistingPivotOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_updateExistingPivotUsingCustomClass">updateExistingPivotUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attach">attach()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachOrFail">attachOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_attachUsingCustomClass">attachUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatAttachRecords">formatAttachRecords()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_formatAttachRecord">formatAttachRecord()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_extractAttachIdAndAttributes">extractAttachIdAndAttributes()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_baseAttachRecord">baseAttachRecord()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_addTimestampsToAttachment">addTimestampsToAttachment()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_hasPivotColumn">hasPivotColumn()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detach">detach()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detachOrFail">detachOrFail()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_detachUsingCustomClass">detachUsingCustomClass()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getCurrentlyAttachedPivots">getCurrentlyAttachedPivots()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getCurrentlyAttachedPivotsForIds">getCurrentlyAttachedPivotsForIds()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivot">newPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newExistingPivot">newExistingPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotStatement">newPivotStatement()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotStatementForId">newPivotStatementForId()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_newPivotQuery">newPivotQuery()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_withPivot">withPivot()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_parseIds">parseIds()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_parseId">parseId()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castKeys">castKeys()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castKey">castKey()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_castAttributes">castAttributes()</a>, <a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html#_getTypeSwapValue">getTypeSwapValue()</a></code>				</td>
 			</tr>
 		</table>
 

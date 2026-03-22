@@ -152,7 +152,7 @@
 		<tr>
 			<th><code>extends</code></th>
 			<td>
-<code><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a></code>			</td>
+<code><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>, <a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, <a href="Carbon.Constants.DiffOptions.html"><span title="Carbon\Constants\DiffOptions">DiffOptions</span></a>, <a href="Carbon.Constants.Format.html"><span title="Carbon\Constants\Format">Format</span></a>, <a href="Carbon.Constants.TranslationOptions.html"><span title="Carbon\Constants\TranslationOptions">TranslationOptions</span></a>, <a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a></code>			</td>
 		</tr>
 
 	</table>
@@ -168,7 +168,11 @@
 <b><span class="active">Carbon\CarbonInterface</span></b>
 		extends
 			<a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>, 
-			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>
+			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
+			<a href="Carbon.Constants.DiffOptions.html"><span title="Carbon\Constants\DiffOptions">DiffOptions</span></a>, 
+			<a href="Carbon.Constants.Format.html"><span title="Carbon\Constants\Format">Format</span></a>, 
+			<a href="Carbon.Constants.TranslationOptions.html"><span title="Carbon\Constants\TranslationOptions">TranslationOptions</span></a>, 
+			<a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a>
 
 
 	<ul class="classTree">
@@ -566,38 +570,6 @@ for more on the possibility of this constructor returning a test instance.</p>
 			<a href="#___set_state">#</a>
 		</td>
 	</tr>
-	<tr class="expandable collapsed" data-order="__sleep" id="___sleep">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-					
-					
-				</code>
-			</td>
-
-			<td class="table-cell">
-				<code>__sleep(): array</code>
-
-
-	<div class="expandable-collapsedView">
-		Returns the list of properties to dump on serialize() called on.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Returns the list of properties to dump on serialize() called on.</p>
-<p>Only used by PHP &lt; 7.4.</p>
-</div>
-
-
-
-
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#___sleep">#</a>
-		</td>
-	</tr>
 	<tr class="expandable collapsed" data-order="__toString" id="___toString">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
@@ -641,8 +613,8 @@ for more on the possibility of this constructor returning a test instance.</p>
 
 			<td class="table-cell">
 				<code>add(
-	<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a> <var>$unit</var></span>,
-	<span>int|float <var>$value</var> = <span class="php-num">1</span></span>,
+	<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|int|string|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a> <var>$unit</var></span>,
+	<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|int|float|string <var>$value</var> = <span class="php-num">1</span></span>,
 	<span>bool|null <var>$overflow</var> = <span class="php-kw">null</span></span>,
 ): static</code>
 
@@ -4001,7 +3973,7 @@ Default value: CarbonInterface::DIFF_ABSOLUTE</p>
 			</td>
 
 			<td class="table-cell">
-				<code>fromSerialized(<span>string <var>$value</var></span>): static</code>
+				<code>fromSerialized(<span><a href="Stringable.html"><span title="Stringable">Stringable</span></a>|string <var>$value</var></span>, <span>array <var>$options</var> = []</span>): static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -4010,8 +3982,18 @@ Default value: CarbonInterface::DIFF_ABSOLUTE</p>
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Create an instance from a serialized string.</p>
+<p>If $value is not from a trusted source, consider using the allowed_classes option to limit
+the types of objects that can be built, for instance:</p>
 </div>
 
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$options</var>&nbsp;&nbsp;</td>
+										<td><p>example: ['allowed_classes' =&gt; [CarbonImmutable::class]]</p>
+</td>
+									</tr>
+							</table>
 
 
 							<h4>Throws</h4>
@@ -11519,8 +11501,8 @@ week-end days to handle, give to those days an other name and create a macro for
 
 			<td class="table-cell">
 				<code>sub(
-	<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|string|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a> <var>$unit</var></span>,
-	<span>int|float <var>$value</var> = <span class="php-num">1</span></span>,
+	<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|int|string|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a>|<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a> <var>$unit</var></span>,
+	<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|int|float|string <var>$value</var> = <span class="php-num">1</span></span>,
 	<span>bool|null <var>$overflow</var> = <span class="php-kw">null</span></span>,
 ): static</code>
 
@@ -11697,7 +11679,7 @@ into the past while negative $value travels forward.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>subtract(<span>string|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a> <var>$unit</var></span>, <span>int|float <var>$value</var> = <span class="php-num">1</span></span>, <span>bool|null <var>$overflow</var> = <span class="php-kw">null</span></span>): static</code>
+				<code>subtract(<span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|int|string|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a> <var>$unit</var></span>, <span><a href="Carbon.Unit.html"><span title="Carbon\Unit">Unit</span></a>|int|float|string <var>$value</var> = <span class="php-num">1</span></span>, <span>bool|null <var>$overflow</var> = <span class="php-kw">null</span></span>): static</code>
 
 
 	<div class="expandable-collapsedView">
@@ -13135,7 +13117,7 @@ Default value: CarbonInterface::DIFF_ABSOLUTE</p>
 	<span>string <var>$timeString</var></span>,
 	<span>string|null <var>$from</var> = <span class="php-kw">null</span></span>,
 	<span>string|null <var>$to</var> = <span class="php-kw">null</span></span>,
-	<span>int <var>$mode</var> = <b><span class="active" title="Carbon\CarbonInterface">self</span></b>::<a href="Carbon.CarbonInterface.html#TRANSLATE_ALL">TRANSLATE_ALL</a></span>,
+	<span>int <var>$mode</var> = <b><span class="active" title="Carbon\CarbonInterface">self</span></b>::TRANSLATE_ALL</span>,
 ): string</code>
 
 
@@ -13200,11 +13182,11 @@ You can use pipe to group: CarbonInterface::TRANSLATE_MONTHS | CarbonInterface::
 
 
 	<div class="expandable-collapsedView">
-		Translate a time string from the current locale (`$date-&gt;locale()`) to an other.
+		Translate a time string from the current locale (`$date-&gt;locale()`) to another one.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Translate a time string from the current locale (<code>$date-&gt;locale()</code>) to an other.</p>
+	<div class="description"><p>Translate a time string from the current locale (<code>$date-&gt;locale()</code>) to another one.</p>
 </div>
 
 							<h4>Parameters</h4>
@@ -13332,7 +13314,7 @@ but translate words whenever possible (months, day names, etc.) using the curren
 			</td>
 
 			<td class="table-cell">
-				<code>tz(<span><a href="DateTimeZone.html"><span title="DateTimeZone">DateTimeZone</span></a>|string|int|null <var>$value</var> = <span class="php-kw">null</span></span>): static|string</code>
+				<code>tz(<span><a href="DateTimeZone.html"><span title="DateTimeZone">DateTimeZone</span></a>|string|int|null <var>$value</var> = <span class="php-kw">null</span></span>): ($value is null&nbsp;?&nbsp;string&nbsp;:&nbsp;static)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -18009,7 +17991,7 @@ clearing the test instance.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>setMicrosecond(<span>int <var>$value</var></span>): <b><span class="active" title="Carbon\CarbonInterface">CarbonInterface</span></b></code>
+				<code>setMicrosecond(<span>int <var>$value</var></span>): <b><span class="active" title="Carbon\CarbonInterface">self</span></b></code>
 
 
 	<div class="expandable-collapsedView">
@@ -36446,1198 +36428,59 @@ clearing the test instance.</p>
 
 
 
-		<table class="table" id="constants">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<table class="table">
 			<tr>
-				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Constants</th>
+				<th class="table-heading">Constants inherited from <a href="Carbon.Constants.DiffOptions.html"><span>Carbon\Constants\DiffOptions</span></a></th>
 			</tr>
-
-	<tr class="expandable collapsed" data-order="NO_ZERO_DIFF" id="NO_ZERO_DIFF">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>NO_ZERO_DIFF = <span class="php-num">01</span></code>
-
-	<div class="expandable-collapsedView">
-		Diff wording options(expressed in octal).
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Diff wording options(expressed in octal).</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#NO_ZERO_DIFF">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="JUST_NOW" id="JUST_NOW">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>JUST_NOW = <span class="php-num">02</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#JUST_NOW">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="ONE_DAY_WORDS" id="ONE_DAY_WORDS">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>ONE_DAY_WORDS = <span class="php-num">04</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#ONE_DAY_WORDS">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TWO_DAY_WORDS" id="TWO_DAY_WORDS">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TWO_DAY_WORDS = <span class="php-num">010</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TWO_DAY_WORDS">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="SEQUENTIAL_PARTS_ONLY" id="SEQUENTIAL_PARTS_ONLY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>SEQUENTIAL_PARTS_ONLY = <span class="php-num">020</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#SEQUENTIAL_PARTS_ONLY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="ROUND" id="ROUND">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>ROUND = <span class="php-num">040</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#ROUND">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="FLOOR" id="FLOOR">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>FLOOR = <span class="php-num">0100</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#FLOOR">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="CEIL" id="CEIL">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>CEIL = <span class="php-num">0200</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#CEIL">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DIFF_ABSOLUTE" id="DIFF_ABSOLUTE">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DIFF_ABSOLUTE = <span class="php-num">1</span></code>
-
-	<div class="expandable-collapsedView">
-		Diff syntax options.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Diff syntax options.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DIFF_ABSOLUTE">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DIFF_RELATIVE_AUTO" id="DIFF_RELATIVE_AUTO">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DIFF_RELATIVE_AUTO = <span class="php-num">0</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DIFF_RELATIVE_AUTO">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DIFF_RELATIVE_TO_NOW" id="DIFF_RELATIVE_TO_NOW">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DIFF_RELATIVE_TO_NOW = <span class="php-num">2</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DIFF_RELATIVE_TO_NOW">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DIFF_RELATIVE_TO_OTHER" id="DIFF_RELATIVE_TO_OTHER">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DIFF_RELATIVE_TO_OTHER = <span class="php-num">3</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DIFF_RELATIVE_TO_OTHER">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TRANSLATE_MONTHS" id="TRANSLATE_MONTHS">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TRANSLATE_MONTHS = <span class="php-num">1</span></code>
-
-	<div class="expandable-collapsedView">
-		Translate string options.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Translate string options.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TRANSLATE_MONTHS">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TRANSLATE_DAYS" id="TRANSLATE_DAYS">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TRANSLATE_DAYS = <span class="php-num">2</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TRANSLATE_DAYS">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TRANSLATE_UNITS" id="TRANSLATE_UNITS">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TRANSLATE_UNITS = <span class="php-num">4</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TRANSLATE_UNITS">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TRANSLATE_MERIDIEM" id="TRANSLATE_MERIDIEM">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TRANSLATE_MERIDIEM = <span class="php-num">8</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TRANSLATE_MERIDIEM">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TRANSLATE_DIFF" id="TRANSLATE_DIFF">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TRANSLATE_DIFF = <span class="php-num">0x10</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TRANSLATE_DIFF">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TRANSLATE_ALL" id="TRANSLATE_ALL">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TRANSLATE_ALL = <b><span class="active" title="Carbon\CarbonInterface">self</span></b>::<a href="Carbon.CarbonInterface.html#TRANSLATE_MONTHS">TRANSLATE_MONTHS</a> | <b><span class="active" title="Carbon\CarbonInterface">self</span></b>::<a href="Carbon.CarbonInterface.html#TRANSLATE_DAYS">TRANSLATE_DAYS</a> | <b><span class="active" title="Carbon\CarbonInterface">self</span></b>::<a href="Carbon.CarbonInterface.html#TRANSLATE_UNITS">TRANSLATE_UNITS</a> | <b><span class="active" title="Carbon\CarbonInterface">self</span></b>::<a href="Carbon.CarbonInterface.html#TRANSLATE_MERIDIEM">TRANSLATE_MERIDIEM</a> | <b><span class="active" title="Carbon\CarbonInterface">self</span></b>::<a href="Carbon.CarbonInterface.html#TRANSLATE_DIFF">TRANSLATE_DIFF</a></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TRANSLATE_ALL">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="SUNDAY" id="SUNDAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>SUNDAY = <span class="php-num">0</span></code>
-
-	<div class="expandable-collapsedView">
-		The day constants.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>The day constants.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#SUNDAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MONDAY" id="MONDAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MONDAY = <span class="php-num">1</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MONDAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="TUESDAY" id="TUESDAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>TUESDAY = <span class="php-num">2</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#TUESDAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="WEDNESDAY" id="WEDNESDAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>WEDNESDAY = <span class="php-num">3</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#WEDNESDAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="THURSDAY" id="THURSDAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>THURSDAY = <span class="php-num">4</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#THURSDAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="FRIDAY" id="FRIDAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>FRIDAY = <span class="php-num">5</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#FRIDAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="SATURDAY" id="SATURDAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>SATURDAY = <span class="php-num">6</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#SATURDAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="JANUARY" id="JANUARY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>JANUARY = <span class="php-num">1</span></code>
-
-	<div class="expandable-collapsedView">
-		The month constants.
-These aren't used by Carbon itself but exist for
-convenience sake alone.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>The month constants.
-These aren't used by Carbon itself but exist for
-convenience sake alone.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#JANUARY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="FEBRUARY" id="FEBRUARY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>FEBRUARY = <span class="php-num">2</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#FEBRUARY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MARCH" id="MARCH">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MARCH = <span class="php-num">3</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MARCH">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="APRIL" id="APRIL">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>APRIL = <span class="php-num">4</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#APRIL">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MAY" id="MAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MAY = <span class="php-num">5</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="JUNE" id="JUNE">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>JUNE = <span class="php-num">6</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#JUNE">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="JULY" id="JULY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>JULY = <span class="php-num">7</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#JULY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="AUGUST" id="AUGUST">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>AUGUST = <span class="php-num">8</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#AUGUST">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="SEPTEMBER" id="SEPTEMBER">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>SEPTEMBER = <span class="php-num">9</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#SEPTEMBER">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="OCTOBER" id="OCTOBER">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>OCTOBER = <span class="php-num">10</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#OCTOBER">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="NOVEMBER" id="NOVEMBER">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>NOVEMBER = <span class="php-num">11</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#NOVEMBER">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DECEMBER" id="DECEMBER">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DECEMBER = <span class="php-num">12</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DECEMBER">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="YEARS_PER_MILLENNIUM" id="YEARS_PER_MILLENNIUM">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>YEARS_PER_MILLENNIUM = <span class="php-num">1_000</span></code>
-
-	<div class="expandable-collapsedView">
-		Number of X in Y.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Number of X in Y.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#YEARS_PER_MILLENNIUM">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="YEARS_PER_CENTURY" id="YEARS_PER_CENTURY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>YEARS_PER_CENTURY = <span class="php-num">100</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#YEARS_PER_CENTURY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="YEARS_PER_DECADE" id="YEARS_PER_DECADE">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>YEARS_PER_DECADE = <span class="php-num">10</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#YEARS_PER_DECADE">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MONTHS_PER_YEAR" id="MONTHS_PER_YEAR">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MONTHS_PER_YEAR = <span class="php-num">12</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MONTHS_PER_YEAR">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MONTHS_PER_QUARTER" id="MONTHS_PER_QUARTER">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MONTHS_PER_QUARTER = <span class="php-num">3</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MONTHS_PER_QUARTER">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="QUARTERS_PER_YEAR" id="QUARTERS_PER_YEAR">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>QUARTERS_PER_YEAR = <span class="php-num">4</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#QUARTERS_PER_YEAR">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="WEEKS_PER_YEAR" id="WEEKS_PER_YEAR">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>WEEKS_PER_YEAR = <span class="php-num">52</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#WEEKS_PER_YEAR">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="WEEKS_PER_MONTH" id="WEEKS_PER_MONTH">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>WEEKS_PER_MONTH = <span class="php-num">4</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#WEEKS_PER_MONTH">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DAYS_PER_YEAR" id="DAYS_PER_YEAR">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DAYS_PER_YEAR = <span class="php-num">365</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DAYS_PER_YEAR">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DAYS_PER_WEEK" id="DAYS_PER_WEEK">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DAYS_PER_WEEK = <span class="php-num">7</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DAYS_PER_WEEK">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="HOURS_PER_DAY" id="HOURS_PER_DAY">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>HOURS_PER_DAY = <span class="php-num">24</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#HOURS_PER_DAY">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MINUTES_PER_HOUR" id="MINUTES_PER_HOUR">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MINUTES_PER_HOUR = <span class="php-num">60</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MINUTES_PER_HOUR">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="SECONDS_PER_MINUTE" id="SECONDS_PER_MINUTE">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>SECONDS_PER_MINUTE = <span class="php-num">60</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#SECONDS_PER_MINUTE">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MILLISECONDS_PER_SECOND" id="MILLISECONDS_PER_SECOND">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MILLISECONDS_PER_SECOND = <span class="php-num">1_000</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MILLISECONDS_PER_SECOND">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MICROSECONDS_PER_MILLISECOND" id="MICROSECONDS_PER_MILLISECOND">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MICROSECONDS_PER_MILLISECOND = <span class="php-num">1_000</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MICROSECONDS_PER_MILLISECOND">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MICROSECONDS_PER_SECOND" id="MICROSECONDS_PER_SECOND">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MICROSECONDS_PER_SECOND = <span class="php-num">1_000_000</span></code>
-
-
-	<div class="expandable-expandedView">
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MICROSECONDS_PER_SECOND">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="WEEK_DAY_AUTO" id="WEEK_DAY_AUTO">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>WEEK_DAY_AUTO = <span class="php-str">'auto'</span></code>
-
-	<div class="expandable-collapsedView">
-		Special settings to get the start of week from current locale culture.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Special settings to get the start of week from current locale culture.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#WEEK_DAY_AUTO">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="RFC7231_FORMAT" id="RFC7231_FORMAT">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>RFC7231_FORMAT = <span class="php-str">'D, d M Y H:i:s \G\M\T'</span></code>
-
-	<div class="expandable-collapsedView">
-		RFC7231 DateTime format.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>RFC7231 DateTime format.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#RFC7231_FORMAT">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DEFAULT_TO_STRING_FORMAT" id="DEFAULT_TO_STRING_FORMAT">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DEFAULT_TO_STRING_FORMAT = <span class="php-str">'Y-m-d H:i:s'</span></code>
-
-	<div class="expandable-collapsedView">
-		Default format to use for __toString method when type juggling occurs.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Default format to use for __toString method when type juggling occurs.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DEFAULT_TO_STRING_FORMAT">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="MOCK_DATETIME_FORMAT" id="MOCK_DATETIME_FORMAT">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>MOCK_DATETIME_FORMAT = <span class="php-str">'Y-m-d H:i:s.u'</span></code>
-
-	<div class="expandable-collapsedView">
-		Format for converting mocked time, includes microseconds.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Format for converting mocked time, includes microseconds.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#MOCK_DATETIME_FORMAT">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="ISO_FORMAT_REGEXP" id="ISO_FORMAT_REGEXP">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>ISO_FORMAT_REGEXP = <span class="php-str">'(O[YMDHhms]|[Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY?|g&#123;1,5}|G&#123;1,5}|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S&#123;1,9}|x|X|zz?|ZZ?)'</span></code>
-
-	<div class="expandable-collapsedView">
-		Pattern detection for -&gt;isoFormat and ::createFromIsoFormat.
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Pattern detection for -&gt;isoFormat and ::createFromIsoFormat.</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#ISO_FORMAT_REGEXP">#</a>
-		</td>
-	</tr>
-	<tr class="expandable collapsed" data-order="DEFAULT_LOCALE" id="DEFAULT_LOCALE">
-			<td class="table-cell table-shrink">
-				<code class="nowrap">
-					
-	public
-				</code>
-			</td>
-
-			<td class="table-cell">
-<code>DEFAULT_LOCALE = <span class="php-str">'en'</span></code>
-
-	<div class="expandable-collapsedView">
-		Default locale (language and region).
-	</div>
-
-	<div class="expandable-expandedView">
-	<div class="description"><p>Default locale (language and region).</p>
-</div>
-	</div>
-			</td>
-		<td class="table-anchor">
-			<a href="#DEFAULT_LOCALE">#</a>
-		</td>
-	</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Carbon.Constants.DiffOptions.html#NO_ZERO_DIFF"><code>NO_ZERO_DIFF</code></a>, <a href="Carbon.Constants.DiffOptions.html#JUST_NOW"><code>JUST_NOW</code></a>, <a href="Carbon.Constants.DiffOptions.html#ONE_DAY_WORDS"><code>ONE_DAY_WORDS</code></a>, <a href="Carbon.Constants.DiffOptions.html#TWO_DAY_WORDS"><code>TWO_DAY_WORDS</code></a>, <a href="Carbon.Constants.DiffOptions.html#SEQUENTIAL_PARTS_ONLY"><code>SEQUENTIAL_PARTS_ONLY</code></a>, <a href="Carbon.Constants.DiffOptions.html#ROUND"><code>ROUND</code></a>, <a href="Carbon.Constants.DiffOptions.html#FLOOR"><code>FLOOR</code></a>, <a href="Carbon.Constants.DiffOptions.html#CEIL"><code>CEIL</code></a>, <a href="Carbon.Constants.DiffOptions.html#DIFF_ABSOLUTE"><code>DIFF_ABSOLUTE</code></a>, <a href="Carbon.Constants.DiffOptions.html#DIFF_RELATIVE_AUTO"><code>DIFF_RELATIVE_AUTO</code></a>, <a href="Carbon.Constants.DiffOptions.html#DIFF_RELATIVE_TO_NOW"><code>DIFF_RELATIVE_TO_NOW</code></a>, <a href="Carbon.Constants.DiffOptions.html#DIFF_RELATIVE_TO_OTHER"><code>DIFF_RELATIVE_TO_OTHER</code></a></code>				</td>
+			</tr>
 		</table>
 
+		<table class="table">
+			<tr>
+				<th class="table-heading">Constants inherited from <a href="Carbon.Constants.Format.html"><span>Carbon\Constants\Format</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Carbon.Constants.Format.html#RFC7231_FORMAT"><code>RFC7231_FORMAT</code></a>, <a href="Carbon.Constants.Format.html#DEFAULT_TO_STRING_FORMAT"><code>DEFAULT_TO_STRING_FORMAT</code></a>, <a href="Carbon.Constants.Format.html#MOCK_DATETIME_FORMAT"><code>MOCK_DATETIME_FORMAT</code></a>, <a href="Carbon.Constants.Format.html#ISO_FORMAT_REGEXP"><code>ISO_FORMAT_REGEXP</code></a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Constants inherited from <a href="Carbon.Constants.TranslationOptions.html"><span>Carbon\Constants\TranslationOptions</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Carbon.Constants.TranslationOptions.html#TRANSLATE_MONTHS"><code>TRANSLATE_MONTHS</code></a>, <a href="Carbon.Constants.TranslationOptions.html#TRANSLATE_DAYS"><code>TRANSLATE_DAYS</code></a>, <a href="Carbon.Constants.TranslationOptions.html#TRANSLATE_UNITS"><code>TRANSLATE_UNITS</code></a>, <a href="Carbon.Constants.TranslationOptions.html#TRANSLATE_MERIDIEM"><code>TRANSLATE_MERIDIEM</code></a>, <a href="Carbon.Constants.TranslationOptions.html#TRANSLATE_DIFF"><code>TRANSLATE_DIFF</code></a>, <a href="Carbon.Constants.TranslationOptions.html#TRANSLATE_ALL"><code>TRANSLATE_ALL</code></a>, <a href="Carbon.Constants.TranslationOptions.html#WEEK_DAY_AUTO"><code>WEEK_DAY_AUTO</code></a>, <a href="Carbon.Constants.TranslationOptions.html#DEFAULT_LOCALE"><code>DEFAULT_LOCALE</code></a></code>				</td>
+			</tr>
+		</table>
+
+		<table class="table">
+			<tr>
+				<th class="table-heading">Constants inherited from <a href="Carbon.Constants.UnitValue.html"><span>Carbon\Constants\UnitValue</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Carbon.Constants.UnitValue.html#SUNDAY"><code>SUNDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#MONDAY"><code>MONDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#TUESDAY"><code>TUESDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#WEDNESDAY"><code>WEDNESDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#THURSDAY"><code>THURSDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#FRIDAY"><code>FRIDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#SATURDAY"><code>SATURDAY</code></a>, <a href="Carbon.Constants.UnitValue.html#JANUARY"><code>JANUARY</code></a>, <a href="Carbon.Constants.UnitValue.html#FEBRUARY"><code>FEBRUARY</code></a>, <a href="Carbon.Constants.UnitValue.html#MARCH"><code>MARCH</code></a>, <a href="Carbon.Constants.UnitValue.html#APRIL"><code>APRIL</code></a>, <a href="Carbon.Constants.UnitValue.html#MAY"><code>MAY</code></a>, <a href="Carbon.Constants.UnitValue.html#JUNE"><code>JUNE</code></a>, <a href="Carbon.Constants.UnitValue.html#JULY"><code>JULY</code></a>, <a href="Carbon.Constants.UnitValue.html#AUGUST"><code>AUGUST</code></a>, <a href="Carbon.Constants.UnitValue.html#SEPTEMBER"><code>SEPTEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#OCTOBER"><code>OCTOBER</code></a>, <a href="Carbon.Constants.UnitValue.html#NOVEMBER"><code>NOVEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#DECEMBER"><code>DECEMBER</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_MILLENNIUM"><code>YEARS_PER_MILLENNIUM</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_CENTURY"><code>YEARS_PER_CENTURY</code></a>, <a href="Carbon.Constants.UnitValue.html#YEARS_PER_DECADE"><code>YEARS_PER_DECADE</code></a>, <a href="Carbon.Constants.UnitValue.html#MONTHS_PER_YEAR"><code>MONTHS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#MONTHS_PER_QUARTER"><code>MONTHS_PER_QUARTER</code></a>, <a href="Carbon.Constants.UnitValue.html#QUARTERS_PER_YEAR"><code>QUARTERS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#WEEKS_PER_YEAR"><code>WEEKS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#WEEKS_PER_MONTH"><code>WEEKS_PER_MONTH</code></a>, <a href="Carbon.Constants.UnitValue.html#DAYS_PER_YEAR"><code>DAYS_PER_YEAR</code></a>, <a href="Carbon.Constants.UnitValue.html#DAYS_PER_WEEK"><code>DAYS_PER_WEEK</code></a>, <a href="Carbon.Constants.UnitValue.html#HOURS_PER_DAY"><code>HOURS_PER_DAY</code></a>, <a href="Carbon.Constants.UnitValue.html#MINUTES_PER_HOUR"><code>MINUTES_PER_HOUR</code></a>, <a href="Carbon.Constants.UnitValue.html#SECONDS_PER_MINUTE"><code>SECONDS_PER_MINUTE</code></a>, <a href="Carbon.Constants.UnitValue.html#MILLISECONDS_PER_SECOND"><code>MILLISECONDS_PER_SECOND</code></a>, <a href="Carbon.Constants.UnitValue.html#MICROSECONDS_PER_MILLISECOND"><code>MICROSECONDS_PER_MILLISECOND</code></a>, <a href="Carbon.Constants.UnitValue.html#MICROSECONDS_PER_SECOND"><code>MICROSECONDS_PER_SECOND</code></a></code>				</td>
+			</tr>
+		</table>
 
 
 		<table class="table" id="properties">
@@ -43792,6 +42635,18 @@ convenience sake alone.</p>
 		</td>
 	</tr>
 		</table>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

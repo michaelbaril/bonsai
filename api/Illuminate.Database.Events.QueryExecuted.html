@@ -116,7 +116,13 @@
 			</td>
 
 			<td class="table-cell">
-				<code>__construct(<span>string <var>$sql</var></span>, <span>array <var>$bindings</var></span>, <span>float|null <var>$time</var></span>, <span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>)</code>
+				<code>__construct(
+	<span>string <var>$sql</var></span>,
+	<span>array <var>$bindings</var></span>,
+	<span>float|null <var>$time</var></span>,
+	<span><a href="Illuminate.Database.Connection.html"><span title="Illuminate\Database\Connection">Connection</span></a> <var>$connection</var></span>,
+	<span>null|<span class="php-str">'read'</span>|<span class="php-str">'write'</span> <var>$readWriteType</var> = <span class="php-kw">null</span></span>,
+)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -297,6 +303,30 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#$connectionName">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="readWriteType" id="$readWriteType">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">null|<span class="php-str">'read'</span>|<span class="php-str">'write'</span></code>
+			</td>
+
+			<td class="table-cell">
+<code><var>$readWriteType</var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$readWriteType">#</a>
 		</td>
 	</tr>
 		</table>

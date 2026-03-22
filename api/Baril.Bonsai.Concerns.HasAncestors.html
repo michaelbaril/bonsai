@@ -1,0 +1,722 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>Trait Baril\Bonsai\Concerns\HasAncestors |  API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.html">Baril</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.Bonsai.html">Bonsai</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Baril.Bonsai.Concerns.html">Concerns</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.Console.html">Console</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.Migrations.html">Migrations</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.Relations.html">Relations</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Traits</h3>
+			<ul>
+					<li>
+						<a class="deprecated" href="Baril.Bonsai.Concerns.BelongsToOrderedTree.html">
+							BelongsToOrderedTree
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Concerns.BelongsToTree.html">
+							BelongsToTree
+						</a>
+					</li>
+					<li class="active">
+						<a href="Baril.Bonsai.Concerns.HasAncestors.html">
+							HasAncestors
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Concerns.HasClosures.html">
+							HasClosures
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Concerns.HasDescendants.html">
+							HasDescendants
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Concerns.ManagesClosures.html">
+							ManagesClosures
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Concerns.Orderable.html">
+							Orderable
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Concerns.Ordered.html">
+							Ordered
+						</a>
+					</li>
+					<li>
+						<a href="Baril.Bonsai.Concerns.SoftDeletes.html">
+							SoftDeletes
+						</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Baril.Bonsai.Concerns.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Baril.Bonsai.Concerns.HasAncestors.html">Trait</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Trait <a href="namespace-Baril.html">Baril</a>\<a href="namespace-Baril.Bonsai.html">Bonsai</a>\<a href="namespace-Baril.Bonsai.Concerns.html">Concerns</a>\<a href="Baril.Bonsai.Concerns.HasAncestors.html">HasAncestors</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+
+	</table>
+
+
+		<div class="classLikeSection">
+			<b>Located at</b> <a href="source-Concerns.HasAncestors.html#10" title="Go to source code">Concerns/HasAncestors.php</a><br>
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="getParentForeignKeyName" id="_getParentForeignKeyName">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#12-22" title="Go to source code">getParentForeignKeyName</a>(): string</code>
+
+
+	<div class="expandable-collapsedView">
+		Return the name of the "parent_id" column.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Return the name of the &quot;parent_id&quot; column.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getParentForeignKeyName">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getParentKey" id="_getParentKey">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#24-32" title="Go to source code">getParentKey</a>(): mixed</code>
+
+
+	<div class="expandable-collapsedView">
+		Return the value of the "parent_id" column.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Return the value of the &quot;parent_id&quot; column.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getParentKey">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="parent" id="_parent">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#34-49" title="Go to source code">parent</a>(): <a href="Illuminate.Database.Eloquent.Relations.BelongsTo.html"><span title="Illuminate\Database\Eloquent\Relations\BelongsTo">BelongsTo</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Many-to-one relation to the parent node.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Many-to-one relation to the parent node.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_parent">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="ancestors" id="_ancestors">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#51-65" title="Go to source code">ancestors</a>(): <a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html"><span title="Baril\Bonsai\Relations\BelongsToManyThroughClosures">BelongsToManyThroughClosures</span></a>&lt;<span title="static">static</span>::class, $this, <a href="Illuminate.Database.Eloquent.Relations.Pivot.html"><span title="Illuminate\Database\Eloquent\Relations\Pivot">Pivot</span></a>&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		Many-to-many relation to the ancestors through the closure table.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Many-to-many relation to the ancestors through the closure table.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_ancestors">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="ascendingClosures" id="_ascendingClosures">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#67-75" title="Go to source code">ascendingClosures</a>(): <a href="Illuminate.Database.Eloquent.Relations.HasMany.html"><span title="Illuminate\Database\Eloquent\Relations\HasMany">HasMany</span></a>&lt;<a href="Baril.Bonsai.Closure.html"><span title="Baril\Bonsai\Closure">Closure</span></a>, $this&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		One-to-many relationships to the ascending closures.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>One-to-many relationships to the ascending closures.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_ascendingClosures">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="siblings" id="_siblings">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#77-86" title="Go to source code">siblings</a>(): <a href="Baril.Bonsai.Relations.HasManySiblings.html"><span title="Baril\Bonsai\Relations\HasManySiblings">HasManySiblings</span></a>&lt;$this&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		One-to-many relationship to the siblings.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>One-to-many relationship to the siblings.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_siblings">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="hasManySiblings" id="_hasManySiblings">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#88-107" title="Go to source code">hasManySiblings</a>(<span>string <var>$parentForeignKey</var> = <span class="php-str">'parent_id'</span></span>): <a href="Baril.Bonsai.Relations.HasManySiblings.html"><span title="Baril\Bonsai\Relations\HasManySiblings">HasManySiblings</span></a>&lt;$this&gt;</code>
+
+
+	<div class="expandable-collapsedView">
+		Define a one-to-many relationship through a parent foreign key.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Define a one-to-many relationship through a parent foreign key.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_hasManySiblings">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="scopeWithAncestors" id="_scopeWithAncestors">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#110-125" title="Go to source code"><span class="deprecated">scopeWithAncestors</span></a>(<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a> <var>$query</var></span>, <span>int|null <var>$depth</var> = <span class="php-kw">null</span></span>, <span>callable|null <var>$constraints</var> = <span class="php-kw">null</span></span>): void</code>
+
+
+
+	<div class="expandable-expandedView">
+							<h4>Deprecated</h4>
+							<div>
+									<p>Use -&gt;with() instead</p>
+
+							</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_scopeWithAncestors">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="scopeWithDepth" id="_scopeWithDepth">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#127-135" title="Go to source code">scopeWithDepth</a>(<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a> <var>$query</var></span>, <span>string <var>$as</var> = <span class="php-str">'depth'</span></span>): void</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_scopeWithDepth">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="scopeWhereIsDescendantOf" id="_scopeWhereIsDescendantOf">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#137-149" title="Go to source code"><span class="deprecated">scopeWhereIsDescendantOf</span></a>(<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a> <var>$query</var></span>, <span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$ancestor</var></span>, <span>int|null <var>$maxDepth</var> = <span class="php-kw">null</span></span>, <span>bool <var>$withSelf</var> = <span class="php-kw">false</span></span>): void</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_scopeWhereIsDescendantOf">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="scopeDescendantsOf" id="_scopeDescendantsOf">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#151-168" title="Go to source code">scopeDescendantsOf</a>(<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a> <var>$query</var></span>, <span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$ancestor</var></span>, <span>int|null <var>$maxDepth</var> = <span class="php-kw">null</span></span>, <span>bool <var>$withSelf</var> = <span class="php-kw">false</span></span>): void</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_scopeDescendantsOf">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="isChildOf" id="_isChildOf">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#170-183" title="Go to source code">isChildOf</a>(<span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$node</var></span>): bool</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isChildOf">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="isDescendantOf" id="_isDescendantOf">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#185-194" title="Go to source code">isDescendantOf</a>(<span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$node</var></span>): bool</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isDescendantOf">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="isSiblingOf" id="_isSiblingOf">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#196-203" title="Go to source code">isSiblingOf</a>(<span><a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$node</var></span>): bool</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_isSiblingOf">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="findCommonAncestorWith" id="_findCommonAncestorWith">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#205-218" title="Go to source code">findCommonAncestorWith</a>(<span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$node</var></span>): <a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>|null</code>
+
+
+	<div class="expandable-collapsedView">
+		Returns the closest common ancestor with the provided $node.
+May return null if the tree has multiple roots and the 2…
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Returns the closest common ancestor with the provided $node.
+May return null if the tree has multiple roots and the 2 nodes have no
+common ancestor.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_findCommonAncestorWith">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="hasCommonAncestorWith" id="_hasCommonAncestorWith">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#220-228" title="Go to source code">hasCommonAncestorWith</a>(<span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$node</var></span>): bool</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_hasCommonAncestorWith">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="newCommonAncestorQuery" id="_newCommonAncestorQuery">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#230-239" title="Go to source code">newCommonAncestorQuery</a>(<span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$node</var></span>): <a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html"><span title="Baril\Bonsai\Relations\BelongsToManyThroughClosures">BelongsToManyThroughClosures</span></a></code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_newCommonAncestorQuery">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getDistanceTo" id="_getDistanceTo">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#241-261" title="Go to source code">getDistanceTo</a>(<span>mixed|<a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a> <var>$node</var></span>): int</code>
+
+
+	<div class="expandable-collapsedView">
+		Returns the distance between $this and another $item.
+May throw an exception if the tree has multiple roots and the 2…
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Returns the distance between $this and another $item.
+May throw an exception if the tree has multiple roots and the 2 items
+have no common ancestor.</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Baril.Bonsai.TreeException.html"><span>Baril\Bonsai\TreeException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getDistanceTo">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getDepth" id="_getDepth">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Concerns.HasAncestors.html#263-271" title="Go to source code">getDepth</a>(): int</code>
+
+
+	<div class="expandable-collapsedView">
+		Return the depth of $this in the tree (0 is $this is a root).
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Return the depth of $this in the tree (0 is $this is a root).</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getDepth">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+		</div>
+
+		<div class="layout-footer">
+			 API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.6</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

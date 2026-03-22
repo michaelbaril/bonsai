@@ -184,7 +184,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>defaultStringLength(<span>int <var>$length</var></span>): void</code>
+				<code>defaultStringLength(<span>non-negative-int <var>$length</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
@@ -742,6 +742,68 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_whenTableDoesntHaveColumn">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whenTableHasIndex" id="_whenTableHasIndex">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whenTableHasIndex(<span>string <var>$table</var></span>, <span>string|array <var>$index</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>, <span>string|null <var>$type</var> = <span class="php-kw">null</span></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Execute a table builder callback if the given table has a given index.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Execute a table builder callback if the given table has a given index.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whenTableHasIndex">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="whenTableDoesntHaveIndex" id="_whenTableDoesntHaveIndex">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>whenTableDoesntHaveIndex(<span>string <var>$table</var></span>, <span>string|array <var>$index</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>, <span>string|null <var>$type</var> = <span class="php-kw">null</span></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Execute a table builder callback if the given table doesn't have a given index.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Execute a table builder callback if the given table doesn't have a given index.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_whenTableDoesntHaveIndex">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getColumnType" id="_getColumnType">
@@ -1336,7 +1398,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>withoutForeignKeyConstraints(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$callback</var></span>): mixed</code>
+				<code>withoutForeignKeyConstraints&lt;<span title="">TReturn</span>&gt;(<span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;TReturn <var>$callback</var></span>): TReturn</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1354,6 +1416,68 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_withoutForeignKeyConstraints">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="ensureVectorExtensionExists" id="_ensureVectorExtensionExists">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>ensureVectorExtensionExists(<span>string|null <var>$schema</var> = <span class="php-kw">null</span></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Create the vector extension on the schema if it does not exist.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Create the vector extension on the schema if it does not exist.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_ensureVectorExtensionExists">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="ensureExtensionExists" id="_ensureExtensionExists">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>ensureExtensionExists(<span>string <var>$name</var></span>, <span>string|null <var>$schema</var> = <span class="php-kw">null</span></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Create a new extension on the schema if it does not exist.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Create a new extension on the schema if it does not exist.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_ensureExtensionExists">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="build" id="_build">
@@ -1491,7 +1615,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>parseSchemaAndTable(<span>string <var>$reference</var></span>, <span>string|bool|null <var>$withDefaultSchema</var> = <span class="php-kw">null</span></span>): array</code>
+				<code>parseSchemaAndTable(<span>string <var>$reference</var></span>, <span>string|bool|null <var>$withDefaultSchema</var> = <span class="php-kw">null</span></span>): array{(string|null), string}</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1677,7 +1801,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">int|null</code>
+				<code class="nowrap">non-negative-int|null</code>
 			</td>
 
 			<td class="table-cell">
@@ -1730,7 +1854,7 @@
 			</td>
 
 			<td class="table-cell table-shrink">
-				<code class="nowrap">string</code>
+				<code class="nowrap"><span class="php-str">'int'</span>|<span class="php-str">'uuid'</span>|<span class="php-str">'ulid'</span></code>
 			</td>
 
 			<td class="table-cell">

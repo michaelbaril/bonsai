@@ -1,0 +1,506 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="robots" content="noindex">
+	<title>Interface Illuminate\Contracts\Cache\Repository |  API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.html">Baril</a>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Baril.Bonsai.html">Bonsai</a>
+			</li>
+	</ul>
+			</li>
+			<li class="menuGroup-item active">
+				<a href="namespace-Illuminate.html">Illuminate</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Illuminate.Contracts.html">Contracts</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Illuminate.Contracts.Cache.html">Cache</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Interfaces</h3>
+			<ul>
+					<li class="active">
+						<a href="Illuminate.Contracts.Cache.Repository.html">
+							Repository
+						</a>
+					</li>
+					<li>
+						<a href="Illuminate.Contracts.Cache.Store.html">
+							Store
+						</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Illuminate.Contracts.Cache.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Illuminate.Contracts.Cache.Repository.html">Interface</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Interface <a href="namespace-Illuminate.html">Illuminate</a>\<a href="namespace-Illuminate.Contracts.html">Contracts</a>\<a href="namespace-Illuminate.Contracts.Cache.html">Cache</a>\<a href="Illuminate.Contracts.Cache.Repository.html">Repository</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+		<tr>
+			<th><code>extends</code></th>
+			<td>
+<code><a href="Psr.SimpleCache.CacheInterface.html"><span title="Psr\SimpleCache\CacheInterface">CacheInterface</span></a></code>			</td>
+		</tr>
+
+	</table>
+
+			<div class="classLikeSection">
+	<ul class="classTree">
+	<li>
+<b><span class="active">Illuminate\Contracts\Cache\Repository</span></b>
+		extends
+			<a href="Psr.SimpleCache.CacheInterface.html"><span title="Psr\SimpleCache\CacheInterface">CacheInterface</span></a>
+
+
+	</li>
+	</ul>
+			</div>
+
+		<div class="classLikeSection">
+
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="pull" id="_pull">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>pull&lt;<span title="">TCacheValue</span>&gt;(
+	<span>array|string <var>$key</var></span>,
+	<span>TCacheValue|(<a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;TCacheValue) <var>$default</var> = <span class="php-kw">null</span></span>,
+): (TCacheValue is null&nbsp;?&nbsp;mixed&nbsp;:&nbsp;TCacheValue)</code>
+
+
+	<div class="expandable-collapsedView">
+		Retrieve an item from the cache and delete it.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Retrieve an item from the cache and delete it.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_pull">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="put" id="_put">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>put(<span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>, <span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a>|int|null <var>$ttl</var> = <span class="php-kw">null</span></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Store an item in the cache.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Store an item in the cache.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_put">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="add" id="_add">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>add(<span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>, <span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a>|int|null <var>$ttl</var> = <span class="php-kw">null</span></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Store an item in the cache if the key does not exist.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Store an item in the cache if the key does not exist.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_add">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="increment" id="_increment">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>increment(<span>string <var>$key</var></span>, <span>mixed <var>$value</var> = <span class="php-num">1</span></span>): int|bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Increment the value of an item in the cache.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Increment the value of an item in the cache.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_increment">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="decrement" id="_decrement">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>decrement(<span>string <var>$key</var></span>, <span>mixed <var>$value</var> = <span class="php-num">1</span></span>): int|bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Decrement the value of an item in the cache.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Decrement the value of an item in the cache.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_decrement">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="forever" id="_forever">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>forever(<span>string <var>$key</var></span>, <span>mixed <var>$value</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Store an item in the cache indefinitely.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Store an item in the cache indefinitely.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_forever">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="remember" id="_remember">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>remember&lt;<span title="">TCacheValue</span>&gt;(
+	<span>string <var>$key</var></span>,
+	<span><a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>|<a href="DateInterval.html"><span title="DateInterval">DateInterval</span></a>|<a href="Closure.html"><span title="Closure">Closure</span></a>|int|null <var>$ttl</var></span>,
+	<span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;TCacheValue <var>$callback</var></span>,
+): TCacheValue</code>
+
+
+	<div class="expandable-collapsedView">
+		Get an item from the cache, or execute the given Closure and store the result.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get an item from the cache, or execute the given Closure and store the result.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_remember">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="sear" id="_sear">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>sear&lt;<span title="">TCacheValue</span>&gt;(<span>string <var>$key</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;TCacheValue <var>$callback</var></span>): TCacheValue</code>
+
+
+	<div class="expandable-collapsedView">
+		Get an item from the cache, or execute the given Closure and store the result forever.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get an item from the cache, or execute the given Closure and store the result forever.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_sear">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="rememberForever" id="_rememberForever">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>rememberForever&lt;<span title="">TCacheValue</span>&gt;(<span>string <var>$key</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;TCacheValue <var>$callback</var></span>): TCacheValue</code>
+
+
+	<div class="expandable-collapsedView">
+		Get an item from the cache, or execute the given Closure and store the result forever.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get an item from the cache, or execute the given Closure and store the result forever.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_rememberForever">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="forget" id="_forget">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>forget(<span>string <var>$key</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Remove an item from the cache.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Remove an item from the cache.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_forget">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getStore" id="_getStore">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>getStore(): <a href="Illuminate.Contracts.Cache.Store.html"><span title="Illuminate\Contracts\Cache\Store">Store</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Get the cache store implementation.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get the cache store implementation.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getStore">#</a>
+		</td>
+	</tr>
+		</table>
+		<table class="table">
+			<tr>
+				<th class="table-heading">Methods inherited from <a href="Psr.SimpleCache.CacheInterface.html"><span>Psr\SimpleCache\CacheInterface</span></a></th>
+			</tr>
+			<tr>
+				<td class="table-cell">
+<code><a href="Psr.SimpleCache.CacheInterface.html#_get">get()</a>, <a href="Psr.SimpleCache.CacheInterface.html#_set">set()</a>, <a href="Psr.SimpleCache.CacheInterface.html#_delete">delete()</a>, <a href="Psr.SimpleCache.CacheInterface.html#_clear">clear()</a>, <a href="Psr.SimpleCache.CacheInterface.html#_getMultiple">getMultiple()</a>, <a href="Psr.SimpleCache.CacheInterface.html#_setMultiple">setMultiple()</a>, <a href="Psr.SimpleCache.CacheInterface.html#_deleteMultiple">deleteMultiple()</a>, <a href="Psr.SimpleCache.CacheInterface.html#_has">has()</a></code>				</td>
+			</tr>
+		</table>
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+		<div class="layout-footer">
+			 API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.6</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

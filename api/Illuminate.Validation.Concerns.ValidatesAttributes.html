@@ -576,7 +576,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getDateTimestamp(<span>mixed <var>$value</var></span>): int</code>
+				<code>getDateTimestamp(<span>mixed <var>$value</var></span>): int|null</code>
 
 
 	<div class="expandable-collapsedView">
@@ -700,7 +700,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>validateAlpha(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span><var>$parameters</var></span>): bool</code>
+				<code>validateAlpha(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span>array&lt;int, int|string&gt; <var>$parameters</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -733,7 +733,7 @@ If the 'ascii' option is passed, validate that an attribute contains only ascii 
 			</td>
 
 			<td class="table-cell">
-				<code>validateAlphaDash(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span><var>$parameters</var></span>): bool</code>
+				<code>validateAlphaDash(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span>array&lt;int, int|string&gt; <var>$parameters</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -767,7 +767,7 @@ dashes, and underscores.</p>
 			</td>
 
 			<td class="table-cell">
-				<code>validateAlphaNum(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span><var>$parameters</var></span>): bool</code>
+				<code>validateAlphaNum(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span>array&lt;int, int|string&gt; <var>$parameters</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1500,6 +1500,37 @@ If the 'ascii' option is passed, validate that an attribute contains only ascii 
 			</td>
 		<td class="table-anchor">
 			<a href="#_validateEmail">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="validateEncoding" id="_validateEncoding">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>validateEncoding(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span>array&lt;int, int|string&gt; <var>$parameters</var></span>): bool</code>
+
+
+	<div class="expandable-collapsedView">
+		Validate the encoding of an attribute.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Validate the encoding of an attribute.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_validateEncoding">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="validateExists" id="_validateExists">
@@ -2258,7 +2289,7 @@ If the 'ascii' option is passed, validate that an attribute contains only ascii 
 			</td>
 
 			<td class="table-cell">
-				<code>validateInteger(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span>array{0: <span class="php-str">'strict'</span>} <var>$parameters</var></span>): bool</code>
+				<code>validateInteger(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>, <span>array{0?: <span class="php-str">'strict'</span>} <var>$parameters</var> = []</span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -4337,7 +4368,7 @@ If the 'ascii' option is passed, validate that an attribute contains only ascii 
 			</td>
 
 			<td class="table-cell">
-				<code>getSize(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>): int|float|string</code>
+				<code>getSize(<span>string <var>$attribute</var></span>, <span>mixed <var>$value</var></span>): int|string</code>
 
 
 	<div class="expandable-collapsedView">
@@ -4568,7 +4599,7 @@ If the 'ascii' option is passed, validate that an attribute contains only ascii 
 			</td>
 
 			<td class="table-cell">
-				<code>trim(<span>mixed <var>$value</var></span>): mixed</code>
+				<code>trim(<span>mixed <var>$value</var></span>): string</code>
 
 
 	<div class="expandable-collapsedView">

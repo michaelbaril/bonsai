@@ -193,7 +193,7 @@
 				<code>has&lt;<span title="">TRelatedModel</span> is <a href="Illuminate.Database.Eloquent.Model.html"><span title="Illuminate\Database\Eloquent\Model">Model</span></a>&gt;(
 	<span><a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;TRelatedModel, *, *&gt;|string <var>$relation</var></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 	<span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 ): $this</code>
@@ -237,7 +237,7 @@
 				<code>hasNested(
 	<span>string <var>$relations</var></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 	<span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt;):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 ): $this</code>
@@ -272,7 +272,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>orHas(<span><a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;*, *, *&gt;|string <var>$relation</var></span>, <span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>, <span>int <var>$count</var> = <span class="php-num">1</span></span>): $this</code>
+				<code>orHas(<span><a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;*, *, *&gt;|string <var>$relation</var></span>, <span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>, <span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -373,7 +373,7 @@
 	<span><a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;TRelatedModel, *, *&gt;|string <var>$relation</var></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 ): $this</code>
 
 
@@ -409,7 +409,7 @@
 	<span>string <var>$relation</var></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt;|<a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;*, *, *&gt;):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 ): $this</code>
 
 
@@ -446,7 +446,7 @@
 	<span><a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;TRelatedModel, *, *&gt;|string <var>$relation</var></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 ): $this</code>
 
 
@@ -550,7 +550,7 @@
 	<span><a href="Illuminate.Database.Eloquent.Relations.MorphTo.html"><span title="Illuminate\Database\Eloquent\Relations\MorphTo">MorphTo</span></a>&lt;TRelatedModel, *&gt;|string <var>$relation</var></span>,
 	<span>string|array&lt;int, string&gt; <var>$types</var></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 	<span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;, string):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 ): $this</code>
@@ -622,7 +622,7 @@
 	<span><a href="Illuminate.Database.Eloquent.Relations.MorphTo.html"><span title="Illuminate\Database\Eloquent\Relations\MorphTo">MorphTo</span></a>&lt;*, *&gt;|string <var>$relation</var></span>,
 	<span>string|array&lt;int, string&gt; <var>$types</var></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 ): $this</code>
 
 
@@ -726,7 +726,7 @@
 	<span>string|array&lt;int, string&gt; <var>$types</var></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;, string):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 ): $this</code>
 
 
@@ -763,7 +763,7 @@
 	<span>string|array&lt;int, string&gt; <var>$types</var></span>,
 	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;TRelatedModel&gt;, string):&nbsp;mixed)|null <var>$callback</var> = <span class="php-kw">null</span></span>,
 	<span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>,
-	<span>int <var>$count</var> = <span class="php-num">1</span></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>,
 ): $this</code>
 
 
@@ -1206,6 +1206,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="InvalidArgumentException.html"><span>InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1237,6 +1244,13 @@
 
 
 
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="InvalidArgumentException.html"><span>InvalidArgumentException</span></a></code>&nbsp;</td>
+										<td></td>
+									</tr>
+							</table>
 
 	</div>
 			</td>
@@ -1477,7 +1491,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>withAggregate(<span>mixed <var>$relations</var></span>, <span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>string <var>$function</var> = <span class="php-kw">null</span></span>): $this</code>
+				<code>withAggregate(<span>mixed <var>$relations</var></span>, <span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|string <var>$column</var></span>, <span>string|null <var>$function</var> = <span class="php-kw">null</span></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1725,7 +1739,13 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addHasWhere(<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt; <var>$hasQuery</var></span>, <span><a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;*, *, *&gt; <var>$relation</var></span>, <span>string <var>$operator</var></span>, <span>int <var>$count</var></span>, <span>string <var>$boolean</var></span>): $this</code>
+				<code>addHasWhere(
+	<span><a href="Illuminate.Database.Eloquent.Builder.html"><span title="Illuminate\Database\Eloquent\Builder">Builder</span></a>&lt;*&gt; <var>$hasQuery</var></span>,
+	<span><a href="Illuminate.Database.Eloquent.Relations.Relation.html"><span title="Illuminate\Database\Eloquent\Relations\Relation">Relation</span></a>&lt;*, *, *&gt; <var>$relation</var></span>,
+	<span>string <var>$operator</var></span>,
+	<span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var></span>,
+	<span>string <var>$boolean</var></span>,
+): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1818,7 +1838,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>addWhereCountQuery(<span><a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a> <var>$query</var></span>, <span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>, <span>int <var>$count</var> = <span class="php-num">1</span></span>, <span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>): $this</code>
+				<code>addWhereCountQuery(<span><a href="Illuminate.Database.Query.Builder.html"><span title="Illuminate\Database\Query\Builder">Builder</span></a> <var>$query</var></span>, <span>string <var>$operator</var> = <span class="php-str">'&gt;='</span></span>, <span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var> = <span class="php-num">1</span></span>, <span>string <var>$boolean</var> = <span class="php-str">'and'</span></span>): $this</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1880,7 +1900,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>canUseExistsForExistenceCheck(<span>string <var>$operator</var></span>, <span>int <var>$count</var></span>): bool</code>
+				<code>canUseExistsForExistenceCheck(<span>string <var>$operator</var></span>, <span><a href="Illuminate.Contracts.Database.Query.Expression.html"><span title="Illuminate\Contracts\Database\Query\Expression">Expression</span></a>|int <var>$count</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">

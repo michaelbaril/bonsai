@@ -105,7 +105,8 @@
 <a href="Carbon.CarbonInterval.html"><span>Carbon\CarbonInterval</span></a>
 
 		implements
-			<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a>
+			<a href="Carbon.CarbonConverterInterface.html"><span title="Carbon\CarbonConverterInterface">CarbonConverterInterface</span></a>, 
+			<a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a>
 
 		uses
 			<a href="Carbon.Traits.LocalFactory.html"><span title="Carbon\Traits\LocalFactory">LocalFactory</span></a>, 
@@ -283,6 +284,11 @@
 	</li>
 	<li>
 <a href="Illuminate.Validation.ValidationException.html"><span>Illuminate\Validation\ValidationException</span></a>
+
+
+	</li>
+	<li>
+<a href="Laravel.SerializableClosure.Exceptions.InvalidSignatureException.html"><span>Laravel\SerializableClosure\Exceptions\InvalidSignatureException</span></a>
 
 
 	</li>
@@ -791,6 +797,8 @@
 			<a href="ArrayAccess.html"><span title="ArrayAccess">ArrayAccess</span></a>, 
 			<a href="Illuminate.Contracts.Container.Container.html"><span title="Illuminate\Contracts\Container\Container">Container</span></a>
 
+		uses
+			<a href="Illuminate.Support.Traits.ReflectsClosures.html"><span title="Illuminate\Support\Traits\ReflectsClosures">ReflectsClosures</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Connection.html"><span>Illuminate\Database\Connection</span></a>
@@ -867,6 +875,11 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.AsPivot.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\AsPivot">AsPivot</span></a>
 	<ul class="classTree">
 	<li>
+<a href="Baril.Bonsai.Closure.html"><span>Baril\Bonsai\Closure</span></a>
+
+
+	</li>
+	<li>
 <a href="Illuminate.Database.Eloquent.Relations.MorphPivot.html"><span>Illuminate\Database\Eloquent\Relations\MorphPivot</span></a>
 
 
@@ -917,9 +930,12 @@
 			<a href="Illuminate.Database.Eloquent.Relations.Concerns.InteractsWithPivotTable.html"><span title="Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithPivotTable">InteractsWithPivotTable</span></a>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Relations.Closure.html"><span>Baril\Bonsai\Relations\Closure</span></a>
+<a href="Baril.Bonsai.Relations.BelongsToManyThroughClosures.html"><span>Baril\Bonsai\Relations\BelongsToManyThroughClosures</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span title="Baril\Bonsai\Relations\Concerns\ExcludesSelf">ExcludesSelf</span></a>, 
+			<a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span title="Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable">InteractsWithClosureTable</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Eloquent.Relations.MorphToMany.html"><span>Illuminate\Database\Eloquent\Relations\MorphToMany</span></a>
@@ -940,6 +956,15 @@
 <a href="Illuminate.Database.Eloquent.Relations.HasMany.html"><span>Illuminate\Database\Eloquent\Relations\HasMany</span></a>
 
 
+	<ul class="classTree">
+	<li>
+<a href="Baril.Bonsai.Relations.HasManySiblings.html"><span>Baril\Bonsai\Relations\HasManySiblings</span></a>
+
+
+		uses
+			<a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span title="Baril\Bonsai\Relations\Concerns\ExcludesSelf">ExcludesSelf</span></a>
+	</li>
+	</ul>
 	</li>
 	<li>
 <a href="Illuminate.Database.Eloquent.Relations.HasOne.html"><span>Illuminate\Database\Eloquent\Relations\HasOne</span></a>
@@ -1034,6 +1059,11 @@
 			<a href="Illuminate.Database.Concerns.CompilesJsonPaths.html"><span title="Illuminate\Database\Concerns\CompilesJsonPaths">CompilesJsonPaths</span></a>
 	</li>
 	</ul>
+	</li>
+	<li>
+<a href="Illuminate.Database.Migrations.Migration.html"><span>Illuminate\Database\Migrations\Migration</span></a>
+
+
 	</li>
 	<li>
 <a href="Illuminate.Database.Migrations.MigrationCreator.html"><span>Illuminate\Database\Migrations\MigrationCreator</span></a>
@@ -1326,7 +1356,8 @@
 
 
 		uses
-			<a href="Illuminate.Routing.CreatesRegularExpressionRouteConstraints.html"><span title="Illuminate\Routing\CreatesRegularExpressionRouteConstraints">CreatesRegularExpressionRouteConstraints</span></a>
+			<a href="Illuminate.Routing.CreatesRegularExpressionRouteConstraints.html"><span title="Illuminate\Routing\CreatesRegularExpressionRouteConstraints">CreatesRegularExpressionRouteConstraints</span></a>, 
+			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Session.Store.html"><span>Illuminate\Session\Store</span></a>
@@ -1508,6 +1539,7 @@
 			<a href="Illuminate.Contracts.Support.ValidatedData.html"><span title="Illuminate\Contracts\Support\ValidatedData">ValidatedData</span></a>
 
 		uses
+			<a href="Illuminate.Support.Traits.Dumpable.html"><span title="Illuminate\Support\Traits\Dumpable">Dumpable</span></a>, 
 			<a href="Illuminate.Support.Traits.InteractsWithData.html"><span title="Illuminate\Support\Traits\InteractsWithData">InteractsWithData</span></a>
 	</li>
 	<li>
@@ -1536,6 +1568,23 @@
 
 	</li>
 	</ul>
+	</li>
+	<li>
+<a href="Laravel.SerializableClosure.SerializableClosure.html"><span>Laravel\SerializableClosure\SerializableClosure</span></a>
+
+
+	</li>
+	<li>
+<a href="Laravel.SerializableClosure.Serializers.Signed.html"><span>Laravel\SerializableClosure\Serializers\Signed</span></a>
+
+		implements
+			<a href="Laravel.SerializableClosure.Contracts.Serializable.html"><span title="Laravel\SerializableClosure\Contracts\Serializable">Serializable</span></a>
+
+	</li>
+	<li>
+<a href="Laravel.SerializableClosure.UnsignedSerializableClosure.html"><span>Laravel\SerializableClosure\UnsignedSerializableClosure</span></a>
+
+
 	</li>
 	<li>
 <a href="League.Uri.UriString.html"><span>League\Uri\UriString</span></a>
@@ -1735,11 +1784,15 @@
 <a href="Baril.Bonsai.Console.FixTreeCommand.html"><span>Baril\Bonsai\Console\FixTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	<li>
 <a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Console.Migrations.BaseCommand.html"><span>Illuminate\Database\Console\Migrations\BaseCommand</span></a>
@@ -1757,6 +1810,8 @@
 <a href="Baril.Bonsai.Console.GrowTreeCommand.html"><span>Baril\Bonsai\Console\GrowTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	</ul>
 	</li>
@@ -2126,7 +2181,31 @@
 <a href="Carbon.CarbonInterface.html"><span>Carbon\CarbonInterface</span></a>
 		extends
 			<a href="DateTimeInterface.html"><span title="DateTimeInterface">DateTimeInterface</span></a>, 
-			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>
+			<a href="JsonSerializable.html"><span title="JsonSerializable">JsonSerializable</span></a>, 
+			<a href="Carbon.Constants.DiffOptions.html"><span title="Carbon\Constants\DiffOptions">DiffOptions</span></a>, 
+			<a href="Carbon.Constants.Format.html"><span title="Carbon\Constants\Format">Format</span></a>, 
+			<a href="Carbon.Constants.TranslationOptions.html"><span title="Carbon\Constants\TranslationOptions">TranslationOptions</span></a>, 
+			<a href="Carbon.Constants.UnitValue.html"><span title="Carbon\Constants\UnitValue">UnitValue</span></a>
+
+
+	</li>
+	<li>
+<a href="Carbon.Constants.DiffOptions.html"><span>Carbon\Constants\DiffOptions</span></a>
+
+
+	</li>
+	<li>
+<a href="Carbon.Constants.Format.html"><span>Carbon\Constants\Format</span></a>
+
+
+	</li>
+	<li>
+<a href="Carbon.Constants.TranslationOptions.html"><span>Carbon\Constants\TranslationOptions</span></a>
+
+
+	</li>
+	<li>
+<a href="Carbon.Constants.UnitValue.html"><span>Carbon\Constants\UnitValue</span></a>
 
 
 	</li>
@@ -2199,6 +2278,18 @@
 	</li>
 	<li>
 <a href="Illuminate.Contracts.Broadcasting.HasBroadcastChannel.html"><span>Illuminate\Contracts\Broadcasting\HasBroadcastChannel</span></a>
+
+
+	</li>
+	<li>
+<a href="Illuminate.Contracts.Cache.Repository.html"><span>Illuminate\Contracts\Cache\Repository</span></a>
+		extends
+			<a href="Psr.SimpleCache.CacheInterface.html"><span title="Psr\SimpleCache\CacheInterface">CacheInterface</span></a>
+
+
+	</li>
+	<li>
+<a href="Illuminate.Contracts.Cache.Store.html"><span>Illuminate\Contracts\Cache\Store</span></a>
 
 
 	</li>
@@ -2457,6 +2548,16 @@
 
 	</li>
 	<li>
+<a href="Laravel.SerializableClosure.Contracts.Serializable.html"><span>Laravel\SerializableClosure\Contracts\Serializable</span></a>
+
+
+	</li>
+	<li>
+<a href="Laravel.SerializableClosure.Contracts.Signer.html"><span>Laravel\SerializableClosure\Contracts\Signer</span></a>
+
+
+	</li>
+	<li>
 <a href="League.Uri.Contracts.UriException.html"><span>League\Uri\Contracts\UriException</span></a>
 		extends
 			<a href="Throwable.html"><span title="Throwable">Throwable</span></a>
@@ -2504,6 +2605,25 @@
 	</li>
 	<li>
 <a href="Psr.EventDispatcher.EventDispatcherInterface.html"><span>Psr\EventDispatcher\EventDispatcherInterface</span></a>
+
+
+	</li>
+	<li>
+<a href="Psr.SimpleCache.CacheException.html"><span>Psr\SimpleCache\CacheException</span></a>
+		extends
+			<a href="Throwable.html"><span title="Throwable">Throwable</span></a>
+
+
+	</li>
+	<li>
+<a href="Psr.SimpleCache.CacheInterface.html"><span>Psr\SimpleCache\CacheInterface</span></a>
+
+
+	</li>
+	<li>
+<a href="Psr.SimpleCache.InvalidArgumentException.html"><span>Psr\SimpleCache\InvalidArgumentException</span></a>
+		extends
+			<a href="Psr.SimpleCache.CacheException.html"><span title="Psr\SimpleCache\CacheException">CacheException</span></a>
 
 
 	</li>
@@ -2772,12 +2892,72 @@
 			<h3>Traits</h3>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Concerns.BelongsToOrderedTree.html"><span>Baril\Bonsai\Concerns\BelongsToOrderedTree</span></a>
+<a href="Baril.Bonsai.Concerns.BelongsToOrderedTree.html"><span class="deprecated">Baril\Bonsai\Concerns\BelongsToOrderedTree</span></a>
 
 
 	</li>
 	<li>
 <a href="Baril.Bonsai.Concerns.BelongsToTree.html"><span>Baril\Bonsai\Concerns\BelongsToTree</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Concerns.HasAncestors.html"><span>Baril\Bonsai\Concerns\HasAncestors</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Concerns.HasClosures.html"><span>Baril\Bonsai\Concerns\HasClosures</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Concerns.HasDescendants.html"><span>Baril\Bonsai\Concerns\HasDescendants</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Concerns.ManagesClosures.html"><span>Baril\Bonsai\Concerns\ManagesClosures</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Concerns.Orderable.html"><span>Baril\Bonsai\Concerns\Orderable</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Concerns.Ordered.html"><span>Baril\Bonsai\Concerns\Ordered</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Concerns.SoftDeletes.html"><span>Baril\Bonsai\Concerns\SoftDeletes</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span>Baril\Bonsai\Console\Concerns\InteractsWithTree</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Relations.Concerns.AutoloadsOtherRelations.html"><span>Baril\Bonsai\Relations\Concerns\AutoloadsOtherRelations</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Relations.Concerns.ExcludesSelf.html"><span>Baril\Bonsai\Relations\Concerns\ExcludesSelf</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Relations.Concerns.InteractsWithClosureTable.html"><span>Baril\Bonsai\Relations\Concerns\InteractsWithClosureTable</span></a>
+
+
+	</li>
+	<li>
+<a href="Baril.Bonsai.Relations.Concerns.IsReadOnly.html"><span>Baril\Bonsai\Relations\Concerns\IsReadOnly</span></a>
 
 
 	</li>
@@ -3078,6 +3258,11 @@
 	</li>
 	<li>
 <a href="Illuminate.Support.Traits.Macroable.html"><span>Illuminate\Support\Traits\Macroable</span></a>
+
+
+	</li>
+	<li>
+<a href="Illuminate.Support.Traits.ReflectsClosures.html"><span>Illuminate\Support\Traits\ReflectsClosures</span></a>
 
 
 	</li>

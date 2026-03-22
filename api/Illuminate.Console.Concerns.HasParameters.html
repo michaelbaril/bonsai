@@ -136,14 +136,18 @@
 			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
-
-
-	</li>
-	<li>
 <a href="Baril.Bonsai.Console.FixTreeCommand.html"><span>Baril\Bonsai\Console\FixTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
+	</li>
+	<li>
+<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
+
+
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Console.Migrations.BaseCommand.html"><span>Illuminate\Database\Console\Migrations\BaseCommand</span></a>
@@ -161,6 +165,8 @@
 <a href="Baril.Bonsai.Console.GrowTreeCommand.html"><span>Baril\Bonsai\Console\GrowTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	</ul>
 	</li>
@@ -226,7 +232,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getArguments(): array</code>
+				<code>getArguments(
+	
+): (<a href="Symfony.Component.Console.Input.InputArgument.html"><span title="Symfony\Component\Console\Input\InputArgument">InputArgument</span></a>|array{0: non-empty-string, 1?: int-mask-of&lt;<a href="Symfony.Component.Console.Input.InputArgument.html"><span title="Symfony\Component\Console\Input\InputArgument">InputArgument</span></a>::<a href="Symfony.Component.Console.Input.InputArgument.html#REQUIRED">REQUIRED</a>|<a href="Symfony.Component.Console.Input.InputArgument.html"><span title="Symfony\Component\Console\Input\InputArgument">InputArgument</span></a>::<a href="Symfony.Component.Console.Input.InputArgument.html#OPTIONAL">OPTIONAL</a>|<a href="Symfony.Component.Console.Input.InputArgument.html"><span title="Symfony\Component\Console\Input\InputArgument">InputArgument</span></a>::<a href="Symfony.Component.Console.Input.InputArgument.html#IS_ARRAY">IS_ARRAY</a>&gt;, 2?: string, 3?: mixed, 4?: (list&lt;string|<a href="Symfony.Component.Console.Completion.Suggestion.html"><span title="Symfony\Component\Console\Completion\Suggestion">Suggestion</span></a>&gt;|(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Symfony.Component.Console.Completion.CompletionInput.html"><span title="Symfony\Component\Console\Completion\CompletionInput">CompletionInput</span></a>, <a href="Symfony.Component.Console.Completion.CompletionSuggestions.html"><span title="Symfony\Component\Console\Completion\CompletionSuggestions">CompletionSuggestions</span></a>):&nbsp;list&lt;string|<a href="Symfony.Component.Console.Completion.Suggestion.html"><span title="Symfony\Component\Console\Completion\Suggestion">Suggestion</span></a>&gt;))})[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -257,7 +265,9 @@
 			</td>
 
 			<td class="table-cell">
-				<code>getOptions(): array</code>
+				<code>getOptions(
+	
+): (<a href="Symfony.Component.Console.Input.InputOption.html"><span title="Symfony\Component\Console\Input\InputOption">InputOption</span></a>|array{0: non-empty-string, 1?: (string|non-empty-array&lt;string&gt;), 2?: int-mask-of&lt;<a href="Symfony.Component.Console.Input.InputOption.html"><span title="Symfony\Component\Console\Input\InputOption">InputOption</span></a>::VALUE_*&gt;, 3?: string, 4?: mixed, 5?: (list&lt;string|<a href="Symfony.Component.Console.Completion.Suggestion.html"><span title="Symfony\Component\Console\Completion\Suggestion">Suggestion</span></a>&gt;|(<a href="Closure.html"><span title="Closure">Closure</span></a>(<a href="Symfony.Component.Console.Completion.CompletionInput.html"><span title="Symfony\Component\Console\Completion\CompletionInput">CompletionInput</span></a>, <a href="Symfony.Component.Console.Completion.CompletionSuggestions.html"><span title="Symfony\Component\Console\Completion\CompletionSuggestions">CompletionSuggestions</span></a>):&nbsp;list&lt;string|<a href="Symfony.Component.Console.Completion.Suggestion.html"><span title="Symfony\Component\Console\Completion\Suggestion">Suggestion</span></a>&gt;))})[]</code>
 
 
 	<div class="expandable-collapsedView">

@@ -906,11 +906,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Guess the file extension from the mime-type of a given file.
+		Guess the file extension from the MIME type of a given file.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Guess the file extension from the mime-type of a given file.</p>
+	<div class="description"><p>Guess the file extension from the MIME type of a given file.</p>
 </div>
 
 
@@ -940,7 +940,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>type(<span>string <var>$path</var></span>): string</code>
+				<code>type(<span>string <var>$path</var></span>): string|false</code>
 
 
 	<div class="expandable-collapsedView">
@@ -975,11 +975,11 @@
 
 
 	<div class="expandable-collapsedView">
-		Get the mime-type of a given file.
+		Get the MIME type of a given file.
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Get the mime-type of a given file.</p>
+	<div class="description"><p>Get the MIME type of a given file.</p>
 </div>
 
 
@@ -1281,7 +1281,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>files(<span>string <var>$directory</var></span>, <span>bool <var>$hidden</var> = <span class="php-kw">false</span></span>): <a href="Symfony.Component.Finder.SplFileInfo.html"><span title="Symfony\Component\Finder\SplFileInfo">SplFileInfo</span></a>[]</code>
+				<code>files(<span>string <var>$directory</var></span>, <span>bool <var>$hidden</var> = <span class="php-kw">false</span></span>, <span>array|string|int <var>$depth</var> = <span class="php-num">0</span></span>): <a href="Symfony.Component.Finder.SplFileInfo.html"><span title="Symfony\Component\Finder\SplFileInfo">SplFileInfo</span></a>[]</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1343,7 +1343,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>directories(<span>string <var>$directory</var></span>): array</code>
+				<code>directories(<span>string <var>$directory</var></span>, <span>array|string|int <var>$depth</var> = <span class="php-num">0</span></span>): array</code>
 
 
 	<div class="expandable-collapsedView">
@@ -1361,6 +1361,37 @@
 			</td>
 		<td class="table-anchor">
 			<a href="#_directories">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="allDirectories" id="_allDirectories">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code>allDirectories(<span>string <var>$directory</var></span>): array</code>
+
+
+	<div class="expandable-collapsedView">
+		Get all the directories within a given directory (recursive).
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Get all the directories within a given directory (recursive).</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_allDirectories">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="ensureDirectoryExists" id="_ensureDirectoryExists">

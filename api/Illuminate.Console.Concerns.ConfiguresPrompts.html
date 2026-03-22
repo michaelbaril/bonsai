@@ -136,14 +136,18 @@
 			<a href="Illuminate.Support.Traits.Macroable.html"><span title="Illuminate\Support\Traits\Macroable">Macroable</span></a>
 	<ul class="classTree">
 	<li>
-<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
-
-
-	</li>
-	<li>
 <a href="Baril.Bonsai.Console.FixTreeCommand.html"><span>Baril\Bonsai\Console\FixTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
+	</li>
+	<li>
+<a href="Baril.Bonsai.Console.ShowTreeCommand.html"><span>Baril\Bonsai\Console\ShowTreeCommand</span></a>
+
+
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	<li>
 <a href="Illuminate.Database.Console.Migrations.BaseCommand.html"><span>Illuminate\Database\Console\Migrations\BaseCommand</span></a>
@@ -161,6 +165,8 @@
 <a href="Baril.Bonsai.Console.GrowTreeCommand.html"><span>Baril\Bonsai\Console\GrowTreeCommand</span></a>
 
 
+		uses
+			<a href="Baril.Bonsai.Console.Concerns.InteractsWithTree.html"><span title="Baril\Bonsai\Console\Concerns\InteractsWithTree">InteractsWithTree</span></a>
 	</li>
 	</ul>
 	</li>
@@ -226,7 +232,11 @@
 			</td>
 
 			<td class="table-cell">
-				<code>promptUntilValid(<span><a href="Closure.html"><span title="Closure">Closure</span></a> <var>$prompt</var></span>, <span>bool|string <var>$required</var></span>, <span><a href="Closure.html"><span title="Closure">Closure</span></a>|null <var>$validate</var></span>): mixed</code>
+				<code>promptUntilValid&lt;<span title="">PResult</span>&gt;(
+	<span><a href="Closure.html"><span title="Closure">Closure</span></a>():&nbsp;PResult <var>$prompt</var></span>,
+	<span>bool|string <var>$required</var></span>,
+	<span>(<a href="Closure.html"><span title="Closure">Closure</span></a>(PResult):&nbsp;mixed)|null <var>$validate</var></span>,
+): PResult</code>
 
 
 	<div class="expandable-collapsedView">
@@ -325,7 +335,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>validationMessages(): array</code>
+				<code>validationMessages(): array&lt;string, string&gt;</code>
 
 
 	<div class="expandable-collapsedView">
@@ -356,7 +366,7 @@
 			</td>
 
 			<td class="table-cell">
-				<code>validationAttributes(): array</code>
+				<code>validationAttributes(): array&lt;string, string&gt;</code>
 
 
 	<div class="expandable-collapsedView">
