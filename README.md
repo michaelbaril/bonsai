@@ -8,7 +8,7 @@
 
 This package is an implementation of the
 ["Closure Table" design pattern](https://dirtsimple.org/2010/11/simplest-way-to-do-tree-based-queries.html)
-for Laravel Eloquent. This pattern allows for faster querying of tree-like
+for Laravel Eloquent. This pattern allows for fast querying of tree-like
 structures stored in a relational database. It is an alternative to nested sets.
 
 You can find the full API documentation [here](https://michaelbaril.github.io/bonsai/api/).
@@ -26,7 +26,7 @@ You can find the full API documentation [here](https://michaelbaril.github.io/bo
  6.x      | 1.x
 
 :warning: Up until version 3.2, only MySQL is supported. Starting with version 3.3,
-all SGBDs supported by Eloquent are supported by this package.
+all DBMSs supported by Eloquent are supported by this package.
 
 ## Setup
 
@@ -41,7 +41,7 @@ You can use the following properties to specify the table and column names:
 * `$parentForeignKey`: name of the self-referencing foreign key in the main
 table (defaults to `parent_id`),
 * `$closureTable`: name of the closure table (defaults to the snake-cased model
-name suffixed with `_tree`, eg. `tag_tree`).
+name suffixed with `_tree`, e.g. `tag_tree`).
 
 ```php
 use Baril\Bonsai\Concerns\BelongsToTree;
@@ -55,7 +55,7 @@ class Tag extends Model
 }
 ```
 
-Once your model is ready, you have to run the commands described below.
+Once your model is ready, you have to run the `bonsai:grow` command (described below).
 
 ## Artisan commands
 
@@ -103,16 +103,16 @@ $tag->save();
 ```
 
 The `save` method will throw a `\Baril\Bonsai\TreeException` in case of a
-redundancy error (ie. if the `parent_id` corresponds to the model itself
+redundancy error (i.e. if the `parent_id` corresponds to the model itself
 or one of its descendants).
 
 You can also change the parent by using the `graft` and `graftOnto` methods:
 
 ```php
 $newParentTag->graft($childTag);
-// or:
+// and:
 $childTag->graftOnto($newParentTag);
-// are similar as:
+// are both equivalent to:
 $childTag->parent()->associate($newParentTag);
 $childTag->save();
 ```
@@ -121,14 +121,14 @@ The `cut` method turns the model into a root (with its descendants preserved):
 
 ```php
 $tag->cut();
-// is similar as:
+// is equivalent to:
 $tag->parent()->dissociate();
 $tag->save();
 ```
 
 When you delete a model, its closures will be deleted automatically. If the
 model has descendants, the `delete` method will throw a `TreeException`. If you
-want to delete the model with all its descendants, use the `deleteTree` method instead:
+want to delete the model and all its descendants, use the `deleteTree` method instead:
 
 ```php
 try {
@@ -146,32 +146,31 @@ The `BelongsToTree` trait provides the following relationships:
 
 * `parent`: `BelongsTo` relation to the parent,
 * `children`: `HasMany` relation to the children,
-* ̀`siblings`: `HasMany` relation to the children of the same parent.
+* `siblings`: `HasMany` relation to the children of the same parent.
 * `ancestors`: `BelongsToMany` relation to the ancestors,
 * `descendants`: `BelongsToMany` relation to the descendants.
 
 ### Siblings
 
-:lightbulb: The `siblings` relation is actually a many-to-many relation, but under the hood,
+:lightbulb: The `siblings` relation is a many-to-many relation, but under the hood,
 it extends `HasMany`.
 
 The `siblings` relation has the following scopes:
 
 * `withSelf()`: will include the item itself in the results of the relation.
-* `withOrphans()`: by default, the relation doesn't consider "orphans" (ie. the roots of the tree)
-  as siblings. Thus, it won't return any result when called on roots. Using this scope reverses
-  this behavior: calling the relation on roots will now return all other roots.
+* `withOrphans()`: by default, the relation doesn't consider "orphans" (i.e. the roots of the tree)
+  as siblings. Thus, it won't return any result when called on roots. Using this scope changes
+  this behavior: calling the relation on a root will now return all other roots.
 
 ### Ancestors and descendants
 
-:warning: The `ancestors` and `descendants` relations
-are read-only! Trying to use the `attach` or `detach` method on these
-relations will throw an exception.
+:warning: The `ancestors` and `descendants` relations are read-only. Using the `attach` or `detach`
+methods on these relations will throw an exception.
 
 The `ancestors` and `descendants` relations have the following scopes:
 
-* `withSelf()`: will include the item itself in the results of the relation,
-* `orderByDepth($direction = 'asc')`,
+* `withSelf()`: will include the item itself in the results of the relation.
+* `orderByDepth($direction = 'asc')`: order the results by "depth", ie. distance from the referencing node.
 * `maxDepth($depth)`: will retrieve ancestors/descendants up to (and including) the provided `$depth`.
 
 Loading or eager-loading the `descendants` relation will automatically load the
@@ -208,8 +207,8 @@ The `BelongsToTree` trait provides the following methods:
 * `isAncestorOf($item)`
 * `isSiblingOf($item)`
 * `findCommonAncestorWith($item)`: returns the first common ancestor between 2 items,
-or `null` if they don't have a common ancestor (which can happen if there are
-multiple roots).
+   or `null` if they don't have a common ancestor (which can happen if there are
+   multiple roots).
 * `getDistanceTo($item)`: returns the "distance" between 2 items (throws a `TreeException` if there's no common ancestor).
 * `getDepth()`: returns the "depth" of the item in the tree (the root's depth being 0).
 * `getHeight()`: returns the "height" of the subtree of which the item is the root (0 if the item is a leaf).
@@ -226,7 +225,7 @@ The `BelongsToTree` trait provides the following query scopes:
 depending on the value of `$bool`.
 * `descendantsOf($ancestor, $maxDepth = null, $withSelf = false)`:
 only return the descendants of `$ancestor`, with an optional
-`$maxDepth`. The `$ancestor` parameter can be either an model or a model key.
+`$maxDepth`. The `$ancestor` parameter can be either a model or a model key.
 If the `$withSelf` parameter is set to `true`, the ancestor will be included
 in the query results too.
 * `ancestorsOf($descendant, $maxDepth = null, $withSelf = false)`
@@ -253,7 +252,7 @@ class Tag extends Model
 }
 ```
 
-The trait defines the ̀`forceDeleteTree` method (which is similar to `deleteTree` for hard delete)
+The trait defines the `forceDeleteTree` method (which is similar to `deleteTree` for hard delete)
 and the `restoreTree` method. The latter method restores the model and all its soft-deleted descendants.
 
 When you restore a model (either with `restore` or `restoreTree`), it will be restored under its
@@ -271,7 +270,7 @@ try {
 
 ### Ordered tree
 
-If you need each level of your tree to be explicitely ordered, install
+If you need each level of your tree to be explicitly ordered, install
 [the Orderly package](https://github.com/michaelbaril/orderly) in addition to Bonsai:
 
 ```bash
@@ -305,7 +304,7 @@ $children = $this->children()->ordered()->get();
 
 If you're using `Ordered`, the `children` relation is automatically ordered.
 
-Check out the [documention of the Orderly package](https://github.com/michaelbaril/orderly)
+Check out the [documentation of the Orderly package](https://github.com/michaelbaril/orderly)
 to see all available methods.
 
 ## Changelog
