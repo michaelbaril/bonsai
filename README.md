@@ -152,7 +152,7 @@ The `BelongsToTree` trait provides the following relationships:
 
 ### Siblings
 
-:lightbulb: The `siblings` relation is a many-to-many relation, but under the hood,
+:bulb: The `siblings` relation is a many-to-many relation, but under the hood,
 it extends `HasMany`.
 
 The `siblings` relation has the following scopes:
