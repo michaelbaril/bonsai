@@ -3,8 +3,10 @@ on:
   push:
     branches: [master, main, test]
     paths:
+      - .github/workflows/run-tests.yml
       - src/**
       - tests/**
+      - composer.json
       - phpunit.xml
   pull_request:
     types: [opened, reopened, edited, synchronize]
