@@ -17,6 +17,7 @@ You can find the full API documentation [here](https://michaelbaril.github.io/bo
 
  Laravel  | Bonsai
 :---------|:----------
+ 13.x     | 3.5+
  12.x     | 3.3+
  11.x     | 3.2+
  10.x     | 3.1+
